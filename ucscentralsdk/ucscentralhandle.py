@@ -22,18 +22,18 @@ from .ucscentralconstants import NamingId
 from .ucscentralsession import UcsCentralSession
 from .ucscentralmethodfactory import config_resolve_classes
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 
 
 class UcsCentralHandle(UcsCentralSession):
     """
-    UcsCentralHandle class is the user interface point for any Ucs related
+    UcsCentralHandle class is the user interface point for any UCSCENTRAL related
     communication.
 
     Args:
-        ip (str): The IP or Hostname of the UCS Server
-        username (str): The username as configured on the UCS Server
-        password (str): The password as configured on the UCS Server
+        ip (str): The IP or Hostname of the UCSCENTRAL Server
+        username (str): The username as configured on the UCSCENTRAL Server
+        password (str): The password as configured on the UCSCENTRAL Server
         port (int or None): The port number to be used during connection
         secure (bool or None): True for secure connection, otherwise False
         proxy (str): The proxy object to be used to connect
@@ -186,7 +186,7 @@ class UcsCentralHandle(UcsCentralSession):
 
     def get_auth_token(self):
         """
-        Returns a token that is used for UCS Central authentication.
+        Returns a token that is used for UCSCENTRAL authentication.
 
         Args:
             None
@@ -791,6 +791,6 @@ class UcsCentralHandle(UcsCentralSession):
             sp_mo = handle.query_dn("org-root/ls-demoSP")
             wait_for_event(sp_mo, 'descr', 'demo_description', cb)
     """
-        from ucseventhandler import wait
+        from ucscentraleventhandler import wait
 
         wait(self, mo, prop, value, cb, timeout_sec=timeout)'''

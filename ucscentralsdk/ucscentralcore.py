@@ -12,7 +12,7 @@
 # limitations under the License.
 
 """
-This module contains the UcsSdk Core classes.
+This module contains the ucscentralsdk Core classes.
 """
 
 import logging
@@ -27,7 +27,7 @@ except ImportError:
     import cElementTree as ET
     from cElementTree import Element, SubElement
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 
 
 class UcsCentralBase(object):

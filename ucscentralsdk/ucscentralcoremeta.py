@@ -18,7 +18,7 @@ This module contains all the base classes for the Meta.
 import re
 import logging
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 
 
 class WriteXmlOption(object):
@@ -30,8 +30,8 @@ class WriteXmlOption(object):
 
 class UcsCentralVersion(object):
     """
-    This class handles the operations related to the UcsVersions.
-    It provides the functionality to compare Ucs version objects.
+    This class handles the operations related to the UcsCentralVersions.
+    It provides the functionality to compare UcsCentral version objects.
 
     Attributes:
         * version (str): version string

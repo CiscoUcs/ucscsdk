@@ -181,10 +181,10 @@ class UcsCentralDriver(object):
 
     def post(self, uri, data=None, dump_xml=False, read=True):
         """
-        sends the web request and receives the response from ucsm server
+        sends the web request and receives the response from ucscentral server
 
         Args:
-            uri (str): URI of the  the UCS Server
+            uri (str): URI of the  the UCSCENTRAL Server
             data (str): request data to send via post request
             dump_xml (bool): if True, displays request and response
             read (bool): if True, returns response.read() else returns object.

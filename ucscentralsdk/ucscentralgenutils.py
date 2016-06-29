@@ -27,7 +27,7 @@ import subprocess
 
 import logging
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 
 from .ucscentralexception import UcsCentralWarning, \
     UcsCentralValidationException
@@ -80,7 +80,7 @@ def to_python_propname(word):
 
 
 def convert_to_python_var_name(name):
-    """converts a ucs server variable to python recommended format
+    """converts a ucscentral server variable to python recommended format
 
     Args:
         name (str): string to be converted to python recommended format

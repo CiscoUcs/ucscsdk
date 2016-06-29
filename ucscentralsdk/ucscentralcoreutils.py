@@ -12,7 +12,7 @@
 # limitations under the License.
 
 """
-This module contains the UcsSdk Core utilities.
+This module contains the ucscentralsdk Core utilities.
 """
 
 from __future__ import print_function
@@ -28,7 +28,7 @@ from . ucscentralmeta import MO_CLASS_ID, METHOD_CLASS_ID, \
     OTHER_TYPE_CLASS_ID, MO_CLASS_META
 
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 
 
 def get_ucs_central_obj(class_id, elem, mo_obj=None):
@@ -76,7 +76,7 @@ def get_ucs_central_obj(class_id, elem, mo_obj=None):
         return getattr(module_, class_id)()
 
     # This case handles object types that are not known to this version
-    # of the SDK. This case can arise when the UCS server has higher
+    # of the SDK. This case can arise when the UCSCENTRAL server has higher
     # version with more objects and the SDK is not at the latest
     # version yet.
 
@@ -268,7 +268,7 @@ def write_object(mo_or_list):
 def extract_molist_from_method_response(method_response,
                                         in_hierarchical=False):
     """
-    Methods extracts mo list from response received from ucs server i.e.
+    Methods extracts mo list from response received from ucscentral server i.e.
     external method object
 
     Args:

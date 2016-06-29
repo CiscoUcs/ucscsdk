@@ -21,13 +21,13 @@ from .ucscentralexception import UcsCentralException, UcsCentralLoginError
 from .ucscentraldriver import UcsCentralDriver
 from .ucscentralgenutils import Progress
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 tx_lock = threading.Lock()
 
 
 class UcsCentralSession(object):
     """
-    UcsCentralSession class is session interface for any Ucs related
+    UcsCentralSession class is session interface for any Ucs Central related
     communication.
     Parent class of UcsCentralHandle, used internally by
     UcsCentralHandle class.
@@ -122,7 +122,7 @@ class UcsCentralSession(object):
 
     def __create_uri(self, port, secure):
         """
-        Generates UCSM URI used for connection
+        Generates UCSCENTRAL URI used for connection
 
         Args:
             port (int): port The port number to be used during connection
@@ -201,10 +201,10 @@ class UcsCentralSession(object):
 
     def post(self, uri, data=None, read=True):
         """
-        sends the request and receives the response from ucsm server
+        sends the request and receives the response from ucscentral server
 
         Args:
-            uri (str): URI of the  the UCS Server
+            uri (str): URI of the  the UCSCENTRAL Server
             data (str): request data to send via post request
 
         Returns:
@@ -219,7 +219,7 @@ class UcsCentralSession(object):
 
     def post_xml(self, xml_str, read=True):
         """
-        sends the xml request and receives the response from ucsm server
+        sends the xml request and receives the response from ucs central server
 
         Args:
             xml_str (str): xml string
@@ -240,7 +240,7 @@ class UcsCentralSession(object):
 
     def post_elem(self, elem):
         """
-        sends the request and receives the response from ucsm server using xml
+        sends the request and receives the response from ucs central server using xml
         element
 
         Args:
@@ -295,7 +295,7 @@ class UcsCentralSession(object):
 
     def file_download(self, url_suffix, file_dir, file_name, progress=Progress()):
         """
-        Downloads the file from ucsm server
+        Downloads the file from ucs central server
 
         Args:
             url_suffix (str): suffix url to be appended to
@@ -330,7 +330,7 @@ class UcsCentralSession(object):
 
     def file_upload(self, url_suffix, file_dir, file_name, progress=Progress()):
         """
-        Uploads the file on UCSM server.
+        Uploads the file on UCSCENTRAL server.
 
         Args:
             url_suffix (str): suffix url to be appended to
@@ -395,7 +395,7 @@ class UcsCentralSession(object):
 
     def _refresh(self, auto_relogin=False):
         """
-        Sends the aaaRefresh query to the UCS to refresh the connection
+        Sends the aaaRefresh query to the UCSCENTRAL to refresh the connection
         (to prevent session expiration).
         """
 
@@ -421,29 +421,6 @@ class UcsCentralSession(object):
         self.__start_refresh_timer()
         return True
 
-    def __validate_ucs_central(self):
-        """
-        Internal method to validate if connecting server is UCS.
-        """
-
-        is_ucs_central = False
-
-        from .ucsmethodfactory import config_resolve_class
-
-        nw_elem = config_resolve_class(cookie=self.__cookie,
-                                       in_filter=None,
-                                       class_id="networkElement")
-        try:
-            nw_elem_response = self.post_elem(nw_elem)
-            if nw_elem_response.error_code != 0:
-                self._logout()
-            else:
-                is_ucs_central = True
-        except:
-            self._logout()
-
-        return is_ucs_central
-
     def __validate_connection(self):
         """
         Internal method to validate if needs to reconnect or if exist use the
@@ -468,7 +445,7 @@ class UcsCentralSession(object):
 
     def _login(self, auto_refresh=False, force=False):
         """
-        Internal method responsible to do a login on UCSM server.
+        Internal method responsible to do a login on UCSCENTRAL server.
 
         Args:
             auto_refresh (bool): if set to True, it refresh the cookie
@@ -485,7 +462,6 @@ class UcsCentralSession(object):
             FirmwareRunningConsts
         from .ucscentralcoremeta import UcsCentralVersion
         from .ucscentralmethodfactory import aaa_login
-        from .ucscentralmethodfactory import config_resolve_class
         from .ucscentralmethodfactory import config_resolve_dn
 
         self.__force = force
@@ -500,10 +476,6 @@ class UcsCentralSession(object):
             raise UcsCentralException(response.error_code,
                                       response.error_descr)
         self.__update(response)
-
-        # Verify not to connect to IMC
-        if not self.__validate_ucsm():
-            raise UcsLoginError("Not a supported server.")
 
         top_system = TopSystem()
         if response.out_version is None or response.out_version == "":
@@ -534,7 +506,7 @@ class UcsCentralSession(object):
 
     def _logout(self):
         """
-        Internal method to disconnect from ucsm server.
+        Internal method to disconnect from ucs central server.
 
         Args:
             None

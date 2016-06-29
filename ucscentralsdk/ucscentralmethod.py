@@ -12,7 +12,7 @@
 # limitations under the License.
 
 """
-This module contains the UcsSdk Core classes.
+This module contains the ucscentralsdk Core classes.
 """
 
 from __future__ import absolute_import
@@ -30,12 +30,12 @@ except ImportError:
 
 import logging
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 
 
 class ExternalMethod(UcsCentralBase):
     """
-    This class represents the UCS Central Xml api's query/configuration
+    This class represents the UCS CENTRAL Xml api's query/configuration
     methods.
     """
 

@@ -18,7 +18,7 @@ This module contains the SDK defined exceptions.
 
 import logging
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 
 
 def UcsCentralWarning(warn_str):
@@ -34,7 +34,7 @@ def UcsCentralWarning(warn_str):
 
 class UcsCentralWrapperException(Exception):
     """
-    Parent class for all ucswrapper exceptions.
+    Parent class for all ucscentralwrapper exceptions.
     """
 
     pass
@@ -53,7 +53,7 @@ class UcsCentralLoginError(UcsCentralWrapperException):
 
 class UcsCentralConnectionError(UcsCentralWrapperException):
     """
-    Cannot connect to UCS Manager.
+    Cannot connect to UCSCENTRAL system.
     """
 
     def __init__(self, message):
@@ -72,7 +72,7 @@ class UcsCentralOperationError(UcsCentralWrapperException):
 
 class UcsCentralError(Exception):
     """
-    Base class for exceptions in Ucs module.
+    Base class for exceptions in ucscentral module.
     """
 
     pass
@@ -80,7 +80,7 @@ class UcsCentralError(Exception):
 
 class UcsCentralException(UcsCentralError):
     """
-    Class to catch exception thrown from UCSM.
+    Class to catch exception thrown from UCSCENTRAL.
     """
 
     def __init__(self, error_code, error_descr):

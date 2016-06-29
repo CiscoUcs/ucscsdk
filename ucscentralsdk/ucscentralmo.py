@@ -35,7 +35,7 @@ from .ucscentralcoremeta import WriteXmlOption
 from .ucscentralexception import UcsCentralValidationException, UcsCentralWarning
 from .ucscentralcore import UcsCentralBase
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 
 
 class _GenericProp():
@@ -146,12 +146,12 @@ class ManagedObject(UcsCentralBase):
         elif name.startswith("_"):
             object.__setattr__(self, name, value)
         else:
-            # These are properties which the current version of ucsmsdk
+            # These are properties which the current version of ucscentralsdk
             # does not know of.
             # The code will come here lot often, when using older version of
-            # ucsmsdk with newer releases on the UCS.
+            # ucscentralsdk with newer releases on the UCSCENTRAL.
             # This needs to be handled so that the same sdk can work across
-            # multiple ucs releases
+            # multiple ucs central releases
             self.__xtra_props[name] = _GenericProp(name, value, True)
             self._dirty_mask |= self.__xtra_props_dirty_mask
             object.__setattr__(self, name, value)
@@ -227,13 +227,13 @@ class ManagedObject(UcsCentralBase):
 
         return self._dirty_mask != 0 or self.child_is_dirty()
 
-    # Ideally an rn should never change across ucsm releases.
+    # Ideally an rn should never change across ucs central releases.
     # but we do have some of these cases
     # These cause an issue, because we cannot parse them
     # the below is a special case to handle these cases
     def rn_is_special_case(self):
         """
-        Method to handle if rn pattern is different across UCS Version
+        Method to handle if rn pattern is different across UCSCENTRAL Version
         """
 
         if self.__class__.__name__ == "StorageLocalDiskPartition":
@@ -242,11 +242,11 @@ class ManagedObject(UcsCentralBase):
 
     def rn_get_special_case(self):
         """
-        Method to handle if rn pattern is different across UCS Version
+        Method to handle if rn pattern is different across UCSCENTRAL Version
         """
 
         if self.__class__.__name__ == "StorageLocalDiskPartition":
-            # some version of ucs have rn "partition" instead of "partition-id"
+            # some version of ucs central have rn "partition" instead of "partition-id"
             return "partition"
 
     def make_rn(self):
@@ -497,14 +497,14 @@ class GenericMo(UcsCentralBase):
             option: not required for Generic Mo class object
 
         Example:
-            from ucsmsdk.ucsmo import GenericMo\n
+            from ucscentralsdk.ucscentralmo import GenericMo\n
             args = {"a": 1, "b": 2, "c":3}\n
             obj = GenericMo("testLsA", "org-root", **args)\n
             obj1 = GenericMo("testLsB", "org-root", **args)\n
             obj.add_child(obj1)\n
             elem = obj.write_xml()\n
 
-            import ucsmsdk.ucsxmlcodec as xc\n
+            import ucscentralsdk.ucscentralxmlcodec as xc\n
             xc.to_xml_str(elem)\n
 
         Output:
@@ -532,7 +532,7 @@ class GenericMo(UcsCentralBase):
     def from_xml(self, elem, handle=None):
         """
         This method is form objects out of xml element.
-        This is called internally from ucsxmlcode.from_xml_str
+        This is called internally from ucscentralxmlcode.from_xml_str
         method.
 
         Example:
@@ -543,7 +543,7 @@ class GenericMo(UcsCentralBase):
             print type(obj)\n
 
         Outputs:
-            <class 'ucsmsdk.ucsmo.GenericMo'>
+            <class 'ucscentralsdk.ucscentralmo.GenericMo'>
         """
 
         if elem is None:

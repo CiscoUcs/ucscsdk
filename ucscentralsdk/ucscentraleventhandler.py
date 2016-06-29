@@ -13,7 +13,7 @@
 
 """
 This module is responsible for event handling of the events exposed by
-UCSM server.
+UCSCENTRAL server.
 """
 
 from __future__ import print_function
@@ -34,7 +34,7 @@ from . import ucscentralxmlcodec as xc
 from .ucscentralexception import UcsCentralWarning
 from .ucscentralexception import UcsCentralValidationException
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 
 
 class MoChangeEvent(object):
@@ -472,7 +472,7 @@ class UcsCentralEventHandle(object):
         Adds an event handler.
 
         An event handler can be added using this method where an user can
-        subscribe for the event channel from UCS and can monitor those events
+        subscribe for the event channel from UCSCENTRAL and can monitor those events
         for any specific success value or failure value for a managed object.
 
         Args:
