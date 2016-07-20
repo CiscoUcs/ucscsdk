@@ -33,16 +33,14 @@ class UcsCentralSession(object):
     UcsCentralHandle class.
     """
 
-    def __init__(self, ip, username, password, port=None, secure=None,
-                 proxy=None):
+    def __init__(self, ip, username, password, port=None, proxy=None):
         self.__ip = ip
         self.__username = username
         self.__password = password
         self.__proxy = proxy
-        self.__uri = self.__create_uri(port, secure)
+        self.__uri = self.__create_uri(port)
 
         self.__ucs = ip
-        self.__name = None
         self.__cookie = None
         self.__session_id = None
         self.__version = None
@@ -81,10 +79,6 @@ class UcsCentralSession(object):
         return self.__ucs
 
     @property
-    def name(self):
-        return self.__name
-
-    @property
     def cookie(self):
         return self.__cookie
 
@@ -120,49 +114,22 @@ class UcsCentralSession(object):
     def last_update_time(self):
         return self.__last_update_time
 
-    def __create_uri(self, port, secure):
+    def __create_uri(self, port=443):
         """
         Generates UCSCENTRAL URI used for connection
 
         Args:
             port (int): port The port number to be used during connection
-            secure (bool or None): True for secure connection otherwise False
 
         Returns:
             uri (str)
 
         Example:
-            uri = __create_uri(port=443, secure=True)
+            uri = __create_uri(port=443)
         """
 
-        if secure is not None and port is not None:
-            self.__secure = secure
-            self.__port = int(port)
-        elif secure is not None and port is None:
-            if secure:
-                self.__port = 443
-                self.__secure = True
-            else:
-                self.__port = 80
-                self.__secure = False
-        elif secure is None and port is not None:
-            if int(port) == 80:
-                self.__secure = False
-                self.__port = 80
-            elif int(port) == 443:
-                self.__secure = True
-                self.__port = 443
-            else:
-                self.__secure = True
-                self.__port = int(port)
-        else:
-            self.__secure = True
-            self.__port = 443
-
-        https_or_http = ("http", "https")[self.__secure]
-        host = self.__ip
-        port = str(self.__port)
-        uri = "%s://%s%s%s" % (https_or_http, host, ":", port)
+        self.__port = int(port)
+        uri = "%s://%s%s%s" % ("https", self.__ip, ":", str(self.__port))
         return uri
 
     def __clear(self):
@@ -170,7 +137,6 @@ class UcsCentralSession(object):
         Internal method to clear the session variables
         """
 
-        self.__name = None
         self.__cookie = None
         self.__session_id = None
         self.__version = None
@@ -188,7 +154,6 @@ class UcsCentralSession(object):
 
         from .ucscentralcoremeta import UcsCentralVersion
 
-        self.__name = response.out_name
         self.__cookie = response.out_cookie
         self.__session_id = response.out_session_id
         self.__version = UcsCentralVersion(response.out_version)
@@ -231,10 +196,8 @@ class UcsCentralSession(object):
             response = post_xml('<aaaLogin inName="user" inPassword="pass">')
         """
 
-        ucsm_uri = self.__uri + "/xmlIM/" + "central-mgr"
-        response_str = self.post(uri=ucsm_uri, data=xml_str, read=read)
-        if self.__driver.redirect_uri:
-            self.__uri = self.__driver.redirect_uri
+        ucscentral_uri = self.__uri + "/xmlIM/central-mgr"
+        response_str = self.post(uri=ucscentral_uri, data=xml_str, read=read)
 
         return response_str
 

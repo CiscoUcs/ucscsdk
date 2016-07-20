@@ -35,26 +35,16 @@ class UcsCentralHandle(UcsCentralSession):
         username (str): The username as configured on the UCSCENTRAL Server
         password (str): The password as configured on the UCSCENTRAL Server
         port (int or None): The port number to be used during connection
-        secure (bool or None): True for secure connection, otherwise False
         proxy (str): The proxy object to be used to connect
 
     Example:
         handle = UcsCentralHandle("192.168.1.1","admin","password")\n
-        handle = UcsCentralHandle("192.168.1.1","admin","password",
-                                    secure=True)\n
-        handle = UcsCentralHandle("192.168.1.1","admin","password",
-                                    secure=False)\n
-        handle = UcsCentralHandle("192.168.1.1","admin","password", port=80)\n
         handle = UcsCentralHandle("192.168.1.1","admin","password", port=443)\n
-        handle = UcsCentralHandle("192.168.1.1","admin","password", port=100,
-                            secure=True)\n
-        handle = UcsCentralHandle("192.168.1.1","admin","password", port=100,
-                            secure=False)\n
+        handle = UcsCentralHandle("192.168.1.1","admin","password", port=100)\n
     """
 
-    def __init__(self, ip, username, password, port=None, secure=None,
-                 proxy=None):
-        UcsCentralSession.__init__(self, ip, username, password, port, secure, proxy)
+    def __init__(self, ip, username, password, port=443, proxy=None):
+        UcsCentralSession.__init__(self, ip, username, password, port, proxy)
         self.__commit_buf = {}
         self.__commit_buf_tagged = {}
         self.__threaded = False

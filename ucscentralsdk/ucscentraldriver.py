@@ -32,21 +32,6 @@ import logging
 
 log = logging.getLogger('ucscentral')
 
-
-class SmartRedirectHandler(urllib2.HTTPRedirectHandler):
-    """This class is to handle redirection error."""
-
-    def http_error_301(self, req, fp, code, msg, headers):
-        """This is to handle redirection error code 301"""
-        resp_status = [code, headers.get('Location')]
-        return resp_status
-
-    def http_error_302(self, req, fp, code, msg, headers):
-        """This is to handle redirection error code 302"""
-        resp_status = [code, headers.get('Location')]
-        return resp_status
-
-
 class TLS1Handler(urllib2.HTTPSHandler):
     """Like HTTPSHandler but more specific"""
 
@@ -55,7 +40,6 @@ class TLS1Handler(urllib2.HTTPSHandler):
 
     def https_open(self, req):
         return self.do_open(TLS1Connection, req)
-
 
 class TLS1Connection(httplib.HTTPSConnection):
     """Like HTTPSConnection but more specific"""
@@ -98,7 +82,6 @@ class UcsCentralDriver(object):
     """
 
     def __init__(self, proxy=None):
-        self.__redirect_uri = None
         self.__proxy = proxy
         self.__headers = {}
         self.__handlers = self.__get_handlers()
@@ -108,7 +91,7 @@ class UcsCentralDriver(object):
         Internal method to handle redirection and use TLS protocol.
         """
 
-        handlers = [SmartRedirectHandler, TLS1Handler]
+        handlers = [TLS1Handler]
         if self.__proxy:
             proxy_handler = urllib2.ProxyHandler(
                 {'http': self.__proxy, 'https': self.__proxy})
@@ -117,7 +100,7 @@ class UcsCentralDriver(object):
 
     def add_header(self, header_prop, header_value):
         """
-        Adds header to http/ https web request
+        Adds header to https web request
 
         Args:
             header_prop (str): header name
@@ -135,7 +118,7 @@ class UcsCentralDriver(object):
 
     def remove_header(self, header_prop):
         """
-        Removes header from http/ https web request
+        Removes header from https web request
 
         Args:
             header_prop (str): header name
@@ -149,14 +132,6 @@ class UcsCentralDriver(object):
         """
 
         del self.__headers[header_prop]
-
-    @property
-    def redirect_uri(self):
-        """
-        Getter method of UcsCentralDriver class
-        """
-
-        return self.__redirect_uri
 
     def __create_request(self, uri, data=None):
         """
@@ -197,8 +172,6 @@ class UcsCentralDriver(object):
         """
 
         try:
-            if self.__redirect_uri:
-                uri = self.__redirect_uri
             request = self.__create_request(uri=uri, data=data)
             if dump_xml:
                 log.debug('%s ====> %s' % (uri, data))
@@ -206,19 +179,6 @@ class UcsCentralDriver(object):
             opener = urllib2.build_opener(*self.__handlers)
             response = opener.open(request)
 
-            if type(response) is list:
-                if len(response) == 2 and \
-                        (response[0] == 302 or response[0] == 301):
-                    uri = response[1]
-                    self.__redirect = True
-                    self.__redirect_uri = uri
-                    request = self.__create_request(uri=uri, data=data)
-                    if dump_xml:
-                        log.debug('%s <==== %s' % (uri, data))
-
-                    opener = urllib2.build_opener(*self.__handlers)
-                    response = opener.open(request)
-                    # response = urllib2.urlopen(request)
             if read:
                 response = response.read().decode('utf-8')
                 if dump_xml:
