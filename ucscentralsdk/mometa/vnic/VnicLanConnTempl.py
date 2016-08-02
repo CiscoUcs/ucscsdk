@@ -13,6 +13,9 @@ class VnicLanConnTemplConsts():
     POLICY_OWNER_PENDING_POLICY = "pending-policy"
     POLICY_OWNER_POLICY = "policy"
     POLICY_OWNER_UNSPECIFIED = "unspecified"
+    REDUNDANCY_PAIR_TYPE_NONE = "none"
+    REDUNDANCY_PAIR_TYPE_PRIMARY = "primary"
+    REDUNDANCY_PAIR_TYPE_SECONDARY = "secondary"
     SWITCH_ID_A = "A"
     SWITCH_ID_A_B = "A-B"
     SWITCH_ID_B = "B"
@@ -29,7 +32,7 @@ class VnicLanConnTempl(ManagedObject):
     consts = VnicLanConnTemplConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("VnicLanConnTempl", "vnicLanConnTempl", "lan-conn-templ-[name]", VersionMeta.Version111a, "InputOutput", 0x1ffff, [], ["read-only"], [u'orgOrg'], [u'faultInst', u'vnicDynamicConPolicyRef', u'vnicEtherIf', u'vnicFcOEIf', u'vnicUsnicConPolicyRef', u'vnicVmqConPolicyRef'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicLanConnTempl", "vnicLanConnTempl", "lan-conn-templ-[name]", VersionMeta.Version111a, "InputOutput", 0x7ffff, [], ["read-only"], [u'orgOrg'], [u'faultInst', u'vnicDynamicConPolicyRef', u'vnicEtherIf', u'vnicFcOEIf', u'vnicUsnicConPolicyRef', u'vnicVmqConPolicyRef'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_cdn_name": MoPropertyMeta("admin_cdn_name", "adminCdnName", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
@@ -44,18 +47,21 @@ class VnicLanConnTempl(ManagedObject):
         "nw_ctrl_policy_name": MoPropertyMeta("nw_ctrl_policy_name", "nwCtrlPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x100, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "oper_ident_pool_name": MoPropertyMeta("oper_ident_pool_name", "operIdentPoolName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_nw_ctrl_policy_name": MoPropertyMeta("oper_nw_ctrl_policy_name", "operNwCtrlPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "oper_peer_redundancy_templ_name": MoPropertyMeta("oper_peer_redundancy_templ_name", "operPeerRedundancyTemplName", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_qos_policy_name": MoPropertyMeta("oper_qos_policy_name", "operQosPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_stats_policy_name": MoPropertyMeta("oper_stats_policy_name", "operStatsPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "pin_to_group_name": MoPropertyMeta("pin_to_group_name", "pinToGroupName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x200, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "peer_redundancy_templ_name": MoPropertyMeta("peer_redundancy_templ_name", "peerRedundancyTemplName", "string", None, MoPropertyMeta.READ_WRITE, 0x200, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "pin_to_group_name": MoPropertyMeta("pin_to_group_name", "pinToGroupName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x400, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
-        "qos_policy_name": MoPropertyMeta("qos_policy_name", "qosPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x400, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x800, 0, 256, None, [], []), 
-        "stats_policy_name": MoPropertyMeta("stats_policy_name", "statsPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x1000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2000, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "switch_id": MoPropertyMeta("switch_id", "switchId", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x4000, None, None, None, ["A", "A-B", "B", "B-A", "NONE", "mgmt"], []), 
-        "target": MoPropertyMeta("target", "target", "string", VersionMeta.Version111a, MoPropertyMeta.CREATE_ONLY, 0x8000, None, None, r"""((vm|adaptor|defaultValue),){0,2}(vm|adaptor|defaultValue){0,1}""", [], []), 
-        "templ_type": MoPropertyMeta("templ_type", "templType", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10000, None, None, None, ["initial-template", "updating-template"], []), 
+        "qos_policy_name": MoPropertyMeta("qos_policy_name", "qosPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x800, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "redundancy_pair_type": MoPropertyMeta("redundancy_pair_type", "redundancyPairType", "string", None, MoPropertyMeta.READ_WRITE, 0x1000, None, None, None, ["none", "primary", "secondary"], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x2000, 0, 256, None, [], []), 
+        "stats_policy_name": MoPropertyMeta("stats_policy_name", "statsPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x4000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x8000, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "switch_id": MoPropertyMeta("switch_id", "switchId", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10000, None, None, None, ["A", "A-B", "B", "B-A", "NONE", "mgmt"], []), 
+        "target": MoPropertyMeta("target", "target", "string", VersionMeta.Version111a, MoPropertyMeta.CREATE_ONLY, 0x20000, None, None, r"""((vm|adaptor|defaultValue),){0,2}(vm|adaptor|defaultValue){0,1}""", [], []), 
+        "templ_type": MoPropertyMeta("templ_type", "templType", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x40000, None, None, None, ["initial-template", "updating-template"], []), 
     }
 
     prop_map = {
@@ -71,12 +77,15 @@ class VnicLanConnTempl(ManagedObject):
         "nwCtrlPolicyName": "nw_ctrl_policy_name", 
         "operIdentPoolName": "oper_ident_pool_name", 
         "operNwCtrlPolicyName": "oper_nw_ctrl_policy_name", 
+        "operPeerRedundancyTemplName": "oper_peer_redundancy_templ_name", 
         "operQosPolicyName": "oper_qos_policy_name", 
         "operStatsPolicyName": "oper_stats_policy_name", 
+        "peerRedundancyTemplName": "peer_redundancy_templ_name", 
         "pinToGroupName": "pin_to_group_name", 
         "policyLevel": "policy_level", 
         "policyOwner": "policy_owner", 
         "qosPolicyName": "qos_policy_name", 
+        "redundancyPairType": "redundancy_pair_type", 
         "rn": "rn", 
         "statsPolicyName": "stats_policy_name", 
         "status": "status", 
@@ -98,12 +107,15 @@ class VnicLanConnTempl(ManagedObject):
         self.nw_ctrl_policy_name = None
         self.oper_ident_pool_name = None
         self.oper_nw_ctrl_policy_name = None
+        self.oper_peer_redundancy_templ_name = None
         self.oper_qos_policy_name = None
         self.oper_stats_policy_name = None
+        self.peer_redundancy_templ_name = None
         self.pin_to_group_name = None
         self.policy_level = None
         self.policy_owner = None
         self.qos_policy_name = None
+        self.redundancy_pair_type = None
         self.stats_policy_name = None
         self.status = None
         self.switch_id = None

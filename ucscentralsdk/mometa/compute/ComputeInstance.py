@@ -55,6 +55,7 @@ class ComputeInstanceConsts():
     POLICY_OWNER_PENDING_POLICY = "pending-policy"
     POLICY_OWNER_POLICY = "policy"
     POLICY_OWNER_UNSPECIFIED = "unspecified"
+    UUID_DERIVED = "derived"
 
 
 class ComputeInstance(ManagedObject):
@@ -63,7 +64,7 @@ class ComputeInstance(ManagedObject):
     consts = ComputeInstanceConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("ComputeInstance", "computeInstance", "inst-[id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["read-only"], [u'computeRequirement'], [u'faultInst', u'lsFcLocale', u'lsIssues', u'lsPower', u'lsServerOperation', u'lsmaintAck', u'mgmtInterface', u'storageIpV4PooledAddr', u'storageIpV4StaticAddr', u'storageVirtualDriveRef', u'vnicEther', u'vnicFc', u'vnicIScsi', u'vnicIpV4MgmtPooledAddr', u'vnicIpV4PooledAddr', u'vnicIpV4StaticAddr'], ["Get"])
+    mo_meta = MoMeta("ComputeInstance", "computeInstance", "inst-[id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-server"], [u'computeRequirement'], [u'faultInst', u'lsFcLocale', u'lsIssues', u'lsPower', u'lsServerOperation', u'lsmaintAck', u'mgmtInterface', u'storageIpV4PooledAddr', u'storageIpV4StaticAddr', u'storageVirtualDriveRef', u'vnicEther', u'vnicFc', u'vnicIScsi', u'vnicIpV4MgmtPooledAddr', u'vnicIpV4PooledAddr', u'vnicIpV4StaticAddr'], ["Get"])
 
     prop_meta = {
         "assign_state": MoPropertyMeta("assign_state", "assignState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["assigned", "failed", "unassigned"], []), 
@@ -89,7 +90,7 @@ class ComputeInstance(ManagedObject):
         "system_name": MoPropertyMeta("system_name", "systemName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "templ_dn": MoPropertyMeta("templ_dn", "templDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "usr_lbl": MoPropertyMeta("usr_lbl", "usrLbl", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
-        "uuid": MoPropertyMeta("uuid", "uuid", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F]){8}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){12})|0""", [], []), 
+        "uuid": MoPropertyMeta("uuid", "uuid", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F]){8}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){12})|0""", ["derived"], []), 
         "version": MoPropertyMeta("version", "version", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
     }
 

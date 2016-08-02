@@ -34,7 +34,7 @@ class TrigSched(ManagedObject):
     consts = TrigSchedConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("TrigSched", "trigSched", "sched-[name]", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-server"], [u'orgDomainGroup', u'storageCloud', u'topSystem'], [u'lstorageRecurrWindow', u'trigAbsWindow', u'trigRecurrWindow'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("TrigSched", "trigSched", "sched-[name]", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-server", "operations"], [u'firmwareDomainInfraProfile', u'orgDomainGroup', u'storageCloud', u'topSystem'], [u'lstorageRecurrWindow', u'trigAbsWindow', u'trigRecurrWindow'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["trigger", "trigger-immediate", "triggered", "untriggered", "user-ack"], []), 

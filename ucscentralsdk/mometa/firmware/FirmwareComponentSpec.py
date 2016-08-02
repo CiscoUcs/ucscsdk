@@ -22,8 +22,12 @@ class FirmwareComponentSpecConsts():
     TYPE_HOST_NIC_OPTIONROM = "host-nic-optionrom"
     TYPE_LOCAL_DISK = "local-disk"
     TYPE_PSU = "psu"
+    TYPE_SAS_EXP_REG_FW = "sas-exp-reg-fw"
     TYPE_SAS_EXPANDER = "sas-expander"
     TYPE_STORAGE_CONTROLLER = "storage-controller"
+    TYPE_STORAGE_CONTROLLER_ONBOARD_DEVICE = "storage-controller-onboard-device"
+    TYPE_STORAGE_CONTROLLER_ONBOARD_DEVICE_CPLD = "storage-controller-onboard-device-cpld"
+    TYPE_STORAGE_DEV_BRIDGE = "storage-dev-bridge"
     TYPE_UNSPECIFIED = "unspecified"
 
 
@@ -41,7 +45,7 @@ class FirmwareComponentSpec(ManagedObject):
         "exclude_by_default": MoPropertyMeta("exclude_by_default", "excludeByDefault", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x10, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "local-disk", "psu", "sas-expander", "storage-controller", "unspecified"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x10, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "local-disk", "psu", "sas-exp-reg-fw", "sas-expander", "storage-controller", "storage-controller-onboard-device", "storage-controller-onboard-device-cpld", "storage-dev-bridge", "unspecified"], []), 
     }
 
     prop_map = {

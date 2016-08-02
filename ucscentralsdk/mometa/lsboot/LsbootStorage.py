@@ -15,6 +15,7 @@ class LsbootStorageConsts():
     ACCESS_READ_WRITE_LOCAL = "read-write-local"
     ACCESS_READ_WRITE_REMOTE = "read-write-remote"
     ACCESS_READ_WRITE_REMOTE_CIMC = "read-write-remote-cimc"
+    TYPE_EFI_SHELL = "efi-shell"
     TYPE_ISCSI = "iscsi"
     TYPE_LAN = "lan"
     TYPE_SAN = "san"
@@ -37,7 +38,7 @@ class LsbootStorage(ManagedObject):
         "order": MoPropertyMeta("order", "order", "ushort", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, [], ["1-16"]), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["iscsi", "lan", "san", "storage", "virtual-media"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["efi-shell", "iscsi", "lan", "san", "storage", "virtual-media"], []), 
     }
 
     prop_map = {

@@ -17,7 +17,7 @@ class FirmwareProductFamily(ManagedObject):
     consts = FirmwareProductFamilyConsts()
     naming_props = set([u'familyName'])
 
-    mo_meta = MoMeta("FirmwareProductFamily", "firmwareProductFamily", "fw-family-[family_name]", VersionMeta.Version121a, "InputOutput", 0x1f, [], ["admin", "operations"], [u'firmwareInfraPolicy'], [u'firmwareInfraPack'], ["Get"])
+    mo_meta = MoMeta("FirmwareProductFamily", "firmwareProductFamily", "fw-family-[family_name]", VersionMeta.Version121a, "InputOutput", 0x1f, [], ["admin", "operations"], [u'firmwareDomainInfraProfile', u'firmwareInfraPolicy'], [u'firmwareInfraPack', u'firmwareInfraPackConfig'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version121a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

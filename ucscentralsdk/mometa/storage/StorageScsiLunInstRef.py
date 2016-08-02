@@ -13,12 +13,14 @@ class StorageScsiLunInstRefConsts():
     AUTO_AQUIRED_NO = "no"
     AUTO_AQUIRED_TRUE = "true"
     AUTO_AQUIRED_YES = "yes"
+    CONFIG_STATE_N_A = "N/A"
     CONFIG_STATE_APPLIED = "applied"
     CONFIG_STATE_APPLY_FAILED = "apply-failed"
     CONFIG_STATE_APPLYING = "applying"
     CONFIG_STATE_NOT_APPLIED = "not-applied"
     CONFIG_STATE_NOT_IN_USE = "not-in-use"
     CONFIG_STATE_ORPHANED = "orphaned"
+    CONFIG_STATE_UNKNOWN = "unknown"
     LUN_MASK_ID_UNASSIGNED = "unassigned"
     LUN_STATUS_OFFLINE = "offline"
     LUN_STATUS_ONLINE = "online"
@@ -46,7 +48,7 @@ class StorageScsiLunInstRef(ManagedObject):
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["offline", "online", "undeployed"], []), 
         "auto_aquired": MoPropertyMeta("auto_aquired", "autoAquired", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["false", "no", "true", "yes"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["applied", "apply-failed", "applying", "not-applied", "not-in-use", "orphaned"], []), 
+        "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["N/A", "applied", "apply-failed", "applying", "not-applied", "not-in-use", "orphaned", "unknown"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
         "lun_dn": MoPropertyMeta("lun_dn", "lunDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x20, 0, 256, None, [], []), 
         "lun_item_dn": MoPropertyMeta("lun_item_dn", "lunItemDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

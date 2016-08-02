@@ -7,7 +7,6 @@ from ...ucscentralmeta import VersionMeta
 
 class VmNicConsts():
     OWNER_CONN_POLICY = "conn_policy"
-    OWNER_INITIATOR_POLICY = "initiator_policy"
     OWNER_LOGICAL = "logical"
     OWNER_PHYSICAL = "physical"
     OWNER_POLICY = "policy"
@@ -36,7 +35,7 @@ class VmNic(ManagedObject):
     consts = VmNicConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("VmNic", "vmNic", "nic-[name]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "read-only"], [], [u'adaptorEthPortBySizeLargeStats', u'adaptorEthPortBySizeSmallStats', u'adaptorEthPortErrStats', u'adaptorEthPortMcastStats', u'adaptorEthPortOutsizedStats', u'adaptorEthPortStats', u'adaptorFcPortStats', u'adaptorVnicStats', u'faultInst'], ["Get"])
+    mo_meta = MoMeta("VmNic", "vmNic", "nic-[name]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "read-only"], [], [u'adaptorEthPortBySizeLargeStats', u'adaptorEthPortBySizeSmallStats', u'adaptorEthPortErrStats', u'adaptorEthPortMcastStats', u'adaptorEthPortOutsizedStats', u'adaptorEthPortStats', u'adaptorFcPortStats', u'adaptorVnicStats', u'fabricEthMonSrcEp', u'fabricFcMonSrcEp', u'faultInst'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
@@ -47,7 +46,7 @@ class VmNic(ManagedObject):
         "host_if_dn": MoPropertyMeta("host_if_dn", "hostIfDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "mac_addr": MoPropertyMeta("mac_addr", "macAddr", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F]))|0""", [], []), 
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x4, 1, 31, None, [], []), 
-        "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["conn_policy", "initiator_policy", "logical", "physical", "policy", "unknown"], []), 
+        "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["conn_policy", "logical", "physical", "policy", "unknown"], []), 
         "ph_switch_id": MoPropertyMeta("ph_switch_id", "phSwitchId", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
         "profile_id": MoPropertyMeta("profile_id", "profileId", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "profile_name": MoPropertyMeta("profile_name", "profileName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

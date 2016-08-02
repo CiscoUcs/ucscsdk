@@ -25,7 +25,7 @@ class StorageComputeBladeOperation(ManagedObject):
     consts = StorageComputeBladeOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageComputeBladeOperation", "storageComputeBladeOperation", "remote-oper", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["admin", "kvm", "pn-equipment", "pn-maintenance", "pn-policy"], [u'storageBlade'], [u'faultInst'], ["Get"])
+    mo_meta = MoMeta("StorageComputeBladeOperation", "storageComputeBladeOperation", "remote-oper", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'storageBlade'], [u'faultInst'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

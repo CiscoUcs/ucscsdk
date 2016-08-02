@@ -25,6 +25,7 @@ class ConfigSearchOptionsConsts():
     OBJECT_TYPE_COMPUTE_PSU_POLICY = "computePsuPolicy"
     OBJECT_TYPE_COMPUTE_QUAL = "computeQual"
     OBJECT_TYPE_COMPUTE_SCRUB_POLICY = "computeScrubPolicy"
+    OBJECT_TYPE_CPMAINT_MAINT_POLICY = "cpmaintMaintPolicy"
     OBJECT_TYPE_EPQOS_DEFINITION = "epqosDefinition"
     OBJECT_TYPE_EXTMGMT_IF_MON_POLICY = "extmgmtIfMonPolicy"
     OBJECT_TYPE_FABRIC_VCON_PROFILE = "fabricVConProfile"
@@ -32,6 +33,7 @@ class ConfigSearchOptionsConsts():
     OBJECT_TYPE_FABRIC_VSAN = "fabricVsan"
     OBJECT_TYPE_FAULT_POLICY = "faultPolicy"
     OBJECT_TYPE_FCPOOL_INITIATORS = "fcpoolInitiators"
+    OBJECT_TYPE_FIRMWARE_CHASSIS_PACK = "firmwareChassisPack"
     OBJECT_TYPE_FIRMWARE_COMPUTE_HOST_PACK = "firmwareComputeHostPack"
     OBJECT_TYPE_IPPOOL_POOL = "ippoolPool"
     OBJECT_TYPE_IQNPOOL_POOL = "iqnpoolPool"
@@ -40,6 +42,7 @@ class ConfigSearchOptionsConsts():
     OBJECT_TYPE_LSBOOT_POLICY = "lsbootPolicy"
     OBJECT_TYPE_LSMAINT_MAINT_POLICY = "lsmaintMaintPolicy"
     OBJECT_TYPE_LSTORAGE_DISK_GROUP_CONFIG_POLICY = "lstorageDiskGroupConfigPolicy"
+    OBJECT_TYPE_LSTORAGE_DISK_ZONING_POLICY = "lstorageDiskZoningPolicy"
     OBJECT_TYPE_LSTORAGE_PROFILE = "lstorageProfile"
     OBJECT_TYPE_MACPOOL_POOL = "macpoolPool"
     OBJECT_TYPE_NWCTRL_DEFINITION = "nwctrlDefinition"
@@ -79,7 +82,7 @@ class ConfigSearchOptions(ManagedObject):
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "object_type": MoPropertyMeta("object_type", "objectType", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["aaaEpAuthProfile", "adaptorHostEthIfProfile", "adaptorHostFcIfProfile", "adaptorHostIscsiIfProfile", "biosVProfile", "callhomeEp", "commCimxml", "commDateTime", "commDns", "commHttp", "commShellSvcLimits", "commSnmp", "commSyslog", "commTelnet", "commWebSvcLimits", "computePoolingPolicy", "computePsuPolicy", "computeQual", "computeScrubPolicy", "epqosDefinition", "extmgmtIfMonPolicy", "fabricVConProfile", "fabricVlan", "fabricVsan", "faultPolicy", "fcpoolInitiators", "firmwareComputeHostPack", "ippoolPool", "iqnpoolPool", "iscsiAuthProfile", "lsServer", "lsbootPolicy", "lsmaintMaintPolicy", "lstorageDiskGroupConfigPolicy", "lstorageProfile", "macpoolPool", "nwctrlDefinition", "powerMgmtPolicy", "powerPolicy", "solPolicy", "statsThresholdPolicy", "storageConnectionPolicy", "storageLocalDiskConfigPolicy", "sysdebugAutoCoreFileExportTarget", "sysdebugMEpLogPolicy", "trigSched", "unspecified", "uuidpoolPool", "vnicDynamicConPolicy", "vnicLanConnPolicy", "vnicLanConnTempl", "vnicSanConnPolicy", "vnicSanConnTempl"], []), 
+        "object_type": MoPropertyMeta("object_type", "objectType", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["aaaEpAuthProfile", "adaptorHostEthIfProfile", "adaptorHostFcIfProfile", "adaptorHostIscsiIfProfile", "biosVProfile", "callhomeEp", "commCimxml", "commDateTime", "commDns", "commHttp", "commShellSvcLimits", "commSnmp", "commSyslog", "commTelnet", "commWebSvcLimits", "computePoolingPolicy", "computePsuPolicy", "computeQual", "computeScrubPolicy", "cpmaintMaintPolicy", "epqosDefinition", "extmgmtIfMonPolicy", "fabricVConProfile", "fabricVlan", "fabricVsan", "faultPolicy", "fcpoolInitiators", "firmwareChassisPack", "firmwareComputeHostPack", "ippoolPool", "iqnpoolPool", "iscsiAuthProfile", "lsServer", "lsbootPolicy", "lsmaintMaintPolicy", "lstorageDiskGroupConfigPolicy", "lstorageDiskZoningPolicy", "lstorageProfile", "macpoolPool", "nwctrlDefinition", "powerMgmtPolicy", "powerPolicy", "solPolicy", "statsThresholdPolicy", "storageConnectionPolicy", "storageLocalDiskConfigPolicy", "sysdebugAutoCoreFileExportTarget", "sysdebugMEpLogPolicy", "trigSched", "unspecified", "uuidpoolPool", "vnicDynamicConPolicy", "vnicLanConnPolicy", "vnicLanConnTempl", "vnicSanConnPolicy", "vnicSanConnTempl"], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "search_type": MoPropertyMeta("search_type", "searchType", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["contains", "exactMatch", "startsWith"], []), 

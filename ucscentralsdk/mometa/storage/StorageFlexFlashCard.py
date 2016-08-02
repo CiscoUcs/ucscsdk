@@ -9,7 +9,9 @@ class StorageFlexFlashCardConsts():
     BLOCK_SIZE_UNKNOWN = "unknown"
     CARD_HEALTH_FF_PHY_HEALTH_NA = "FF_PHY_HEALTH_NA"
     CARD_HEALTH_FF_PHY_HEALTH_OK = "FF_PHY_HEALTH_OK"
-    CARD_HEALTH_FF_PHY_UNHEALTHY_OTHER = "FF_PHY_UNHEALTHY_OTHER"
+    CARD_HEALTH_FF_PHY_RAID_OUT_OF_SYNC = "FF_PHY_RAID_OUT_OF_SYNC"
+    CARD_HEALTH_FF_PHY_RAID_SYNC_IN_PROGRESS = "FF_PHY_RAID_SYNC_IN_PROGRESS"
+    CARD_HEALTH_FF_PHY_UNHEALTHY_IO_ERROR = "FF_PHY_UNHEALTHY_IO_ERROR"
     CARD_HEALTH_FF_PHY_UNHEALTHY_RAID = "FF_PHY_UNHEALTHY_RAID"
     CARD_MODE_FF_PHY_DRIVE_PRIMARY = "FF_PHY_DRIVE_PRIMARY"
     CARD_MODE_FF_PHY_DRIVE_SECONDARY_ACT = "FF_PHY_DRIVE_SECONDARY_ACT"
@@ -32,6 +34,7 @@ class StorageFlexFlashCardConsts():
     NUMBER_OF_BLOCKS_UNKNOWN = "unknown"
     OPERABILITY_ACCESSIBILITY_PROBLEM = "accessibility-problem"
     OPERABILITY_AUTO_UPGRADE = "auto-upgrade"
+    OPERABILITY_BACKPLANE_PORT_PROBLEM = "backplane-port-problem"
     OPERABILITY_BIOS_POST_TIMEOUT = "bios-post-timeout"
     OPERABILITY_CHASSIS_LIMIT_EXCEEDED = "chassis-limit-exceeded"
     OPERABILITY_CONFIG = "config"
@@ -59,6 +62,7 @@ class StorageFlexFlashCardConsts():
     OPERABILITY_UNKNOWN = "unknown"
     OPERABILITY_UPGRADE_PROBLEM = "upgrade-problem"
     OPERABILITY_VOLTAGE_PROBLEM = "voltage-problem"
+    PHYSICAL_BLOCK_SIZE_UNKNOWN = "unknown"
     PRESENCE_EMPTY = "empty"
     PRESENCE_EQUIPPED = "equipped"
     PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE = "equipped-identity-unestablishable"
@@ -75,6 +79,7 @@ class StorageFlexFlashCardConsts():
     PRESENCE_NOT_SUPPORTED = "not-supported"
     PRESENCE_UNAUTHORIZED = "unauthorized"
     PRESENCE_UNKNOWN = "unknown"
+    SIZE_NOT_APPLICABLE = "not-applicable"
     WRITE_ENABLE_NO = "no"
     WRITE_ENABLE_YES = "yes"
 
@@ -89,7 +94,7 @@ class StorageFlexFlashCard(ManagedObject):
 
     prop_meta = {
         "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
-        "card_health": MoPropertyMeta("card_health", "cardHealth", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["FF_PHY_HEALTH_NA", "FF_PHY_HEALTH_OK", "FF_PHY_UNHEALTHY_OTHER", "FF_PHY_UNHEALTHY_RAID"], []), 
+        "card_health": MoPropertyMeta("card_health", "cardHealth", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["FF_PHY_HEALTH_NA", "FF_PHY_HEALTH_OK", "FF_PHY_RAID_OUT_OF_SYNC", "FF_PHY_RAID_SYNC_IN_PROGRESS", "FF_PHY_UNHEALTHY_IO_ERROR", "FF_PHY_UNHEALTHY_RAID"], []), 
         "card_mode": MoPropertyMeta("card_mode", "cardMode", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["FF_PHY_DRIVE_PRIMARY", "FF_PHY_DRIVE_SECONDARY_ACT", "FF_PHY_DRIVE_SECONDARY_UNHEALTHY", "FF_PHY_DRIVE_UNPAIRED_PRIMARY"], []), 
         "card_state": MoPropertyMeta("card_state", "cardState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["Active", "Configured", "Failed", "Ignored", "Initializing", "Undefined", "Unknown"], []), 
         "card_sync": MoPropertyMeta("card_sync", "cardSync", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["Auto", "Manual", "NA", "Unknown"], []), 
@@ -106,8 +111,9 @@ class StorageFlexFlashCard(ManagedObject):
         "number_of_blocks": MoPropertyMeta("number_of_blocks", "numberOfBlocks", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
         "oem_id": MoPropertyMeta("oem_id", "oemId", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "oper_qualifier_reason": MoPropertyMeta("oper_qualifier_reason", "operQualifierReason", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
-        "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
+        "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
         "partition_count": MoPropertyMeta("partition_count", "partitionCount", "ushort", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "physical_block_size": MoPropertyMeta("physical_block_size", "physicalBlockSize", "string", None, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
         "presence": MoPropertyMeta("presence", "presence", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["empty", "equipped", "equipped-identity-unestablishable", "equipped-not-primary", "equipped-slave", "equipped-unsupported", "equipped-with-malformed-fru", "inaccessible", "mismatch", "mismatch-identity-unestablishable", "mismatch-slave", "missing", "missing-slave", "not-supported", "unauthorized", "unknown"], []), 
         "read_error_threshold": MoPropertyMeta("read_error_threshold", "readErrorThreshold", "uint", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "read_io_error_count": MoPropertyMeta("read_io_error_count", "readIOErrorCount", "uint", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
@@ -115,7 +121,7 @@ class StorageFlexFlashCard(ManagedObject):
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "serial": MoPropertyMeta("serial", "serial", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "signature": MoPropertyMeta("signature", "signature", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "size": MoPropertyMeta("size", "size", "ulong", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "size": MoPropertyMeta("size", "size", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-applicable"], ["0-4294967295"]), 
         "slot_number": MoPropertyMeta("slot_number", "slotNumber", "ushort", VersionMeta.Version112a, MoPropertyMeta.NAMING, 0x10, None, None, None, [], ["1-64"]), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
@@ -145,6 +151,7 @@ class StorageFlexFlashCard(ManagedObject):
         "operQualifierReason": "oper_qualifier_reason", 
         "operability": "operability", 
         "partitionCount": "partition_count", 
+        "physicalBlockSize": "physical_block_size", 
         "presence": "presence", 
         "readErrorThreshold": "read_error_threshold", 
         "readIOErrorCount": "read_io_error_count", 
@@ -183,6 +190,7 @@ class StorageFlexFlashCard(ManagedObject):
         self.oper_qualifier_reason = None
         self.operability = None
         self.partition_count = None
+        self.physical_block_size = None
         self.presence = None
         self.read_error_threshold = None
         self.read_io_error_count = None

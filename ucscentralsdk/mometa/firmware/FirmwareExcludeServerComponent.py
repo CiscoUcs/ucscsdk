@@ -18,8 +18,12 @@ class FirmwareExcludeServerComponentConsts():
     SERVER_COMPONENT_HOST_NIC_OPTIONROM = "host-nic-optionrom"
     SERVER_COMPONENT_LOCAL_DISK = "local-disk"
     SERVER_COMPONENT_PSU = "psu"
+    SERVER_COMPONENT_SAS_EXP_REG_FW = "sas-exp-reg-fw"
     SERVER_COMPONENT_SAS_EXPANDER = "sas-expander"
     SERVER_COMPONENT_STORAGE_CONTROLLER = "storage-controller"
+    SERVER_COMPONENT_STORAGE_CONTROLLER_ONBOARD_DEVICE = "storage-controller-onboard-device"
+    SERVER_COMPONENT_STORAGE_CONTROLLER_ONBOARD_DEVICE_CPLD = "storage-controller-onboard-device-cpld"
+    SERVER_COMPONENT_STORAGE_DEV_BRIDGE = "storage-dev-bridge"
     SERVER_COMPONENT_UNSPECIFIED = "unspecified"
 
 
@@ -35,7 +39,7 @@ class FirmwareExcludeServerComponent(ManagedObject):
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
-        "server_component": MoPropertyMeta("server_component", "serverComponent", "string", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x8, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "local-disk", "psu", "sas-expander", "storage-controller", "unspecified"], []), 
+        "server_component": MoPropertyMeta("server_component", "serverComponent", "string", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x8, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "local-disk", "psu", "sas-exp-reg-fw", "sas-expander", "storage-controller", "storage-controller-onboard-device", "storage-controller-onboard-device-cpld", "storage-dev-bridge", "unspecified"], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }
 

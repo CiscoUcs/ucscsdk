@@ -56,6 +56,9 @@ class DomainServiceProfileItemConsts():
     OPER_STATE_UNCONFIG = "unconfig"
     OPER_STATE_UNCONFIG_FAILED = "unconfig-failed"
     OPER_STATE_VOLTAGE_PROBLEM = "voltage-problem"
+    SERVICE_PROFILE_OWNER_ALL = "all"
+    SERVICE_PROFILE_OWNER_GLOBAL = "global"
+    SERVICE_PROFILE_OWNER_LOCAL = "local"
     TEMPLATE_TYPE_INITIAL_TEMPLATE = "initial-template"
     TEMPLATE_TYPE_INSTANCE = "instance"
     TEMPLATE_TYPE_UPDATING_TEMPLATE = "updating-template"
@@ -93,6 +96,7 @@ class DomainServiceProfileItem(ManagedObject):
         "server_id": MoPropertyMeta("server_id", "serverId", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "service_profile_dn": MoPropertyMeta("service_profile_dn", "serviceProfileDn", "string", VersionMeta.Version121a, MoPropertyMeta.NAMING, 0x8, 1, 510, None, [], []), 
         "service_profile_name": MoPropertyMeta("service_profile_name", "serviceProfileName", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "service_profile_owner": MoPropertyMeta("service_profile_owner", "serviceProfileOwner", "string", None, MoPropertyMeta.READ_ONLY, None, None, None, None, ["all", "global", "local"], []), 
         "src_templ_name": MoPropertyMeta("src_templ_name", "srcTemplName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version121a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "template_type": MoPropertyMeta("template_type", "templateType", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["initial-template", "instance", "updating-template"], []), 
@@ -121,6 +125,7 @@ class DomainServiceProfileItem(ManagedObject):
         "serverId": "server_id", 
         "serviceProfileDn": "service_profile_dn", 
         "serviceProfileName": "service_profile_name", 
+        "serviceProfileOwner": "service_profile_owner", 
         "srcTemplName": "src_templ_name", 
         "status": "status", 
         "templateType": "template_type", 
@@ -148,6 +153,7 @@ class DomainServiceProfileItem(ManagedObject):
         self.org_name = None
         self.server_id = None
         self.service_profile_name = None
+        self.service_profile_owner = None
         self.src_templ_name = None
         self.status = None
         self.template_type = None

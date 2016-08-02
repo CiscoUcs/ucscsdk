@@ -48,6 +48,7 @@ class MgmtInterface(ManagedObject):
         "ip_v6_state": MoPropertyMeta("ip_v6_state", "ipV6State", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["none", "pooled", "static"], []), 
         "is_default_derived": MoPropertyMeta("is_default_derived", "isDefaultDerived", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "mode": MoPropertyMeta("mode", "mode", "string", VersionMeta.Version112a, MoPropertyMeta.NAMING, 0x10, None, None, None, ["in-band"], []), 
+        "monitor_interval": MoPropertyMeta("monitor_interval", "monitorInterval", "uint", None, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["deployed", "down", "notDeployed", "unknown", "up"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x20, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
@@ -62,6 +63,7 @@ class MgmtInterface(ManagedObject):
         "ipV6State": "ip_v6_state", 
         "isDefaultDerived": "is_default_derived", 
         "mode": "mode", 
+        "monitorInterval": "monitor_interval", 
         "operState": "oper_state", 
         "rn": "rn", 
         "status": "status", 
@@ -76,6 +78,7 @@ class MgmtInterface(ManagedObject):
         self.ip_v4_state = None
         self.ip_v6_state = None
         self.is_default_derived = None
+        self.monitor_interval = None
         self.oper_state = None
         self.status = None
 

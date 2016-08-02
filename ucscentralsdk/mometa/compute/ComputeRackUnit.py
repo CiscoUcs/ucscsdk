@@ -122,6 +122,7 @@ class ComputeRackUnitConsts():
     OPER_STATE_VOLTAGE_PROBLEM = "voltage-problem"
     OPERABILITY_ACCESSIBILITY_PROBLEM = "accessibility-problem"
     OPERABILITY_AUTO_UPGRADE = "auto-upgrade"
+    OPERABILITY_BACKPLANE_PORT_PROBLEM = "backplane-port-problem"
     OPERABILITY_BIOS_POST_TIMEOUT = "bios-post-timeout"
     OPERABILITY_CHASSIS_LIMIT_EXCEEDED = "chassis-limit-exceeded"
     OPERABILITY_CONFIG = "config"
@@ -176,7 +177,7 @@ class ComputeRackUnit(ManagedObject):
     consts = ComputeRackUnitConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("ComputeRackUnit", "computeRackUnit", "rack-unit-[id]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'computeSystem'], [u'adaptorUnit', u'biosUnit', u'computeBoard', u'computeBoardController', u'computeExtBoard', u'computePhysicalOperation', u'computePoolable', u'equipmentBeaconLed', u'equipmentFanModule', u'equipmentHealthLed', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'equipmentPsu', u'firmwareStatus', u'lsbootDef', u'mgmtController'], ["Get"])
+    mo_meta = MoMeta("ComputeRackUnit", "computeRackUnit", "rack-unit-[id]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'computeSystem'], [u'adaptorHostIfConfig', u'adaptorUnit', u'biosUnit', u'computeBoard', u'computeBoardController', u'computeExtBoard', u'computeFactoryResetOperation', u'computePhysicalOperation', u'computePoolable', u'equipmentBeaconLed', u'equipmentFanModule', u'equipmentHealthLed', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'equipmentPsu', u'firmwareStatus', u'lsIdentityInfo', u'lsbootDef', u'mgmtController', u'storageEnclosure', u'storageVirtualDriveContainer'], ["Get"])
 
     prop_meta = {
         "admin_power": MoPropertyMeta("admin_power", "adminPower", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["admin-down", "admin-up", "bmc-reset-immediate", "bmc-reset-wait", "cmos-reset-immediate", "cycle-immediate", "cycle-wait", "diagnostic-interrupt", "hard-reset-immediate", "hard-reset-wait", "ipmi-reset", "kvm-reset", "policy"], []), 
@@ -191,6 +192,7 @@ class ComputeRackUnit(ManagedObject):
         "conn_status": MoPropertyMeta("conn_status", "connStatus", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|A|B),){0,3}(defaultValue|unknown|A|B){0,1}""", [], []), 
         "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x4, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "discovery": MoPropertyMeta("discovery", "discovery", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["complete", "diagnostics-complete", "diagnostics-failed", "diagnostics-in-progress", "efidiagnostics-in-progress", "failed", "fru-identity-indeterminate", "fru-not-ready", "fru-state-indeterminate", "illegal-fru", "in-progress", "insufficiently-equipped", "invalid-adaptor-iocard", "malformed-fru-info", "retry", "throttled", "undiscovered", "user-acknowledged", "waiting-for-mgmt-ack", "waiting-for-user-ack"], []), 
+        "discovery_status": MoPropertyMeta("discovery_status", "discoveryStatus", "string", None, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|A|B),){0,3}(defaultValue|unknown|A|B){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "flt_aggr": MoPropertyMeta("flt_aggr", "fltAggr", "ulong", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x10, None, None, None, [], ["1-255"]), 
@@ -218,7 +220,7 @@ class ComputeRackUnit(ManagedObject):
         "oper_pwr_trans_src": MoPropertyMeta("oper_pwr_trans_src", "operPwrTransSrc", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["software", "software_mcserver", "unknown", "user-fp", "user-unknown"], []), 
         "oper_qualifier": MoPropertyMeta("oper_qualifier", "operQualifier", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|not-applicable|cpu-voltage|adaptor-voltage|hba-voltage|compute-post-failure|memory-power|nic-power|memory-inoperable|nic-inoperable|compute-power|power-inoperable|compute-thermal|cpu-perf|adaptor-perf|hba-perf|cpu-thermal|adaptor-thermal|hba-thermal|compute-inoperable|memory-voltage|removed|nic-voltage|network-misconfig|cpu-power|adaptor-power|hba-power|compute-voltage|cpu-inoperable|adaptor-inoperable|hba-inoperable|config|memory-perf|nic-perf|adaptor-mismatch|memory-thermal|nic-thermal|mismatch|compute-perf),){0,38}(defaultValue|not-applicable|cpu-voltage|adaptor-voltage|hba-voltage|compute-post-failure|memory-power|nic-power|memory-inoperable|nic-inoperable|compute-power|power-inoperable|compute-thermal|cpu-perf|adaptor-perf|hba-perf|cpu-thermal|adaptor-thermal|hba-thermal|compute-inoperable|memory-voltage|removed|nic-voltage|network-misconfig|cpu-power|adaptor-power|hba-power|compute-voltage|cpu-inoperable|adaptor-inoperable|hba-inoperable|config|memory-perf|nic-perf|adaptor-mismatch|memory-thermal|nic-thermal|mismatch|compute-perf){0,1}""", [], []), 
         "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["bios-restore", "cmos-reset", "compute-failed", "compute-mismatch", "config", "config-failure", "decomissioning", "degraded", "diagnostics", "diagnostics-failed", "disabled", "discovery", "discovery-failed", "inaccessible", "indeterminate", "inoperable", "maintenance", "maintenance-failed", "ok", "pending-reassociation", "pending-reboot", "power-off", "power-problem", "removed", "restart", "test", "test-failed", "thermal-problem", "unassociated", "unconfig", "unconfig-failed", "voltage-problem"], []), 
-        "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
+        "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
         "original_uuid": MoPropertyMeta("original_uuid", "originalUuid", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F]){8}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){12})|0""", [], []), 
         "part_number": MoPropertyMeta("part_number", "partNumber", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
@@ -249,6 +251,7 @@ class ComputeRackUnit(ManagedObject):
         "connStatus": "conn_status", 
         "descr": "descr", 
         "discovery": "discovery", 
+        "discoveryStatus": "discovery_status", 
         "dn": "dn", 
         "fltAggr": "flt_aggr", 
         "id": "id", 
@@ -309,6 +312,7 @@ class ComputeRackUnit(ManagedObject):
         self.conn_status = None
         self.descr = None
         self.discovery = None
+        self.discovery_status = None
         self.flt_aggr = None
         self.int_id = None
         self.lc = None

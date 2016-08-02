@@ -30,6 +30,8 @@ class ConfigImpactAnalyzer(ManagedObject):
 
     prop_meta = {
         "ack_app_response_count": MoPropertyMeta("ack_app_response_count", "ackAppResponseCount", "ushort", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "affected_chassis_cnt": MoPropertyMeta("affected_chassis_cnt", "affectedChassisCnt", "ushort", None, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "chassis_profile_affected": MoPropertyMeta("chassis_profile_affected", "chassisProfileAffected", "ushort", None, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "completion_timestamp": MoPropertyMeta("completion_timestamp", "completionTimestamp", "ulong", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 
         "context": MoPropertyMeta("context", "context", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["dme", "import"], []), 
@@ -61,6 +63,8 @@ class ConfigImpactAnalyzer(ManagedObject):
 
     prop_map = {
         "ackAppResponseCount": "ack_app_response_count", 
+        "affectedChassisCnt": "affected_chassis_cnt", 
+        "chassisProfileAffected": "chassis_profile_affected", 
         "childAction": "child_action", 
         "completionTimestamp": "completion_timestamp", 
         "context": "context", 
@@ -94,6 +98,8 @@ class ConfigImpactAnalyzer(ManagedObject):
         self._dirty_mask = 0
         self.impact_analyzer_id = impact_analyzer_id
         self.ack_app_response_count = None
+        self.affected_chassis_cnt = None
+        self.chassis_profile_affected = None
         self.child_action = None
         self.completion_timestamp = None
         self.context = None
