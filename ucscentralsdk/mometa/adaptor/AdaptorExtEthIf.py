@@ -75,7 +75,7 @@ class AdaptorExtEthIf(ManagedObject):
     consts = AdaptorExtEthIfConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("AdaptorExtEthIf", "adaptorExtEthIf", "ext-eth-[id]", VersionMeta.Version111a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], [u'adaptorUnit'], [], ["Get"])
+    mo_meta = MoMeta("AdaptorExtEthIf", "adaptorExtEthIf", "ext-eth-[id]", VersionMeta.Version111a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], [u'adaptorUnit'], [u'fabricEthMonSrcEp', u'fabricEthMonSrcEpOperation'], ["Get"])
 
     prop_meta = {
         "adapter_id": MoPropertyMeta("adapter_id", "adapterId", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

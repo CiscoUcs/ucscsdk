@@ -14,7 +14,6 @@ class FirmwareAutoSyncPolicyConsts():
     POLICY_OWNER_PENDING_POLICY = "pending-policy"
     POLICY_OWNER_POLICY = "policy"
     POLICY_OWNER_UNSPECIFIED = "unspecified"
-    SYNC_STATE_AUTO_ACKNOWLEDGE = "Auto Acknowledge"
     SYNC_STATE_NO_ACTIONS = "No Actions"
     SYNC_STATE_USER_ACKNOWLEDGE = "User Acknowledge"
 
@@ -38,7 +37,7 @@ class FirmwareAutoSyncPolicy(ManagedObject):
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x20, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "sync_state": MoPropertyMeta("sync_state", "syncState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x80, None, None, None, ["Auto Acknowledge", "No Actions", "User Acknowledge"], []), 
+        "sync_state": MoPropertyMeta("sync_state", "syncState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x80, None, None, None, ["No Actions", "User Acknowledge"], []), 
     }
 
     prop_map = {

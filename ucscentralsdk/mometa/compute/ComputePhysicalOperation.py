@@ -38,7 +38,7 @@ class ComputePhysicalOperation(ManagedObject):
     consts = ComputePhysicalOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ComputePhysicalOperation", "computePhysicalOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin", "kvm", "pn-equipment", "pn-maintenance", "pn-policy"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("ComputePhysicalOperation", "computePhysicalOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_power": MoPropertyMeta("admin_power", "adminPower", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["admin-down", "admin-up", "bmc-reset-immediate", "bmc-reset-wait", "cmos-reset-immediate", "cycle-immediate", "cycle-wait", "diagnostic-interrupt", "hard-reset-immediate", "hard-reset-wait", "ipmi-reset", "kvm-reset", "policy"], []), 

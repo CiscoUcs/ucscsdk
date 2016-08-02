@@ -57,7 +57,7 @@ class FabricFcSanEp(ManagedObject):
     consts = FabricFcSanEpConsts()
     naming_props = set([u'slotId', u'portId'])
 
-    mo_meta = MoMeta("FabricFcSanEp", "fabricFcSanEp", "phys-slot-[slot_id]-port-[port_id]", VersionMeta.Version121a, "InputOutput", 0x7ff, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcSan'], [u'fabricVsanEp', u'fabricVsanMembership'], ["Add", "Get", "Set"])
+    mo_meta = MoMeta("FabricFcSanEp", "fabricFcSanEp", "phys-slot-[slot_id]-port-[port_id]", VersionMeta.Version121a, "InputOutput", 0x7ff, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcSan'], [u'fabricFcMonSrcEp', u'fabricVsanEp', u'fabricVsanMembership'], ["Add", "Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version121a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

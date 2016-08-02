@@ -20,6 +20,7 @@ class AdaptorUnitConsts():
     MFG_TIME_NOT_APPLICABLE = "not-applicable"
     OPER_STATE_ACCESSIBILITY_PROBLEM = "accessibility-problem"
     OPER_STATE_AUTO_UPGRADE = "auto-upgrade"
+    OPER_STATE_BACKPLANE_PORT_PROBLEM = "backplane-port-problem"
     OPER_STATE_BIOS_POST_TIMEOUT = "bios-post-timeout"
     OPER_STATE_CHASSIS_LIMIT_EXCEEDED = "chassis-limit-exceeded"
     OPER_STATE_CONFIG = "config"
@@ -49,6 +50,7 @@ class AdaptorUnitConsts():
     OPER_STATE_VOLTAGE_PROBLEM = "voltage-problem"
     OPERABILITY_ACCESSIBILITY_PROBLEM = "accessibility-problem"
     OPERABILITY_AUTO_UPGRADE = "auto-upgrade"
+    OPERABILITY_BACKPLANE_PORT_PROBLEM = "backplane-port-problem"
     OPERABILITY_BIOS_POST_TIMEOUT = "bios-post-timeout"
     OPERABILITY_CHASSIS_LIMIT_EXCEEDED = "chassis-limit-exceeded"
     OPERABILITY_CONFIG = "config"
@@ -140,7 +142,7 @@ class AdaptorUnit(ManagedObject):
     consts = AdaptorUnitConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("AdaptorUnit", "adaptorUnit", "adaptor-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["read-only"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'adaptorExtEthIf', u'adaptorHostEthIf', u'adaptorHostFcIf', u'adaptorHostScsiIf', u'adaptorMenloDcePortStats', u'adaptorMenloEthErrorStats', u'adaptorMenloEthStats', u'adaptorMenloFcErrorStats', u'adaptorMenloFcStats', u'adaptorMenloHostPortStats', u'adaptorMenloMcpuErrorStats', u'adaptorMenloMcpuStats', u'adaptorMenloNetEgStats', u'adaptorMenloNetInStats', u'adaptorMenloQErrorStats', u'adaptorMenloQStats', u'faultInst', u'mgmtController'], ["Get"])
+    mo_meta = MoMeta("AdaptorUnit", "adaptorUnit", "adaptor-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-policy"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'adaptorExtEthIf', u'adaptorHostEthIf', u'adaptorHostFcIf', u'adaptorHostScsiIf', u'adaptorMenloDcePortStats', u'adaptorMenloEthErrorStats', u'adaptorMenloEthStats', u'adaptorMenloFcErrorStats', u'adaptorMenloFcStats', u'adaptorMenloHostPortStats', u'adaptorMenloMcpuErrorStats', u'adaptorMenloMcpuStats', u'adaptorMenloNetEgStats', u'adaptorMenloNetInStats', u'adaptorMenloQErrorStats', u'adaptorMenloQStats', u'faultInst', u'mgmtController'], ["Get"])
 
     prop_meta = {
         "admin_power_state": MoPropertyMeta("admin_power_state", "adminPowerState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["none", "reset-power"], []), 
@@ -151,6 +153,7 @@ class AdaptorUnit(ManagedObject):
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "conn_path": MoPropertyMeta("conn_path", "connPath", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|A|B),){0,3}(defaultValue|unknown|A|B){0,1}""", [], []), 
         "conn_status": MoPropertyMeta("conn_status", "connStatus", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|A|B),){0,3}(defaultValue|unknown|A|B){0,1}""", [], []), 
+        "discovery_status": MoPropertyMeta("discovery_status", "discoveryStatus", "string", None, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|A|B),){0,3}(defaultValue|unknown|A|B){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "flt_aggr": MoPropertyMeta("flt_aggr", "fltAggr", "ulong", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x8, None, None, None, [], ["1-5000"]), 
@@ -160,8 +163,8 @@ class AdaptorUnit(ManagedObject):
         "mfg_time": MoPropertyMeta("mfg_time", "mfgTime", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", ["not-applicable"], []), 
         "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "oper_qualifier_reason": MoPropertyMeta("oper_qualifier_reason", "operQualifierReason", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
-        "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
-        "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
+        "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
+        "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
         "part_number": MoPropertyMeta("part_number", "partNumber", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "pci_addr": MoPropertyMeta("pci_addr", "pciAddr", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "pci_slot": MoPropertyMeta("pci_slot", "pciSlot", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
@@ -175,6 +178,7 @@ class AdaptorUnit(ManagedObject):
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "thermal": MoPropertyMeta("thermal", "thermal", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
         "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "vid": MoPropertyMeta("vid", "vid", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "voltage": MoPropertyMeta("voltage", "voltage", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
     }
 
@@ -187,6 +191,7 @@ class AdaptorUnit(ManagedObject):
         "childAction": "child_action", 
         "connPath": "conn_path", 
         "connStatus": "conn_status", 
+        "discoveryStatus": "discovery_status", 
         "dn": "dn", 
         "fltAggr": "flt_aggr", 
         "id": "id", 
@@ -211,6 +216,7 @@ class AdaptorUnit(ManagedObject):
         "status": "status", 
         "thermal": "thermal", 
         "vendor": "vendor", 
+        "vid": "vid", 
         "voltage": "voltage", 
     }
 
@@ -225,6 +231,7 @@ class AdaptorUnit(ManagedObject):
         self.child_action = None
         self.conn_path = None
         self.conn_status = None
+        self.discovery_status = None
         self.flt_aggr = None
         self.integrated = None
         self.location_dn = None
@@ -246,6 +253,7 @@ class AdaptorUnit(ManagedObject):
         self.status = None
         self.thermal = None
         self.vendor = None
+        self.vid = None
         self.voltage = None
 
         ManagedObject.__init__(self, "AdaptorUnit", parent_mo_or_dn, **kwargs)

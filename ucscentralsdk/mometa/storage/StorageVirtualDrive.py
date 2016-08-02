@@ -7,8 +7,10 @@ from ...ucscentralmeta import VersionMeta
 
 class StorageVirtualDriveConsts():
     ACCESS_POLICY_BLOCKED = "blocked"
+    ACCESS_POLICY_HIDDEN = "hidden"
     ACCESS_POLICY_READ_ONLY = "read-only"
     ACCESS_POLICY_READ_WRITE = "read-write"
+    ACCESS_POLICY_TRANSPORT_READY = "transport-ready"
     ACCESS_POLICY_UNKNOWN = "unknown"
     ACTUAL_WRITE_CACHE_POLICY_UNKNOWN = "unknown"
     ACTUAL_WRITE_CACHE_POLICY_WRITE_BACK = "write-back"
@@ -16,23 +18,29 @@ class StorageVirtualDriveConsts():
     ADMIN_ACTION_TRIGGER_CANCELED = "canceled"
     ADMIN_ACTION_TRIGGER_IDLE = "idle"
     ADMIN_ACTION_TRIGGER_TRIGGERED = "triggered"
+    ADMIN_STATE_CLEAR_TRANSPORT_READY = "clear-transport-ready"
     ADMIN_STATE_DEGRADED = "degraded"
     ADMIN_STATE_DELETE = "delete"
+    ADMIN_STATE_HIDE = "hide"
     ADMIN_STATE_OFFLINE = "offline"
     ADMIN_STATE_ONLINE = "online"
     ADMIN_STATE_RESTORE = "restore"
+    ADMIN_STATE_TRANSPORT_READY = "transport-ready"
     ADMIN_STATE_UNDEFINED = "undefined"
+    ADMIN_STATE_UNHIDE = "unhide"
     AVAILABLE_SIZE_UNKNOWN = "unknown"
     BLOCK_SIZE_UNKNOWN = "unknown"
     BOOTABLE_FALSE = "false"
     BOOTABLE_TRUE = "true"
     BOOTABLE_UNKNOWN = "unknown"
+    CONFIG_STATE_N_A = "N/A"
     CONFIG_STATE_APPLIED = "applied"
     CONFIG_STATE_APPLY_FAILED = "apply-failed"
     CONFIG_STATE_APPLYING = "applying"
     CONFIG_STATE_NOT_APPLIED = "not-applied"
     CONFIG_STATE_NOT_IN_USE = "not-in-use"
     CONFIG_STATE_ORPHANED = "orphaned"
+    CONFIG_STATE_UNKNOWN = "unknown"
     CONFIGURED_WRITE_CACHE_POLICY_ALWAYS_WRITE_BACK = "always-write-back"
     CONFIGURED_WRITE_CACHE_POLICY_UNKNOWN = "unknown"
     CONFIGURED_WRITE_CACHE_POLICY_WRITE_BACK_GOOD_BBU = "write-back-good-bbu"
@@ -75,6 +83,7 @@ class StorageVirtualDriveConsts():
     OPER_STATE_UNDEFINED = "undefined"
     OPERABILITY_ACCESSIBILITY_PROBLEM = "accessibility-problem"
     OPERABILITY_AUTO_UPGRADE = "auto-upgrade"
+    OPERABILITY_BACKPLANE_PORT_PROBLEM = "backplane-port-problem"
     OPERABILITY_BIOS_POST_TIMEOUT = "bios-post-timeout"
     OPERABILITY_CHASSIS_LIMIT_EXCEEDED = "chassis-limit-exceeded"
     OPERABILITY_CONFIG = "config"
@@ -102,6 +111,7 @@ class StorageVirtualDriveConsts():
     OPERABILITY_UNKNOWN = "unknown"
     OPERABILITY_UPGRADE_PROBLEM = "upgrade-problem"
     OPERABILITY_VOLTAGE_PROBLEM = "voltage-problem"
+    PHYSICAL_BLOCK_SIZE_UNKNOWN = "unknown"
     PRESENCE_EMPTY = "empty"
     PRESENCE_EQUIPPED = "equipped"
     PRESENCE_EQUIPPED_IDENTITY_UNESTABLISHABLE = "equipped-identity-unestablishable"
@@ -121,6 +131,7 @@ class StorageVirtualDriveConsts():
     READ_POLICY_NORMAL = "normal"
     READ_POLICY_READ_AHEAD = "read-ahead"
     READ_POLICY_UNKNOWN = "unknown"
+    SIZE_NOT_APPLICABLE = "not-applicable"
     STRIP_SIZE_UNKNOWN = "unknown"
     TYPE_MIRROR = "mirror"
     TYPE_MIRROR_STRIPE = "mirror-stripe"
@@ -140,21 +151,22 @@ class StorageVirtualDrive(ManagedObject):
     consts = StorageVirtualDriveConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("StorageVirtualDrive", "storageVirtualDrive", "vd-[id]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storageController'], [u'storageLunDisk', u'storageOperation', u'storageScsiLunRef', u'storageVDMemberEp', u'storageVirtualDriveOperation'], ["Get", "Set"])
+    mo_meta = MoMeta("StorageVirtualDrive", "storageVirtualDrive", "vd-[id]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storageController', u'storageVirtualDriveContainer'], [u'storageControllerEp', u'storageLunDisk', u'storageOperation', u'storageScsiLunRef', u'storageVDMemberEp', u'storageVirtualDriveOperation'], ["Get", "Set"])
 
     prop_meta = {
-        "access_policy": MoPropertyMeta("access_policy", "accessPolicy", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["blocked", "read-only", "read-write", "unknown"], []), 
+        "access_policy": MoPropertyMeta("access_policy", "accessPolicy", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["blocked", "hidden", "read-only", "read-write", "transport-ready", "unknown"], []), 
         "actual_write_cache_policy": MoPropertyMeta("actual_write_cache_policy", "actualWriteCachePolicy", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown", "write-back", "write-through"], []), 
         "admin_action_trigger": MoPropertyMeta("admin_action_trigger", "adminActionTrigger", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["canceled", "idle", "triggered"], []), 
         "admin_name": MoPropertyMeta("admin_name", "adminName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x4, None, None, r"""[\-\.:_a-zA-Z0-9]{0,15}""", [], []), 
-        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["degraded", "delete", "offline", "online", "restore", "undefined"], []), 
+        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["clear-transport-ready", "degraded", "delete", "hide", "offline", "online", "restore", "transport-ready", "undefined", "unhide"], []), 
         "available_size": MoPropertyMeta("available_size", "availableSize", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
         "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
         "bootable": MoPropertyMeta("bootable", "bootable", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "true", "unknown"], []), 
+        "change_id": MoPropertyMeta("change_id", "changeId", "ulong", None, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "change_qualifier": MoPropertyMeta("change_qualifier", "changeQualifier", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|no-change|policy-change|global-hotspare-change|ded-hotspare-change|name-change|size-change|boot-drive-change|scrub-change),){0,8}(defaultValue|no-change|policy-change|global-hotspare-change|ded-hotspare-change|name-change|size-change|boot-drive-change|scrub-change){0,1}""", [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "config_qualifier_reason": MoPropertyMeta("config_qualifier_reason", "configQualifierReason", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
-        "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["applied", "apply-failed", "applying", "not-applied", "not-in-use", "orphaned"], []), 
+        "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["N/A", "applied", "apply-failed", "applying", "not-applied", "not-in-use", "orphaned", "unknown"], []), 
         "configured_write_cache_policy": MoPropertyMeta("configured_write_cache_policy", "configuredWriteCachePolicy", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["always-write-back", "unknown", "write-back-good-bbu", "write-through"], []), 
         "connection_protocol": MoPropertyMeta("connection_protocol", "connectionProtocol", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["SAS", "SATA", "unspecified"], []), 
         "deploy_action": MoPropertyMeta("deploy_action", "deployAction", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["abort-replication", "create", "delete", "modify", "no-action", "replace", "restore", "set-offline", "set-online"], []), 
@@ -172,7 +184,8 @@ class StorageVirtualDrive(ManagedObject):
         "oper_device_id": MoPropertyMeta("oper_device_id", "operDeviceId", "ulong", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "oper_qualifier_reason": MoPropertyMeta("oper_qualifier_reason", "operQualifierReason", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["compute-degraded", "compute-inoperable", "offline", "online", "undefined"], []), 
-        "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
+        "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
+        "physical_block_size": MoPropertyMeta("physical_block_size", "physicalBlockSize", "string", None, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
         "pn_dn": MoPropertyMeta("pn_dn", "pnDn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "presence": MoPropertyMeta("presence", "presence", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["empty", "equipped", "equipped-identity-unestablishable", "equipped-not-primary", "equipped-slave", "equipped-unsupported", "equipped-with-malformed-fru", "inaccessible", "mismatch", "mismatch-identity-unestablishable", "mismatch-slave", "missing", "missing-slave", "not-supported", "unauthorized", "unknown"], []), 
         "read_policy": MoPropertyMeta("read_policy", "readPolicy", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["normal", "read-ahead", "unknown"], []), 
@@ -180,7 +193,7 @@ class StorageVirtualDrive(ManagedObject):
         "revision": MoPropertyMeta("revision", "revision", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x40, 0, 256, None, [], []), 
         "serial": MoPropertyMeta("serial", "serial", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "size": MoPropertyMeta("size", "size", "ulong", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "size": MoPropertyMeta("size", "size", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-applicable"], ["0-4294967295"]), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x80, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "strip_size": MoPropertyMeta("strip_size", "stripSize", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
         "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["mirror", "mirror-stripe", "raid", "simple", "stripe", "stripe-dual-parity", "stripe-dual-parity-stripe", "stripe-parity", "stripe-parity-stripe", "unspecified"], []), 
@@ -198,6 +211,7 @@ class StorageVirtualDrive(ManagedObject):
         "availableSize": "available_size", 
         "blockSize": "block_size", 
         "bootable": "bootable", 
+        "changeId": "change_id", 
         "changeQualifier": "change_qualifier", 
         "childAction": "child_action", 
         "configQualifierReason": "config_qualifier_reason", 
@@ -220,6 +234,7 @@ class StorageVirtualDrive(ManagedObject):
         "operQualifierReason": "oper_qualifier_reason", 
         "operState": "oper_state", 
         "operability": "operability", 
+        "physicalBlockSize": "physical_block_size", 
         "pnDn": "pn_dn", 
         "presence": "presence", 
         "readPolicy": "read_policy", 
@@ -247,6 +262,7 @@ class StorageVirtualDrive(ManagedObject):
         self.available_size = None
         self.block_size = None
         self.bootable = None
+        self.change_id = None
         self.change_qualifier = None
         self.child_action = None
         self.config_qualifier_reason = None
@@ -267,6 +283,7 @@ class StorageVirtualDrive(ManagedObject):
         self.oper_qualifier_reason = None
         self.oper_state = None
         self.operability = None
+        self.physical_block_size = None
         self.pn_dn = None
         self.presence = None
         self.read_policy = None

@@ -18,6 +18,8 @@ class OrgExtension(ManagedObject):
     mo_meta = MoMeta("OrgExtension", "orgExtension", "extension", VersionMeta.Version121a, "InputOutput", 0xf, [], ["read-only"], [u'orgOrg'], [], ["Get"])
 
     prop_meta = {
+        "cp_count": MoPropertyMeta("cp_count", "CPCount", "ulong", None, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "cp_template_count": MoPropertyMeta("cp_template_count", "CPTemplateCount", "ulong", None, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "sp_count": MoPropertyMeta("sp_count", "SPCount", "ulong", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "template_count": MoPropertyMeta("template_count", "TemplateCount", "ulong", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version121a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
@@ -27,6 +29,8 @@ class OrgExtension(ManagedObject):
     }
 
     prop_map = {
+        "CPCount": "cp_count", 
+        "CPTemplateCount": "cp_template_count", 
         "SPCount": "sp_count", 
         "TemplateCount": "template_count", 
         "childAction": "child_action", 
@@ -37,6 +41,8 @@ class OrgExtension(ManagedObject):
 
     def __init__(self, parent_mo_or_dn, **kwargs):
         self._dirty_mask = 0
+        self.cp_count = None
+        self.cp_template_count = None
         self.sp_count = None
         self.template_count = None
         self.child_action = None

@@ -17,6 +17,7 @@ class FirmwareRunningConsts():
     TYPE_BLADE_CONTROLLER = "blade-controller"
     TYPE_BOARD_CONTROLLER = "board-controller"
     TYPE_CATALOG = "catalog"
+    TYPE_CHASSIS_BOARD_CONTROLLER = "chassis-board-controller"
     TYPE_CMC = "cmc"
     TYPE_CORE = "core"
     TYPE_DEBUG_PLUG_IN = "debug-plug-in"
@@ -37,11 +38,15 @@ class FirmwareRunningConsts():
     TYPE_PROVIDER = "provider"
     TYPE_PSU = "psu"
     TYPE_RESOURCE_AGGR = "resource-aggr"
+    TYPE_SAS_EXP_REG_FW = "sas-exp-reg-fw"
     TYPE_SAS_EXPANDER = "sas-expander"
     TYPE_SERVICE_REG = "service-reg"
     TYPE_STATS_MGR = "stats-mgr"
     TYPE_STORAGE_BROKER = "storage-broker"
     TYPE_STORAGE_CONTROLLER = "storage-controller"
+    TYPE_STORAGE_CONTROLLER_ONBOARD_DEVICE = "storage-controller-onboard-device"
+    TYPE_STORAGE_CONTROLLER_ONBOARD_DEVICE_CPLD = "storage-controller-onboard-device-cpld"
+    TYPE_STORAGE_DEV_BRIDGE = "storage-dev-bridge"
     TYPE_SWITCH = "switch"
     TYPE_SWITCH_KERNEL = "switch-kernel"
     TYPE_SWITCH_SOFTWARE = "switch-software"
@@ -55,7 +60,7 @@ class FirmwareRunning(ManagedObject):
     consts = FirmwareRunningConsts()
     naming_props = set([u'deployment'])
 
-    mo_meta = MoMeta("FirmwareRunning", "firmwareRunning", "fw-[deployment]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], [u'biosUnit', u'equipmentPsu', u'graphicsCard', u'mgmtController', u'osController', u'storageController', u'storageFlexFlashController', u'storageLocalDisk', u'storageSasExpander'], [], ["Get"])
+    mo_meta = MoMeta("FirmwareRunning", "firmwareRunning", "fw-[deployment]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], [u'biosUnit', u'equipmentPsu', u'graphicsCard', u'mgmtController', u'osController', u'storageController', u'storageFlexFlashController', u'storageLocalDisk', u'storageOnboardDevice', u'storageSasExpander'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
@@ -64,7 +69,7 @@ class FirmwareRunning(ManagedObject):
         "package_version": MoPropertyMeta("package_version", "packageVersion", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "catalog", "cmc", "core", "debug-plug-in", "diag", "fex", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "identifier-mgr", "iocard", "local-disk", "mgmt-ext", "operation-mgr", "policy-mgr", "provider", "psu", "resource-aggr", "sas-expander", "service-reg", "stats-mgr", "storage-broker", "storage-controller", "switch", "switch-kernel", "switch-software", "system", "unspecified"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "catalog", "chassis-board-controller", "cmc", "core", "debug-plug-in", "diag", "fex", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "identifier-mgr", "iocard", "local-disk", "mgmt-ext", "operation-mgr", "policy-mgr", "provider", "psu", "resource-aggr", "sas-exp-reg-fw", "sas-expander", "service-reg", "stats-mgr", "storage-broker", "storage-controller", "storage-controller-onboard-device", "storage-controller-onboard-device-cpld", "storage-dev-bridge", "switch", "switch-kernel", "switch-software", "system", "unspecified"], []), 
         "version": MoPropertyMeta("version", "version", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
     }
 

@@ -86,6 +86,7 @@ class FabricEnclosureSlotEp(ManagedObject):
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "conn_path": MoPropertyMeta("conn_path", "connPath", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|A|B),){0,3}(defaultValue|unknown|A|B){0,1}""", [], []), 
         "conn_status": MoPropertyMeta("conn_status", "connStatus", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|A|B),){0,3}(defaultValue|unknown|A|B){0,1}""", [], []), 
+        "discovery_status": MoPropertyMeta("discovery_status", "discoveryStatus", "string", None, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|A|B),){0,3}(defaultValue|unknown|A|B){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
         "ep_dn": MoPropertyMeta("ep_dn", "epDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "flt_aggr": MoPropertyMeta("flt_aggr", "fltAggr", "ulong", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
@@ -126,6 +127,7 @@ class FabricEnclosureSlotEp(ManagedObject):
         "childAction": "child_action", 
         "connPath": "conn_path", 
         "connStatus": "conn_status", 
+        "discoveryStatus": "discovery_status", 
         "dn": "dn", 
         "epDn": "ep_dn", 
         "fltAggr": "flt_aggr", 
@@ -168,6 +170,7 @@ class FabricEnclosureSlotEp(ManagedObject):
         self.child_action = None
         self.conn_path = None
         self.conn_status = None
+        self.discovery_status = None
         self.ep_dn = None
         self.flt_aggr = None
         self.if_role = None

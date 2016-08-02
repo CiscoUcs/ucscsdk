@@ -18,6 +18,7 @@ class LsbootLanConsts():
     PROT_GPXE = "gpxe"
     PROT_I_SCSI = "iSCSI"
     PROT_PXE = "pxe"
+    TYPE_EFI_SHELL = "efi-shell"
     TYPE_ISCSI = "iscsi"
     TYPE_LAN = "lan"
     TYPE_SAN = "san"
@@ -41,7 +42,7 @@ class LsbootLan(ManagedObject):
         "prot": MoPropertyMeta("prot", "prot", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["gpxe", "iSCSI", "pxe"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["iscsi", "lan", "san", "storage", "virtual-media"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["efi-shell", "iscsi", "lan", "san", "storage", "virtual-media"], []), 
     }
 
     prop_map = {

@@ -100,8 +100,10 @@ class BiosVfPCISlotOptionROMEnableConsts():
     VP_SLOT9_STATE_UEFI_ONLY = "uefi-only"
     VP_SLOT_MEZZ_STATE_DISABLED = "disabled"
     VP_SLOT_MEZZ_STATE_ENABLED = "enabled"
+    VP_SLOT_MEZZ_STATE_LEGACY_ONLY = "legacy-only"
     VP_SLOT_MEZZ_STATE_PLATFORM_DEFAULT = "platform-default"
     VP_SLOT_MEZZ_STATE_PLATFORM_RECOMMENDED = "platform-recommended"
+    VP_SLOT_MEZZ_STATE_UEFI_ONLY = "uefi-only"
 
 
 class BiosVfPCISlotOptionROMEnable(ManagedObject):
@@ -133,7 +135,7 @@ class BiosVfPCISlotOptionROMEnable(ManagedObject):
         "vp_slot7_state": MoPropertyMeta("vp_slot7_state", "vpSlot7State", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10000, None, None, None, ["disabled", "enabled", "legacy-only", "platform-default", "platform-recommended", "uefi-only"], []), 
         "vp_slot8_state": MoPropertyMeta("vp_slot8_state", "vpSlot8State", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x20000, None, None, None, ["disabled", "enabled", "legacy-only", "platform-default", "platform-recommended", "uefi-only"], []), 
         "vp_slot9_state": MoPropertyMeta("vp_slot9_state", "vpSlot9State", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x40000, None, None, None, ["disabled", "enabled", "legacy-only", "platform-default", "platform-recommended", "uefi-only"], []), 
-        "vp_slot_mezz_state": MoPropertyMeta("vp_slot_mezz_state", "vpSlotMezzState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x80000, None, None, None, ["disabled", "enabled", "platform-default", "platform-recommended"], []), 
+        "vp_slot_mezz_state": MoPropertyMeta("vp_slot_mezz_state", "vpSlotMezzState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x80000, None, None, None, ["disabled", "enabled", "legacy-only", "platform-default", "platform-recommended", "uefi-only"], []), 
     }
 
     prop_map = {

@@ -20,7 +20,7 @@ class ComputeNetworkFeatMask(ManagedObject):
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "feat_mask": MoPropertyMeta("feat_mask", "featMask", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|none|pvlan_feature_mask|netflow_feature_mask|vlan_range_feature_mask|vlan_range_extended_feature_mask|usnic_vmq_feature_mask),){0,6}(defaultValue|none|pvlan_feature_mask|netflow_feature_mask|vlan_range_feature_mask|vlan_range_extended_feature_mask|usnic_vmq_feature_mask){0,1}""", [], []), 
+        "feat_mask": MoPropertyMeta("feat_mask", "featMask", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|none|pvlan_feature_mask|netflow_feature_mask|vlan_range_feature_mask|vnic_pairing_feature_mask|vlan_range_extended_feature_mask|usnic_vmq_feature_mask),){0,7}(defaultValue|none|pvlan_feature_mask|netflow_feature_mask|vlan_range_feature_mask|vnic_pairing_feature_mask|vlan_range_extended_feature_mask|usnic_vmq_feature_mask){0,1}""", [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }

@@ -6,6 +6,9 @@ from ...ucscentralmeta import VersionMeta
 
 
 class FirmwareCatalogPackConsts():
+    CONFIG_STATE_FAILED = "failed"
+    CONFIG_STATE_NOT_APPLIED = "not-applied"
+    CONFIG_STATE_OK = "ok"
     INT_ID_NONE = "none"
     POLICY_OWNER_LOCAL = "local"
     POLICY_OWNER_PENDING_POLICY = "pending-policy"
@@ -20,12 +23,14 @@ class FirmwareCatalogPack(ManagedObject):
     consts = FirmwareCatalogPackConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("FirmwareCatalogPack", "firmwareCatalogPack", "fw-catalog-pack-[name]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "operations"], [u'orgDomainGroup', u'orgOrg'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FirmwareCatalogPack", "firmwareCatalogPack", "fw-catalog-pack-[name]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "operations"], [u'computeSystem', u'firmwareDomainInfraProfile', u'orgDomainGroup', u'orgOrg'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "catalog_name": MoPropertyMeta("catalog_name", "catalogName", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "catalog_version": MoPropertyMeta("catalog_version", "catalogVersion", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, 0, 510, None, [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "config_state": MoPropertyMeta("config_state", "configState", "string", None, MoPropertyMeta.READ_ONLY, None, None, None, None, ["failed", "not-applied", "ok"], []), 
+        "config_status_message": MoPropertyMeta("config_status_message", "configStatusMessage", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x4, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "int_id": MoPropertyMeta("int_id", "intId", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, ["none"], ["0-4294967295"]), 
@@ -43,6 +48,8 @@ class FirmwareCatalogPack(ManagedObject):
         "catalogName": "catalog_name", 
         "catalogVersion": "catalog_version", 
         "childAction": "child_action", 
+        "configState": "config_state", 
+        "configStatusMessage": "config_status_message", 
         "descr": "descr", 
         "dn": "dn", 
         "intId": "int_id", 
@@ -62,6 +69,8 @@ class FirmwareCatalogPack(ManagedObject):
         self.catalog_name = None
         self.catalog_version = None
         self.child_action = None
+        self.config_state = None
+        self.config_status_message = None
         self.descr = None
         self.int_id = None
         self.mode = None

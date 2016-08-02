@@ -238,6 +238,39 @@ def compute_re_qualify_membership(cookie, dn):
     return xml_request
 
 
+def config_check_hardware_compatibility(cookie, class_id, in_target_blade_firmware_version, in_target_dn, in_target_modular_firmware_version, in_target_rack_firmware_version, in_target_ucs_firmware_version):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("ConfigCheckHardwareCompatibility")
+
+    meta_class_id = coreutils.find_class_id_in_mo_meta_ignore_case(class_id)
+    if meta_class_id is not None:
+        class_id = ucscentralgenutils.word_l(meta_class_id)
+    method.class_id = class_id
+    method.cookie = cookie
+    method.in_target_blade_firmware_version = in_target_blade_firmware_version
+    method.in_target_dn = in_target_dn
+    method.in_target_modular_firmware_version = in_target_modular_firmware_version
+    method.in_target_rack_firmware_version = in_target_rack_firmware_version
+    method.in_target_ucs_firmware_version = in_target_ucs_firmware_version
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def config_clone(cookie, dn, in_chassis_profile_name, in_target_org, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("ConfigClone")
+
+    method.cookie = cookie
+    method.dn = dn
+    method.in_chassis_profile_name = in_chassis_profile_name
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_target_org = in_target_org
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
 def config_conf_filtered(cookie, class_id, in_config, in_filter, in_hierarchical=YesOrNo.FALSE):
     """ Auto-generated UCSCENTRAL XML API Method. """
     method = ExternalMethod("ConfigConfFiltered")
@@ -345,6 +378,19 @@ def config_find_dns_by_class_id(cookie, class_id, in_filter):
     return xml_request
 
 
+def config_find_policy_usage(cookie, in_policy_dn, in_policy_usage, in_return_configs):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("ConfigFindPolicyUsage")
+
+    method.cookie = cookie
+    method.in_policy_dn = in_policy_dn
+    method.in_policy_usage = in_policy_usage
+    method.in_return_configs = in_return_configs
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
 def config_get_ackables(cookie):
     """ Auto-generated UCSCENTRAL XML API Method. """
     method = ExternalMethod("ConfigGetAckables")
@@ -395,6 +441,18 @@ def config_get_id_universe_usage(cookie, in_domain_group_dn, in_id_type, in_show
     return xml_request
 
 
+def config_get_last_backed_up_domains(cookie, in_backup_type, in_domains):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("ConfigGetLastBackedUpDomains")
+
+    method.cookie = cookie
+    method.in_backup_type = in_backup_type
+    method.in_domains = in_domains
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
 def config_get_policy_domain_group(cookie, in_class_id, in_domain_id, in_policy_name):
     """ Auto-generated UCSCENTRAL XML API Method. """
     method = ExternalMethod("ConfigGetPolicyDomainGroup")
@@ -426,6 +484,51 @@ def config_get_token_requestors(cookie):
     method = ExternalMethod("ConfigGetTokenRequestors")
 
     method.cookie = cookie
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def config_instantiate_n_named_template(cookie, dn, in_error_on_existing, in_name_set, in_target_org, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("ConfigInstantiateNNamedTemplate")
+
+    method.cookie = cookie
+    method.dn = dn
+    method.in_error_on_existing = in_error_on_existing
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_name_set = in_name_set
+    method.in_target_org = in_target_org
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def config_instantiate_n_template(cookie, dn, in_chassis_profile_name_prefix_or_empty, in_number_of, in_target_org, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("ConfigInstantiateNTemplate")
+
+    method.cookie = cookie
+    method.dn = dn
+    method.in_chassis_profile_name_prefix_or_empty = in_chassis_profile_name_prefix_or_empty
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_number_of = str(in_number_of)
+    method.in_target_org = in_target_org
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def config_instantiate_template(cookie, dn, in_chassis_profile_name, in_error_on_existing, in_target_org, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("ConfigInstantiateTemplate")
+
+    method.cookie = cookie
+    method.dn = dn
+    method.in_chassis_profile_name = in_chassis_profile_name
+    method.in_error_on_existing = in_error_on_existing
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_target_org = in_target_org
 
     xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
     return xml_request
@@ -620,6 +723,29 @@ def config_resolve_class_db(cookie, class_id, in_filter, in_include_prop, in_key
     return xml_request
 
 
+def config_resolve_class_filter_idx(cookie, class_id, in_class, in_filter, in_include_prop, in_limit, in_offset, in_parent_dn, in_query, in_sort_str, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("ConfigResolveClassFilterIdx")
+
+    meta_class_id = coreutils.find_class_id_in_mo_meta_ignore_case(class_id)
+    if meta_class_id is not None:
+        class_id = ucscentralgenutils.word_l(meta_class_id)
+    method.class_id = class_id
+    method.cookie = cookie
+    method.in_class = in_class
+    method.in_filter = in_filter
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_include_prop = in_include_prop
+    method.in_limit = str(in_limit)
+    method.in_offset = str(in_offset)
+    method.in_parent_dn = in_parent_dn
+    method.in_query = in_query
+    method.in_sort_str = in_sort_str
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
 def config_resolve_class_idx(cookie, class_id, in_class, in_filter, in_include_prop, in_limit, in_offset, in_parent_dn, in_query, in_sort_str, in_hierarchical=YesOrNo.FALSE):
     """ Auto-generated UCSCENTRAL XML API Method. """
     method = ExternalMethod("ConfigResolveClassIdx")
@@ -787,6 +913,32 @@ def config_send_app_impact_response(cookie, in_app_impact_response_set):
     return xml_request
 
 
+def config_tags(cookie, in_configs):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("ConfigTags")
+
+    method.cookie = cookie
+    method.in_configs = in_configs
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def config_templatise(cookie, dn, in_target_org, in_template_name, in_template_type, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("ConfigTemplatise")
+
+    method.cookie = cookie
+    method.dn = dn
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_target_org = in_target_org
+    method.in_template_name = in_template_name
+    method.in_template_type = in_template_type
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
 def config_uc_estimate_impact(cookie, in_configs, in_impact_analyzer_id):
     """ Auto-generated UCSCENTRAL XML API Method. """
     method = ExternalMethod("ConfigUCEstimateImpact")
@@ -794,6 +946,80 @@ def config_uc_estimate_impact(cookie, in_configs, in_impact_analyzer_id):
     method.cookie = cookie
     method.in_configs = in_configs
     method.in_impact_analyzer_id = str(in_impact_analyzer_id)
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def equipment_clone(cookie, dn, in_chassis_profile_name, in_target_org, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("EquipmentClone")
+
+    method.cookie = cookie
+    method.dn = dn
+    method.in_chassis_profile_name = in_chassis_profile_name
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_target_org = in_target_org
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def equipment_instantiate_n_named_template(cookie, dn, in_error_on_existing, in_name_set, in_target_org, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("EquipmentInstantiateNNamedTemplate")
+
+    method.cookie = cookie
+    method.dn = dn
+    method.in_error_on_existing = in_error_on_existing
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_name_set = in_name_set
+    method.in_target_org = in_target_org
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def equipment_instantiate_n_template(cookie, dn, in_chassis_profile_name_prefix_or_empty, in_number_of, in_target_org, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("EquipmentInstantiateNTemplate")
+
+    method.cookie = cookie
+    method.dn = dn
+    method.in_chassis_profile_name_prefix_or_empty = in_chassis_profile_name_prefix_or_empty
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_number_of = str(in_number_of)
+    method.in_target_org = in_target_org
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def equipment_instantiate_template(cookie, dn, in_chassis_profile_name, in_error_on_existing, in_target_org, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("EquipmentInstantiateTemplate")
+
+    method.cookie = cookie
+    method.dn = dn
+    method.in_chassis_profile_name = in_chassis_profile_name
+    method.in_error_on_existing = in_error_on_existing
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_target_org = in_target_org
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def equipment_templatise(cookie, dn, in_target_org, in_template_name, in_template_type, in_hierarchical=YesOrNo.FALSE):
+    """ Auto-generated UCSCENTRAL XML API Method. """
+    method = ExternalMethod("EquipmentTemplatise")
+
+    method.cookie = cookie
+    method.dn = dn
+    method.in_hierarchical = (("false", "true")[in_hierarchical in ucscentralgenutils.AFFIRMATIVE_LIST])
+    method.in_target_org = in_target_org
+    method.in_template_name = in_template_name
+    method.in_template_type = in_template_type
 
     xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
     return xml_request
@@ -1126,7 +1352,7 @@ def method_vessel(cookie, in_stimuli):
     return xml_request
 
 
-def org_get_domain_firmware_report(cookie, in_domain_group_dn, in_domain_list, in_firmware_type):
+def org_get_domain_firmware_report(cookie, in_domain_group_dn, in_domain_list, in_firmware_type, in_maint_tag):
     """ Auto-generated UCSCENTRAL XML API Method. """
     method = ExternalMethod("OrgGetDomainFirmwareReport")
 
@@ -1134,6 +1360,7 @@ def org_get_domain_firmware_report(cookie, in_domain_group_dn, in_domain_list, i
     method.in_domain_group_dn = in_domain_group_dn
     method.in_domain_list = in_domain_list
     method.in_firmware_type = in_firmware_type
+    method.in_maint_tag = in_maint_tag
 
     xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
     return xml_request
@@ -1152,7 +1379,7 @@ def org_get_domain_policy_report(cookie, in_config, in_domain_group_dn, in_domai
     return xml_request
 
 
-def org_get_impacted_domains(cookie, in_config, in_domain_group_dn, in_domain_type, in_firmware_type):
+def org_get_impacted_domains(cookie, in_config, in_domain_group_dn, in_domain_type, in_dynamic, in_firmware_type, in_maint_tag, in_profile_name):
     """ Auto-generated UCSCENTRAL XML API Method. """
     method = ExternalMethod("OrgGetImpactedDomains")
 
@@ -1160,20 +1387,26 @@ def org_get_impacted_domains(cookie, in_config, in_domain_group_dn, in_domain_ty
     method.in_config = in_config
     method.in_domain_group_dn = in_domain_group_dn
     method.in_domain_type = in_domain_type
+    method.in_dynamic = in_dynamic
     method.in_firmware_type = in_firmware_type
+    method.in_maint_tag = in_maint_tag
+    method.in_profile_name = in_profile_name
 
     xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
     return xml_request
 
 
-def org_get_num_impacted_domains(cookie, in_config, in_domain_group_dn, in_firmware_type):
+def org_get_num_impacted_domains(cookie, in_config, in_domain_group_dn, in_dynamic, in_firmware_type, in_maint_tag, in_profile_name):
     """ Auto-generated UCSCENTRAL XML API Method. """
     method = ExternalMethod("OrgGetNumImpactedDomains")
 
     method.cookie = cookie
     method.in_config = in_config
     method.in_domain_group_dn = in_domain_group_dn
+    method.in_dynamic = in_dynamic
     method.in_firmware_type = in_firmware_type
+    method.in_maint_tag = in_maint_tag
+    method.in_profile_name = in_profile_name
 
     xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
     return xml_request

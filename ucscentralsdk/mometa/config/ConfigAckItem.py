@@ -17,6 +17,9 @@ class ConfigAckItemConsts():
     DISR_TYPE_FABRIC_INTERCONNECT = "fabric-interconnect"
     DISR_TYPE_FIRMWARE_INFRA = "firmware-infra"
     DISR_TYPE_HOST = "host"
+    INSTANCE_TYPE_CP = "cp"
+    INSTANCE_TYPE_SP = "sp"
+    INSTANCE_TYPE_UNKNOW = "unknow"
     OPER_STATE_ACK_APPLIED = "applied"
     OPER_STATE_ACK_APPLY_PENDING = "apply-pending"
     OPER_STATE_ACK_EVALUATED = "evaluated"
@@ -46,12 +49,14 @@ class ConfigAckItem(ManagedObject):
         "admin_state_ack": MoPropertyMeta("admin_state_ack", "adminStateAck", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["trigger", "trigger-immediate", "triggered", "untriggered", "user-ack"], []), 
         "admin_state_requestor": MoPropertyMeta("admin_state_requestor", "adminStateRequestor", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["auto-sched", "force-ack", "sched-ack"], []), 
         "change_by": MoPropertyMeta("change_by", "changeBy", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[a-zA-Z][a-zA-Z0-9_.@-]{0,31}""", [], []), 
+        "changes": MoPropertyMeta("changes", "changes", "string", None, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|storage|boot-order|chassis-assignment|server-assignment|operational-policies|chassis-identity|server-identity|networking|vnic-vhba-placement),){0,9}(defaultValue|storage|boot-order|chassis-assignment|server-assignment|operational-policies|chassis-identity|server-identity|networking|vnic-vhba-placement){0,1}""", [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "disr_type": MoPropertyMeta("disr_type", "disrType", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["fabric-interconnect", "firmware-infra", "host"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "domain_dn": MoPropertyMeta("domain_dn", "domainDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "domain_group_dn": MoPropertyMeta("domain_group_dn", "domainGroupDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "domain_name": MoPropertyMeta("domain_name", "domainName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "instance_type": MoPropertyMeta("instance_type", "instanceType", "string", None, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cp", "sp", "unknow"], []), 
         "oper_scheduler": MoPropertyMeta("oper_scheduler", "operScheduler", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_state_ack": MoPropertyMeta("oper_state_ack", "operStateAck", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["applied", "apply-pending", "evaluated", "evaluation-pending", "untriggered", "waiting-for-dependency", "waiting-for-maint-window", "waiting-for-user"], []), 
         "oper_state_requestor": MoPropertyMeta("oper_state_requestor", "operStateRequestor", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cap-reached", "failed", "in-progress", "pending", "pending-ack", "triggered"], []), 
@@ -61,6 +66,7 @@ class ConfigAckItem(ManagedObject):
         "service_profile_dn": MoPropertyMeta("service_profile_dn", "serviceProfileDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "service_profile_name": MoPropertyMeta("service_profile_name", "serviceProfileName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "tag_name": MoPropertyMeta("tag_name", "tagName", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 64, r"""[a-zA-Z0-9=\[\]!#$%()*+\\,-./:;@_\s{|}~?]+""", [], []), 
     }
 
     prop_map = {
@@ -68,12 +74,14 @@ class ConfigAckItem(ManagedObject):
         "adminStateAck": "admin_state_ack", 
         "adminStateRequestor": "admin_state_requestor", 
         "changeBy": "change_by", 
+        "changes": "changes", 
         "childAction": "child_action", 
         "disrType": "disr_type", 
         "dn": "dn", 
         "domainDn": "domain_dn", 
         "domainGroupDn": "domain_group_dn", 
         "domainName": "domain_name", 
+        "instanceType": "instance_type", 
         "operScheduler": "oper_scheduler", 
         "operStateAck": "oper_state_ack", 
         "operStateRequestor": "oper_state_requestor", 
@@ -83,6 +91,7 @@ class ConfigAckItem(ManagedObject):
         "serviceProfileDn": "service_profile_dn", 
         "serviceProfileName": "service_profile_name", 
         "status": "status", 
+        "tagName": "tag_name", 
     }
 
     def __init__(self, parent_mo_or_dn, **kwargs):
@@ -91,11 +100,13 @@ class ConfigAckItem(ManagedObject):
         self.admin_state_ack = None
         self.admin_state_requestor = None
         self.change_by = None
+        self.changes = None
         self.child_action = None
         self.disr_type = None
         self.domain_dn = None
         self.domain_group_dn = None
         self.domain_name = None
+        self.instance_type = None
         self.oper_scheduler = None
         self.oper_state_ack = None
         self.oper_state_requestor = None
@@ -104,6 +115,7 @@ class ConfigAckItem(ManagedObject):
         self.service_profile_dn = None
         self.service_profile_name = None
         self.status = None
+        self.tag_name = None
 
         ManagedObject.__init__(self, "ConfigAckItem", parent_mo_or_dn, **kwargs)
 

@@ -11,6 +11,7 @@ class FirmwareDependencyConsts():
     EP_BLADE_CONTROLLER = "blade-controller"
     EP_BOARD_CONTROLLER = "board-controller"
     EP_CATALOG = "catalog"
+    EP_CHASSIS_BOARD_CONTROLLER = "chassis-board-controller"
     EP_CMC = "cmc"
     EP_CORE = "core"
     EP_DEBUG_PLUG_IN = "debug-plug-in"
@@ -31,11 +32,15 @@ class FirmwareDependencyConsts():
     EP_PROVIDER = "provider"
     EP_PSU = "psu"
     EP_RESOURCE_AGGR = "resource-aggr"
+    EP_SAS_EXP_REG_FW = "sas-exp-reg-fw"
     EP_SAS_EXPANDER = "sas-expander"
     EP_SERVICE_REG = "service-reg"
     EP_STATS_MGR = "stats-mgr"
     EP_STORAGE_BROKER = "storage-broker"
     EP_STORAGE_CONTROLLER = "storage-controller"
+    EP_STORAGE_CONTROLLER_ONBOARD_DEVICE = "storage-controller-onboard-device"
+    EP_STORAGE_CONTROLLER_ONBOARD_DEVICE_CPLD = "storage-controller-onboard-device-cpld"
+    EP_STORAGE_DEV_BRIDGE = "storage-dev-bridge"
     EP_SWITCH = "switch"
     EP_SWITCH_KERNEL = "switch-kernel"
     EP_SWITCH_SOFTWARE = "switch-software"
@@ -54,7 +59,7 @@ class FirmwareDependency(ManagedObject):
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "ep": MoPropertyMeta("ep", "ep", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x4, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "catalog", "cmc", "core", "debug-plug-in", "diag", "fex", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "identifier-mgr", "iocard", "local-disk", "mgmt-ext", "operation-mgr", "policy-mgr", "provider", "psu", "resource-aggr", "sas-expander", "service-reg", "stats-mgr", "storage-broker", "storage-controller", "switch", "switch-kernel", "switch-software", "system", "unspecified"], []), 
+        "ep": MoPropertyMeta("ep", "ep", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x4, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "catalog", "chassis-board-controller", "cmc", "core", "debug-plug-in", "diag", "fex", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "identifier-mgr", "iocard", "local-disk", "mgmt-ext", "operation-mgr", "policy-mgr", "provider", "psu", "resource-aggr", "sas-exp-reg-fw", "sas-expander", "service-reg", "stats-mgr", "storage-broker", "storage-controller", "storage-controller-onboard-device", "storage-controller-onboard-device-cpld", "storage-dev-bridge", "switch", "switch-kernel", "switch-software", "system", "unspecified"], []), 
         "hw_model": MoPropertyMeta("hw_model", "hwModel", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x8, 1, 510, None, [], []), 
         "hw_revision": MoPropertyMeta("hw_revision", "hwRevision", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x10, 1, 510, None, [], []), 
         "hw_vendor": MoPropertyMeta("hw_vendor", "hwVendor", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x20, 1, 510, None, [], []), 

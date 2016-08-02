@@ -62,6 +62,7 @@ class FirmwareDownloaderConsts():
     FSM_RMT_INV_ERR_CODE_ERR_AUTH_REALM_SET_ERROR = "ERR-auth-realm-set-error"
     FSM_RMT_INV_ERR_CODE_ERR_AUTHENTICATION = "ERR-authentication"
     FSM_RMT_INV_ERR_CODE_ERR_AUTHORIZATION_REQUIRED = "ERR-authorization-required"
+    FSM_RMT_INV_ERR_CODE_ERR_CREATE_CHASSISPACK_UNDER_DG = "ERR-create-chassispack-under-dg"
     FSM_RMT_INV_ERR_CODE_ERR_CREATE_HFP_UNDER_DG = "ERR-create-hfp-under-dg"
     FSM_RMT_INV_ERR_CODE_ERR_CREATE_KEYRING = "ERR-create-keyring"
     FSM_RMT_INV_ERR_CODE_ERR_CREATE_LOCALE = "ERR-create-locale"
@@ -124,6 +125,7 @@ class FirmwareDownloaderConsts():
     PROTOCOL_TFTP = "tftp"
     TRANSFER_STATE_DOWNLOADED = "downloaded"
     TRANSFER_STATE_DOWNLOADING = "downloading"
+    TRANSFER_STATE_EULA_ACCEPTANCE_REQUIRED = "eula-acceptance-required"
     TRANSFER_STATE_FAILED = "failed"
     TRANSFER_STATE_INIT = "init"
 
@@ -145,15 +147,23 @@ class FirmwareDownloader(ManagedObject):
         "fsm_descr": MoPropertyMeta("fsm_descr", "fsmDescr", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "fsm_prev": MoPropertyMeta("fsm_prev", "fsmPrev", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, ["DownloadBegin", "DownloadDeleteLocal", "DownloadFail", "DownloadLocal", "DownloadSuccess", "DownloadUnpackLocal", "nop"], []), 
         "fsm_progr": MoPropertyMeta("fsm_progr", "fsmProgr", "byte", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, [], ["0-100"]), 
-        "fsm_rmt_inv_err_code": MoPropertyMeta("fsm_rmt_inv_err_code", "fsmRmtInvErrCode", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ERR-DNLD-authentication-failure", "ERR-DNLD-error", "ERR-DNLD-hostkey-mismatch", "ERR-DNLD-invalid-image", "ERR-DNLD-no-file", "ERR-DNLD-no-space", "ERR-DNS-delete-error", "ERR-DNS-get-error", "ERR-DNS-set-error", "ERR-Digest-Validation-error", "ERR-Exec-Gen-Cert-error", "ERR-Exec-Get-CA-Cert-error", "ERR-FILTER-illegal-format", "ERR-FSM-no-such-state", "ERR-Get-CA-Cert-error", "ERR-Get-Cert-error", "ERR-Get-Out-Diget-Message-error", "ERR-HTTP-Request-error", "ERR-HTTP-set-error", "ERR-HTTPS-set-error", "ERR-Ipv6-addr-configured", "ERR-MO-CONFIG-child-object-cant-be-configured", "ERR-MO-META-no-such-object-class", "ERR-MO-PROPERTY-no-such-property", "ERR-MO-PROPERTY-value-out-of-range", "ERR-MO-access-denied", "ERR-MO-deletion-rule-violation", "ERR-MO-duplicate-object", "ERR-MO-illegal-containment", "ERR-MO-illegal-creation", "ERR-MO-illegal-iterator-state", "ERR-MO-illegal-object-lifecycle-transition", "ERR-MO-naming-rule-violation", "ERR-MO-object-not-found", "ERR-MO-resource-allocation", "ERR-NTP-delete-error", "ERR-NTP-get-error", "ERR-NTP-set-error", "ERR-Policy-resolution-in-progress", "ERR-TOKEN-request-denied", "ERR-Update-VM-IP-Mask-Gateway-error", "ERR-aaa-config-modify-error", "ERR-acct-realm-set-error", "ERR-admin-passwd-set", "ERR-auth-realm-set-error", "ERR-authentication", "ERR-authorization-required", "ERR-create-hfp-under-dg", "ERR-create-keyring", "ERR-create-locale", "ERR-create-role", "ERR-create-user", "ERR-delete-locale", "ERR-delete-role", "ERR-delete-session", "ERR-delete-user", "ERR-estimate-impact-on-reconnect", "ERR-get-max-http-user-sessions", "ERR-http-initializing", "ERR-internal-error", "ERR-ldap-delete-error", "ERR-ldap-get-error", "ERR-ldap-group-modify-error", "ERR-ldap-group-set-error", "ERR-ldap-set-error", "ERR-locale-set-error", "ERR-max-userid-sessions-reached", "ERR-modify-locale", "ERR-modify-role", "ERR-modify-user", "ERR-modify-user-locale", "ERR-modify-user-role", "ERR-nfs-down", "ERR-provider-group-modify-error", "ERR-provider-group-set-error", "ERR-radius-global-set-error", "ERR-radius-group-set-error", "ERR-radius-set-error", "ERR-role-set-error", "ERR-service-not-ready", "ERR-session-cache-full", "ERR-session-not-found", "ERR-set-password-strength-check", "ERR-tacacs-enable-error", "ERR-tacacs-global-set-error", "ERR-tacacs-group-set-error", "ERR-tacacs-set-error", "ERR-timezone-set-error", "ERR-user-account-expired", "ERR-user-set-error", "none"], ["0-4294967295"]), 
+        "fsm_rmt_inv_err_code": MoPropertyMeta("fsm_rmt_inv_err_code", "fsmRmtInvErrCode", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ERR-DNLD-authentication-failure", "ERR-DNLD-error", "ERR-DNLD-hostkey-mismatch", "ERR-DNLD-invalid-image", "ERR-DNLD-no-file", "ERR-DNLD-no-space", "ERR-DNS-delete-error", "ERR-DNS-get-error", "ERR-DNS-set-error", "ERR-Digest-Validation-error", "ERR-Exec-Gen-Cert-error", "ERR-Exec-Get-CA-Cert-error", "ERR-FILTER-illegal-format", "ERR-FSM-no-such-state", "ERR-Get-CA-Cert-error", "ERR-Get-Cert-error", "ERR-Get-Out-Diget-Message-error", "ERR-HTTP-Request-error", "ERR-HTTP-set-error", "ERR-HTTPS-set-error", "ERR-Ipv6-addr-configured", "ERR-MO-CONFIG-child-object-cant-be-configured", "ERR-MO-META-no-such-object-class", "ERR-MO-PROPERTY-no-such-property", "ERR-MO-PROPERTY-value-out-of-range", "ERR-MO-access-denied", "ERR-MO-deletion-rule-violation", "ERR-MO-duplicate-object", "ERR-MO-illegal-containment", "ERR-MO-illegal-creation", "ERR-MO-illegal-iterator-state", "ERR-MO-illegal-object-lifecycle-transition", "ERR-MO-naming-rule-violation", "ERR-MO-object-not-found", "ERR-MO-resource-allocation", "ERR-NTP-delete-error", "ERR-NTP-get-error", "ERR-NTP-set-error", "ERR-Policy-resolution-in-progress", "ERR-TOKEN-request-denied", "ERR-Update-VM-IP-Mask-Gateway-error", "ERR-aaa-config-modify-error", "ERR-acct-realm-set-error", "ERR-admin-passwd-set", "ERR-auth-realm-set-error", "ERR-authentication", "ERR-authorization-required", "ERR-create-chassispack-under-dg", "ERR-create-hfp-under-dg", "ERR-create-keyring", "ERR-create-locale", "ERR-create-role", "ERR-create-user", "ERR-delete-locale", "ERR-delete-role", "ERR-delete-session", "ERR-delete-user", "ERR-estimate-impact-on-reconnect", "ERR-get-max-http-user-sessions", "ERR-http-initializing", "ERR-internal-error", "ERR-ldap-delete-error", "ERR-ldap-get-error", "ERR-ldap-group-modify-error", "ERR-ldap-group-set-error", "ERR-ldap-set-error", "ERR-locale-set-error", "ERR-max-userid-sessions-reached", "ERR-modify-locale", "ERR-modify-role", "ERR-modify-user", "ERR-modify-user-locale", "ERR-modify-user-role", "ERR-nfs-down", "ERR-provider-group-modify-error", "ERR-provider-group-set-error", "ERR-radius-global-set-error", "ERR-radius-group-set-error", "ERR-radius-set-error", "ERR-role-set-error", "ERR-service-not-ready", "ERR-session-cache-full", "ERR-session-not-found", "ERR-set-password-strength-check", "ERR-tacacs-enable-error", "ERR-tacacs-global-set-error", "ERR-tacacs-group-set-error", "ERR-tacacs-set-error", "ERR-timezone-set-error", "ERR-user-account-expired", "ERR-user-set-error", "none"], ["0-4294967295"]), 
         "fsm_rmt_inv_err_descr": MoPropertyMeta("fsm_rmt_inv_err_descr", "fsmRmtInvErrDescr", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, 0, 510, None, [], []), 
         "fsm_rmt_inv_rslt": MoPropertyMeta("fsm_rmt_inv_rslt", "fsmRmtInvRslt", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((defaultValue|not-applicable|resource-unavailable|service-unavailable|intermittent-error|sw-defect|service-not-implemented-ignore|extend-timeout|capability-not-implemented-failure|illegal-fru|end-point-unavailable|failure|resource-capacity-exceeded|service-protocol-error|fw-defect|service-not-implemented-fail|task-reset|unidentified-fail|capability-not-supported|end-point-failed|fru-state-indeterminate|resource-dependency|fru-identity-indeterminate|internal-error|hw-defect|service-not-supported|fru-not-supported|end-point-protocol-error|capability-unavailable|fru-not-ready|capability-not-implemented-ignore|fru-info-malformed|timeout),){0,32}(defaultValue|not-applicable|resource-unavailable|service-unavailable|intermittent-error|sw-defect|service-not-implemented-ignore|extend-timeout|capability-not-implemented-failure|illegal-fru|end-point-unavailable|failure|resource-capacity-exceeded|service-protocol-error|fw-defect|service-not-implemented-fail|task-reset|unidentified-fail|capability-not-supported|end-point-failed|fru-state-indeterminate|resource-dependency|fru-identity-indeterminate|internal-error|hw-defect|service-not-supported|fru-not-supported|end-point-protocol-error|capability-unavailable|fru-not-ready|capability-not-implemented-ignore|fru-info-malformed|timeout){0,1}""", [], []), 
         "fsm_stage_descr": MoPropertyMeta("fsm_stage_descr", "fsmStageDescr", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "fsm_stamp": MoPropertyMeta("fsm_stamp", "fsmStamp", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", ["never"], []), 
         "fsm_status": MoPropertyMeta("fsm_status", "fsmStatus", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, ["DownloadBegin", "DownloadDeleteLocal", "DownloadFail", "DownloadLocal", "DownloadSuccess", "DownloadUnpackLocal", "nop"], []), 
         "fsm_try": MoPropertyMeta("fsm_try", "fsmTry", "byte", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
+        "image_guid": MoPropertyMeta("image_guid", "imageGuid", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "image_page_index": MoPropertyMeta("image_page_index", "imagePageIndex", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "image_size": MoPropertyMeta("image_size", "imageSize", "uint", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "image_url": MoPropertyMeta("image_url", "imageUrl", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "mdf_id": MoPropertyMeta("mdf_id", "mdfId", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "meta_trans_id": MoPropertyMeta("meta_trans_id", "metaTransId", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oauth_create_ts": MoPropertyMeta("oauth_create_ts", "oauthCreateTs", "string", None, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
+        "oauth_token_expiry": MoPropertyMeta("oauth_token_expiry", "oauthTokenExpiry", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oauth_token_type": MoPropertyMeta("oauth_token_type", "oauthTokenType", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oauth_token_val": MoPropertyMeta("oauth_token_val", "oauthTokenVal", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["management", "policy"], []), 
         "protocol": MoPropertyMeta("protocol", "protocol", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["ftp", "http", "local", "scp", "sftp", "tftp"], []), 
         "proxy_pwd": MoPropertyMeta("proxy_pwd", "proxyPwd", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
@@ -163,8 +173,9 @@ class FirmwareDownloader(ManagedObject):
         "remote_path": MoPropertyMeta("remote_path", "remotePath", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x80, None, None, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x100, 0, 256, None, [], []), 
         "server": MoPropertyMeta("server", "server", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x200, 0, 64, None, [], []), 
+        "software_type_id": MoPropertyMeta("software_type_id", "softwareTypeId", "string", None, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x400, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "transfer_state": MoPropertyMeta("transfer_state", "transferState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["downloaded", "downloading", "failed", "init"], []), 
+        "transfer_state": MoPropertyMeta("transfer_state", "transferState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["downloaded", "downloading", "eula-acceptance-required", "failed", "init"], []), 
         "user": MoPropertyMeta("user", "user", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x800, 0, 510, None, [], []), 
     }
 
@@ -184,8 +195,16 @@ class FirmwareDownloader(ManagedObject):
         "fsmStamp": "fsm_stamp", 
         "fsmStatus": "fsm_status", 
         "fsmTry": "fsm_try", 
+        "imageGuid": "image_guid", 
+        "imagePageIndex": "image_page_index", 
         "imageSize": "image_size", 
         "imageUrl": "image_url", 
+        "mdfId": "mdf_id", 
+        "metaTransId": "meta_trans_id", 
+        "oauthCreateTs": "oauth_create_ts", 
+        "oauthTokenExpiry": "oauth_token_expiry", 
+        "oauthTokenType": "oauth_token_type", 
+        "oauthTokenVal": "oauth_token_val", 
         "owner": "owner", 
         "protocol": "protocol", 
         "proxyPwd": "proxy_pwd", 
@@ -195,6 +214,7 @@ class FirmwareDownloader(ManagedObject):
         "remotePath": "remote_path", 
         "rn": "rn", 
         "server": "server", 
+        "softwareTypeId": "software_type_id", 
         "status": "status", 
         "transferState": "transfer_state", 
         "user": "user", 
@@ -216,8 +236,16 @@ class FirmwareDownloader(ManagedObject):
         self.fsm_stamp = None
         self.fsm_status = None
         self.fsm_try = None
+        self.image_guid = None
+        self.image_page_index = None
         self.image_size = None
         self.image_url = None
+        self.mdf_id = None
+        self.meta_trans_id = None
+        self.oauth_create_ts = None
+        self.oauth_token_expiry = None
+        self.oauth_token_type = None
+        self.oauth_token_val = None
         self.owner = None
         self.protocol = None
         self.proxy_pwd = None
@@ -226,6 +254,7 @@ class FirmwareDownloader(ManagedObject):
         self.pwd = None
         self.remote_path = None
         self.server = None
+        self.software_type_id = None
         self.status = None
         self.transfer_state = None
         self.user = None
