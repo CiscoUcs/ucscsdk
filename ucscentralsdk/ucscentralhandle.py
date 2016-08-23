@@ -133,7 +133,7 @@ class UcsCentralHandle(UcsCentralSession):
 
         return self._logout()
 
-    def process_xml_elem(self, elem):
+    def process_xml_elem(self, elem, dme="central-mgr"):
         """
         process_xml_elem is a helper method which posts xml elements to the
         server and returns parsed response. It's role is to operate on the
@@ -142,6 +142,7 @@ class UcsCentralHandle(UcsCentralSession):
 
         Args:
             elem (xml element object)
+            dme: DME to post the query to
 
         Returns:
             mo list or external method object
@@ -152,7 +153,7 @@ class UcsCentralHandle(UcsCentralSession):
             dn_objs = handle.process_xml_elem(elem)
         """
 
-        response = self.post_elem(elem)
+        response = self.post_elem(elem, dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code,
                                       response.error_descr)
@@ -212,7 +213,7 @@ class UcsCentralHandle(UcsCentralSession):
 
         return auth_token
 
-    def query_dns(self, *dns):
+    def query_dns(self, dns=[], dme="central-mgr"):
         """
         Queries multiple obects from the server based of a comma separated list
         of their distinguised names.
@@ -220,13 +221,14 @@ class UcsCentralHandle(UcsCentralSession):
         Args:
             dns (comma separated strings): distinguished names to be
                 queried for
+            dme: DME to post the query to.
 
         Returns:
             Dictionary {dn1: object, dn2: object2}
 
         Example:
-            obj = handle.lookup_by_dns("fabric/lan/net-100",
-                                       "fabric/lan/net-101")
+            obj = handle.query_dns(["fabric/lan/net-100",
+                                       "fabric/lan/net-101"])
         """
 
         from .ucscentralbasetype import DnSet, Dn
@@ -247,7 +249,7 @@ class UcsCentralHandle(UcsCentralSession):
             dn_set.child_add(dn_obj)
 
         elem = config_resolve_dns(cookie=self.cookie, in_dns=dn_set)
-        response = self.post_elem(elem)
+        response = self.post_elem(elem, dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code,
                                       response.error_descr)
@@ -257,19 +259,20 @@ class UcsCentralHandle(UcsCentralSession):
 
         return dn_dict
 
-    def query_classids(self, *class_ids):
+    def query_classids(self, class_ids=[], dme="central-mgr"):
         """
         Queries multiple obects from the server based of a comma separated list
         of their class Ids.
 
         Args:
             class_ids (comma separated strings): Class Ids to be queried for
+            dme: DME to post the query to
 
         Returns:
         Dictionary {class_id1: [objects], class_id2: [objects]}
 
         Example:
-            obj = handle.lookup_by_dns("OrgOrg", "LsServer")
+            obj = handle.query_classids(["OrgOrg", "LsServer"])
         """
 
         from .ucscentralbasetype import ClassIdSet, ClassId
@@ -296,7 +299,7 @@ class UcsCentralHandle(UcsCentralSession):
             class_id_set.child_add(class_id_obj)
 
         elem = config_resolve_classes(cookie=self.cookie, in_ids=class_id_set)
-        response = self.post_elem(elem)
+        response = self.post_elem(elem, dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code, response.error_descr)
 
@@ -305,7 +308,7 @@ class UcsCentralHandle(UcsCentralSession):
 
         return class_id_dict
 
-    def query_dn(self, dn, hierarchy=False, need_response=False):
+    def query_dn(self, dn, hierarchy=False, need_response=False, dme="central-mgr"):
         """
         Finds an object using it's distinguished name.
 
@@ -316,6 +319,7 @@ class UcsCentralHandle(UcsCentralSession):
             need_response(bool): True/False,
                                 return the response xml node, instead of parsed
                                 objects
+            dme: DME to post the query to
 
         Returns:
             managedobject or None   by default\n
@@ -345,7 +349,7 @@ class UcsCentralHandle(UcsCentralSession):
         elem = config_resolve_dns(cookie=self.cookie,
                                   in_dns=dn_set,
                                   in_hierarchical=hierarchy)
-        response = self.post_elem(elem)
+        response = self.post_elem(elem, dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code, response.error_descr)
 
@@ -365,7 +369,7 @@ class UcsCentralHandle(UcsCentralSession):
         return mo
 
     def query_classid(self, class_id=None, filter_str=None, hierarchy=False,
-                      need_response=False):
+                      need_response=False, dme="central-mgr"):
         """
         Finds an object using it's class id.
 
@@ -394,6 +398,7 @@ class UcsCentralHandle(UcsCentralSession):
                              hierarchical objects.
             need_response(bool): if set to True will return only response
                                 object.
+            dme: DME to post the query to
 
 
         Returns:
@@ -437,7 +442,7 @@ class UcsCentralHandle(UcsCentralSession):
                                     class_id=meta_class_id,
                                     in_filter=in_filter,
                                     in_hierarchical=hierarchy)
-        response = self.post_elem(elem)
+        response = self.post_elem(elem, dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code, response.error_descr)
 
@@ -449,7 +454,7 @@ class UcsCentralHandle(UcsCentralSession):
         return out_mo_list
 
     def query_children(self, in_mo=None, in_dn=None, class_id=None,
-                       filter_str=None, hierarchy=False):
+                       filter_str=None, hierarchy=False, dme):
         """
         Finds children of a given managed object or distinguished name.
         Arguments can be specified to query only a specific type(class_id)
@@ -489,6 +494,7 @@ class UcsCentralHandle(UcsCentralSession):
                                 object.
             hierarchy(bool): if set to True will return all the child
                               hierarchical objects.
+            dme: DME to post the query to
 
         Returns:
             managedobjectlist or None   by default\n
@@ -540,7 +546,7 @@ class UcsCentralHandle(UcsCentralSession):
                                        in_dn=parent_dn,
                                        in_filter=in_filter,
                                        in_hierarchical=hierarchy)
-        response = self.post_elem(elem)
+        response = self.post_elem(elem, dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code, response.error_descr)
 
@@ -661,7 +667,7 @@ class UcsCentralHandle(UcsCentralSession):
 
         self._update_commit_buf(mo, tag)
 
-    def commit(self, tag=None):
+    def commit(self, tag=None, dme="central-mgr"):
         """
         Commit the buffer to the server. Pushes all the configuration changes
         so far to the server.
@@ -669,7 +675,7 @@ class UcsCentralHandle(UcsCentralSession):
         set_mo(), remove_mo() prior to making a handle.commit()
 
         Args:
-            None
+            dme: DME to post the query to
 
         Returns:
             None
@@ -708,7 +714,7 @@ class UcsCentralHandle(UcsCentralSession):
             config_map.child_add(pair)
 
         elem = config_conf_mos(self.cookie, config_map, False)
-        response = self.post_elem(elem)
+        response = self.post_elem(elem, dme)
         if response.error_code != 0:
             self.commit_buffer_discard(tag)
             raise UcsCentralException(response.error_code, response.error_descr)
@@ -726,7 +732,7 @@ class UcsCentralHandle(UcsCentralSession):
 
             elem = config_resolve_dns(cookie=self.cookie,
                                       in_dns=dn_set)
-            response = self.post_elem(elem)
+            response = self.post_elem(elem, dme)
             if response.error_code != 0:
                 raise UcsCentralException(response.error_code,
                                           response.error_descr)

@@ -182,7 +182,7 @@ class UcsCentralSession(object):
         response = self.__driver.post(uri=uri, data=data, read=read)
         return response
 
-    def post_xml(self, xml_str, read=True):
+    def post_xml(self, xml_str, read=True, dme="central-mgr"):
         """
         sends the xml request and receives the response from ucs central server
 
@@ -196,12 +196,12 @@ class UcsCentralSession(object):
             response = post_xml('<aaaLogin inName="user" inPassword="pass">')
         """
 
-        ucscentral_uri = self.__uri + "/xmlIM/central-mgr"
-        response_str = self.post(uri=ucscentral_uri, data=xml_str, read=read)
+        ucsm_uri = self.__uri + "/xmlIM/" + dme
+        response_str = self.post(uri=ucsm_uri, data=xml_str, read=read)
 
         return response_str
 
-    def post_elem(self, elem):
+    def post_elem(self, elem, dme="central-mgr"):
         """
         sends the request and receives the response from ucs central server using xml
         element
@@ -237,7 +237,7 @@ class UcsCentralSession(object):
         else:
             xml_str = xc.to_xml_str(elem)
 
-        response_str = self.post_xml(xml_str)
+        response_str = self.post_xml(xml_str, dme)
         if dump_xml:
             log.debug('%s <==== %s' % (self.__uri, response_str))
 
