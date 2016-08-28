@@ -15,7 +15,7 @@
 # init logging
 import logging
 
-log = logging.getLogger('ucs')
+log = logging.getLogger('ucscentral')
 log.setLevel(logging.DEBUG)
 
 # create console handler and set level to debug
