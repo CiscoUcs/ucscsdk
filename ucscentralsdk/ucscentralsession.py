@@ -237,7 +237,7 @@ class UcsCentralSession(object):
         else:
             xml_str = xc.to_xml_str(elem)
 
-        response_str = self.post_xml(xml_str, dme)
+        response_str = self.post_xml(xml_str, dme=dme)
         if dump_xml:
             log.debug('%s <==== %s' % (self.__uri, response_str))
 
@@ -273,7 +273,7 @@ class UcsCentralSession(object):
         Example:
             file_download(url_suffix='backupfile/config_backup.xml',
                           dest_dir='/home/user/backup',
-                          file_name='my_config_backup.xml')
+                          file_name='my_config_backup.tgz')
         """
 
         from .ucscentralgenutils import download_file
@@ -307,8 +307,8 @@ class UcsCentralSession(object):
 
         Example:
             source_dir = "/home/user/backup"\n
-            file_name = "config_backup.xml"\n
-            uri_suffix = "operations/file-%s/importconfig.txt" % file_name\n
+            file_name = "config_backup.tgz"\n
+            uri_suffix = "operations/file-%s/importconfig.txt?Cookie=%s" % (file_name, handle.cookie)\n
             file_upload(url_suffix=uri_suffix, source_dir=source_dir,
                         file_name=file_name)
         """
@@ -317,16 +317,12 @@ class UcsCentralSession(object):
 
         file_url = "%s/%s" % (self.__uri, url_suffix)
 
-        self.__driver.add_header('Cookie', 'ucsm-cookie=%s'
-                                 % self.__cookie)
-
         upload_file(self.__driver,
                     uri=file_url,
                     file_dir=file_dir,
                     file_name=file_name,
                     progress=progress)
 
-        self.__driver.remove_header('Cookie')
 
     def __start_refresh_timer(self):
         """
