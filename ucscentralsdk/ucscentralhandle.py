@@ -764,7 +764,7 @@ class UcsCentralHandle(UcsCentralSession):
         if tag in self.__commit_buf_tagged:
             del self.__commit_buf_tagged[tag]
 
-    '''def wait_for_event(self, mo, prop, value, cb, timeout=None):
+    def wait_for_event(self, mo, prop, value, cb, timeout=None, poll_sec=None):
         """
         Waits for `mo.prop == value` and invokes the passed callback
         when the condition is met. The callback is called with one
@@ -789,4 +789,4 @@ class UcsCentralHandle(UcsCentralSession):
     """
         from ucscentraleventhandler import wait
 
-        wait(self, mo, prop, value, cb, timeout_sec=timeout)'''
+        wait(self, mo, prop, value, cb, timeout_sec=timeout, poll_sec=poll_sec)
