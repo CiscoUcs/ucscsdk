@@ -273,11 +273,17 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
     handle.remove_mo(mgmt_export)
     handle.commit()
 
-def backup_or_configexport_domain(handle, backup_type, file_dir, file_name, domain_ip, domain_name, host_name,
+def _fail_and_remove_domain_backup(handle, backup_status_mo, err):
+    if backup_status_mo:
+        handle.remove_mo(backup_status_mo)
+        handle.commit(dme="resource-mgr")
+    raise UcsCentralValidationException(err)
+
+def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, domain_ip, domain_name, host_name,
         preserve_pooled_values, protocol, username, password, timeout_in_sec):
 
     """
-    backup_or_configexport_domain helps create domain full_state backup or export config to remote loaction
+    This internal function helps create domain full_state backup or export config to remote location
     Note: This is internal function, should use either backup_domain or backup_config_export
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
@@ -298,6 +304,7 @@ def backup_or_configexport_domain(handle, backup_type, file_dir, file_name, doma
 
     """
     from ..mometa.mgmt.MgmtBackupOperation import MgmtBackupOperation, MgmtBackupOperationConsts
+    from ..mometa.mgmt.MgmtBackup import MgmtBackup, MgmtBackupConsts
     from .ucscentraldomain import get_domain
 
     preserve_pooled_values = False
@@ -309,8 +316,12 @@ def backup_or_configexport_domain(handle, backup_type, file_dir, file_name, doma
     if not domain_ip:
         raise UcsCentralValidationException("Missing domain_ip argument")
 
-    if (not file_name.endswith('.tgz')):
-        raise UcsCentralValidationException("file_name must be .tgz format")
+    if backup_type == 'full-state':
+        if (not file_name.endswith('.tgz')):
+            raise UcsCentralValidationException("file_name must be .tgz format")
+    elif backup_type == 'config-all':
+        if (not file_name.endswith('.xml')):
+            raise UcsCentralValidationException("file_name must be .xml format")
 
     domain = get_domain(handle, domain_ip, domain_name)
     if (domain.available_physical_cnt == str(0)):
@@ -339,29 +350,40 @@ def backup_or_configexport_domain(handle, backup_type, file_dir, file_name, doma
     handle.set_mo(mgmt_backup)
     handle.commit()
 
-    mgmt_backup = handle.query_dn(dn=mgmt_backup.dn)
-    admin_state_temp = mgmt_backup.admin_state
-    # Checking for the backup to compete.
-    duration = timeout_in_sec
-    poll_interval = 2
-
     log.debug("Triggering Domain Backup ")
+    duration = 30
+    poll_interval = 2
+    backup_status_dn = "extpol/reg/clients/client-"  + domain.id + "/backup-" + host_name
     while True:
-        mgmt_backup = handle.query_dn(dn=mgmt_backup.dn)
-        admin_state_temp = mgmt_backup.admin_state
-
-        # Break condition:- if state id disabled then break
-        if admin_state_temp == MgmtBackupOperationConsts.ADMIN_STATE_DISABLED:
+        backup_status = handle.query_dn(dn=backup_status_dn, dme="resource-mgr")
+        if backup_status != None:
             break
 
         time.sleep(min(duration, poll_interval))
         duration = max(0, (duration - poll_interval))
         if duration == 0:
-            handle.remove_mo(mgmt_backup)
-            handle.commit()
-            raise UcsCentralValidationException('Backup or config export of domain timed out')
+            raise UcsCentralValidationException('Backup or config export of domain not triggered')
 
-    log.debug("Domain Backup Triggered.")
+    log.debug("Domain Backup Triggered")
+
+    # Checking for the backup to become available.
+    log.debug("Waiting for Domain Backup to become available")
+    duration = timeout_in_sec
+    poll_interval = 5
+
+    while True:
+        backup_status = handle.query_dn(backup_status_dn, dme="resource-mgr")
+        if backup_status.over_all_status == \
+                MgmtBackupConsts.OVER_ALL_STATUS_ALL_SUCCESS:
+            break
+        if backup_status.over_all_status != MgmtBackupConsts.OVER_ALL_STATUS_WORK_IN_PROGRESS:
+            _fail_and_remove_domain_backup(handle, backup_status, 'Domain backup failed')
+        time.sleep(min(duration, poll_interval))
+        duration = max(0, (duration - poll_interval))
+        if duration == 0:
+            _fail_and_remove_domain_backup(handle, backup_status, 'Domain backup timed out')
+
+    log.debug("Domain backup is available")
 
 def backup_domain(handle, file_dir, file_name,
                domain_ip,  protocol, host_name,
@@ -396,7 +418,7 @@ def backup_domain(handle, file_dir, file_name,
 
     """
     backup_type = "full-state"
-    return backup_or_configexport_domain(handle, backup_type, file_dir, file_name, domain_ip, domain_name, host_name,
+    return _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, domain_ip, domain_name, host_name,
             preserve_pooled_values, protocol, username, password, timeout_in_sec)
 
 def config_export_domain(handle, file_dir, file_name,
@@ -431,7 +453,7 @@ def config_export_domain(handle, file_dir, file_name,
                     domain_ip='10.10.10.1', protocol='scp',hostname='192.168.1.1',
     """
     backup_type = "config-all"
-    return backup_or_configexport_domain(handle, backup_type, file_dir, file_name, domain_ip, domain_name, host_name,
+    return _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, domain_ip, domain_name, host_name,
             preserve_pooled_values, protocol, username, password, timeout_in_sec)
 
 def config_import_ucscentral(handle, file_dir, file_name, merge=False,
