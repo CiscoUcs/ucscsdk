@@ -194,7 +194,7 @@ def download_file(driver, file_url, file_dir, file_name, progress=Progress()):
         # Python 2 code in this block
         file_size = int(response.info().getheaders("Content-Length")[0])
 
-    print("Downloading: %s Bytes: %s" % (file_name, file_size))
+    log.debug("Downloading: %s Bytes: %s" % (file_name, file_size))
 
     file_handle = open(destination_file, 'wb')
     block_sz = 64
@@ -205,7 +205,7 @@ def download_file(driver, file_url, file_dir, file_name, progress=Progress()):
 
         file_handle.write(r_buffer)
         progress.update(file_size, len(r_buffer))
-    print('Downloading Finished.')
+    log.debug('Downloading Finished.')
     file_handle.close()
 
 def random_string(length):
@@ -270,16 +270,15 @@ def upload_file(driver, uri, file_dir, file_name, progress=Progress()):
     driver.add_header("Content-Type", header['content-type'])
     driver.add_header("Content-length", header['content-length'])
 
-    print("Uploading: %s Bytes: %s" % (file_name, header['content-length']))
-    print("Uploading: %s " % file_name)
+    log.debug("Uploading: %s Bytes: %s" % (file_name, header['content-length']))
 
     response = driver.post(uri, data=stream)
     if not response:
         raise ValueError("File upload failed.")
 
-    print("\nUploading Finished.")
     driver.remove_header("Content-Type")
     driver.remove_header("Content-length")
+    log.debug("\nUploading Finished.")
 
 def check_registry_key(java_key):
     """ Method checks for the java in the registry entries. """
