@@ -24,6 +24,10 @@ import sys
 import platform
 import re
 import subprocess
+import random
+import string
+import mmap
+from io import BytesIO 
 
 import logging
 
@@ -115,26 +119,26 @@ def make_dn(rn_array):
 class FileReadStream(object):
     """Internal class to show the progress while reading file."""
 
-    def __init__(self, path, progress_cb):
-        self._fhandle = open(path, 'rb')
+    def __init__(self, body, progress_cb):
+        self._fdata = BytesIO()
+        self._fdata.write(body)
+ 
         # Set the seek positin to the end of the file
         # and calcualte the total file size
-        self._fhandle.seek(0, os.SEEK_END)
-        self._tsize = self._fhandle.tell()
+        self._fdata.seek(0, os.SEEK_END)
+        self._tsize = self._fdata.tell()
 
         # Reset the position to the beginning of the file
-        self._fhandle.seek(0)
-
+        self._fdata.seek(0)
         self._progress_cb = progress_cb
 
     def __len__(self):
         return self._tsize
 
     def read(self, size):
-        data = self._fhandle.read(size)
+        data = self._fdata.read(size)
         self._progress_cb(self._tsize, size)
         return data
-
 
 class Progress(object):
     """ Internal class to show the progress in chunks of custom percentage """
@@ -204,6 +208,43 @@ def download_file(driver, file_url, file_dir, file_name, progress=Progress()):
     print('Downloading Finished.')
     file_handle.close()
 
+def random_string(length):
+    return ''.join(random.choice(string.ascii_letters) for ii in range(length + 1))
+
+def encode_multipart_data(file_dir, file_name, progress=Progress()):
+
+    boundary = random_string(30)
+
+    CRLF = '\r\n'
+    file_path = file_dir + file_name
+
+    def encode_body_header(file_name):
+    	return ('--' + boundary,
+    	        'Content-Disposition: form-data; name="Filedata"; filename="%s"' % file_name,
+    	        'Content-Type: "application/x-compressed"',
+                '')
+
+    def encode_file_data(file_path):
+        with open(file_path, "rb") as f:
+            mmapped_file = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
+            return mmapped_file.read(mmapped_file.size())
+    
+    lines = []
+
+    lines.extend(encode_body_header(file_name))
+    body_header = (CRLF.join(lines) + CRLF).encode('utf-8')
+    body_footer = (CRLF + '--%s--' % boundary + CRLF + '').encode('utf-8')
+
+    file_data = encode_file_data(file_path)
+            
+    body = body_header + file_data + body_footer
+
+    headers = {'content-type': 'multipart/form-data; boundary=' + boundary,
+               'content-length': str(len(body))}
+
+    return body, headers
+
+
 
 def upload_file(driver, uri, file_dir, file_name, progress=Progress()):
     """
@@ -223,12 +264,22 @@ def upload_file(driver, uri, file_dir, file_name, progress=Progress()):
         upload_file(driver=UcsCentralDriver(), uri="http://fileurl",
                     file_dir='/home/user/backup',
                     file_name='my_config_backup.xml')
-    """
-    stream = FileReadStream(os.path.join(file_dir, file_name), progress.update)
+     """
+    multipart_data, header = encode_multipart_data(file_dir,file_name)
+    stream = FileReadStream(multipart_data, progress.update)
+    driver.add_header("Content-Type", header['content-type'])
+    driver.add_header("Content-length", header['content-length'])
+
+    print("Uploading: %s Bytes: %s" % (file_name, header['content-length']))
+    print("Uploading: %s " % file_name)
+
     response = driver.post(uri, data=stream)
     if not response:
         raise ValueError("File upload failed.")
 
+    print("\nUploading Finished.")
+    driver.remove_header("Content-Type")
+    driver.remove_header("Content-length")
 
 def check_registry_key(java_key):
     """ Method checks for the java in the registry entries. """

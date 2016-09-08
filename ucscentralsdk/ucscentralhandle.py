@@ -153,7 +153,7 @@ class UcsCentralHandle(UcsCentralSession):
             dn_objs = handle.process_xml_elem(elem)
         """
 
-        response = self.post_elem(elem, dme)
+        response = self.post_elem(elem, dme=dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code,
                                       response.error_descr)
@@ -249,7 +249,7 @@ class UcsCentralHandle(UcsCentralSession):
             dn_set.child_add(dn_obj)
 
         elem = config_resolve_dns(cookie=self.cookie, in_dns=dn_set)
-        response = self.post_elem(elem, dme)
+        response = self.post_elem(elem, dme=dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code,
                                       response.error_descr)
@@ -299,7 +299,7 @@ class UcsCentralHandle(UcsCentralSession):
             class_id_set.child_add(class_id_obj)
 
         elem = config_resolve_classes(cookie=self.cookie, in_ids=class_id_set)
-        response = self.post_elem(elem, dme)
+        response = self.post_elem(elem, dme=dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code, response.error_descr)
 
@@ -349,7 +349,7 @@ class UcsCentralHandle(UcsCentralSession):
         elem = config_resolve_dns(cookie=self.cookie,
                                   in_dns=dn_set,
                                   in_hierarchical=hierarchy)
-        response = self.post_elem(elem, dme)
+        response = self.post_elem(elem, dme=dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code, response.error_descr)
 
@@ -442,7 +442,7 @@ class UcsCentralHandle(UcsCentralSession):
                                     class_id=meta_class_id,
                                     in_filter=in_filter,
                                     in_hierarchical=hierarchy)
-        response = self.post_elem(elem, dme)
+        response = self.post_elem(elem, dme=dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code, response.error_descr)
 
@@ -454,7 +454,7 @@ class UcsCentralHandle(UcsCentralSession):
         return out_mo_list
 
     def query_children(self, in_mo=None, in_dn=None, class_id=None,
-                       filter_str=None, hierarchy=False, dme):
+                       filter_str=None, hierarchy=False, dme="central-mgr"):
         """
         Finds children of a given managed object or distinguished name.
         Arguments can be specified to query only a specific type(class_id)
@@ -546,7 +546,7 @@ class UcsCentralHandle(UcsCentralSession):
                                        in_dn=parent_dn,
                                        in_filter=in_filter,
                                        in_hierarchical=hierarchy)
-        response = self.post_elem(elem, dme)
+        response = self.post_elem(elem, dme=dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code, response.error_descr)
 
@@ -714,7 +714,7 @@ class UcsCentralHandle(UcsCentralSession):
             config_map.child_add(pair)
 
         elem = config_conf_mos(self.cookie, config_map, False)
-        response = self.post_elem(elem, dme)
+        response = self.post_elem(elem, dme=dme)
         if response.error_code != 0:
             self.commit_buffer_discard(tag)
             raise UcsCentralException(response.error_code, response.error_descr)
@@ -732,7 +732,7 @@ class UcsCentralHandle(UcsCentralSession):
 
             elem = config_resolve_dns(cookie=self.cookie,
                                       in_dns=dn_set)
-            response = self.post_elem(elem, dme)
+            response = self.post_elem(elem, dme=dme)
             if response.error_code != 0:
                 raise UcsCentralException(response.error_code,
                                           response.error_descr)
@@ -764,7 +764,7 @@ class UcsCentralHandle(UcsCentralSession):
         if tag in self.__commit_buf_tagged:
             del self.__commit_buf_tagged[tag]
 
-    '''def wait_for_event(self, mo, prop, value, cb, timeout=None):
+    def wait_for_event(self, mo, prop, value, cb, timeout=None, poll_sec=None):
         """
         Waits for `mo.prop == value` and invokes the passed callback
         when the condition is met. The callback is called with one
@@ -789,4 +789,4 @@ class UcsCentralHandle(UcsCentralSession):
     """
         from ucscentraleventhandler import wait
 
-        wait(self, mo, prop, value, cb, timeout_sec=timeout)'''
+        wait(self, mo, prop, value, cb, timeout_sec=timeout, poll_sec=poll_sec)
