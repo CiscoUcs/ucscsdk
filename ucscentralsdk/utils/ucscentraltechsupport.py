@@ -19,7 +19,9 @@ import os
 import time
 import datetime
 import logging
-from ..ucscentralexception import UcsCentralValidationException, UcsCentralWarning
+from ..ucscentralexception import UcsCentralValidationException, \
+                                  UcsCentralWarning, \
+                                  UcsCentralOperationError
 from ..mometa.sysdebug.SysdebugTechSupportCmdOpt import \
         SysdebugTechSupportCmdOpt, SysdebugTechSupportCmdOptConsts
 
@@ -88,7 +90,7 @@ def _fail_and_remove_ts(handle, ts_mo, err):
     if ts_mo:
         handle.remove_mo(ts_mo)
         handle.commit()
-    raise UcsCentralValidationException(err)
+    raise UcsCentralOperationError("Techsupport creation", err)
 
 def _fail_and_remove_domain_ts(handle, ts_mo, err):
     # In case of domain ts remove, just set the mo, backend will remove it from domain
@@ -96,8 +98,7 @@ def _fail_and_remove_domain_ts(handle, ts_mo, err):
         ts_mo.admin_state = "delete"
         handle.set_mo(ts_mo)
         handle.commit()
-    raise UcsCentralValidationException(err)
-
+    raise UcsCentralOperationError("Domain techsupport creation", err)
 
 def poll_wait_for_tech_support(handle, ts_mo, timeout):
     from ..mometa.sysdebug.SysdebugTechSupport import \
@@ -109,17 +110,17 @@ def poll_wait_for_tech_support(handle, ts_mo, timeout):
         try:
             ts = handle.query_dn(ts_mo.dn)
             if ts is None:
-                _fail_and_remove_ts(handle, ts, 'TechSupport creation failed')
+                _fail_and_remove_ts(handle, ts, 'failed')
             if ts.oper_state == SysdebugTechSupportConsts.OPER_STATE_AVAILABLE:
                 break
             if ts.oper_state == SysdebugTechSupportConsts.OPER_STATE_FAILED or \
                     ts.oper_state == SysdebugTechSupportConsts.OPER_STATE_UNAVAILABLE:
-                _fail_and_remove_ts(handle, ts, 'TechSupport creation failed')
+                _fail_and_remove_ts(handle, ts, 'failed')
             time.sleep(min(duration, poll_interval))
             duration = max(0, (duration - poll_interval))
             if duration == 0:
                 _fail_and_remove_ts(
-                    handle, ts, 'TechSupport creation timed out')
+                    handle, ts, 'timed out')
         except Exception as err:
             _check_for_failure(err)
     return ts
@@ -286,7 +287,7 @@ def poll_wait_for_domain_tech_support_init(handle, creation_ts, ts_domain_mo):
         duration = max(0, (duration - poll_interval))
         if duration == 0:
             _fail_and_remove_domain_ts(
-                handle, ts_domain_mo, 'Initiation of techsupport on domain failed')
+                handle, ts_domain_mo, 'failed')
 
     log.debug("Techsupport creation for domain initiated")
     return ts_mo
@@ -304,12 +305,12 @@ def poll_wait_for_domain_tech_support(handle, ts_mo, ts_domain_mo, timeout):
             break
         if ts.oper_state == SysdebugTechSupportConsts.OPER_STATE_FAILED or \
                 ts.oper_state == SysdebugTechSupportConsts.OPER_STATE_UNAVAILABLE:
-            _fail_and_remove_domain_ts(handle, ts_domain_mo, 'TechSupport creation failed')
+            _fail_and_remove_domain_ts(handle, ts_domain_mo, 'failed')
         time.sleep(min(duration, poll_interval))
         duration = max(0, (duration - poll_interval))
         if duration == 0:
             ts_domain_mo = handle.query_dn(ts_domain_mo.dn)
-            _fail_and_remove_domain_ts(handle, ts_domain_mo, 'TechSupport creation failed')
+            _fail_and_remove_domain_ts(handle, ts_domain_mo, 'failed')
 
     log.debug("Techsupport creation completed")
     return ts
