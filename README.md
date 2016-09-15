@@ -19,12 +19,12 @@ Installs the latest top of the tree development version,
     wget https://bootstrap.pypa.io/get-pip.py
     python get-pip.py
 
-    git clone https://github.com/CiscoUcs/ucsmsdk.git
-    cd ucsmsdk
+    git clone https://github.com/CiscoUcs/ucscentralsdk.git
+    cd ucscentralsdk
     make install
 ```
 
 ## Community:
 
 * We are on Slack - slack requires registration, but the ucspython team is open invitation to
-  anyone to register [here](https://ucspython.herokuapp.com) 
+  anyone to register [here](https://ucspython.herokuapp.com)
