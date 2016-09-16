@@ -16,7 +16,9 @@ import os
 import sys
 import time
 import datetime
-from ..ucscentralexception import UcsCentralValidationException, UcsCentralWarning
+from ..ucscentralexception import UcsCentralValidationException, \
+                                  UcsCentralWarning, \
+                                  UcsCentralOperationError
 
 def domain_register_to_ucscentral(handle, domain_name_or_ip, 
                          username, password,
@@ -55,11 +57,11 @@ def domain_register_to_ucscentral(handle, domain_name_or_ip,
     while not domain_register.registration_state == PolicyControlEpOpConsts.REGISTRATION_STATE_REGISTERED:
         domain_register = handle.query_dn(domain_register.dn)
         if domain_register.registration_state == PolicyControlEpOpConsts.REGISTRATION_STATE_FAILED:
-            raise UcsCentralValidationException("Registration of '%s' failed. Error: %s" %
-				(domain_name_or_ip, domain_register.fsm_rmt_inv_err_descr))
+            raise UcsCentralOperationError("Registration of '%s'" % domain_name_or_ip,
+				           "%s" % domain_register.fsm_rmt_inv_err_descr)
         if (datetime.datetime.now() - start).total_seconds() > timeout:
-            raise UcsCentralValidationException("Registration of '%s' timed out, Error: %s" %  
-                                (domain_name_or_ip, domain_register.fsm_rmt_inv_err_descr))
+            raise UcsCentralOperationError("Registration of '%s' " % domain_name_or_ip,
+                                           "timeout error %s" % domain_register.fsm_rmt_inv_err_descr)
 
     return domain_register
 

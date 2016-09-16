@@ -21,7 +21,9 @@ import time
 import datetime
 import logging
 import sys
-from ..ucscentralexception import UcsCentralValidationException, UcsCentralWarning
+from ..ucscentralexception import UcsCentralValidationException, \
+                                  UcsCentralWarning, \
+                                  UcsCentralOperationError
 
 log = logging.getLogger('ucscentral')
 
@@ -129,7 +131,7 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
         if duration == 0:
             handle.remove_mo(mgmt_backup)
             handle.commit()
-            raise UcsCentralValidationException('backup_ucscentral timed out')
+            raise UcsCentralOperationError("Backup ucscentral", " operation timed out")
 
     # download backup
     log.debug("Backup done, starting Download ")
@@ -141,7 +143,7 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
                                  file_dir=file_dir,
                                  file_name=file_name)
         except Exception as err:
-            UcsCentralValidationException("Download Error.....")
+            UcsCentralOperationError("Download backup", "download failed")
             UcsCentralWarning(str(err))
             handle.remove_mo(mgmt_backup)
             handle.commit()
@@ -252,7 +254,7 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
         if duration == 0:
             handle.remove_mo(mgmt_export)
             handle.commit()
-            raise UcsCentralValidationException('config_export_ucscentral timed out')
+            raise UcsCentralOperationError("Config Export ucscentral", "operation timed out")
 
     # download backup
     log.debug("Config exported, now Downloading")
@@ -264,7 +266,7 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
                                  file_dir=file_dir,
                                  file_name=file_name)
         except Exception as err:
-            UcsCentralValidationException("Download Error.....")
+            UcsCentralOperationError("Download of config_export", "download failed")
             UcsCentralWarning(str(err))
             handle.remove_mo(mgmt_backup)
             handle.commit()
@@ -277,7 +279,7 @@ def _fail_and_remove_domain_backup(handle, backup_status_mo, err):
     if backup_status_mo:
         handle.remove_mo(backup_status_mo)
         handle.commit(dme="resource-mgr")
-    raise UcsCentralValidationException(err)
+    raise UcsCentralOperationError("Domain backup/config_export", err)
 
 def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, domain_ip, domain_name, host_name,
         preserve_pooled_values, protocol, username, password, timeout_in_sec):
@@ -362,7 +364,7 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, dom
         time.sleep(min(duration, poll_interval))
         duration = max(0, (duration - poll_interval))
         if duration == 0:
-            raise UcsCentralValidationException('Backup or config export of domain not triggered')
+            raise UcsCentralOperationError("Backup or config export of domain", "not triggered")
 
     log.debug("Domain Backup Triggered")
 
@@ -377,11 +379,11 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, dom
                 MgmtBackupConsts.OVER_ALL_STATUS_ALL_SUCCESS:
             break
         if backup_status.over_all_status != MgmtBackupConsts.OVER_ALL_STATUS_WORK_IN_PROGRESS:
-            _fail_and_remove_domain_backup(handle, backup_status, 'Domain backup failed')
+            _fail_and_remove_domain_backup(handle, backup_status, 'operation failed')
         time.sleep(min(duration, poll_interval))
         duration = max(0, (duration - poll_interval))
         if duration == 0:
-            _fail_and_remove_domain_backup(handle, backup_status, 'Domain backup timed out')
+            _fail_and_remove_domain_backup(handle, backup_status, 'operation timed out')
 
     log.debug("Domain backup is available")
 
