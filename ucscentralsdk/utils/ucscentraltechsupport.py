@@ -20,31 +20,37 @@ import time
 import datetime
 import logging
 from ..ucscentralexception import UcsCentralValidationException, \
-                                  UcsCentralWarning, \
-                                  UcsCentralOperationError
+    UcsCentralWarning, \
+    UcsCentralOperationError
 from ..mometa.sysdebug.SysdebugTechSupportCmdOpt import \
-        SysdebugTechSupportCmdOpt, SysdebugTechSupportCmdOptConsts
+    SysdebugTechSupportCmdOpt, SysdebugTechSupportCmdOptConsts
 
 log = logging.getLogger('ucscentral')
 
+
 def _validate_download_args(file_dir, file_name):
     if file_dir is None:
-        raise UcsCentralValidationException('file_dir is a required parameter')
+        raise UcsCentralValidationException(
+            'file_dir is a required parameter')
 
     if file_name is None:
-        raise UcsCentralValidationException('file_name is a required parameter')
+        raise UcsCentralValidationException(
+            'file_name is a required parameter')
 
     if not file_name.endswith('.tar'):
         raise UcsCentralValidationException('file_name should end with .tar')
+
 
 def _create_download_dir(file_dir):
     if not os.path.exists(file_dir):
         os.makedirs(file_dir)
 
+
 def _get_creation_ts():
     dt1 = datetime.datetime(1970, 1, 1, 12, 0, 0, 0)
     dt2 = datetime.datetime.utcnow()
     return int((dt2 - dt1).total_seconds())
+
 
 def _bootstrap_tech_support_mo(creation_ts):
     from ..mometa.top.TopSystem import TopSystem
@@ -61,18 +67,21 @@ def _bootstrap_tech_support_mo(creation_ts):
         admin_state=SysdebugTechSupportConsts.ADMIN_STATE_START)
     return ts_mo
 
+
 def _bootstrap_domain_tech_support_mo(creation_ts, domain_dn):
-    from ..mometa.sysdebug.SysdebugTechSupportOp import SysdebugTechSupportOp, \
-        SysdebugTechSupportOpConsts
+    from ..mometa.sysdebug.SysdebugTechSupportOp import \
+        SysdebugTechSupportOp, SysdebugTechSupportOpConsts
     from ..mometa.sysdebug.SysdebugTechSupFileRepository import \
         SysdebugTechSupFileRepository
 
-    ts_domain_file_repo = SysdebugTechSupFileRepository(parent_mo_or_dn=domain_dn)
+    ts_domain_file_repo = SysdebugTechSupFileRepository(
+        parent_mo_or_dn=domain_dn)
     ts_domain_mo = SysdebugTechSupportOp(
         parent_mo_or_dn=ts_domain_file_repo,
         creation_ts=str(creation_ts),
         admin_state=SysdebugTechSupportOpConsts.ADMIN_STATE_START)
     return ts_domain_mo
+
 
 def _check_for_failure(err):
     # The following error messages define the criteria for
@@ -86,23 +95,27 @@ def _check_for_failure(err):
         if each in str(err):
             raise
 
+
 def _fail_and_remove_ts(handle, ts_mo, err):
     if ts_mo:
         handle.remove_mo(ts_mo)
         handle.commit()
     raise UcsCentralOperationError("Techsupport creation", err)
 
+
 def _fail_and_remove_domain_ts(handle, ts_mo, err):
-    # In case of domain ts remove, just set the mo, backend will remove it from domain
+    # In case of domain ts remove, just set the mo, backend will remove it
+    # from domain
     if ts_mo:
         ts_mo.admin_state = "delete"
         handle.set_mo(ts_mo)
         handle.commit()
     raise UcsCentralOperationError("Domain techsupport creation", err)
 
+
 def poll_wait_for_tech_support(handle, ts_mo, timeout):
     from ..mometa.sysdebug.SysdebugTechSupport import \
-        SysdebugTechSupportConsts as SysdebugTechSupportConsts
+        SysdebugTechSupportConsts as tsconsts
 
     poll_interval = 5
     duration = timeout
@@ -111,10 +124,10 @@ def poll_wait_for_tech_support(handle, ts_mo, timeout):
             ts = handle.query_dn(ts_mo.dn)
             if ts is None:
                 _fail_and_remove_ts(handle, ts, 'failed')
-            if ts.oper_state == SysdebugTechSupportConsts.OPER_STATE_AVAILABLE:
+            if ts.oper_state == tsconsts.OPER_STATE_AVAILABLE:
                 break
-            if ts.oper_state == SysdebugTechSupportConsts.OPER_STATE_FAILED or \
-                    ts.oper_state == SysdebugTechSupportConsts.OPER_STATE_UNAVAILABLE:
+            if ts.oper_state == tsconsts.OPER_STATE_FAILED or \
+                    ts.oper_state == tsconsts.OPER_STATE_UNAVAILABLE:
                 _fail_and_remove_ts(handle, ts, 'failed')
             time.sleep(min(duration, poll_interval))
             duration = max(0, (duration - poll_interval))
@@ -125,6 +138,7 @@ def poll_wait_for_tech_support(handle, ts_mo, timeout):
             _check_for_failure(err)
     return ts
 
+
 def download_tech_support(handle, name, file_dir, file_name):
     try:
         handle.file_download(url_suffix="techsupport/" + name,
@@ -133,23 +147,24 @@ def download_tech_support(handle, name, file_dir, file_name):
     except Exception as err:
         UcsCentralWarning(str(err))
 
+
 def remove_tech_support(handle, ts_mo):
     ts_mo.admin_state = "delete"
     handle.set_mo(ts_mo)
     handle.commit()
 
-def get_ucscentral_tech_support(handle, file_dir=None, file_name=None,
-                         remove_from_ucscentral=False,
-                         download=True,
-                         timeout=1200):
 
+def get_ucscentral_tech_support(handle, file_dir=None, file_name=None,
+                                remove_from_ucscentral=False,
+                                download=True,
+                                timeout=1200):
 
     if download:
         _validate_download_args(file_dir, file_name)
         _create_download_dir(file_dir)
 
     ts_mo = _bootstrap_tech_support_mo(_get_creation_ts())
-    ts_cmd_opt = SysdebugTechSupportCmdOpt(parent_mo_or_dn=ts_mo)
+    SysdebugTechSupportCmdOpt(parent_mo_or_dn=ts_mo)
 
     handle.add_mo(ts_mo)
     handle.commit()
@@ -170,61 +185,74 @@ def get_ucscentral_tech_support(handle, file_dir=None, file_name=None,
         remove_tech_support(handle, ts_mo)
         log.debug("Removed techsupport from ucscentral")
 
+
 def _is_valid_arg(param, kwargs):
     return param in kwargs and kwargs[param] is not None
 
 
 def _set_ts_options_ucsm(ts_cmd_opt, kwargs):
-    ts_cmd_opt.major_opt_type = SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_UCSM
+    ts_cmd_opt.major_opt_type = \
+        SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_UCSM
 
 
 def _set_ts_options_ucsm_mgmt(ts_cmd_opt, kwargs):
-    ts_cmd_opt.major_opt_type = SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_UCSM_MGMT
+    ts_cmd_opt.major_opt_type = \
+        SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_UCSM_MGMT
 
 
 def _validate_chassis_options(kwargs):
     if not _is_valid_arg("chassis_id", kwargs):
         raise UcsCentralValidationException('chassis_id should be specified')
-    if "cimc_id" not in kwargs and "iom_id" not in kwargs and "cartridge_id" not in kwargs:
-        raise UcsCentralValidationException('cimc_id/iom_id/cartridge_id should be specified')
+    if "cimc_id" not in kwargs and \
+            "iom_id" not in kwargs and \
+            "cartridge_id" not in kwargs:
+        raise UcsCentralValidationException(
+            'cimc_id/iom_id/cartridge_id should be specified')
 
 
 def _set_ts_options_chassis(ts_cmd_opt, kwargs):
     _validate_chassis_options(kwargs)
     ts_cmd_opt.chassis_id = str(kwargs["chassis_id"])
-    ts_cmd_opt.major_opt_type = SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_CHASSIS
+    ts_cmd_opt.major_opt_type = \
+        SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_CHASSIS
     if _is_valid_arg("cimc_id", kwargs):
         ts_cmd_opt.chassis_cimc_id = str(kwargs["cimc_id"])
 
         if _is_valid_arg("adapter_id", kwargs):
             ts_cmd_opt.cimc_adapter_id = str(kwargs["adapter_id"])
         else:
-            ts_cmd_opt.cimc_adapter_id = SysdebugTechSupportCmdOptConsts.CIMC_ADAPTER_ID_ALL
+            ts_cmd_opt.cimc_adapter_id = \
+                SysdebugTechSupportCmdOptConsts.CIMC_ADAPTER_ID_ALL
     elif _is_valid_arg("iom_id", kwargs):
         ts_cmd_opt.chassis_iom_id = str(kwargs["iom_id"])
     elif _is_valid_arg("cartridge_id", kwargs):
         ts_cmd_opt.chassis_cartridge_id = str(kwargs["cartridge_id"])
         if ts_cmd_opt.chassis_cartridge_id != "all":
             if _is_valid_arg("cartridge_cimc_id", kwargs):
-                ts_cmd_opt.cartridge_cimc_id = str(kwargs["cartridge_cimc_id"])
+                ts_cmd_opt.cartridge_cimc_id = str(
+                    kwargs["cartridge_cimc_id"])
             else:
-                raise UcsCentralValidationException('cartridge_cimc_id should be specified')
+                raise UcsCentralValidationException(
+                    'cartridge_cimc_id should be specified')
 
 
 def _validate_rackserver_options(kwargs):
     if not _is_valid_arg("rack_server_id", kwargs):
-        raise UcsCentralValidationException('rack_server_id should be specified')
+        raise UcsCentralValidationException(
+            'rack_server_id should be specified')
 
 
 def _set_ts_options_rackserver(ts_cmd_opt, kwargs):
     _validate_rackserver_options(kwargs)
     ts_cmd_opt.rack_server_id = str(kwargs["rack_server_id"])
-    ts_cmd_opt.major_opt_type = SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_SERVER
+    ts_cmd_opt.major_opt_type = \
+        SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_SERVER
 
     if _is_valid_arg("rack_adapter_id", kwargs):
         ts_cmd_opt.rack_server_adapter_id = str(kwargs["rack_adapter_id"])
     else:
-        ts_cmd_opt.rack_server_adapter_id = SysdebugTechSupportCmdOptConsts.RACK_SERVER_ADAPTER_ID_ALL
+        ts_cmd_opt.rack_server_adapter_id = \
+            SysdebugTechSupportCmdOptConsts.RACK_SERVER_ADAPTER_ID_ALL
 
 
 def _validate_fex_options(kwargs):
@@ -235,18 +263,21 @@ def _validate_fex_options(kwargs):
 def _set_ts_options_fex(ts_cmd_opt, kwargs):
     _validate_fex_options(kwargs)
     ts_cmd_opt.fab_ext_id = str(kwargs["fex_id"])
-    ts_cmd_opt.major_opt_type = SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_FEX
+    ts_cmd_opt.major_opt_type = \
+        SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_FEX
 
 
 def _validate_servermemory_options(kwargs):
     if not _is_valid_arg("server_id_list", kwargs):
-        raise UcsCentralValidationException('server_id_list should be specified')
+        raise UcsCentralValidationException(
+            'server_id_list should be specified')
 
 
 def _set_ts_options_servermemory(ts_cmd_opt, kwargs):
     _validate_servermemory_options(kwargs)
     ts_cmd_opt.server_id_list = str(kwargs["server_id_list"])
-    ts_cmd_opt.major_opt_type = SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_SERVER_MEMORY
+    ts_cmd_opt.major_opt_type = \
+        SysdebugTechSupportCmdOptConsts.MAJOR_OPT_TYPE_SERVER_MEMORY
 
 
 def _set_ts_command_options(ts_cmd_opt, kwargs):
@@ -268,7 +299,8 @@ def _set_ts_options(option, ts_cmd_opt, kwargs):
     elif option == "server-memory":
         _set_ts_options_servermemory(ts_cmd_opt, kwargs)
     else:
-        raise UcsCentralValidationException('Unrecognised option value: ' + option)
+        raise UcsCentralValidationException(
+            'Unrecognised option value: ' + option)
 
     _set_ts_command_options(ts_cmd_opt, kwargs)
 
@@ -280,7 +312,7 @@ def poll_wait_for_domain_tech_support_init(handle, creation_ts, ts_domain_mo):
     filter_str = '(creation_ts, %s, type="eq")' % (str(creation_ts))
     while True:
         ts_mo = handle.query_classid("SysdebugTechSupport",
-                      filter_str=filter_str,dme="resource-mgr")
+                                     filter_str=filter_str, dme="resource-mgr")
         if ts_mo != []:
             break
         time.sleep(min(duration, poll_interval))
@@ -291,6 +323,7 @@ def poll_wait_for_domain_tech_support_init(handle, creation_ts, ts_domain_mo):
 
     log.debug("Techsupport creation for domain initiated")
     return ts_mo
+
 
 def poll_wait_for_domain_tech_support(handle, ts_mo, ts_domain_mo, timeout):
     # poll for tech support mo to complete
@@ -303,8 +336,10 @@ def poll_wait_for_domain_tech_support(handle, ts_mo, ts_domain_mo, timeout):
         if ts.oper_state == \
                 SysdebugTechSupportConsts.OPER_STATE_AVAILABLE:
             break
-        if ts.oper_state == SysdebugTechSupportConsts.OPER_STATE_FAILED or \
-                ts.oper_state == SysdebugTechSupportConsts.OPER_STATE_UNAVAILABLE:
+        if ts.oper_state == \
+                SysdebugTechSupportConsts.OPER_STATE_FAILED or \
+                ts.oper_state == \
+                SysdebugTechSupportConsts.OPER_STATE_UNAVAILABLE:
             _fail_and_remove_domain_ts(handle, ts_domain_mo, 'failed')
         time.sleep(min(duration, poll_interval))
         duration = max(0, (duration - poll_interval))
@@ -315,12 +350,12 @@ def poll_wait_for_domain_tech_support(handle, ts_mo, ts_domain_mo, timeout):
     log.debug("Techsupport creation completed")
     return ts
 
-def get_domain_tech_support(handle, domain_ip,
-                         domain_name=None,
-                         option="ucsm",
-                         timeout=1200,
-                         **kwargs):
 
+def get_domain_tech_support(handle, domain_ip,
+                            domain_name=None,
+                            option="ucsm",
+                            timeout=1200,
+                            **kwargs):
     """
     This operation creates the technical support file for
     the specified Ucs Domain with specific parameters.
@@ -329,8 +364,9 @@ def get_domain_tech_support(handle, domain_ip,
 
     Args:
         handle (UcsCentralHandle): UcsCentral connection handle
-        domain_ip (str): IP of domain, it can be None provided domain_name is valid
-        domain_name (str): Name of domain, applicable only if domain_ip is None.
+        domain_ip (str): IP of domain, it can be None provided domain_name is
+                            valid
+        domain_name (str): Name of domain, applicable only if domain_ip is None
         option (str): categorty of technical support to be created.
                       possible values:
                         - ucsm
@@ -338,7 +374,8 @@ def get_domain_tech_support(handle, domain_ip,
                         - chassis:
                             Mandates that user specifies "chassis_id"
                             Either "cimc_id" or "iom_id" or "cartridge_id"
-                            When specific "cartridge_id" is given, instead of "all",
+                            When specific "cartridge_id" is given, instead of
+                                "all",
                             mandatory "cartridge_cimc_id" must also be given
                         - fabric-extender
                             Mandates that user specifies "fex_id"
@@ -353,8 +390,8 @@ def get_domain_tech_support(handle, domain_ip,
          get_domain_tech_support(handle, domain_ip='192.168.1.1'
                          option="ucsm")
 
-        get_domain_tech_support(handle, domain_ip=None, domain_name="test_domain",
-                         option="ucs-mgmt")
+        get_domain_tech_support(handle, domain_ip=None,
+                                domain_name="test_domain", option="ucs-mgmt")
 
         get_domain_tech_support(handle, domain_ip = '192.168.1.1'
                          option="chassis",
@@ -368,16 +405,19 @@ def get_domain_tech_support(handle, domain_ip,
 
     from .ucscentraldomain import get_domain
 
-     # create SysdebugTechSupport
+    # create SysdebugTechSupport
     domain = get_domain(handle, domain_ip, domain_name)
     if (domain.available_physical_cnt == str(0)):
-        raise UcsCentralValidationException("Domain with IP %s or name %s not registered or "
-                                            "lost visibility with ucscentral" % (domain_ip,domain_name))
+        raise UcsCentralValidationException(
+            "Domain with IP %s or name %s not registered or "
+            "lost visibility with ucscentral" %
+            (domain_ip, domain_name))
     else:
         domain_dn = domain.dn
 
     creation_ts = _get_creation_ts()
-    ts_domain_mo = _bootstrap_domain_tech_support_mo(creation_ts, domain_dn=domain_dn)
+    ts_domain_mo = _bootstrap_domain_tech_support_mo(
+        creation_ts, domain_dn=domain_dn)
     ts_cmd_opt = SysdebugTechSupportCmdOpt(parent_mo_or_dn=ts_domain_mo)
     _set_ts_options(option, ts_cmd_opt, kwargs)
 
@@ -385,8 +425,11 @@ def get_domain_tech_support(handle, domain_ip,
     handle.commit()
 
     log.debug("Techsupport creation started")
-    # poll for tech support mo to get initiated, it should return list with one element
-    ts_mo_list = poll_wait_for_domain_tech_support_init(handle, creation_ts, ts_domain_mo)
+    # poll for tech support mo to get initiated, it should return list with
+    # one element
+    ts_mo_list = poll_wait_for_domain_tech_support_init(
+        handle, creation_ts, ts_domain_mo)
 
     # poll for tech support operation to get completed
-    poll_wait_for_domain_tech_support(handle, ts_mo_list[0], ts_domain_mo, timeout)
+    poll_wait_for_domain_tech_support(
+        handle, ts_mo_list[0], ts_domain_mo, timeout)
