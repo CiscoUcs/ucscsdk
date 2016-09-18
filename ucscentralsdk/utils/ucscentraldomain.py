@@ -12,17 +12,16 @@
 # limitations under the License.
 
 import logging
-import os
-import sys
-import time
 import datetime
 from ..ucscentralexception import UcsCentralValidationException, \
-                                  UcsCentralWarning, \
-                                  UcsCentralOperationError
+    UcsCentralOperationError
 
-def domain_register_to_ucscentral(handle, domain_name_or_ip, 
-                         username, password,
-                         timeout = 2*60):
+log = logging.getLogger('ucscentral')
+
+
+def domain_register_to_ucscentral(handle, domain_name_or_ip,
+                                  username, password,
+                                  timeout=2 * 60):
     """
     This method registers Ucs domain to Ucs Central.
 
@@ -33,10 +32,10 @@ def domain_register_to_ucscentral(handle, domain_name_or_ip,
         password(str): Password of the domain
 
     Returns:
-        domain_register object 
+        domain_register object
 
     Example:
-        domain_register_to_ucscentral(handle, domain_name_or_ip="192.168.1.1", 
+        domain_register_to_ucscentral(handle, domain_name_or_ip="192.168.1.1",
                                 username="admin",password="password")
     """
 
@@ -46,24 +45,33 @@ def domain_register_to_ucscentral(handle, domain_name_or_ip,
     parent_dn = "holder/domain-ep"
 
     domain_register = PolicyControlEpOp(parent_mo_or_dn=parent_dn,
-                                 host_name_or_ip = domain_name_or_ip,
-                                 name=username,
-                                 password=password)
-    domain_register.action_event = PolicyControlEpOpConsts.ACTION_EVENT_REGISTER 
+                                        host_name_or_ip=domain_name_or_ip,
+                                        name=username,
+                                        password=password)
+    domain_register.action_event = \
+        PolicyControlEpOpConsts.ACTION_EVENT_REGISTER
     handle.add_mo(domain_register, modify_present=True)
     handle.commit()
 
     start = datetime.datetime.now()
-    while not domain_register.registration_state == PolicyControlEpOpConsts.REGISTRATION_STATE_REGISTERED:
+    while not domain_register.registration_state == \
+            PolicyControlEpOpConsts.REGISTRATION_STATE_REGISTERED:
         domain_register = handle.query_dn(domain_register.dn)
-        if domain_register.registration_state == PolicyControlEpOpConsts.REGISTRATION_STATE_FAILED:
-            raise UcsCentralOperationError("Registration of '%s'" % domain_name_or_ip,
-				           "%s" % domain_register.fsm_rmt_inv_err_descr)
+        if domain_register.registration_state == \
+                PolicyControlEpOpConsts.REGISTRATION_STATE_FAILED:
+            raise UcsCentralOperationError(
+                    "Registration of '%s'" %
+                    domain_name_or_ip, "%s" %
+                    domain_register.fsm_rmt_inv_err_descr)
         if (datetime.datetime.now() - start).total_seconds() > timeout:
-            raise UcsCentralOperationError("Registration of '%s' " % domain_name_or_ip,
-                                           "timeout error %s" % domain_register.fsm_rmt_inv_err_descr)
+            raise UcsCentralOperationError(
+                    "Registration of '%s' " %
+                    domain_name_or_ip, "timeout error %s" %
+                    domain_register.fsm_rmt_inv_err_descr)
 
+    log.debug("Domain got successfully registered with Ucs Central")
     return domain_register
+
 
 def get_domain(handle, domain_ip, domain_name=None):
     """
@@ -71,15 +79,15 @@ def get_domain(handle, domain_ip, domain_name=None):
 
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
-        domain_ip(str): IP of domain, it can be 'None' if valid domain_name is provided
+        domain_ip(str): IP of domain, set 'None' if domain_name is valid
         domain_name(str): Optional Domain name, valid only if domain_ip is None
 
     Returns:
         domain object
 
     Example:
-        get_domain_dn(handle, domain_ip="192.168.1.1", domain_name=" ") 
-        get_domain_dn(handle, domain_ip=None, domain_name="test-dom") 
+        get_domain_dn(handle, domain_ip="192.168.1.1", domain_name=" ")
+        get_domain_dn(handle, domain_ip=None, domain_name="test-dom")
     """
 
     if domain_ip:
@@ -87,17 +95,20 @@ def get_domain(handle, domain_ip, domain_name=None):
     else:
         filter_str = '(name, %s, type="eq")' % domain_name
 
-    domain = handle.query_classid(class_id='ComputeSystem', filter_str=filter_str)
+    domain = handle.query_classid(
+        class_id='ComputeSystem', filter_str=filter_str)
 
     if ((len(domain) != 1)):
-        raise UcsCentralValidationException("Domain with IP %s or name %s does not exist" % 
-                                            (domain_ip,domain_name))
-    
-    return domain[0]    
+        raise UcsCentralValidationException("Domain with IP %s or name %s does"
+                                            "not exist" %
+                                            (domain_ip, domain_name))
 
-def domain_group_create(handle, name, 
-                         descr="",
-                         parent_dn="domaingroup-root"):
+    return domain[0]
+
+
+def domain_group_create(handle, name,
+                        descr="",
+                        parent_dn="domaingroup-root"):
     """
     This method creates Domain Group.
 
@@ -119,56 +130,57 @@ def domain_group_create(handle, name,
 
     org = handle.query_dn(parent_dn)
     if not org:
-        raise UcsCentralValidationException("org '%s' does not exist" % parent_dn)
+        raise UcsCentralValidationException(
+            "org '%s' does not exist" % parent_dn)
 
     mo = OrgDomainGroup(parent_mo_or_dn=org.dn,
-                                 name=name,
-                                 descr=descr)
+                        name=name,
+                        descr=descr)
     handle.add_mo(mo)
     handle.commit()
 
-def get_domain_group_dn(handle, domain_group):
 
+def get_domain_group_dn(handle, domain_group):
     """
     This utility funciton gets domain_group dn given the domain group name.
 
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
-        domain_ip(str): IP of domain, it can be 'None' if valid domain_name is provided
-        domain_group(string): Full domain_group with root/<org_name>/<sub-org_name>..
+        domain_ip(str): IP of domain, set 'None' if domain_name is valid
+        domain_group(string): Full domain_group with root/<org_name>/..
         domain_name(str): Optional Domain name, valid only if domain_ip is None
 
     Returns:
-        domain_group dn, raises Exception if domain group doesn't exist 
+        domain_group dn, raises Exception if domain group doesn't exist
 
     Example:
         get_domain_group_dn(handle, domain_group="root/sampleDomGroup")
     """
 
-
-    domain_org = [] 
+    domain_org = []
     domain_group_dn_prefix = "domaingroup-"
-    orgs = domain_group.split("/") 
+    orgs = domain_group.split("/")
     for org in orgs:
-        domain_org.append(domain_group_dn_prefix+org)
+        domain_org.append(domain_group_dn_prefix + org)
 
     domain_group_dn = ("/").join(domain_org)
     dn = handle.query_dn(domain_group_dn)
 
     if not dn:
         raise UcsCentralValidationException("Domain Group %s doesn't exist" %
-                            domain_group)
+                                            domain_group)
     return domain_group_dn
 
-def domain_assign_to_domaingroup(handle, domain_ip, 
-                                domain_group, domain_name=None):
+
+def domain_assign_to_domaingroup(handle, domain_ip,
+                                 domain_group, domain_name=None):
     """
     This method registers Domain to ucscentral.
 
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
-        domain_ip(str): IP of domain, it can be 'None' if valid domain_name is provided
-        domain_group(string): Full domain_group with root/<org_name>/<sub-org_name>..
+        domain_ip(str): IP of domain, set 'None' if domain_name is valid
+        domain_group(string): Full domain_group with root/<org_name>/..
         domain_name(str): Optional Domain name, valid only if domain_ip is None
 
     Returns:
@@ -185,18 +197,20 @@ def domain_assign_to_domaingroup(handle, domain_ip,
 
     compute_class = handle.query_classid(class_id="ComputeResourceAggrEp")
     compute_dn = compute_class[0].dn
-    
-    if domain_ip == None:
-        if domain_name == None:
-            raise UcsCentralValidationException("Provide either valid domain_ip or domain_name")
+
+    if domain_ip is None:
+        if domain_name is None:
+            raise UcsCentralValidationException(
+                "Provide either valid domain_ip or domain_name")
         else:
-            domain = get_domain(handle, domain_ip=None, domain_name=domain_name)
+            domain = get_domain(handle, domain_ip=None,
+                                domain_name=domain_name)
             domain_ip = domain.address
 
-    domain_assign = ComputeGroupMembership(parent_mo_or_dn = compute_dn,
-                                        ip = domain_ip, group_dn = domain_group_dn)
+    domain_assign = ComputeGroupMembership(parent_mo_or_dn=compute_dn,
+                                           ip=domain_ip,
+                                           group_dn=domain_group_dn)
     handle.set_mo(domain_assign)
     handle.commit()
 
     return domain_assign
-

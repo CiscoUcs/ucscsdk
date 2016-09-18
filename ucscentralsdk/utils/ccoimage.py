@@ -23,10 +23,16 @@ import os
 import logging
 
 from .. import ucscentralgenutils
-from ..ucscentralexception import UcsCentralValidationException, UcsCentralWarning
+from ..ucscentralexception import UcsCentralValidationException, \
+    UcsCentralWarning
 from ..ucscentraldriver import UcsCentralDriver
 
 log = logging.getLogger('ucscentral')
+
+try:
+    input = raw_input
+except NameError:
+    pass
 
 
 class _UcscentralCcoImageList:
@@ -83,8 +89,8 @@ class UcscentralCcoImage(object):
         return out_str
 
 
-def get_ucscentral_cco_image_list(username=None, password=None, mdf_id_list=None,
-                           proxy=None):
+def get_ucscentral_cco_image_list(username=None, password=None,
+                                  mdf_id_list=None, proxy=None):
     """
     Gets the list of images available on CCO
 
@@ -107,7 +113,7 @@ def get_ucscentral_cco_image_list(username=None, password=None, mdf_id_list=None
     import base64
 
     if username is None:
-        username = raw_input("Username: ")
+        username = input("Username: ")
     if password is None:
         password = getpass.getpass()
 
@@ -194,8 +200,8 @@ def get_ucscentral_cco_image_list(username=None, password=None, mdf_id_list=None
                 if property_node.getAttribute("type") == "md5":
                     image.checksum_md5 = property_node.getAttribute("value")
                     continue
-            if property_node.getAttribute(
-                    "name") == _UcscentralCcoImageList.IDAC_TAG_FILE_DESCRIPTION:
+            if property_node.getAttribute("name") == \
+                    _UcscentralCcoImageList.IDAC_TAG_FILE_DESCRIPTION:
                 image.file_description = property_node.getAttribute("value")
                 continue
 
@@ -217,16 +223,20 @@ def get_ucscentral_cco_image(image, file_dir, proxy=None):
 
     Example:
         image_list = get_ucscentral_cco_image_list("username", "password")\n
-        get_ucscentral_cco_image(image=image_list[0], file_dir="/home/user/images")\n
+        get_ucscentral_cco_image(image=image_list[0],
+                                file_dir="/home/user/images")\n
     """
 
     if not image:
-        raise UcsCentralValidationException("Provide an image to be downloaded.")
+        raise UcsCentralValidationException("Provide an image to be"
+                                            "downloaded")
     if not isinstance(image, UcscentralCcoImage):
-        raise UcsCentralValidationException("Object is not of type UcscentralCcoImage")
+        raise UcsCentralValidationException("Object is not of "
+                                            "type UcscentralCcoImage")
 
     if not file_dir:
-        raise UcsCentralValidationException("Provide file_dir to download image to.")
+        raise UcsCentralValidationException("Provide file_dir to be"
+                                            "downloaded")
     if not os.path.isdir(file_dir):
         raise UcsCentralValidationException(
             "Not a valid directory <%s>" % file_dir)
@@ -237,9 +247,9 @@ def get_ucscentral_cco_image(image, file_dir, proxy=None):
     driver = UcsCentralDriver(proxy)
     driver.add_header("Authorization", "Basic %s" % image.network_credential)
     ucscentralgenutils.download_file(driver,
-                              file_url=image_url,
-                              file_dir=file_dir,
-                              file_name=str(image.image_name))
+                                     file_url=image_url,
+                                     file_dir=file_dir,
+                                     file_name=str(image.image_name))
 
     local_file = os.path.join(file_dir, str(image.image_name))
 
@@ -248,7 +258,8 @@ def get_ucscentral_cco_image(image, file_dir, proxy=None):
 
     md5_sum = ucscentralgenutils.get_md5_sum(local_file)
     if not md5_sum:
-        UcsCentralWarning("Unable to generate md5sum for file <%s>" % local_file)
+        UcsCentralWarning("Unable to generate md5sum for file <%s>" %
+                          local_file)
         UcsCentralWarning("Deleting file <%s> ....." % local_file)
         os.remove(local_file)
         return
