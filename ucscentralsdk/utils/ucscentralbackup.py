@@ -20,17 +20,17 @@ import platform
 import time
 import datetime
 import logging
-import sys
 from ..ucscentralexception import UcsCentralValidationException, \
-                                  UcsCentralWarning, \
-                                  UcsCentralOperationError
+    UcsCentralWarning, \
+    UcsCentralOperationError
 
 log = logging.getLogger('ucscentral')
 
+
 def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
-               remote_enabled=False, protocol=None,
-               host_name="localhost",username=None, password=None,
-               preserve_pooled_values=False,):
+                      remote_enabled=False, protocol=None,
+                      host_name="localhost", username=None, password=None,
+                      preserve_pooled_values=False):
     """
     backup_ucscentral helps create and download UcsCentral full-state backup.
 
@@ -43,7 +43,8 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
                               for the backUp file to generate before it exits.
         remote_enabled (boolean): True if Remote backup is enabled
                                   False - by default
-        protocol (str): Transfer protocol for remote backup ['ftp','sftp','tftp','scp']
+        protocol (str): Transfer protocol for remote backup
+                        ['ftp','sftp','tftp','scp']
         hostname (str): Hostname/IP for the remote backup
         username (str): Username for remote backup
         password (str): Password for remote backup
@@ -75,31 +76,34 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
 
     if remote_enabled:
         if (not file_name.endswith('.tgz')):
-            raise UcsCentralValidationException("file_name must be .tgz format")
+            raise UcsCentralValidationException(
+                "file_name must be .tgz format")
 
         file_path = file_dir + file_name
-        mgmt_backup = MgmtBackup(parent_mo_or_dn=top_system,
-                                 hostname=host_name,
-                                 admin_state=MgmtBackupConsts.ADMIN_STATE_ENABLED,
-                                 proto=protocol,
-                                 type=backup_type,
-                                 remote_file=file_path,
-                                 user=username,
-                                 pwd=password)
+        mgmt_backup = MgmtBackup(
+                parent_mo_or_dn=top_system,
+                hostname=host_name,
+                admin_state=MgmtBackupConsts.ADMIN_STATE_ENABLED,
+                proto=protocol,
+                type=backup_type,
+                remote_file=file_path,
+                user=username,
+                pwd=password)
     else:
         if not os.path.exists(file_dir):
             os.makedirs(file_dir)
 
         file_string = platform.node().lower() \
-                    + datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+            + datetime.datetime.now().strftime("%Y%m%d%H%M%S")
         file_path = "/" + file_string + "_" + backup_type + "_backup.tgz"
 
-        mgmt_backup = MgmtBackup(parent_mo_or_dn=top_system,
-                                 hostname=host_name,
-                                 admin_state=MgmtBackupConsts.ADMIN_STATE_ENABLED,
-                                 proto=MgmtBackupConsts.PROTO_HTTP,
-                                 type=backup_type,
-                                 remote_file=file_path)
+        mgmt_backup = MgmtBackup(
+                parent_mo_or_dn=top_system,
+                hostname=host_name,
+                admin_state=MgmtBackupConsts.ADMIN_STATE_ENABLED,
+                proto=MgmtBackupConsts.PROTO_HTTP,
+                type=backup_type,
+                remote_file=file_path)
 
     if preserve_pooled_values:
         mgmt_backup.preserve_pooled_values = \
@@ -108,7 +112,7 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
         mgmt_backup.preserve_pooled_values = \
             MgmtBackupConsts.PRESERVE_POOLED_VALUES_NO
 
-    handle.add_mo(mgmt_backup,modify_present=True)
+    handle.add_mo(mgmt_backup, modify_present=True)
     handle.commit()
 
     mgmt_backup = handle.query_dn(dn=mgmt_backup.dn)
@@ -131,7 +135,8 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
         if duration == 0:
             handle.remove_mo(mgmt_backup)
             handle.commit()
-            raise UcsCentralOperationError("Backup ucscentral", " operation timed out")
+            raise UcsCentralOperationError(
+                "Backup UcsCentral", " operation timed out")
 
     # download backup
     log.debug("Backup done, starting Download ")
@@ -152,12 +157,14 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
     handle.remove_mo(mgmt_backup)
     handle.commit()
 
+
 def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
-               remote_enabled=False, protocol=None,
-               host_name="localhost",username=None, password=None,
-               preserve_pooled_values=False,):
+                             remote_enabled=False, protocol=None,
+                             host_name="localhost", username=None,
+                             password=None, preserve_pooled_values=False):
     """
-    config_export_ucscentral helps export and download UcsCentral config-all backup.
+    config_export_ucscentral helps export and download UcsCentral config-all
+    backup.
 
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
@@ -168,7 +175,8 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
                               for the backUp file to generate before it exits.
         remote_enabled (boolean): True if Remote backup is enabled
                                   False - by default
-        protocol (str): Transfer protocol for remote backup ['ftp','sftp','tftp','scp']
+        protocol (str): Transfer protocol for remote backup
+                        ['ftp','sftp','tftp','scp']
         hostname (str): Hostname/IP for the remote backup
         username (str): Username for remote backup
         password (str): Password for remote backup
@@ -178,14 +186,17 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
     Example:
         file_dir = "/home/user/backup"\n
         file_name = "config_export.tgz"\n
-        config_export_ucscentral(handle, file_dir=test_support, file_name=file_name)\n
+        config_export_ucscentral(handle, file_dir=test_support,
+                                         file_name=file_name)\n
 
-        config_export_ucscentral(handle, file_dir=test_support, file_name=file_name,
-                    remote_enabled=True, protocol='scp',hostname='192.168.1.1',
+        config_export_ucscentral(handle, file_dir=test_support,
+                    file_name=file_name,remote_enabled=True,
+                    protocol='scp',hostname='192.168.1.1',
                     username='admin',password='password')\n
 
     """
-    from ..mometa.mgmt.MgmtDataExporter import MgmtDataExporter, MgmtDataExporterConsts
+    from ..mometa.mgmt.MgmtDataExporter import MgmtDataExporter, \
+        MgmtDataExporterConsts
     from ..mometa.top.TopSystem import TopSystem
 
     backup_type = "config-all"
@@ -198,17 +209,19 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
 
     if remote_enabled:
         if (not file_name.endswith('.tgz')):
-            raise UcsCentralValidationException("file_name must be .tgz format")
+            raise UcsCentralValidationException(
+                "file_name must be .tgz format")
 
         file_path = file_dir + file_name
-        mgmt_export = MgmtDataExporter(parent_mo_or_dn=top_system,
-                                 hostname=host_name,
-                                 admin_state=MgmtDataExporterConsts.ADMIN_STATE_ENABLED,
-                                 proto=protocol,
-                                 type=backup_type,
-                                 remote_file=file_path,
-                                 user=username,
-                                 pwd=password)
+        mgmt_export = MgmtDataExporter(
+                parent_mo_or_dn=top_system,
+                hostname=host_name,
+                admin_state=MgmtDataExporterConsts.ADMIN_STATE_ENABLED,
+                proto=protocol,
+                type=backup_type,
+                remote_file=file_path,
+                user=username,
+                pwd=password)
     else:
         if not os.path.exists(file_dir):
             os.makedirs(file_dir)
@@ -217,12 +230,13 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
             + datetime.datetime.now().strftime("%Y%m%d%H%M%S")
         file_path = "/" + file_string + "_" + backup_type + "_backup.tgz"
 
-        mgmt_export = MgmtDataExporter(parent_mo_or_dn=top_system,
-                                 hostname=host_name,
-                                 admin_state=MgmtDataExporterConsts.ADMIN_STATE_ENABLED,
-                                 proto=MgmtDataExporterConsts.PROTO_HTTP,
-                                 type=backup_type,
-                                 remote_file=file_path)
+        mgmt_export = MgmtDataExporter(
+                parent_mo_or_dn=top_system,
+                hostname=host_name,
+                admin_state=MgmtDataExporterConsts.ADMIN_STATE_ENABLED,
+                proto=MgmtDataExporterConsts.PROTO_HTTP,
+                type=backup_type,
+                remote_file=file_path)
 
     if preserve_pooled_values:
         mgmt_export.preserve_pooled_values = \
@@ -231,7 +245,7 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
         mgmt_export.preserve_pooled_values = \
             MgmtDataExporterConsts.PRESERVE_POOLED_VALUES_NO
 
-    handle.add_mo(mgmt_export,modify_present=True)
+    handle.add_mo(mgmt_export, modify_present=True)
     handle.commit()
 
     mgmt_export = handle.query_dn(dn=mgmt_export.dn)
@@ -254,7 +268,8 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
         if duration == 0:
             handle.remove_mo(mgmt_export)
             handle.commit()
-            raise UcsCentralOperationError("Config Export ucscentral", "operation timed out")
+            raise UcsCentralOperationError(
+                "Config Export UcsCentral", "operation timed out")
 
     # download backup
     log.debug("Config exported, now Downloading")
@@ -266,14 +281,16 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
                                  file_dir=file_dir,
                                  file_name=file_name)
         except Exception as err:
-            UcsCentralOperationError("Download of config_export", "download failed")
+            UcsCentralOperationError(
+                "Download of config_export", "download failed")
             UcsCentralWarning(str(err))
-            handle.remove_mo(mgmt_backup)
+            handle.remove_mo(mgmt_export)
             handle.commit()
 
     # remove backup from ucs
     handle.remove_mo(mgmt_export)
     handle.commit()
+
 
 def _fail_and_remove_domain_backup(handle, backup_status_mo, err):
     if backup_status_mo:
@@ -281,12 +298,16 @@ def _fail_and_remove_domain_backup(handle, backup_status_mo, err):
         handle.commit(dme="resource-mgr")
     raise UcsCentralOperationError("Domain backup/config_export", err)
 
-def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, domain_ip, domain_name, host_name,
-        preserve_pooled_values, protocol, username, password, timeout_in_sec):
 
+def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name,
+                                   domain_ip, domain_name, host_name,
+                                   preserve_pooled_values, protocol,
+                                   username, password, timeout_in_sec):
     """
-    This internal function helps create domain full_state backup or export config to remote location
-    Note: This is internal function, should use either backup_domain or backup_config_export
+    This internal function helps create domain full_state backup or export
+    config to remote location
+    Note: This is internal function, should use either backup_domain or
+    backup_config_export
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
         file_dir (str): directory to download ucs backup file to
@@ -295,9 +316,10 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, dom
         backup_type (str): Either full-state or config-all.
         timeout_in_sec (number) : time in seconds for which method waits
                               for the backUp file to generate before it exits.
-        domain_ip(str): IP of domain, it can be 'None' if valid domain_name is provided
+        domain_ip(str): IP of domain, set 'None' if domain_name is valid
         domain_name(str): Domain name, valid only if domain_ip is None
-        protocol (str): Transfer protocol for remote backup ['ftp','sftp','tftp','scp']
+        protocol (str): Transfer protocol for remote backup
+                        ['ftp','sftp','tftp','scp']
         hostname (str): Hostname/IP for the remote backup
         username (str): Username for remote backup
         password (str): Password for remote backup
@@ -305,8 +327,9 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, dom
                                           False - by default
 
     """
-    from ..mometa.mgmt.MgmtBackupOperation import MgmtBackupOperation, MgmtBackupOperationConsts
-    from ..mometa.mgmt.MgmtBackup import MgmtBackup, MgmtBackupConsts
+    from ..mometa.mgmt.MgmtBackupOperation import MgmtBackupOperation, \
+        MgmtBackupOperationConsts
+    from ..mometa.mgmt.MgmtBackup import MgmtBackupConsts
     from .ucscentraldomain import get_domain
 
     preserve_pooled_values = False
@@ -320,28 +343,33 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, dom
 
     if backup_type == 'full-state':
         if (not file_name.endswith('.tgz')):
-            raise UcsCentralValidationException("file_name must be .tgz format")
+            raise UcsCentralValidationException(
+                "file_name must be .tgz format")
     elif backup_type == 'config-all':
         if (not file_name.endswith('.xml')):
-            raise UcsCentralValidationException("file_name must be .xml format")
+            raise UcsCentralValidationException(
+                "file_name must be .xml format")
 
     domain = get_domain(handle, domain_ip, domain_name)
     if (domain.available_physical_cnt == str(0)):
-        raise UcsCentralValidationException("Domain with IP %s or name %s not registered or "
-                                            "lost visibility with ucscentral" % (domain_ip,domain_name))
+        raise UcsCentralValidationException("Domain with IP %s or name %s not "
+                                            "registered or lost visibility "
+                                            "with UcsCentral" %
+                                            (domain_ip, domain_name))
     else:
         domain_dn = domain.dn
 
     file_path = file_dir + file_name
 
-    mgmt_backup = MgmtBackupOperation(parent_mo_or_dn=domain_dn,
-                             hostname=host_name,
-                             admin_state=MgmtBackupOperationConsts.ADMIN_STATE_ENABLED,
-                             proto=protocol,
-                             type=backup_type,
-                             remote_file=file_path,
-                             user=username,
-                             pwd=password)
+    mgmt_backup = MgmtBackupOperation(
+            parent_mo_or_dn=domain_dn,
+            hostname=host_name,
+            admin_state=MgmtBackupOperationConsts.ADMIN_STATE_ENABLED,
+            proto=protocol,
+            type=backup_type,
+            remote_file=file_path,
+            user=username,
+            pwd=password)
     if preserve_pooled_values:
         mgmt_backup.preserve_pooled_values = \
             MgmtBackupOperationConsts.PRESERVE_POOLED_VALUES_YES
@@ -355,16 +383,19 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, dom
     log.debug("Triggering Domain Backup ")
     duration = 30
     poll_interval = 2
-    backup_status_dn = "extpol/reg/clients/client-"  + domain.id + "/backup-" + host_name
+    backup_status_dn = "extpol/reg/clients/client-" + \
+        domain.id + "/backup-" + host_name
     while True:
-        backup_status = handle.query_dn(dn=backup_status_dn, dme="resource-mgr")
-        if backup_status != None:
+        backup_status = handle.query_dn(
+            dn=backup_status_dn, dme="resource-mgr")
+        if backup_status is not None:
             break
 
         time.sleep(min(duration, poll_interval))
         duration = max(0, (duration - poll_interval))
         if duration == 0:
-            raise UcsCentralOperationError("Backup or config export of domain", "not triggered")
+            raise UcsCentralOperationError(
+                "Backup or config export of domain", "not triggered")
 
     log.debug("Domain Backup Triggered")
 
@@ -378,21 +409,27 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, dom
         if backup_status.over_all_status == \
                 MgmtBackupConsts.OVER_ALL_STATUS_ALL_SUCCESS:
             break
-        if backup_status.over_all_status != MgmtBackupConsts.OVER_ALL_STATUS_WORK_IN_PROGRESS:
-            _fail_and_remove_domain_backup(handle, backup_status, 'operation failed')
+        if backup_status.over_all_status != \
+                MgmtBackupConsts.OVER_ALL_STATUS_WORK_IN_PROGRESS:
+            _fail_and_remove_domain_backup(
+                handle, backup_status, 'operation failed')
         time.sleep(min(duration, poll_interval))
         duration = max(0, (duration - poll_interval))
         if duration == 0:
-            _fail_and_remove_domain_backup(handle, backup_status, 'operation timed out')
+            _fail_and_remove_domain_backup(
+                handle, backup_status, 'operation timed out')
 
     log.debug("Domain backup is available")
 
+
 def backup_domain(handle, file_dir, file_name,
-               domain_ip,  protocol, host_name,
-               username, password,
-               domain_name= None,preserve_pooled_values=False, timeout_in_sec=600):
+                  domain_ip,  protocol, host_name,
+                  username, password,
+                  domain_name=None, preserve_pooled_values=False,
+                  timeout_in_sec=600):
     """
-    backup_domain  helps create domain full_state backup and download it to remote location.
+    backup_domain  helps create domain full_state backup and download it to
+    remote location.
     Note: Domain backup will always be remote backup
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
@@ -401,9 +438,10 @@ def backup_domain(handle, file_dir, file_name,
                          (supported file extension is '.tgz')
         timeout_in_sec (number) : time in seconds for which method waits
                               for the backUp file to generate before it exits.
-        domain_ip(str): IP of domain, it can be 'None' if valid domain_name is provided
+        domain_ip(str): IP of domain, set 'None' if domain_name is valid
         domain_name(str): Domain name, valid only if domain_ip is None
-        protocol (str): Transfer protocol for remote backup ['ftp','sftp','tftp','scp']
+        protocol (str): Transfer protocol for remote backup
+                        ['ftp','sftp','tftp','scp']
         hostname (str): Hostname/IP for the remote backup
         username (str): Username for remote backup
         password (str): Password for remote backup
@@ -415,20 +453,27 @@ def backup_domain(handle, file_dir, file_name,
         file_name = "config_backup.tgz"\n
 
         backup_domain(handle, file_dir=test_support, file_name=file_name,
-                    domain_ip='10.10.10.1', protocol='scp',hostname='192.168.1.1',
+                    domain_ip='10.10.10.1', protocol='scp',
+                    hostname='192.168.1.1',
                     username='admin',password='password')\n
 
     """
     backup_type = "full-state"
-    return _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, domain_ip, domain_name, host_name,
-            preserve_pooled_values, protocol, username, password, timeout_in_sec)
+    return _backup_or_configexport_domain(handle, backup_type, file_dir,
+                                          file_name, domain_ip, domain_name,
+                                          host_name, preserve_pooled_values,
+                                          protocol, username, password,
+                                          timeout_in_sec)
+
 
 def config_export_domain(handle, file_dir, file_name,
-               domain_ip, host_name,  protocol,
-               username, password,
-               domain_name=None,preserve_pooled_values=False, timeout_in_sec=600):
+                         domain_ip, host_name,  protocol,
+                         username, password,
+                         domain_name=None, preserve_pooled_values=False,
+                         timeout_in_sec=600):
     """
-    config_export_domain helps create domain config export and download it to remote location.
+    config_export_domain helps create domain config export and download it
+    to remote location.
     Note: Domain config export will always be remote export
 
     Args:
@@ -438,9 +483,10 @@ def config_export_domain(handle, file_dir, file_name,
                          (supported file extension is '.tgz')
         timeout_in_sec (number) : time in seconds for which method waits
                               for the backUp file to generate before it exits.
-        domain_ip(str): IP of domain, it can be 'None' if valid domain_name is provided
+        domain_ip(str): IP of domain, set 'None' if domain_name is valid
         domain_name(str): Domain name, valid only if domain_ip is None
-        protocol (str): Transfer protocol for remote backup ['ftp','sftp','tftp','scp']
+        protocol (str): Transfer protocol for remote backup
+                        ['ftp','sftp','tftp','scp']
         hostname (str): Hostname/IP for the remote backup
         username (str): Username for remote backup
         password (str): Password for remote backup
@@ -450,17 +496,24 @@ def config_export_domain(handle, file_dir, file_name,
     Example:
         file_dir = "/home/user/backup"\n
         file_name = "config_backup.xml"\n
-        config_export_domain(handle, file_dir=test_support, file_name=file_name,
-                    username='admin',password='password')\n
-                    domain_ip='10.10.10.1', protocol='scp',hostname='192.168.1.1',
+        config_export_domain(handle, file_dir=test_support,
+                    file_name=file_name,
+                    username='admin', password='password',
+                    domain_ip='10.10.10.1', protocol='scp',
+                    hostname='192.168.1.1')
     """
     backup_type = "config-all"
-    return _backup_or_configexport_domain(handle, backup_type, file_dir, file_name, domain_ip, domain_name, host_name,
-            preserve_pooled_values, protocol, username, password, timeout_in_sec)
+    return _backup_or_configexport_domain(handle, backup_type, file_dir,
+                                          file_name, domain_ip, domain_name,
+                                          host_name, preserve_pooled_values,
+                                          protocol, username, password,
+                                          timeout_in_sec)
+
 
 def config_import_ucscentral(handle, file_dir, file_name, merge=False,
-               remote_enabled=False, protocol=None, host_name="localhost",
-               username=None, password=None):
+                             remote_enabled=False, protocol=None,
+                             host_name="localhost",
+                             username=None, password=None):
     """
     This operation uploads a UcsCentral config export taken earlier via GUI
     or config_export_ucscentral operation. User can perform an import while the
@@ -471,11 +524,12 @@ def config_import_ucscentral(handle, file_dir, file_name, merge=False,
         file_dir (str): directory containing ucs backup file
         file_name (str): backup file name to be imported
         merge (boolean): True/False, specifies whether to merge the backup
-                        configuration with the existing UCS Central configuration
+                        config with the existing UCS Central configuration
 
         remote_enabled (boolean): True if Remote import is enabled
                                   False - by default
-        protocol (str): Transfer protocol for remote import ['ftp','sftp','tftp','scp']
+        protocol (str): Transfer protocol for remote import
+                        ['ftp','sftp','tftp','scp']
         hostname (str): Hostname/IP for the remote import
         username (str): Username for remote import
         password (str): Password for remote import
@@ -483,16 +537,19 @@ def config_import_ucscentral(handle, file_dir, file_name, merge=False,
     Example:
         file_dir = "/home/user/backup"\n
         file_name = "config_export.tgz"\n
-        config_import_ucscentral(handle, file_dir=test_support, file_name=file_name, merge=True)\n
+        config_import_ucscentral(handle, file_dir=test_support,
+                                 file_name=file_name, merge=True)\n
 
-        config_import_ucscentral(handle, file_dir=test_support, file_name=file_name,
-                    remote_enabled=True, protocol='scp',hostname='192.168.1.1',
-                    username='admin',password='password')\n
+        config_import_ucscentral(handle, file_dir=test_support,
+                                 file_name=file_name, remote_enabled=True,
+                                 protocol='scp',hostname='192.168.1.1',
+                                 username='admin',password='password')\n
 
     """
 
     from ..mometa.top.TopSystem import TopSystem
-    from ..mometa.mgmt.MgmtDataImporter import MgmtDataImporter, MgmtDataImporterConsts
+    from ..mometa.mgmt.MgmtDataImporter import MgmtDataImporter, \
+        MgmtDataImporterConsts
 
     if not file_dir:
         raise UcsCentralValidationException("Missing file_dir argument")
@@ -505,8 +562,7 @@ def config_import_ucscentral(handle, file_dir, file_name, merge=False,
         raise UcsCentralValidationException("file_name must be .tgz format")
 
     top_system = TopSystem()
-    if remote_enabled == True:
-
+    if remote_enabled:
         mgmt_importer = MgmtDataImporter(
             parent_mo_or_dn=top_system,
             hostname=host_name,
@@ -518,11 +574,11 @@ def config_import_ucscentral(handle, file_dir, file_name, merge=False,
     else:
         if not os.path.exists(file_path):
             raise UcsCentralValidationException("Backup File not found <%s>" %
-                                                 file_path)
+                                                file_path)
         mgmt_importer = MgmtDataImporter(
             parent_mo_or_dn=top_system,
             hostname=host_name,
-            remote_file='/'+ file_name,
+            remote_file='/' + file_name,
             proto=MgmtDataImporterConsts.PROTO_HTTP,
             admin_state=MgmtDataImporterConsts.ADMIN_STATE_ENABLED)
 
@@ -531,14 +587,14 @@ def config_import_ucscentral(handle, file_dir, file_name, merge=False,
     else:
         mgmt_importer.action = MgmtDataImporterConsts.ACTION_REPLACE
 
-    if remote_enabled != True:
-        uri_suffix = "operations/file-%s/importconfig.txt?Cookie=%s" % (file_name, handle.cookie)
+    if not remote_enabled:
+        uri_suffix = "operations/file-%s/importconfig.txt?Cookie=%s" % (
+            file_name, handle.cookie)
         handle.file_upload(url_suffix=uri_suffix,
                            file_dir=file_dir,
                            file_name=file_name)
 
-    handle.add_mo(mgmt_importer,modify_present=True)
+    handle.add_mo(mgmt_importer, modify_present=True)
     handle.commit()
 
     return mgmt_importer
-

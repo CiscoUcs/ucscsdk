@@ -17,12 +17,12 @@ This module contains APIs to facilitate UcsCentral Firmware management
 
 import logging
 import os
-import sys
 import time
 import datetime
 from ..ucscentralexception import UcsCentralValidationException, \
-                                  UcsCentralOperationError, \
-                                  UcsCentralConnectionError
+    UcsCentralOperationError, \
+    UcsCentralWarning, \
+    UcsCentralConnectionError
 
 from ucscentralsdk.utils.ccoimage import get_ucscentral_cco_image_list
 from ucscentralsdk.utils.ccoimage import get_ucscentral_cco_image
@@ -30,14 +30,17 @@ from ucscentralsdk.ucscentralgenutils import Progress
 
 from ucscentralsdk.mometa.top.TopSystem import TopSystem
 from ucscentralsdk.mometa.firmware.FirmwareCatalogue import FirmwareCatalogue
-from ucscentralsdk.mometa.firmware.FirmwareDownloader import FirmwareDownloader
-from ucscentralsdk.mometa.firmware.FirmwareDownloader import FirmwareDownloaderConsts
+from ucscentralsdk.mometa.firmware.FirmwareDownloader import \
+        FirmwareDownloader, \
+        FirmwareDownloaderConsts
 from ucscentralsdk.mometa.firmware.FirmwareInfraPack import FirmwareInfraPack
-from ucscentralsdk.mometa.firmware.FirmwareCatalogPack import FirmwareCatalogPack
+from ucscentralsdk.mometa.firmware.FirmwareCatalogPack import \
+        FirmwareCatalogPack
 from ucscentralsdk.mometa.trig.TrigSched import TrigSched
 from ucscentralsdk.mometa.trig.TrigSched import TrigSchedConsts
 from ucscentralsdk.mometa.trig.TrigAbsWindow import TrigAbsWindow
-from ucscentralsdk.mometa.firmware.FirmwareDownloadPolicy import FirmwareDownloadPolicy
+from ucscentralsdk.mometa.firmware.FirmwareDownloadPolicy import \
+        FirmwareDownloadPolicy
 from ucscentralsdk.utils.ucscentraldomain import get_domain_group_dn
 
 log = logging.getLogger('ucscentral')
@@ -46,18 +49,19 @@ log = logging.getLogger('ucscentral')
 def get_firmware_bundles(handle, bundle_type=None,
                          fw_platform=None):
     '''
-    Return the list of firmware bundles that have been imported or available for import
-    to Ucs Central
+    Return the list of firmware bundles that have been imported or available
+    for import to Ucs Central
 
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
-        bundle_type (str): Type of bunde,provider-bundle - ucs-central
-                                         catalog - ucs catalog bundle
-                                         b-series-bundle - ucs b series bundle
-                                         c-series-bundle - ucs c series bundle
-                                         m-series-bundle - ucs m series bundle
-                                         infrastructure-bundle - ucs infra bundle
-        fw_platform (str): platform type, valid only if bundle_type is infra bundle
+        bundle_type (str): Type of bunde,
+                            provider-bundle - ucs-central
+                            catalog - ucs catalog bundle
+                            b-series-bundle - ucs b series bundle
+                            c-series-bundle - ucs c series bundle
+                            m-series-bundle - ucs m series bundle
+                            infrastructure-bundle - ucs infra bundle
+        fw_platform (str): platform type, valid if bundle_type is infra bundle
                                          classic - 6100/6200 platform
                                          mini - 6300 mini platform
                                          3gen - 6300 3rdgen platform
@@ -91,18 +95,23 @@ def get_firmware_bundles(handle, bundle_type=None,
         log.debug("No Firmware Bundles found")
     else:
         log.debug("Firmwares Bundles:")
-        log.debug("No.                      Name                                  Type                  Status    ")
-        log.debug("=== ================================================= ======================    ===============")
+        log.debug(
+            "No.                      Name                                  "
+            "Type                  Status    ")
+        log.debug(
+            "=== ================================================= ========="
+            "=============    ===============")
         for bundle in bundles:
             log.debug(" %2d %-50s %-25s %-18s" %
-                  (i, bundle.name, bundle.type, bundle.oper_dnld_status))
+                      (i, bundle.name, bundle.type, bundle.oper_dnld_status))
             i += 1
     return bundles
 
 
 def get_failed_dw_firmware_bundles(handle):
     '''
-    Return the list of firmware bundles that have been downloaded on the Ucs Central
+    Return the list of firmware bundles that have been downloaded on the
+    Ucs Central
 
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
@@ -122,8 +131,12 @@ def get_failed_dw_firmware_bundles(handle):
         log.debug("No Failed Download Firmware Bundles found")
     else:
         log.debug("Failed Downloads:")
-        log.debug("No.                      Name                                  Error Code                 Error Description     ")
-        log.debug("=== ================================================= =========================== ==============================")
+        log.debug(
+            "No.                      Name                                  "
+            "Error Code                 Error Description     ")
+        log.debug(
+            "=== ================================================= ========="
+            "================== ==============================")
         for bundle in failed_dw_bundles:
             log.debug(
                 " %2d %-50s %-30s %-30s" %
@@ -136,7 +149,8 @@ def get_failed_dw_firmware_bundles(handle):
 
 
 def get_cco_firmware_image(image_name, username, password, download_dir,
-                      mdf_id_list=(284308174,), proxy=None, progress=Progress()):
+                           mdf_id_list=(284308174,), proxy=None,
+                           progress=Progress()):
     '''
     Downloads the firmware from CCO given the image name
     Args:
@@ -155,8 +169,10 @@ def get_cco_firmware_image(image_name, username, password, download_dir,
                           download_dir='/Users/abc/Downloads/')
     '''
 
-    images = get_ucscentral_cco_image_list(username=username, password=password,
-                                           mdf_id_list=mdf_id_list, proxy=proxy)
+    images = get_ucscentral_cco_image_list(username=username,
+                                           password=password,
+                                           mdf_id_list=mdf_id_list,
+                                           proxy=proxy)
 
     image_dict = {}
     for image in images:
@@ -182,15 +198,17 @@ def firmware_add_local(handle, local_path, file_name,
     Args:
         local_path (str): Local directory where image resides
         file_name (str): Name of the image in the local directory
-        timeout (number): Timeout in seconds for the image to get uploaded to ucs central
+        timeout (number): Timeout in seconds for the image to get uploaded to
+                          ucs central
     Example:
-        firmware_add_local(handle,"/Users/abc/Downloads/", "ucs-k9-bundle-b-series.3.1.1h.B.bin")
+        firmware_add_local(handle,"/Users/abc/Downloads/",
+                                  "ucs-k9-bundle-b-series.3.1.1h.B.bin")
     '''
     if not local_path:
         raise UcsCentralValidationException("Missing local_path argument")
     if not file_name:
         raise UcsCentralValidationException("Missing file_name argument")
- 
+
     file_path = os.path.join(local_path, file_name)
     if not os.path.exists(file_path):
         raise UcsCentralValidationException("File does not exist")
@@ -216,11 +234,14 @@ def firmware_add_local(handle, local_path, file_name,
     handle.commit()
 
     start = datetime.datetime.now()
-    while not firmware_downloader.transfer_state == FirmwareDownloaderConsts.TRANSFER_STATE_DOWNLOADED:
+    while not firmware_downloader.transfer_state == \
+            FirmwareDownloaderConsts.TRANSFER_STATE_DOWNLOADED:
         firmware_downloader = handle.query_dn(firmware_downloader.dn)
-        if firmware_downloader.transfer_state == FirmwareDownloaderConsts.TRANSFER_STATE_FAILED:
-            raise UcsCentralOperationError("Import of %s " % file_name,
-                                           "%s" % firmware_downloader.fsm_rmt_inv_err_descr)
+        if firmware_downloader.transfer_state == \
+                FirmwareDownloaderConsts.TRANSFER_STATE_FAILED:
+            raise UcsCentralOperationError(
+                    "Import of %s " % file_name,
+                    "%s" % firmware_downloader.fsm_rmt_inv_err_descr)
         if (datetime.datetime.now() - start).total_seconds() > timeout:
             raise UcsCentralOperationError(
                 "Import of %s" % file_name,  "operation timed out")
@@ -242,8 +263,9 @@ def firmware_add_remote(handle, remote_path, file_name, protocol, host_name,
         username (str): Username for the remote server access
         password  (str): Password for the remote server access
     Example:
-        firmware_add_remote(handle,file_name="ucs-k9-bundle-b-series.3.1.1h.B.bin",
-                            remote_path="/remote_path/", host_name="192.168.1.1",
+        firmware_add_remote(handle,
+                            file_name="ucs-k9-bundle-b-series.3.1.1h.B.bin",
+                            remote_path="/remote_path/", host_name="10.10.1.1",
                             protocol="scp",username="abc",password="xyz")
     '''
     if not host_name:
@@ -287,7 +309,8 @@ def firmware_remove(handle, image_name):
         image_name (str): Name of the image to be deleted
 
     Example:
-        firmware_remove(handle,image_name="ucs-k9-bundle-b-series.3.1.1h.B.bin")
+        firmware_remove(handle,
+                        image_name="ucs-k9-bundle-b-series.3.1.1h.B.bin")
     '''
 
     top_system = TopSystem()
@@ -349,14 +372,16 @@ def schedule_infra_fw_update(handle, domain_group, schedule, user_ack_en=True,
                              fi_6300_ver=None, catalog_ver=None):
     """
     Schedules infra fw update for the domain group
-    Note: infra fw update will happen only for the bundles which are imported to ucscentral
+    Note: infra fw update will happen only for the bundles which are imported
+          to ucscentral
 
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
-        schedule(string): Date string in format YYYY-MM-DDTHH:MM:SS eg. 2016-08-30T05:19:05,
+        schedule(string): Date string in format YYYY-MM-DDTHH:MM:SS
+                          eg. 2016-08-30T05:19:05,
                           you can use "now" to trigger immediate fw_update
-        domain_group(string): Full domain_group with root/<org_name>/<sub-org_name>..
-        user_ack_en(boolean): Enable/Disable user acknowledge for firmware update
+        domain_group(string): Full domain_group with root/<org_name>/..
+        user_ack_en(boolean): Enable/Disable user ack for firmware update
                             By default True
         fi_6100_6200_ver: FI 6100/6200 FW version
         fi_mini_6300_ver: FI Mini 6300 FW version
@@ -385,7 +410,7 @@ def schedule_infra_fw_update(handle, domain_group, schedule, user_ack_en=True,
     fw_infra_policy_dn = domain_group_dn + "/fw-infra-policy"
 
     if fi_6100_6200_ver is not None:
-        _validate_firmware_bundl(handle, "classic", fi_6100_6200_ver)
+        _validate_firmware_bundle(handle, "classic", fi_6100_6200_ver)
         classic_fw_dn = fw_infra_policy_dn + "/fw-family-ucs-classic "
         _add_firmware_infra_pack(handle, classic_fw_dn, fi_6100_6200_ver)
 
@@ -409,7 +434,7 @@ def schedule_infra_fw_update(handle, domain_group, schedule, user_ack_en=True,
     handle.commit()
 
     admin_state = (TrigSchedConsts.ADMIN_STATE_UNTRIGGERED,
-                   TrigSchedConsts.ADMIN_STATE_USER_ACK)[user_ack_en == True]
+                   TrigSchedConsts.ADMIN_STATE_USER_ACK)[user_ack_en]
 
     fw_update_sched = TrigSched(parent_mo_or_dn=domain_group_dn,
                                 name="infra-fw",
@@ -430,7 +455,8 @@ def schedule_infra_fw_update(handle, domain_group, schedule, user_ack_en=True,
 def _validate_proxy_details(
         proxy_name_or_ip, proxy_port, proxy_username, proxy_password):
     '''
-    Internal method to performs proxy arguments validation and returns proxy string
+    Internal method to performs proxy arguments validation and returns
+    proxy string
     '''
     proxy_str = None
 
@@ -467,8 +493,9 @@ def _is_valid_cisco_connection(cisco_username, cisco_password, proxy_str):
     return True
 
 
-def sync_firmware_update_from_cisco(handle, cisco_username, cisco_password, sync_enable=False,
-                                    sync_frequencey="daily", proxy_enable=False,
+def sync_firmware_update_from_cisco(handle, cisco_username, cisco_password,
+                                    sync_enable=False, sync_frequencey="daily",
+                                    proxy_enable=False,
                                     proxy_name_or_ip=None, proxy_port=None,
                                     proxy_username="", proxy_password=""):
     """
@@ -478,11 +505,13 @@ def sync_firmware_update_from_cisco(handle, cisco_username, cisco_password, sync
         handle (UcsCentralHandle): UcsCentral Connection handle
         cisco_username (str): cisco username to connect to image server
         cisco_password (str): cisco password to connect to image server
-        sync_enable (boolean): if True, sync to cisco.com enable for firmware update
+        sync_enable (boolean): if True, sync to cisco.com enable for
+                               firmware update
                                False by default
-        sync_frequencey (string): if sync is enabled, this dictates the frequencey of sync
-                                  it can be daily, weekly, bi-weekly or on demand
-                                  daily by default
+        sync_frequencey (string): if sync is enabled, this dictates the
+                                  frequencey of sync
+                                  ['daily', 'weekly', 'bi-weekly', 'on demand']
+                                  'daily' by default
         proxy_enable (boolean): if True, proxy to access cisco.com is enabled
                                 False by default
         # Proxy details in case proxy_enable is True
@@ -492,13 +521,19 @@ def sync_firmware_update_from_cisco(handle, cisco_username, cisco_password, sync
         proxy_password (str) : Proxy password to access proxy, if any
 
     Example:
-        sync_firmware_update_from_cisco(handle, cisco_username = "abc", cisco_password="xyz",
-                                        sync_enable = True, sync_frequencey= "weekly",
+        sync_firmware_update_from_cisco(handle, cisco_username = "abc",
+                                        cisco_password="xyz",
+                                        sync_enable = True,
+                                        sync_frequencey= "weekly",
                                         proxy_enable = False)
-        sync_firmware_update_from_cisco(handle, cisco_username = "abc", cisco_password="xyz",
-                                        sync_enable = True, sync_frequencey= "on demand",
-                                        proxy_enable = True, proxy_username = "admin",
-                                        proxy_name_or_ip = "192.168.1.1", proxy_port = "8080")
+        sync_firmware_update_from_cisco(handle, cisco_username = "abc",
+                                        cisco_password="xyz",
+                                        sync_enable = True,
+                                        sync_frequencey= "on demand",
+                                        proxy_enable = True,
+                                        proxy_username = "admin",
+                                        proxy_name_or_ip = "192.168.1.1",
+                                        proxy_port = "8080")
     """
 
     if proxy_enable:
@@ -524,14 +559,16 @@ def sync_firmware_update_from_cisco(handle, cisco_username, cisco_password, sync
     else:
         sync_admin_state = "disable"
 
-    sync_fw_update = FirmwareDownloadPolicy(parent_mo_or_dn="domaingroup-root",
-                                            type="Cisco",
-                                            download_interval=sync_frequencey,
-                                            username=cisco_username,
-                                            password=cisco_password,
-                                            policy_admin_state=sync_admin_state,
-                                            http_proxy=http_proxy,
-                                            proxy_user=proxy_username,
-                                            proxy_pwd=proxy_password)
+    sync_fw_update = FirmwareDownloadPolicy(
+            parent_mo_or_dn="domaingroup-root",
+            type="Cisco",
+            download_interval=sync_frequencey,
+            username=cisco_username,
+            password=cisco_password,
+            policy_admin_state=sync_admin_state,
+            http_proxy=http_proxy,
+            proxy_user=proxy_username,
+            proxy_pwd=proxy_password)
+
     handle.set_mo(sync_fw_update)
     handle.commit()
