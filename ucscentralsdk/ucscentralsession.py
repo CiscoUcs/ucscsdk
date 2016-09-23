@@ -128,6 +128,9 @@ class UcsCentralSession(object):
             uri = __create_uri(port=443)
         """
 
+        if int(port) != 443:
+            raise UcsCentralLoginError("Can not login to UcsCentral with "
+                                       "port other than '443'")
         self.__port = int(port)
         uri = "%s://%s%s%s" % ("https", self.__ip, ":", str(self.__port))
         return uri
@@ -203,8 +206,8 @@ class UcsCentralSession(object):
 
     def post_elem(self, elem, dme="central-mgr"):
         """
-        sends the request and receives the response from ucs central server using xml
-        element
+        sends the request and receives the response from ucs central server
+        using xml element
 
         Args:
             elem (xml element)
@@ -220,7 +223,8 @@ class UcsCentralSession(object):
 
         tx_lock.acquire()
         # check if the cookie is latest
-        if 'cookie' in elem.attrib and elem.attrib['cookie'] != "" and elem.attrib['cookie'] != self.cookie:
+        if 'cookie' in elem.attrib and elem.attrib['cookie'] != "" and \
+                elem.attrib['cookie'] != self.cookie:
             elem.attrib['cookie'] = self.cookie
 
         dump_xml = self.__dump_xml
@@ -256,7 +260,8 @@ class UcsCentralSession(object):
         tx_lock.release()
         return None
 
-    def file_download(self, url_suffix, file_dir, file_name, progress=Progress()):
+    def file_download(self, url_suffix, file_dir, file_name,
+                      progress=Progress()):
         """
         Downloads the file from ucs central server
 
@@ -265,7 +270,8 @@ class UcsCentralSession(object):
                     http\https://host:port/ to locate the file on the server
             file_dir (str): The directory to download to
             file_name (str): The destination file name for the download
-            progress (ucscentralgenutils.Progress): Class that has method to display progress
+            progress (ucscentralgenutils.Progress): Class that has method to
+                                                    display progress
 
         Returns:
             None
@@ -291,7 +297,8 @@ class UcsCentralSession(object):
 
         self.__driver.remove_header('Cookie')
 
-    def file_upload(self, url_suffix, file_dir, file_name, progress=Progress()):
+    def file_upload(self, url_suffix, file_dir, file_name,
+                    progress=Progress()):
         """
         Uploads the file on UCSCENTRAL server.
 
@@ -300,7 +307,8 @@ class UcsCentralSession(object):
                 http\https://host:port/ to locate the file on the server
             source_dir (str): The directory to upload from
             file_name (str): The destination file name for the download
-            progress (ucscentralgenutils.Progress): Class that has method to display progress
+            progress (ucscentralgenutils.Progress): Class that has method to
+                                                    display progress
 
         Returns:
             None
@@ -308,7 +316,8 @@ class UcsCentralSession(object):
         Example:
             source_dir = "/home/user/backup"\n
             file_name = "config_backup.tgz"\n
-            uri_suffix = "operations/file-%s/importconfig.txt?Cookie=%s" % (file_name, handle.cookie)\n
+            uri_suffix = "operations/file-%s/importconfig.txt?Cookie=%s" %
+                         (file_name, handle.cookie)\n
             file_upload(url_suffix=uri_suffix, source_dir=source_dir,
                         file_name=file_name)
         """
@@ -322,7 +331,6 @@ class UcsCentralSession(object):
                     file_dir=file_dir,
                     file_name=file_name,
                     progress=progress)
-
 
     def __start_refresh_timer(self):
         """
