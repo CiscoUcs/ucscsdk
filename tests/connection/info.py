@@ -30,7 +30,11 @@ def custom_setup():
     hostname = config.get(host, "hostname")
     username = config.get(host, "username")
     password = config.get(host, "password")
-    handle = UcsCentralHandle(hostname, username, password, port=443)
+    try:
+        port = config.get(host, "port")
+    except:
+        port = 443
+    handle = UcsCentralHandle(hostname, username, password, port=port)
     handle.login()
     return handle
 
