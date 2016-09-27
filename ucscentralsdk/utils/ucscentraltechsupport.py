@@ -403,17 +403,17 @@ def get_domain_tech_support(handle, domain_ip,
 
     """
 
-    from .ucscentraldomain import get_domain
+    from .ucscentraldomain import get_domain, is_domain_available
 
-    # create SysdebugTechSupport
     domain = get_domain(handle, domain_ip, domain_name)
-    if (domain.available_physical_cnt == str(0)):
+
+    if is_domain_available(handle, domain.id):
+        domain_dn = domain.dn
+    else:
         raise UcsCentralValidationException(
             "Domain with IP %s or name %s not registered or "
             "lost visibility with ucscentral" %
             (domain_ip, domain_name))
-    else:
-        domain_dn = domain.dn
 
     creation_ts = _get_creation_ts()
     ts_domain_mo = _bootstrap_domain_tech_support_mo(

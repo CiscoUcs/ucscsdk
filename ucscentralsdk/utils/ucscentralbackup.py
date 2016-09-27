@@ -330,7 +330,7 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name,
     from ..mometa.mgmt.MgmtBackupOperation import MgmtBackupOperation, \
         MgmtBackupOperationConsts
     from ..mometa.mgmt.MgmtBackup import MgmtBackupConsts
-    from .ucscentraldomain import get_domain
+    from .ucscentraldomain import get_domain, is_domain_available
 
     preserve_pooled_values = False
 
@@ -351,13 +351,14 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name,
                 "file_name must be .xml format")
 
     domain = get_domain(handle, domain_ip, domain_name)
-    if (domain.available_physical_cnt == str(0)):
+
+    if is_domain_available(handle, domain.id):
+        domain_dn = domain.dn
+    else:
         raise UcsCentralValidationException("Domain with IP %s or name %s not "
                                             "registered or lost visibility "
                                             "with UcsCentral" %
                                             (domain_ip, domain_name))
-    else:
-        domain_dn = domain.dn
 
     file_path = file_dir + file_name
 
