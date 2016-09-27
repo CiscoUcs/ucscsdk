@@ -75,7 +75,7 @@ def domain_register_to_ucscentral(handle, domain_name_or_ip,
 
 def get_domain(handle, domain_ip, domain_name=None):
     """
-    This method gets the DN for the Ucs domain.
+    This method gets the computeSystem object for the Ucs domain.
 
     Args:
         handle (UcsCentralHandle): UcsCentral Connection handle
@@ -86,8 +86,8 @@ def get_domain(handle, domain_ip, domain_name=None):
         domain object
 
     Example:
-        get_domain_dn(handle, domain_ip="192.168.1.1", domain_name=" ")
-        get_domain_dn(handle, domain_ip=None, domain_name="test-dom")
+        get_domain(handle, domain_ip="192.168.1.1", domain_name=" ")
+        get_domain(handle, domain_ip=None, domain_name="test-dom")
     """
 
     if domain_ip:
@@ -99,11 +99,39 @@ def get_domain(handle, domain_ip, domain_name=None):
         class_id='ComputeSystem', filter_str=filter_str)
 
     if ((len(domain) != 1)):
-        raise UcsCentralValidationException("Domain with IP %s or name %s does"
-                                            "not exist" %
+        raise UcsCentralValidationException("Domain with IP %s or name %s "
+                                            "does not exist" %
                                             (domain_ip, domain_name))
 
     return domain[0]
+
+
+def is_domain_available(handle, domain_id):
+    """
+    This method returns True if domain is available currently
+    else returns False
+
+    Args:
+        handle (UcsCentralHandle): UcsCentral Connection handle
+        domain_id(str): ID of domain from domain object
+
+    Returns:
+        True or False depending on domain's availability
+
+    Example:
+        is_domain_available(handle, domain_id="1008")
+    """
+
+    extpol_client_dn = "extpol/reg/clients/client-" + domain_id
+    extpol_client = handle.query_dn(extpol_client_dn)
+
+    if extpol_client is not None:
+        if extpol_client.oper_state == "registered":
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 def domain_group_create(handle, name,
