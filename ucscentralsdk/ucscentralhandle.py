@@ -335,20 +335,14 @@ class UcsCentralHandle(UcsCentralSession):
                                        need_response=True)\n
         """
 
-        from .ucscentralbasetype import DnSet, Dn
-        from .ucscentralmethodfactory import config_resolve_dns
+        from .ucscentralmethodfactory import config_resolve_dn
 
         if not dn:
             raise ValueError("Provide dn.")
 
-        dn_set = DnSet()
-        dn_obj = Dn()
-        dn_obj.value = dn
-        dn_set.child_add(dn_obj)
-
-        elem = config_resolve_dns(cookie=self.cookie,
-                                  in_dns=dn_set,
-                                  in_hierarchical=hierarchy)
+        elem = config_resolve_dn(cookie=self.cookie,
+                                 dn=dn,
+                                 in_hierarchical=hierarchy)
         response = self.post_elem(elem, dme=dme)
         if response.error_code != 0:
             raise UcsCentralException(response.error_code, response.error_descr)
@@ -364,8 +358,8 @@ class UcsCentralHandle(UcsCentralSession):
             return out_mo_list
 
         mo = None
-        if len(response.out_configs.child) > 0:
-            mo = response.out_configs.child[0]
+        if len(response.out_config.child) > 0:
+            mo = response.out_config.child[0]
         return mo
 
     def query_classid(self, class_id=None, filter_str=None, hierarchy=False,
