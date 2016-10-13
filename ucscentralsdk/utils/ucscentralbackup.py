@@ -79,7 +79,7 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
             raise UcsCentralValidationException(
                 "file_name must be .tgz format")
 
-        file_path = file_dir + file_name
+        file_path = os.path.join(file_dir, file_name)
         mgmt_backup = MgmtBackup(
                 parent_mo_or_dn=top_system,
                 hostname=host_name,
@@ -136,7 +136,7 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
             handle.remove_mo(mgmt_backup)
             handle.commit()
             raise UcsCentralOperationError(
-                "Backup UcsCentral", " operation timed out")
+                  "Backup UcsCentral", " operation timed out")
 
     # download backup
     log.debug("Backup done, starting Download ")
@@ -148,10 +148,11 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
                                  file_dir=file_dir,
                                  file_name=file_name)
         except Exception as err:
-            UcsCentralOperationError("Download backup", "download failed")
             UcsCentralWarning(str(err))
             handle.remove_mo(mgmt_backup)
             handle.commit()
+            raise UcsCentralOperationError(
+                  "Download backup", "download failed")
 
     # remove backup from ucscentral
     handle.remove_mo(mgmt_backup)
@@ -212,7 +213,7 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
             raise UcsCentralValidationException(
                 "file_name must be .tgz format")
 
-        file_path = file_dir + file_name
+        file_path = os.path.join(file_dir, file_name)
         mgmt_export = MgmtDataExporter(
                 parent_mo_or_dn=top_system,
                 hostname=host_name,
@@ -281,11 +282,11 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
                                  file_dir=file_dir,
                                  file_name=file_name)
         except Exception as err:
-            UcsCentralOperationError(
-                "Download of config_export", "download failed")
             UcsCentralWarning(str(err))
             handle.remove_mo(mgmt_export)
             handle.commit()
+            raise UcsCentralOperationError(
+                "Download of config_export", "download failed")
 
     # remove backup from ucs
     handle.remove_mo(mgmt_export)
@@ -360,7 +361,7 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name,
                                             "with UcsCentral" %
                                             (domain_ip, domain_name))
 
-    file_path = file_dir + file_name
+    file_path = os.path.join(file_dir, file_name)
 
     mgmt_backup = MgmtBackupOperation(
             parent_mo_or_dn=domain_dn,
