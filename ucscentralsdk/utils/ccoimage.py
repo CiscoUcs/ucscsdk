@@ -22,7 +22,8 @@ from __future__ import unicode_literals
 import os
 import logging
 
-from .. import ucscentralgenutils
+from ucscentralsdk.ucscentralgenutils import download_file, get_md5_sum, \
+        Progress
 from ..ucscentralexception import UcsCentralValidationException, \
     UcsCentralWarning
 from ..ucscentraldriver import UcsCentralDriver
@@ -209,7 +210,7 @@ def get_ucscentral_cco_image_list(username=None, password=None,
     return cco_image_list
 
 
-def get_ucscentral_cco_image(image, file_dir, proxy=None):
+def get_ucscentral_cco_image(image, file_dir, proxy=None, progress=Progress()):
     """
     Downloads image from CCO
 
@@ -246,17 +247,18 @@ def get_ucscentral_cco_image(image, file_dir, proxy=None):
 
     driver = UcsCentralDriver(proxy)
     driver.add_header("Authorization", "Basic %s" % image.network_credential)
-    ucscentralgenutils.download_file(driver,
-                                     file_url=image_url,
-                                     file_dir=file_dir,
-                                     file_name=str(image.image_name))
+    download_file(driver,
+                  file_url=image_url,
+                  file_dir=file_dir,
+                  file_name=str(image.image_name),
+                  progress=progress)
 
     local_file = os.path.join(file_dir, str(image.image_name))
 
     if not os.path.exists(local_file):
         raise UcsCentralValidationException("URL parameter is not provided.")
 
-    md5_sum = ucscentralgenutils.get_md5_sum(local_file)
+    md5_sum = get_md5_sum(local_file)
     if not md5_sum:
         UcsCentralWarning("Unable to generate md5sum for file <%s>" %
                           local_file)
