@@ -159,6 +159,8 @@ def get_ucscentral_tech_support(handle, file_dir=None, file_name=None,
                                 download=True,
                                 timeout=1200):
 
+    from .ucscentralfirmware import is_local_download_supported
+
     if download:
         _validate_download_args(file_dir, file_name)
         _create_download_dir(file_dir)
@@ -177,8 +179,12 @@ def get_ucscentral_tech_support(handle, file_dir=None, file_name=None,
     log.debug("Techsupport creation completed")
     # download tech support file
     if download:
-        download_tech_support(handle, ts_mo.name, file_dir, file_name)
-        log.debug("Downloading techsupport complete")
+        if is_local_download_supported(handle):
+            download_tech_support(handle, ts_mo.name, file_dir, file_name)
+            log.debug("Downloading techsupport complete")
+        else:
+            log.debug("Local download is not supported for this "
+                      "ucscentral version")
 
     # remove tech support file from Ucs Central
     if remove_from_ucscentral:

@@ -572,3 +572,48 @@ def sync_firmware_update_from_cisco(handle, cisco_username, cisco_password,
 
     handle.set_mo(sync_fw_update)
     handle.commit()
+
+
+def get_ucscentral_version(handle):
+    """
+    This method returns version of Ucs Central.
+
+    Args:
+        handle (UcsCentralHandle): UcsCentral Connection handle
+
+    Returns:
+        Version string
+
+    Example:
+        get_ucscentral_version(handle):
+    """
+
+    version_obj = handle.query_classid(class_id="VersionApplication")
+
+    if len(version_obj) != 1:
+        raise UcsCentralOperationError("Getting Version","Failed")
+    else:
+        return version_obj[0].version
+
+
+def is_local_download_supported(handle):
+    """
+    This method returns True/False depending on whether this version of
+    UcsCentral supports local download or not
+
+    Args:
+        handle (UcsCentralHandle): UcsCentral Connection handle
+
+    Returns:
+        True/False
+
+    Example:
+        is_local_download_supported(handle)
+    """
+
+    version = get_ucscentral_version(handle)
+
+    if version.startswith("1.5"):
+        return False
+    else:
+        return True
