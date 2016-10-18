@@ -63,6 +63,7 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
     """
     from ..mometa.mgmt.MgmtBackup import MgmtBackup, MgmtBackupConsts
     from ..mometa.top.TopSystem import TopSystem
+    from .ucscentralfirmware import is_local_download_supported
 
     backup_type = "full-state"
     preserve_pooled_values = False
@@ -143,16 +144,20 @@ def backup_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
 
     if not remote_enabled:
         file_source = "backupfile" + file_path
-        try:
-            handle.file_download(url_suffix=file_source,
-                                 file_dir=file_dir,
-                                 file_name=file_name)
-        except Exception as err:
-            UcsCentralWarning(str(err))
-            handle.remove_mo(mgmt_backup)
-            handle.commit()
-            raise UcsCentralOperationError(
-                  "Download backup", "download failed")
+        if is_local_download_supported(handle):
+            try:
+                handle.file_download(url_suffix=file_source,
+                                     file_dir=file_dir,
+                                     file_name=file_name)
+            except Exception as err:
+                UcsCentralWarning(str(err))
+                handle.remove_mo(mgmt_backup)
+                handle.commit()
+                raise UcsCentralOperationError(
+                      "Download backup", "download failed")
+        else:
+            log.debug("Local Download not supported for this version "
+                      "of ucscentral")
 
     # remove backup from ucscentral
     handle.remove_mo(mgmt_backup)
@@ -199,6 +204,7 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
     from ..mometa.mgmt.MgmtDataExporter import MgmtDataExporter, \
         MgmtDataExporterConsts
     from ..mometa.top.TopSystem import TopSystem
+    from .ucscentralfirmware import is_local_download_supported
 
     backup_type = "config-all"
     if not file_dir:
@@ -277,16 +283,20 @@ def config_export_ucscentral(handle, file_dir, file_name, timeout_in_sec=600,
 
     if not remote_enabled:
         file_source = "backupfile" + file_path
-        try:
-            handle.file_download(url_suffix=file_source,
-                                 file_dir=file_dir,
-                                 file_name=file_name)
-        except Exception as err:
-            UcsCentralWarning(str(err))
-            handle.remove_mo(mgmt_export)
-            handle.commit()
-            raise UcsCentralOperationError(
-                "Download of config_export", "download failed")
+        if is_local_download_supported(handle):
+            try:
+                handle.file_download(url_suffix=file_source,
+                                     file_dir=file_dir,
+                                     file_name=file_name)
+            except Exception as err:
+                UcsCentralWarning(str(err))
+                handle.remove_mo(mgmt_export)
+                handle.commit()
+                raise UcsCentralOperationError(
+                    "Download of config_export", "download failed")
+        else:
+            log.debug("Local download is not supported for this version "
+                      "of ucscentral")
 
     # remove backup from ucs
     handle.remove_mo(mgmt_export)
