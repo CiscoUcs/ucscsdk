@@ -341,7 +341,7 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name,
     from ..mometa.mgmt.MgmtBackupOperation import MgmtBackupOperation, \
         MgmtBackupOperationConsts
     from ..mometa.mgmt.MgmtBackup import MgmtBackupConsts
-    from .ucscentraldomain import get_domain, is_domain_available
+    from .ucscentraldomain import get_domain, _is_domain_available
 
     preserve_pooled_values = False
 
@@ -363,7 +363,7 @@ def _backup_or_configexport_domain(handle, backup_type, file_dir, file_name,
 
     domain = get_domain(handle, domain_ip, domain_name)
 
-    if is_domain_available(handle, domain.id):
+    if _is_domain_available(handle, domain.id):
         domain_dn = domain.dn
     else:
         raise UcsCentralValidationException("Domain with IP %s or name %s not "

@@ -216,7 +216,7 @@ def encode_multipart_data(file_dir, file_name, progress=Progress()):
     boundary = random_string(30)
 
     CRLF = '\r\n'
-    file_path = file_dir + file_name
+    file_path = os.path.join(file_dir, file_name)
 
     def encode_body_header(file_name):
     	return ('--' + boundary,

@@ -19,9 +19,9 @@ from ..ucscentralexception import UcsCentralValidationException, \
 log = logging.getLogger('ucscentral')
 
 
-def domain_register_to_ucscentral(handle, domain_name_or_ip,
-                                  username, password,
-                                  timeout=2 * 60):
+def domain_register(handle, domain_name_or_ip,
+                    username, password,
+                    timeout=2 * 60):
     """
     This method registers Ucs domain to Ucs Central.
 
@@ -32,15 +32,21 @@ def domain_register_to_ucscentral(handle, domain_name_or_ip,
         password(str): Password of the domain
 
     Returns:
-        domain_register object
+        PolicyControlEpOp object
 
     Example:
-        domain_register_to_ucscentral(handle, domain_name_or_ip="192.168.1.1",
-                                username="admin",password="password")
+        domain_register(handle, domain_name_or_ip="192.168.1.1",
+                        username="admin",password="password")
     """
 
     from ucscentralsdk.mometa.policy.PolicyControlEpOp import\
         PolicyControlEpOp, PolicyControlEpOpConsts
+
+    if is_domain_registered(handle, domain_name_or_ip):
+        domain_dn = "holder/domain-ep/control-ep-" + domain_name_or_ip
+        domain_register = handle.query_dn(domain_dn)
+        log.debug("Domain already registered with Ucs Central")
+        return domain_register
 
     parent_dn = "holder/domain-ep"
 
@@ -50,7 +56,7 @@ def domain_register_to_ucscentral(handle, domain_name_or_ip,
                                         password=password)
     domain_register.action_event = \
         PolicyControlEpOpConsts.ACTION_EVENT_REGISTER
-    handle.add_mo(domain_register, modify_present=True)
+    handle.add_mo(domain_register)
     handle.commit()
 
     start = datetime.datetime.now()
@@ -71,6 +77,81 @@ def domain_register_to_ucscentral(handle, domain_name_or_ip,
 
     log.debug("Domain got successfully registered with Ucs Central")
     return domain_register
+
+
+def is_domain_registered(handle, domain_name_or_ip):
+    """
+    This method returns Boolean value depending on whether given domain is
+    registered with UcsCentral
+
+    Args:
+        handle (UcsCentralHandle): UcsCentral Connection handle
+        domain_name_or_ip (str): Domain name or IP
+
+    Returns:
+        True/False
+
+    Example:
+        is_domain_registered(handle, domain_name_or_ip="192.168.1.1")
+    """
+
+    from ucscentralsdk.mometa.policy.PolicyControlEpOp import\
+        PolicyControlEpOpConsts
+
+    domain_dn = "holder/domain-ep/control-ep-" + domain_name_or_ip
+    domain_register = handle.query_dn(domain_dn)
+
+    if domain_register:
+        if domain_register.registration_state == \
+            PolicyControlEpOpConsts.REGISTRATION_STATE_REGISTERED:
+            return True
+        else:
+            log.debug("Domain registration is in-progress or has failed")
+            return False
+    else:
+        log.debug("Domain is not registered with ucscentral")
+        return False
+
+
+def domain_unregister(handle, domain_name_or_ip):
+    """
+    This method unregisters Ucs domain from Ucs Central.
+
+    Args:
+        handle (UcsCentralHandle): UcsCentral Connection handle
+        domain_name_or_ip (str): Domain name or IP
+
+    Returns:
+        None
+
+    Example:
+        domain_unregister(handle, domain_name_or_ip="192.168.1.1")
+    """
+
+    from ucscentralsdk.mometa.policy.PolicyControlEpOp import\
+        PolicyControlEpOpConsts
+
+    filter_str = '(host_name_or_ip, %s, type="eq")' % domain_name_or_ip
+
+    domains_registered = handle.query_classid(class_id="PolicyControlEpOp",
+                                              filter_str=filter_str)
+    if (len(domains_registered) <= 0):
+        raise UcsCentralValidationException(
+            "Domain with name or IP %s not registered with ucscentral"
+            % domain_name_or_ip)
+
+    domain_register = domains_registered[0]
+
+    if not _is_domain_available(handle, domain_register.sys_id):
+        raise UcsCentralValidationException(
+            "Not able to connect with Domain %s" % domain_name_or_ip)
+
+    domain_register.action_event = \
+        PolicyControlEpOpConsts.ACTION_EVENT_UNREGISTER
+    handle.set_mo(domain_register)
+    handle.commit()
+
+    log.debug("Domain was successfully unregistered from Ucs Central")
 
 
 def get_domain(handle, domain_ip, domain_name=None):
@@ -98,7 +179,7 @@ def get_domain(handle, domain_ip, domain_name=None):
     domain = handle.query_classid(
         class_id='ComputeSystem', filter_str=filter_str)
 
-    if ((len(domain) != 1)):
+    if (len(domain) <= 0):
         raise UcsCentralValidationException("Domain with IP %s or name %s "
                                             "does not exist" %
                                             (domain_ip, domain_name))
@@ -106,9 +187,42 @@ def get_domain(handle, domain_ip, domain_name=None):
     return domain[0]
 
 
-def is_domain_available(handle, domain_id):
+def get_domain_operational_status(handle, domain_ip, domain_name=None):
     """
-    This method returns True if domain is available currently
+    This method gets the operational status of the Ucs domain wrt Ucs Central.
+
+    Args:
+        handle (UcsCentralHandle): UcsCentral Connection handle
+        domain_ip(str): IP of domain, set 'None' if domain_name is valid
+        domain_name(str): Optional Domain name, valid only if domain_ip is None
+
+    Returns:
+        Operational status of domain
+
+    Example:
+        get_domain_operational_status(handle, domain_ip="192.168.1.1")
+    """
+
+    domain = get_domain(handle, domain_ip, domain_name)
+
+    if not domain:
+        raise UcsCentralValidationException("Domain with IP %s or name %s "
+                                            "does not exist" %
+                                            (domain_ip, domain_name))
+
+    extpol_client_dn = "extpol/reg/clients/client-" + domain.id
+    extpol_client = handle.query_dn(extpol_client_dn)
+
+    if not extpol_client:
+        raise UcsCentralValidationException("Domain with IP %s or name %s "
+                                            "does not exist" %
+                                            (domain_ip, domain_name))
+    return extpol_client.oper_state
+
+
+def _is_domain_available(handle, domain_id):
+    """
+    This internal method returns True if domain is available currently
     else returns False
 
     Args:
@@ -119,19 +233,16 @@ def is_domain_available(handle, domain_id):
         True or False depending on domain's availability
 
     Example:
-        is_domain_available(handle, domain_id="1008")
+        _is_domain_available(handle, domain_id="1008")
     """
 
     extpol_client_dn = "extpol/reg/clients/client-" + domain_id
     extpol_client = handle.query_dn(extpol_client_dn)
 
-    if extpol_client is not None:
-        if extpol_client.oper_state == "registered":
-            return True
-        else:
-            return False
-    else:
-        return False
+    if (extpol_client and (extpol_client.oper_state == "registered")):
+        return True
+
+    return False
 
 
 def domain_group_create(handle, name,
