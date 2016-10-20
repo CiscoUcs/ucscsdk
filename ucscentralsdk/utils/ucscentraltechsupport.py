@@ -409,11 +409,11 @@ def get_domain_tech_support(handle, domain_ip,
 
     """
 
-    from .ucscentraldomain import get_domain, is_domain_available
+    from .ucscentraldomain import get_domain, _is_domain_available
 
     domain = get_domain(handle, domain_ip, domain_name)
 
-    if is_domain_available(handle, domain.id):
+    if _is_domain_available(handle, domain.id):
         domain_dn = domain.dn
     else:
         raise UcsCentralValidationException(
