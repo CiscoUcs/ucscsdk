@@ -39,8 +39,14 @@ def domain_register(handle, domain_name_or_ip,
                         username="admin",password="password")
     """
 
+    from distutils.version import LooseVersion as VERSION
+    from .ucscentralfirmware import get_ucscentral_version
     from ucscentralsdk.mometa.policy.PolicyControlEpOp import\
         PolicyControlEpOp, PolicyControlEpOpConsts
+
+    if VERSION(get_ucscentral_version(handle)) < VERSION("1.5"):
+        raise UcsCentralValidationException("Operation only supported from "
+            "version 1.5 onwards")
 
     if is_domain_registered(handle, domain_name_or_ip):
         domain_dn = "holder/domain-ep/control-ep-" + domain_name_or_ip
@@ -128,8 +134,14 @@ def domain_unregister(handle, domain_name_or_ip):
         domain_unregister(handle, domain_name_or_ip="192.168.1.1")
     """
 
+    from distutils.version import LooseVersion as VERSION
+    from .ucscentralfirmware import get_ucscentral_version
     from ucscentralsdk.mometa.policy.PolicyControlEpOp import\
         PolicyControlEpOpConsts
+
+    if VERSION(get_ucscentral_version(handle)) < VERSION("1.5"):
+        raise UcsCentralValidationException("Operation only supported from "
+            "version 1.5 onwards")
 
     filter_str = '(host_name_or_ip, %s, type="eq")' % domain_name_or_ip
 

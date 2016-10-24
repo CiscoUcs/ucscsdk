@@ -611,9 +611,9 @@ def is_local_download_supported(handle):
         is_local_download_supported(handle)
     """
 
-    version = get_ucscentral_version(handle)
+    from distutils.version import LooseVersion as VERSION
 
-    if version.startswith("1.5"):
+    if VERSION(get_ucscentral_version(handle)) >= VERSION("1.5"):
         return False
-    else:
-        return True
+
+    return True

@@ -502,6 +502,8 @@ class ClassIdMeta(object):
             include_prop=True,
             show_tree=True,
             depth=None):
+        from ucscentralsdk import ucscentralcoremeta
+
         self.__mo_meta = MO_CLASS_META[class_id]
         self.class_id = class_id
         self.xml_attribute = self.__mo_meta.xml_attribute
@@ -512,6 +514,8 @@ class ClassIdMeta(object):
         self.parents = self.__mo_meta.parents
         self.children = self.__mo_meta.children
         self.props = {}
+        self.all_props = []
+        self.config_props = []
 
         self._str_tree = "\n"
         self._str_props = "\n"
@@ -524,6 +528,10 @@ class ClassIdMeta(object):
             self.props = class_obj.prop_meta
             for prop in sorted(self.props):
                 self._str_props += str(self.props[prop]) + "\n"
+                self.all_props.append(str(prop))
+                if self.props[prop].access == \
+                        ucscentralcoremeta.MoPropertyMeta.READ_WRITE:
+                    self.config_props.append(str(prop))
 
     def __str__(self):
         """
@@ -549,7 +557,12 @@ class ClassIdMeta(object):
             self.access_privilege) + "\n"
         out_str += str("parents").ljust(ts * 4) + ':' + str(self.parents) + \
             "\n"
-        out_str += str("children").ljust(ts * 4) + ':' + str(self.children)
+        out_str += str("children").ljust(ts * 4) + ':' + str(self.children) + \
+            "\n"
+        out_str += str("properties").ljust(ts * 4) + ':' + str(self.all_props)\
+            + "\n"
+        out_str += str("configurable properties").ljust(ts * 4) + ':' + \
+            str(self.config_props)
 
         out_str += self._str_props
 

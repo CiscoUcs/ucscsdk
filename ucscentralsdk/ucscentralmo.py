@@ -188,6 +188,31 @@ class ManagedObject(UcsCentralBase):
                 self._dirty_mask |= prop_meta.mask
         object.__setattr__(self, name, value)
 
+    def __get_prop(self, name):
+        return object.__getattribute__(self, name)
+
+    def check_prop_match(self, **kwargs):
+        for prop_name in kwargs:
+            if prop_name not in self.prop_meta.keys():
+                raise ValueError("Invalid Property Name Exception - "
+                                 "[%s]: Prop <%s> "
+                                 % (self.__class__.__name__,
+                                    prop_name))
+
+            if kwargs[prop_name] != self.__get_prop(prop_name):
+                return False
+        return True
+
+    def set_prop_multiple(self, **kwargs):
+        for prop_name in kwargs:
+            if prop_name not in self.prop_meta.keys():
+                raise ValueError("Invalid Property Name Exception - "
+                                 "[%s]: Prop <%s> "
+                                 % (self.__class__.__name__,
+                                    prop_name))
+
+            self.__set_prop(prop_name, kwargs[prop_name])
+
     def __str__(self):
         """
         Method to return string representation of a managed object.
