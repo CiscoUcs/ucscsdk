@@ -179,7 +179,7 @@ def get_cco_firmware_image(image_name, username, password, download_dir,
         image_dict[image.image_name] = image
 
     if image_name not in image_dict:
-        raise UcsCentralValidationException("Image not available")
+        raise UcsCentralOperationError("Get CCO image", "Image not available")
 
     # download image
     image = image_dict[image_name]
@@ -223,12 +223,18 @@ def firmware_add_local(handle, local_path, file_name,
     firmware_downloader.admin_state = \
         FirmwareDownloaderConsts.ADMIN_STATE_RESTART
 
-    uri_suffix = "operations/file-%s/image.txt?Cookie=%s" % (
-        file_name, handle.cookie)
-    handle.file_upload(url_suffix=uri_suffix,
-                       file_dir=local_path,
-                       file_name=file_name,
-                       progress=progress)
+    try:
+        log.debug("Start uploading firmware")
+        uri_suffix = "operations/file-%s/image.txt?Cookie=%s" % (
+            file_name, handle.cookie)
+        handle.file_upload(url_suffix=uri_suffix,
+                           file_dir=local_path,
+                           file_name=file_name,
+                           progress=progress)
+
+    except Exception as err:
+        UcsCentralWarning(str(err))
+        raise UcsCentralOperationError("Upload firmware", "upload failed")
 
     handle.add_mo(firmware_downloader, modify_present=True)
     handle.commit()
@@ -250,7 +256,7 @@ def firmware_add_local(handle, local_path, file_name,
     return firmware_downloader
 
 
-def firmware_add_remote(handle, remote_path, file_name, protocol, host_name,
+def firmware_add_remote(handle, remote_path, file_name, protocol, hostname,
                         username="", password=""):
     '''
     Import the firmware to ucscentral from remote location
@@ -259,17 +265,17 @@ def firmware_add_remote(handle, remote_path, file_name, protocol, host_name,
         remote_path (str): Remote path where image resides
         file_name (str): Name of the image in the remote directory
         protocol (str): Protocol for the remote communication
-        host_name (str): IP address or the host name of the remote server
+        hostname (str): IP address or the host name of the remote server
         username (str): Username for the remote server access
         password  (str): Password for the remote server access
     Example:
         firmware_add_remote(handle,
                             file_name="ucs-k9-bundle-b-series.3.1.1h.B.bin",
-                            remote_path="/remote_path/", host_name="10.10.1.1",
+                            remote_path="/remote_path/", hostname="10.10.1.1",
                             protocol="scp",username="abc",password="xyz")
     '''
-    if not host_name:
-        raise UcsCentralValidationException("Missing host_name argument")
+    if not hostname:
+        raise UcsCentralValidationException("Missing hostname argument")
     if not remote_path:
         raise UcsCentralValidationException("Missing remote_path argument")
     if not file_name:
@@ -290,7 +296,7 @@ def firmware_add_remote(handle, remote_path, file_name, protocol, host_name,
         file_name=file_name)
     firmware_downloader.remote_path = remote_path
     firmware_downloader.protocol = protocol
-    firmware_downloader.server = host_name
+    firmware_downloader.server = hostname
     firmware_downloader.user = username
     firmware_downloader.pwd = password
     firmware_downloader.admin_state = \
@@ -322,7 +328,8 @@ def firmware_remove(handle, image_name):
     dn = firmware_downloader.dn
     mo = handle.query_dn(dn)
     if mo is None:
-        raise UcsCentralValidationException(
+        raise UcsCentralOperationError(
+            "Firmware remove",
             "Image not available on UCS Central.")
 
     handle.remove_mo(mo)
@@ -351,7 +358,8 @@ def _validate_firmware_bundle(handle, bundle_type, version):
     for bundle in bundles:
         if bundle.version == version:
             return True
-    raise UcsCentralValidationException(
+    raise UcsCentralOperationError(
+        "Validate firmware bundle",
         "Bundle %s not available on UCS Central" %
         version)
 
@@ -591,7 +599,7 @@ def get_ucscentral_version(handle):
     version_obj = handle.query_classid(class_id="VersionApplication")
 
     if len(version_obj) != 1:
-        raise UcsCentralOperationError("Getting Version","Failed")
+        raise UcsCentralOperationError("Getting Version", "Failed")
     else:
         return version_obj[0].version
 

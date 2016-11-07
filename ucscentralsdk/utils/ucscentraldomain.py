@@ -45,8 +45,9 @@ def domain_register(handle, domain_name_or_ip,
         PolicyControlEpOp, PolicyControlEpOpConsts
 
     if VERSION(get_ucscentral_version(handle)) < VERSION("1.5"):
-        raise UcsCentralValidationException("Operation only supported from "
-            "version 1.5 onwards")
+        raise UcsCentralOperationError(
+                "Domain register",
+                "Operation only supported from version 1.5 onwards")
 
     if is_domain_registered(handle, domain_name_or_ip):
         domain_dn = "holder/domain-ep/control-ep-" + domain_name_or_ip
@@ -109,7 +110,7 @@ def is_domain_registered(handle, domain_name_or_ip):
 
     if domain_register:
         if domain_register.registration_state == \
-            PolicyControlEpOpConsts.REGISTRATION_STATE_REGISTERED:
+                PolicyControlEpOpConsts.REGISTRATION_STATE_REGISTERED:
             return True
         else:
             log.debug("Domain registration is in-progress or has failed")
@@ -140,22 +141,25 @@ def domain_unregister(handle, domain_name_or_ip):
         PolicyControlEpOpConsts
 
     if VERSION(get_ucscentral_version(handle)) < VERSION("1.5"):
-        raise UcsCentralValidationException("Operation only supported from "
-            "version 1.5 onwards")
+        raise UcsCentralOperationError(
+                "Domain unregister",
+                "Operation only supported from version 1.5 onwards")
 
     filter_str = '(host_name_or_ip, %s, type="eq")' % domain_name_or_ip
 
     domains_registered = handle.query_classid(class_id="PolicyControlEpOp",
                                               filter_str=filter_str)
     if (len(domains_registered) <= 0):
-        raise UcsCentralValidationException(
+        raise UcsCentralOperationError(
+            "Domain unregister",
             "Domain with name or IP %s not registered with ucscentral"
             % domain_name_or_ip)
 
     domain_register = domains_registered[0]
 
     if not _is_domain_available(handle, domain_register.sys_id):
-        raise UcsCentralValidationException(
+        raise UcsCentralOperationError(
+            "Domain unregister",
             "Not able to connect with Domain %s" % domain_name_or_ip)
 
     domain_register.action_event = \
@@ -192,9 +196,10 @@ def get_domain(handle, domain_ip, domain_name=None):
         class_id='ComputeSystem', filter_str=filter_str)
 
     if (len(domain) <= 0):
-        raise UcsCentralValidationException("Domain with IP %s or name %s "
-                                            "does not exist" %
-                                            (domain_ip, domain_name))
+        raise UcsCentralOperationError("Get domain",
+                                       "Domain with IP %s or name %s "
+                                       "does not exist" %
+                                       (domain_ip, domain_name))
 
     return domain[0]
 
@@ -218,17 +223,19 @@ def get_domain_operational_status(handle, domain_ip, domain_name=None):
     domain = get_domain(handle, domain_ip, domain_name)
 
     if not domain:
-        raise UcsCentralValidationException("Domain with IP %s or name %s "
-                                            "does not exist" %
-                                            (domain_ip, domain_name))
+        raise UcsCentralOperationError("Get domain operational status",
+                                       "Domain with IP %s or name %s "
+                                       "does not exist" %
+                                       (domain_ip, domain_name))
 
     extpol_client_dn = "extpol/reg/clients/client-" + domain.id
     extpol_client = handle.query_dn(extpol_client_dn)
 
     if not extpol_client:
-        raise UcsCentralValidationException("Domain with IP %s or name %s "
-                                            "does not exist" %
-                                            (domain_ip, domain_name))
+        raise UcsCentralOperationError("Get domain operational status",
+                                       "Domain with IP %s or name %s "
+                                       "does not exist" %
+                                       (domain_ip, domain_name))
     return extpol_client.oper_state
 
 
@@ -281,7 +288,8 @@ def domain_group_create(handle, name,
 
     org = handle.query_dn(parent_dn)
     if not org:
-        raise UcsCentralValidationException(
+        raise UcsCentralOperationError(
+            "Domain group create",
             "org '%s' does not exist" % parent_dn)
 
     mo = OrgDomainGroup(parent_mo_or_dn=org.dn,
@@ -318,8 +326,9 @@ def get_domain_group_dn(handle, domain_group):
     dn = handle.query_dn(domain_group_dn)
 
     if not dn:
-        raise UcsCentralValidationException("Domain Group %s doesn't exist" %
-                                            domain_group)
+        raise UcsCentralOperationError("Get domain group dn",
+                                       "Domain Group %s doesn't exist" %
+                                       domain_group)
     return domain_group_dn
 
 
