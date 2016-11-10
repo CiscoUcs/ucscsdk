@@ -195,9 +195,8 @@ class ManagedObject(UcsCentralBase):
         for prop_name in kwargs:
             if prop_name not in self.prop_meta.keys():
                 raise ValueError("Invalid Property Name Exception - "
-                                 "[%s]: Prop <%s> "
-                                 % (self.__class__.__name__,
-                                    prop_name))
+                                 "Class [%s]: Prop <%s> "
+                                 % (self.__class__.__name__, prop_name))
 
             if kwargs[prop_name] != self.__get_prop(prop_name):
                 return False
@@ -206,12 +205,12 @@ class ManagedObject(UcsCentralBase):
     def set_prop_multiple(self, **kwargs):
         for prop_name in kwargs:
             if prop_name not in self.prop_meta.keys():
-                raise ValueError("Invalid Property Name Exception - "
-                                 "[%s]: Prop <%s> "
-                                 % (self.__class__.__name__,
-                                    prop_name))
-
-            self.__set_prop(prop_name, kwargs[prop_name])
+                log.warning("Invalid Property Name for "
+                            "Class [%s]: Prop <%s>, setting it forcefully"
+                            % (self.__class__.__name__, prop_name))
+                self.__set_prop(prop_name, kwargs[prop_name], forced=True)
+            else:
+                self.__set_prop(prop_name, kwargs[prop_name])
 
     def __str__(self):
         """

@@ -148,16 +148,33 @@ def download_tech_support(handle, name, file_dir, file_name):
         UcsCentralWarning(str(err))
 
 
-def remove_tech_support(handle, ts_mo):
+def _remove_tech_support(handle, ts_mo):
     ts_mo.admin_state = "delete"
     handle.set_mo(ts_mo)
     handle.commit()
 
 
-def get_ucscentral_tech_support(handle, file_dir=None, file_name=None,
-                                remove_from_ucscentral=False,
-                                download=True,
-                                timeout=1200):
+def get_tech_support(handle, file_dir=None, file_name=None,
+                     remove_from_ucscentral=False,
+                     download=True,
+                     timeout=1200):
+    """
+    This operation creates the technical support file for UcsCentral.
+
+    Args:
+        handle (UcsCentralHandle): UcsCentral connection handle
+        file_dir (str): directory to download techsupport file to
+        file_name (str): name for the backup file
+        remove_from_ucscentral (boolean): True/False, False - by default
+        download (boolean): True/False, True - by default
+        timeout (number) : time in seconds for which method waits
+                           for the techsupport to generate before it exits.
+    Example:
+        file_dir = "/home/user/backup"\n
+        file_name = "techsupport.tar"\n
+        get_tech_support(handle, file_dir=file_dir, file_name=file_name)
+
+    """
 
     from .ucscentralfirmware import is_local_download_supported
 
@@ -188,7 +205,7 @@ def get_ucscentral_tech_support(handle, file_dir=None, file_name=None,
 
     # remove tech support file from Ucs Central
     if remove_from_ucscentral:
-        remove_tech_support(handle, ts_mo)
+        _remove_tech_support(handle, ts_mo)
         log.debug("Removed techsupport from ucscentral")
 
 
@@ -393,7 +410,7 @@ def get_domain_tech_support(handle, domain_ip,
 
     Example:
 
-         get_domain_tech_support(handle, domain_ip='192.168.1.1'
+        get_domain_tech_support(handle, domain_ip='192.168.1.1'
                          option="ucsm")
 
         get_domain_tech_support(handle, domain_ip=None,
@@ -416,7 +433,8 @@ def get_domain_tech_support(handle, domain_ip,
     if _is_domain_available(handle, domain.id):
         domain_dn = domain.dn
     else:
-        raise UcsCentralValidationException(
+        raise UcsCentralOperationError(
+            "Get domain techsupport",
             "Domain with IP %s or name %s not registered or "
             "lost visibility with ucscentral" %
             (domain_ip, domain_name))
