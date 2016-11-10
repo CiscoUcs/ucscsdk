@@ -12,25 +12,39 @@
 # limitations under the License.
 
 
-# init logging
 import logging
 
 log = logging.getLogger('ucscentral')
-log.setLevel(logging.DEBUG)
 
-# create console handler and set level to debug
-ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
+# create console handler
+console = logging.StreamHandler()
 
 # create formatter
 formatter = logging.Formatter(
     '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-# add formatter to ch
-ch.setFormatter(formatter)
+# add formatter to console
+console.setFormatter(formatter)
 
-# add ch to logger
-log.addHandler(ch)
+
+def set_log_level(level=logging.DEBUG):
+    """
+    Allows setting log level
+    Args:
+        level: logging level - import logging and pass enums from it(INFO/DEBUG/ERROR/etc..)
+    Returns:
+        None
+    Example:
+        from ucscentralsdk import set_log_level
+        import logging
+        set_log_level(logging.INFO)
+    """
+    log.setLevel(level)
+    console.setLevel(level)
+
+set_log_level(logging.DEBUG)
+log.addHandler(console)
+
 
 __author__ = 'Cisco Systems Inc'
 __email__ = 'ucs-python@cisco.com'

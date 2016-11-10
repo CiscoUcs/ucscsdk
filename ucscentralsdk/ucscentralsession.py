@@ -204,9 +204,28 @@ class UcsCentralSession(object):
 
         return response_str
 
+    def dump_xml_request(self, elem):
+        from . import ucscentralxmlcodec as xc
+        if not self.__dump_xml:
+            return
+
+        if elem.tag == "aaaLogin":
+            elem.attrib['inPassword'] = "*********"
+            xml_str = xc.to_xml_str(elem)
+            log.debug('%s ====> %s' % (self.__uri, xml_str))
+            elem.attrib['inPassword'] = self.__password
+            xml_str = xc.to_xml_str(elem)
+        else:
+            xml_str = xc.to_xml_str(elem)
+            log.debug('%s ====> %s' % (self.__uri, xml_str))
+
+    def dump_xml_response(self, resp):
+        if self.__dump_xml:
+            log.debug('%s <==== %s' % (self.__uri, resp))
+
     def post_elem(self, elem, dme="central-mgr"):
         """
-        sends the request and receives the response from ucs central server
+        sends the request and receives the response from ucscentral server
         using xml element
 
         Args:
@@ -221,32 +240,19 @@ class UcsCentralSession(object):
 
         from . import ucscentralxmlcodec as xc
 
-        tx_lock.acquire()
-        # check if the cookie is latest
-        if 'cookie' in elem.attrib and elem.attrib['cookie'] != "" and \
-                elem.attrib['cookie'] != self.cookie:
+        self._tx_lock_acquire_conditional(elem)
+        if self._is_stale_cookie(elem):
             elem.attrib['cookie'] = self.cookie
 
-        dump_xml = self.__dump_xml
-        if dump_xml:
-            if elem.tag == "aaaLogin":
-                elem.attrib['inPassword'] = "*********"
-                xml_str = xc.to_xml_str(elem)
-                log.debug('%s ====> %s' % (self.__uri, xml_str))
-                elem.attrib['inPassword'] = self.__password
-                xml_str = xc.to_xml_str(elem)
-            else:
-                xml_str = xc.to_xml_str(elem)
-                log.debug('%s ====> %s' % (self.__uri, xml_str))
-        else:
-            xml_str = xc.to_xml_str(elem)
+        self.dump_xml_request(elem)
+        xml_str = xc.to_xml_str(elem)
 
         response_str = self.post_xml(xml_str, dme=dme)
-        if dump_xml:
-            log.debug('%s <==== %s' % (self.__uri, response_str))
+        self.dump_xml_response(response_str)
 
-        if response_str:
-            response = xc.from_xml_str(response_str, self)
+        try:
+            if response_str:
+                response = xc.from_xml_str(response_str, self)
 
             # Cookie update should happen with-in the lock
             # this ensures that the next packet goes out
@@ -254,11 +260,30 @@ class UcsCentralSession(object):
             if elem.tag == "aaaRefresh":
                 self._update_cookie(response)
 
-            tx_lock.release()
+            self._tx_lock_release_conditional(elem)
             return response
+        except:
+            self._tx_lock_release_conditional(elem)
+            raise
 
-        tx_lock.release()
+        self._tx_lock_release_conditional(elem)
         return None
+
+    def _tx_lock_acquire_conditional(self, elem):
+        """
+        tx_lock is used to maintain the order of messages
+        Let aaaLogout always pass, and not be stuck for locks.
+        """
+        if elem.tag != "aaaLogout":
+            tx_lock.acquire()
+
+    def _tx_lock_release_conditional(self, elem):
+        """
+        Release the global tx_lock.
+        We do not acquire lock for aaaLogout
+        """
+        if elem.tag != "aaaLogout":
+            tx_lock.release()
 
     def file_download(self, url_suffix, file_dir, file_name,
                       progress=Progress()):
@@ -359,6 +384,10 @@ class UcsCentralSession(object):
         if response.error_code != 0:
             return
         self.__cookie = response.out_cookie
+
+    def _is_stale_cookie(self, elem):
+        return 'cookie' in elem.attrib and elem.attrib[
+            'cookie'] != "" and elem.attrib['cookie'] != self.cookie
 
     def _refresh(self, auto_relogin=False):
         """
