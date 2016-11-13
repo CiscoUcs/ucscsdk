@@ -19,7 +19,7 @@ sp_list = []
 
 
 def setup_module():
-    from ucscentralsdk.mometa.ls.LsServer import LsServer
+    from ucscsdk.mometa.ls.LsServer import LsServer
 
     global handle
     handle = custom_setup()

@@ -1,4 +1,4 @@
-* ucscentralsdk version:
+* ucscsdk version:
 * Python version:
 * Operating System:
 

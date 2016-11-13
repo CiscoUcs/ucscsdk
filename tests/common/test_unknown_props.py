@@ -13,9 +13,9 @@
 
 from __future__ import print_function
 
-from nose.tools import assert_equal 
-import ucscentralsdk.ucscentralxmlcodec as xc
-from ucscentralsdk.ucscentralcoremeta import WriteXmlOption
+from nose.tools import assert_equal
+import ucscsdk.ucscxmlcodec as xc
+from ucscsdk.ucsccoremeta import WriteXmlOption
 
 
 def test_001_knownmo_unknownprop():

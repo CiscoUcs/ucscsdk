@@ -1,0 +1,135 @@
+"""This module contains the general information for StatsThresholdClass ManagedObject."""
+
+from ...ucscmo import ManagedObject
+from ...ucsccoremeta import UcscVersion, MoPropertyMeta, MoMeta
+from ...ucscmeta import VersionMeta
+
+
+class StatsThresholdClassConsts():
+    INT_ID_NONE = "none"
+    POLICY_OWNER_LOCAL = "local"
+    POLICY_OWNER_PENDING_POLICY = "pending-policy"
+    POLICY_OWNER_POLICY = "policy"
+    POLICY_OWNER_UNSPECIFIED = "unspecified"
+    STATS_CLASS_ID_ADAPTOR_ETH_PORT_BY_SIZE_LARGE_STATS = "adaptorEthPortBySizeLargeStats"
+    STATS_CLASS_ID_ADAPTOR_ETH_PORT_BY_SIZE_SMALL_STATS = "adaptorEthPortBySizeSmallStats"
+    STATS_CLASS_ID_ADAPTOR_ETH_PORT_ERR_STATS = "adaptorEthPortErrStats"
+    STATS_CLASS_ID_ADAPTOR_ETH_PORT_MCAST_STATS = "adaptorEthPortMcastStats"
+    STATS_CLASS_ID_ADAPTOR_ETH_PORT_OUTSIZED_STATS = "adaptorEthPortOutsizedStats"
+    STATS_CLASS_ID_ADAPTOR_ETH_PORT_STATS = "adaptorEthPortStats"
+    STATS_CLASS_ID_ADAPTOR_ETHER_IF_STATS = "adaptorEtherIfStats"
+    STATS_CLASS_ID_ADAPTOR_FC_IF_EVENT_STATS = "adaptorFcIfEventStats"
+    STATS_CLASS_ID_ADAPTOR_FC_IF_FC4_STATS = "adaptorFcIfFC4Stats"
+    STATS_CLASS_ID_ADAPTOR_FC_IF_FRAME_STATS = "adaptorFcIfFrameStats"
+    STATS_CLASS_ID_ADAPTOR_FC_PORT_STATS = "adaptorFcPortStats"
+    STATS_CLASS_ID_ADAPTOR_HBAVNIC_STATS = "adaptorHBAVnicStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_BASE_ERROR_STATS = "adaptorMenloBaseErrorStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_DCE_PORT_STATS = "adaptorMenloDcePortStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_ETH_ERROR_STATS = "adaptorMenloEthErrorStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_ETH_STATS = "adaptorMenloEthStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_FC_ERROR_STATS = "adaptorMenloFcErrorStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_FC_STATS = "adaptorMenloFcStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_HOST_PORT_STATS = "adaptorMenloHostPortStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_MCPU_ERROR_STATS = "adaptorMenloMcpuErrorStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_MCPU_STATS = "adaptorMenloMcpuStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_NET_EG_STATS = "adaptorMenloNetEgStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_NET_IN_STATS = "adaptorMenloNetInStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_QERROR_STATS = "adaptorMenloQErrorStats"
+    STATS_CLASS_ID_ADAPTOR_MENLO_QSTATS = "adaptorMenloQStats"
+    STATS_CLASS_ID_ADAPTOR_NICVNIC_STATS = "adaptorNICVnicStats"
+    STATS_CLASS_ID_ADAPTOR_VNIC_STATS = "adaptorVnicStats"
+    STATS_CLASS_ID_COMPUTE_IOHUB_ENV_STATS = "computeIOHubEnvStats"
+    STATS_CLASS_ID_COMPUTE_MB_POWER_STATS = "computeMbPowerStats"
+    STATS_CLASS_ID_COMPUTE_MB_TEMP_STATS = "computeMbTempStats"
+    STATS_CLASS_ID_COMPUTE_PCIE_FATAL_COMPLETION_STATS = "computePCIeFatalCompletionStats"
+    STATS_CLASS_ID_COMPUTE_PCIE_FATAL_PROTOCOL_STATS = "computePCIeFatalProtocolStats"
+    STATS_CLASS_ID_COMPUTE_PCIE_FATAL_RECEIVE_STATS = "computePCIeFatalReceiveStats"
+    STATS_CLASS_ID_COMPUTE_PCIE_FATAL_STATS = "computePCIeFatalStats"
+    STATS_CLASS_ID_COMPUTE_RACK_UNIT_MB_TEMP_STATS = "computeRackUnitMbTempStats"
+    STATS_CLASS_ID_EQUIPMENT_CHASSIS_STATS = "equipmentChassisStats"
+    STATS_CLASS_ID_EQUIPMENT_FAN_MODULE_STATS = "equipmentFanModuleStats"
+    STATS_CLASS_ID_EQUIPMENT_FAN_STATS = "equipmentFanStats"
+    STATS_CLASS_ID_EQUIPMENT_FEX_ENV_STATS = "equipmentFexEnvStats"
+    STATS_CLASS_ID_EQUIPMENT_FEX_POWER_SUMMARY = "equipmentFexPowerSummary"
+    STATS_CLASS_ID_EQUIPMENT_FEX_PSU_INPUT_STATS = "equipmentFexPsuInputStats"
+    STATS_CLASS_ID_EQUIPMENT_IOCARD_STATS = "equipmentIOCardStats"
+    STATS_CLASS_ID_EQUIPMENT_NETWORK_ELEMENT_FAN_STATS = "equipmentNetworkElementFanStats"
+    STATS_CLASS_ID_EQUIPMENT_PSU_INPUT_STATS = "equipmentPsuInputStats"
+    STATS_CLASS_ID_EQUIPMENT_PSU_OUTPUT_STATS = "equipmentPsuOutputStats"
+    STATS_CLASS_ID_EQUIPMENT_PSU_STATS = "equipmentPsuStats"
+    STATS_CLASS_ID_EQUIPMENT_RACK_UNIT_FAN_STATS = "equipmentRackUnitFanStats"
+    STATS_CLASS_ID_EQUIPMENT_RACK_UNIT_PSU_STATS = "equipmentRackUnitPsuStats"
+    STATS_CLASS_ID_EQUIPMENT_SIOC_TEMP_STATS = "equipmentSiocTempStats"
+    STATS_CLASS_ID_ETHER_ERR_STATS = "etherErrStats"
+    STATS_CLASS_ID_ETHER_FCOE_INTERFACE_STATS = "etherFcoeInterfaceStats"
+    STATS_CLASS_ID_ETHER_LOSS_STATS = "etherLossStats"
+    STATS_CLASS_ID_ETHER_PAUSE_STATS = "etherPauseStats"
+    STATS_CLASS_ID_ETHER_RX_STATS = "etherRxStats"
+    STATS_CLASS_ID_ETHER_TX_STATS = "etherTxStats"
+    STATS_CLASS_ID_FC_ERR_STATS = "fcErrStats"
+    STATS_CLASS_ID_FC_STATS = "fcStats"
+    STATS_CLASS_ID_MEMORY_ARRAY_ENV_STATS = "memoryArrayEnvStats"
+    STATS_CLASS_ID_MEMORY_BUFFER_UNIT_ENV_STATS = "memoryBufferUnitEnvStats"
+    STATS_CLASS_ID_MEMORY_ERROR_STATS = "memoryErrorStats"
+    STATS_CLASS_ID_MEMORY_RUNTIME = "memoryRuntime"
+    STATS_CLASS_ID_MEMORY_UNIT_ENV_STATS = "memoryUnitEnvStats"
+    STATS_CLASS_ID_POWER_GROUP_STATS = "powerGroupStats"
+    STATS_CLASS_ID_PROCESSOR_ENV_STATS = "processorEnvStats"
+    STATS_CLASS_ID_PROCESSOR_ERROR_STATS = "processorErrorStats"
+    STATS_CLASS_ID_PROCESSOR_RUNTIME = "processorRuntime"
+    STATS_CLASS_ID_STORAGE_CTRL_STORAGE_STATS = "storageCtrlStorageStats"
+    STATS_CLASS_ID_STORAGE_HDD_MOTHER_BOARD_TEMP_STATS = "storageHddMotherBoardTempStats"
+    STATS_CLASS_ID_STORAGE_STORAGE_STATS = "storageStorageStats"
+    STATS_CLASS_ID_SW_CARD_ENV_STATS = "swCardEnvStats"
+    STATS_CLASS_ID_SW_ENV_STATS = "swEnvStats"
+    STATS_CLASS_ID_SW_SYSTEM_STATS = "swSystemStats"
+    STATS_CLASS_ID_UNSPECIFIED = "unspecified"
+
+
+class StatsThresholdClass(ManagedObject):
+    """This is StatsThresholdClass class."""
+
+    consts = StatsThresholdClassConsts()
+    naming_props = set([u'statsClassId'])
+
+    mo_meta = MoMeta("StatsThresholdClass", "statsThresholdClass", "[stats_class_id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "operations"], [u'statsThresholdPolicy'], [u'statsThr32Definition', u'statsThr64Definition', u'statsThrFloatDefinition'], ["Add", "Get", "Remove", "Set"])
+
+    prop_meta = {
+        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
+        "int_id": MoPropertyMeta("int_id", "intId", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, ["none"], ["0-4294967295"]), 
+        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
+        "stats_class_id": MoPropertyMeta("stats_class_id", "statsClassId", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x20, None, None, None, ["adaptorEthPortBySizeLargeStats", "adaptorEthPortBySizeSmallStats", "adaptorEthPortErrStats", "adaptorEthPortMcastStats", "adaptorEthPortOutsizedStats", "adaptorEthPortStats", "adaptorEtherIfStats", "adaptorFcIfEventStats", "adaptorFcIfFC4Stats", "adaptorFcIfFrameStats", "adaptorFcPortStats", "adaptorHBAVnicStats", "adaptorMenloBaseErrorStats", "adaptorMenloDcePortStats", "adaptorMenloEthErrorStats", "adaptorMenloEthStats", "adaptorMenloFcErrorStats", "adaptorMenloFcStats", "adaptorMenloHostPortStats", "adaptorMenloMcpuErrorStats", "adaptorMenloMcpuStats", "adaptorMenloNetEgStats", "adaptorMenloNetInStats", "adaptorMenloQErrorStats", "adaptorMenloQStats", "adaptorNICVnicStats", "adaptorVnicStats", "computeIOHubEnvStats", "computeMbPowerStats", "computeMbTempStats", "computePCIeFatalCompletionStats", "computePCIeFatalProtocolStats", "computePCIeFatalReceiveStats", "computePCIeFatalStats", "computeRackUnitMbTempStats", "equipmentChassisStats", "equipmentFanModuleStats", "equipmentFanStats", "equipmentFexEnvStats", "equipmentFexPowerSummary", "equipmentFexPsuInputStats", "equipmentIOCardStats", "equipmentNetworkElementFanStats", "equipmentPsuInputStats", "equipmentPsuOutputStats", "equipmentPsuStats", "equipmentRackUnitFanStats", "equipmentRackUnitPsuStats", "equipmentSiocTempStats", "etherErrStats", "etherFcoeInterfaceStats", "etherLossStats", "etherPauseStats", "etherRxStats", "etherTxStats", "fcErrStats", "fcStats", "memoryArrayEnvStats", "memoryBufferUnitEnvStats", "memoryErrorStats", "memoryRuntime", "memoryUnitEnvStats", "powerGroupStats", "processorEnvStats", "processorErrorStats", "processorRuntime", "storageCtrlStorageStats", "storageHddMotherBoardTempStats", "storageStorageStats", "swCardEnvStats", "swEnvStats", "swSystemStats", "unspecified"], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+    }
+
+    prop_map = {
+        "childAction": "child_action", 
+        "descr": "descr", 
+        "dn": "dn", 
+        "intId": "int_id", 
+        "name": "name", 
+        "policyLevel": "policy_level", 
+        "policyOwner": "policy_owner", 
+        "rn": "rn", 
+        "statsClassId": "stats_class_id", 
+        "status": "status", 
+    }
+
+    def __init__(self, parent_mo_or_dn, stats_class_id, **kwargs):
+        self._dirty_mask = 0
+        self.stats_class_id = stats_class_id
+        self.child_action = None
+        self.descr = None
+        self.int_id = None
+        self.name = None
+        self.policy_level = None
+        self.policy_owner = None
+        self.status = None
+
+        ManagedObject.__init__(self, "StatsThresholdClass", parent_mo_or_dn, **kwargs)
+

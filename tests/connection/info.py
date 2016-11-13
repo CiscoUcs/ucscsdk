@@ -21,7 +21,7 @@ def custom_setup():
         import configparser as ConfigParser
 
     import os
-    from ucscentralsdk.ucscentralhandle import UcsCentralHandle
+    from ucscsdk.ucschandle import UcscHandle
 
     config = ConfigParser.RawConfigParser()
     config.read(os.path.join(os.path.dirname(__file__), '..', 'connection',
@@ -34,7 +34,7 @@ def custom_setup():
         port = config.get(host, "port")
     except:
         port = 443
-    handle = UcsCentralHandle(hostname, username, password, port=port)
+    handle = UcscHandle(hostname, username, password, port=port)
     handle.login()
     return handle
 

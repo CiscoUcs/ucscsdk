@@ -13,8 +13,8 @@
 
 from nose.tools import *
 from ..connection.info import *
-from ucscentralsdk.mometa.fabric.FabricLanCloud import FabricLanCloud
-from ucscentralsdk.mometa.fabric.FabricVlan import FabricVlan
+from ucscsdk.mometa.fabric.FabricLanCloud import FabricLanCloud
+from ucscsdk.mometa.fabric.FabricVlan import FabricVlan
 
 handle = None
 vlan_id = "100"

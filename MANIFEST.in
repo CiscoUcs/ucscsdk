@@ -5,9 +5,9 @@ include LICENSE
 include README.md
 
 recursive-include tests *
-recursive-include ucscentralsdk/mometa *
-recursive-include ucscentralsdk/methodmeta *
-recursive-include ucscentralsdk/utils *
+recursive-include ucscsdk/mometa *
+recursive-include ucscsdk/methodmeta *
+recursive-include ucscsdk/utils *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 

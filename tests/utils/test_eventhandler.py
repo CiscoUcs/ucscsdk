@@ -13,30 +13,34 @@
 
 import time
 
-from nose.tools import *
 from ..connection.info import custom_setup, custom_teardown
+from nose.tools import *
+import threading
 
-# TODO: Placeholder to test event_handler functionality once implemented
-'''
 handle = None
 sp = None
-dn = "org-root/ls-eventhandle"
-event_flag = False
-ueh = None
+dn = "org-root/ls-eventhandle-test"
+finished = False
+
+
+def assert_equal(actual, expected):
+    if actual == expected:
+        print("As expected")
+    else:
+        print("Not expected")
 
 
 def setup_module():
-    from ucscentralsdk.ucscentraleventhandler import UcsCentralEventHandle
-    from ucscentralsdk.mometa.ls.LsServer import LsServer
+    from ucscsdk.ucsceventhandler import UcscEventHandle
+    from ucscsdk.mometa.ls.LsServer import LsServer
 
-    global handle, sp, ueh
+    global handle, sp, ueh, vlan_mo, vlan_name
     handle = custom_setup()
-    ueh = UcsCentralEventHandle(handle)
+    ueh = UcscEventHandle(handle)
     org = handle.query_dn("org-root")
 
-    sp = LsServer(org, name="eventhandle", descr="")
+    sp = LsServer(org, name="eventhandle-test", descr="")
     handle.add_mo(sp, True)
-    handle.commit()
 
 
 def teardown_module():
@@ -45,42 +49,189 @@ def teardown_module():
         handle.commit()
     custom_teardown(handle)
 
-
-def watch_mo(mce):
-    global event_flag
-    print("Inside watch_mo")
-    event_flag = True
+def user_callback(mce):
+    global finished
+    finished = True
 
 
-def test_watch_mo():
-    mo = handle.query_dn(dn)
-    if mo is None:
-        raise ValueError("Mo does no exist")
-    wb_mo = ueh.add(managed_object=mo, call_back=watch_mo)
-    time.sleep(2)
+def wait_method_vlan(poll_sec=None):
+    # Always clear the label
+    vlan_mo.mcast_policy_name = "clear"
+    handle.add_mo(vlan_mo, modify_present=True)
+    handle.commit()
+    handle.wait_for_event(
+        mo=vlan_mo,
+        prop="mcast_policy_name",
+        value="trigger",
+        cb=user_callback,
+        timeout=10,
+        poll_sec=poll_sec
+    )
 
-    mo.descr = "watch_mo"
-    handle.set_mo(mo)
+
+def wait_method(poll_sec=None):
+    # Always clear the label
+    sp.usr_lbl = "something"
+    handle.add_mo(sp, modify_present=True)
+    handle.commit()
+    handle.wait_for_event(
+        mo=sp,
+        prop="usr_lbl",
+        value="trigger",
+        cb=user_callback,
+        timeout=20,
+        poll_sec=poll_sec
+    )
+
+
+def wait_method_for_multiple_values(poll_sec=None):
+    handle.wait_for_event(
+        mo=sp,
+        prop="usr_lbl",
+        value=["trigger", "another_trigger"],
+        cb=user_callback,
+        timeout=20,
+        poll_sec=poll_sec
+    )
+
+
+def trigger_method(label=None):
+    sp.usr_lbl = label
+    handle.set_mo(sp)
     handle.commit()
 
-    time.sleep(2)
 
-    assert event_flag
+def test_wait_for_event_mo():
+    global finished
+    finished = False
+
+    t1 = threading.Thread(name="wait", target=wait_method)
+    t2 = threading.Thread(
+        name="trigger", target=trigger_method, args=("trigger",))
+
+    t1.start()
+    time.sleep(10)
+    t2.start()
+
+    t1.join()
+    t2.join()
+
+    assert_equal(finished, True)
 
 
-def test_watch_mo_remove():
-    mo = handle.query_dn(dn)
-    if mo is None:
-        raise ValueError("Mo does no exist")
-    wb_mo_remove = ueh.add(managed_object=mo)
-    time.sleep(2)
-    print(wb_mo_remove)
+def test_wait_for_poll_mo():
+    global finished
+    finished = False
 
-    print(ueh.get())
-    handle.remove_mo(mo)
-    handle.commit()
-    time.sleep(2)
-    print(ueh.get())
+    t1 = threading.Thread(name="wait", target=wait_method, args=(5,))
+    t2 = threading.Thread(
+        name="trigger", target=trigger_method, args=("trigger",))
 
-    assert wb_mo_remove not in ueh.get()
-'''
+    t1.start()
+    time.sleep(5)
+    t2.start()
+
+    t1.join()
+    t2.join()
+
+    assert_equal(finished, True)
+
+
+def test_wait_for_event_timeout():
+    global finished
+    finished = False
+
+    t1 = threading.Thread(name="wait", target=wait_method)
+    t2 = threading.Thread(
+        name="trigger", target=trigger_method, args=("invalid_trigger",))
+
+    t1.start()
+    time.sleep(1)
+    t2.start()
+
+    t1.join()
+    t2.join()
+
+    assert_equal(finished, False)
+
+
+def test_wait_for_poll_timeout():
+    global finished
+    finished = False
+
+    t1 = threading.Thread(name="wait", target=wait_method, args=(2,))
+    t2 = threading.Thread(
+        name="trigger", target=trigger_method, args=("invalid_trigger",))
+
+    t1.start()
+    time.sleep(1)
+    t2.start()
+
+    t1.join()
+    t2.join()
+
+    assert_equal(finished, False)
+
+
+@raises(Exception)
+def test_wait_for_event_invalid_mo():
+    other_mo = handle.query_dn("capabilities")
+
+    handle.wait_for_event(
+        mo=other_mo,
+        prop="usr_lbl",
+        value="trigger",
+        cb=user_callback,
+        timeout=20
+    )
+
+
+@raises(Exception)
+def test_wait_for_poll_invalid_mo():
+    other_mo = handle.query_dn("capabilities")
+
+    handle.wait_for_event(
+        mo=other_mo,
+        prop="usr_lbl",
+        value="trigger",
+        cb=user_callback,
+        timeout=20,
+        poll_sec=5
+    )
+
+
+def test_wait_for_event_multiple():
+    global finished
+    finished = False
+
+    t1 = threading.Thread(name="wait", target=wait_method_for_multiple_values)
+    t2 = threading.Thread(
+        name="trigger", target=trigger_method, args=("trigger",))
+
+    t1.start()
+    time.sleep(1)
+    t2.start()
+
+    t1.join()
+    t2.join()
+
+    assert_equal(finished, True)
+
+
+def test_wait_for_poll_multiple():
+    global finished
+    finished = False
+
+    t1 = threading.Thread(
+        name="wait", target=wait_method_for_multiple_values, args=(2,))
+    t3 = threading.Thread(name="another_trigger",
+                          target=trigger_method, args=("another_trigger",))
+
+    t1.start()
+    time.sleep(1)
+    t3.start()
+
+    t1.join()
+    t3.join()
+
+    assert_equal(finished, True)

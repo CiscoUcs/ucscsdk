@@ -12,7 +12,7 @@
 # limitations under the License.
 
 from nose.tools import *
-import ucscentralsdk.ucscentralxmlcodec as xc
+import ucscsdk.ucscxmlcodec as xc
 
 
 def test_001_StorageLocalDiskPartition():

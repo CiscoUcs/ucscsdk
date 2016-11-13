@@ -12,7 +12,7 @@
 # limitations under the License.
 
 from nose.tools import *
-from ucscentralsdk.ucscentralcoreutils import get_meta_info
+from ucscsdk.ucsccoreutils import get_meta_info
 from ..connection.info import custom_setup, custom_teardown
 
 handle = None

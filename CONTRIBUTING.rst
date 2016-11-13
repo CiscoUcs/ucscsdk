@@ -13,7 +13,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/ciscoucs/ucscentralsdk/issues.
+Report bugs at https://github.com/ciscoucs/ucscsdk/issues.
 
 If you are reporting a bug, please include:
 
@@ -68,7 +68,7 @@ git commit.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/ciscoucs/ucscentralsdk/issues.
+The best way to send feedback is to file an issue at https://github.com/ciscoucs/ucscsdk/issues.
 
 If you are proposing a feature:
 
