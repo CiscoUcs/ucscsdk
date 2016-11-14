@@ -200,3 +200,4 @@ class WcardFilter(AbstractFilter):
         self.class_ = kwargs['class_']
         self.property = kwargs['property']
         self.value = kwargs['value']
+
