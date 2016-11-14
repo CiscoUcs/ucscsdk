@@ -28,7 +28,7 @@ def teardown():
 
 @with_setup(setup, teardown)
 def test_001_policy():
-    from ucscentralsdk.mometa.flowctrl.FlowctrlItem import FlowctrlItem
+    from ucscsdk.mometa.flowctrl.FlowctrlItem import FlowctrlItem
 
     # #####################################
     # Create a Flow Control Policy
@@ -48,7 +48,7 @@ def test_001_policy():
     # #####################################
     # Create Dynamic vNIC Connection Policy
     # #####################################
-    from ucscentralsdk.mometa.vnic.VnicDynamicConPolicy import VnicDynamicConPolicy
+    from ucscsdk.mometa.vnic.VnicDynamicConPolicy import VnicDynamicConPolicy
 
     mo = VnicDynamicConPolicy(parent_mo_or_dn="org-root", name="test",
                               descr="test", adaptor_profile_name="Linux",
@@ -66,7 +66,7 @@ def test_001_policy():
     # #####################################
     # Create LACP Policy
     # #####################################
-    from ucscentralsdk.mometa.fabric.FabricLacpPolicy import FabricLacpPolicy
+    from ucscsdk.mometa.fabric.FabricLacpPolicy import FabricLacpPolicy
 
     mo = FabricLacpPolicy(parent_mo_or_dn="domaingroup-root", fast_timer="fast",
                           suspend_individual="true",
@@ -94,9 +94,9 @@ def test_001_policy():
     # #####################################
     # Create LAN Connectivity Policy
     # #####################################
-    from ucscentralsdk.mometa.vnic.VnicLanConnPolicy import VnicLanConnPolicy
-    from ucscentralsdk.mometa.vnic.VnicEther import VnicEther
-    from ucscentralsdk.mometa.vnic.VnicEtherIf import VnicEtherIf
+    from ucscsdk.mometa.vnic.VnicLanConnPolicy import VnicLanConnPolicy
+    from ucscsdk.mometa.vnic.VnicEther import VnicEther
+    from ucscsdk.mometa.vnic.VnicEtherIf import VnicEtherIf
 
     mo = VnicLanConnPolicy(parent_mo_or_dn="org-root",
                            name="test", descr="test_policy")
@@ -122,8 +122,8 @@ def test_001_policy():
     # #####################################
     # Create QoS Policy
     # #####################################
-    from ucscentralsdk.mometa.epqos.EpqosDefinition import EpqosDefinition
-    from ucscentralsdk.mometa.epqos.EpqosEgress import EpqosEgress
+    from ucscsdk.mometa.epqos.EpqosDefinition import EpqosDefinition
+    from ucscsdk.mometa.epqos.EpqosEgress import EpqosEgress
 
     mo = EpqosDefinition(parent_mo_or_dn="org-root",
                          name="test", descr="")

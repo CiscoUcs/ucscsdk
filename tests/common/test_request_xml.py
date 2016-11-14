@@ -31,9 +31,9 @@ to_commit = {}
 
 
 def commit():
-    from ucscentralsdk.ucscentralbasetype import ConfigMap, Dn, DnSet, Pair
-    import ucscentralsdk.ucscentralmethodfactory as mf
-    import ucscentralsdk.ucscentralxmlcodec as xc
+    from ucscsdk.ucscbasetype import ConfigMap, Dn, DnSet, Pair
+    import ucscsdk.ucscmethodfactory as mf
+    import ucscsdk.ucscxmlcodec as xc
 
     global to_commit
 
@@ -67,10 +67,10 @@ def commit():
 
 
 def add_mo(mo, modify_present=False):
-    import ucscentralsdk.ucscentralgenutils as ucscentralgenutils
+    import ucscsdk.ucscgenutils as ucscgenutils
     global to_commit
 
-    if modify_present in ucscentralgenutils.AFFIRMATIVE_LIST:
+    if modify_present in ucscgenutils.AFFIRMATIVE_LIST:
         mo.status = "created,modified"
     else:
         mo.status = "created"
@@ -88,7 +88,7 @@ def set_mo(mo):
 
 
 def test_001_add_sp():
-    from ucscentralsdk.mometa.ls.LsServer import LsServer
+    from ucscsdk.mometa.ls.LsServer import LsServer
     sp = LsServer(parent_mo_or_dn="org-root", name="test_sp")
     add_mo(mo=sp)
     xml_str = commit()
@@ -100,8 +100,8 @@ def test_001_add_sp():
 
 
 def test_002_add_hierarchy():
-    from ucscentralsdk.mometa.org.OrgOrg import OrgOrg
-    from ucscentralsdk.mometa.ls.LsServer import LsServer
+    from ucscsdk.mometa.org.OrgOrg import OrgOrg
+    from ucscsdk.mometa.ls.LsServer import LsServer
 
     org = OrgOrg(parent_mo_or_dn="org-root", name="test_org")
     sp = LsServer(parent_mo_or_dn=org, name="test_sp")
@@ -117,7 +117,7 @@ def test_002_add_hierarchy():
 
 @with_setup(setup, teardown)
 def test_003_get_org_and_add_sp_add_mo_sp():
-    from ucscentralsdk.mometa.ls.LsServer import LsServer
+    from ucscsdk.mometa.ls.LsServer import LsServer
 
     org = handle.query_dn("org-root")
     sp = LsServer(parent_mo_or_dn=org, name="test_sp")
@@ -133,7 +133,7 @@ def test_003_get_org_and_add_sp_add_mo_sp():
 
 @with_setup(setup, teardown)
 def test_004_get_org_and_add_sp_set_mo_org():
-    from ucscentralsdk.mometa.ls.LsServer import LsServer
+    from ucscsdk.mometa.ls.LsServer import LsServer
 
     org = handle.query_dn("org-root")
     sp = LsServer(parent_mo_or_dn=org, name="test_sp")
@@ -150,7 +150,7 @@ def test_004_get_org_and_add_sp_set_mo_org():
 
 @with_setup(setup, teardown)
 def test_005_add_sp_hw():
-    from ucscentralsdk.mometa.ls.LsServer import LsServer
+    from ucscsdk.mometa.ls.LsServer import LsServer
 
     sp = LsServer(parent_mo_or_dn="org-root", name="test_sp")
     handle.remove_mo(sp)
@@ -174,8 +174,8 @@ def test_005_add_sp_hw():
 
 @with_setup(setup, teardown)
 def test_005_add_hierarchy_hw():
-    from ucscentralsdk.mometa.org.OrgOrg import OrgOrg
-    from ucscentralsdk.mometa.ls.LsServer import LsServer
+    from ucscsdk.mometa.org.OrgOrg import OrgOrg
+    from ucscsdk.mometa.ls.LsServer import LsServer
 
     org = OrgOrg(parent_mo_or_dn="org-root", name="test_org")
 

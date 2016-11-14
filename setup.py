@@ -1,42 +1,39 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from setuptools import setup
+
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
 with open('HISTORY.rst') as history_file:
-    history = history_file.read()
-
-requirements = [
-    # TODO: put package requirements here
-]
-
-test_requirements = [
-    # TODO: put package test requirements here
-]
+    history = history_file.read().replace('.. :changelog:', '')
 
 setup(
-    name='ucscentralsdk',
+    name='ucscsdk',
     version='0.9.0.0',
     description="Python SDK for Cisco Ucs Central",
     long_description=readme + '\n\n' + history,
     author="Cisco Systemc Inc.",
     author_email='ucs-python@cisco.com',
-    url='https://github.com/ciscoucs/ucscentralsdk',
+    url='https://github.com/ciscoucs/ucscsdk',
     packages=[
-        'ucscentralsdk',
+        'ucscsdk',
     ],
-    package_dir={'ucscentralsdk':
-                 'ucscentralsdk'},
+    package_dir={'ucscsdk':
+                 'ucscsdk'},
     include_package_data=True,
-    install_requires=requirements,
-    license="Apache Software License 2.0",
+    install_requires=['pyparsing'],
+    license="http://www.apache.org/licenses/LICENSE-2.0",
     zip_safe=False,
-    keywords='ucscentralsdk',
+    keywords='ucscsdk',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
@@ -48,6 +45,10 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
-    test_suite='tests',
-    tests_require=test_requirements
+    tests_require=['nose'],
+    test_suite='nose.collector',
+    extras_require={
+        'ssl': ['pyOpenSSL'],
+        'docs': ['sphinx<1.3', 'sphinxcontrib-napoleon', 'sphinx_rtd_theme'],
+    }
 )

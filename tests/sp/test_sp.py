@@ -28,7 +28,7 @@ def teardown():
 
 @with_setup(setup, teardown)
 def test_001_sp_minimal():
-    from ucscentralsdk.mometa.ls.LsServer import LsServer
+    from ucscsdk.mometa.ls.LsServer import LsServer
     mo = LsServer(parent_mo_or_dn="org-root", vmedia_policy_name="",
                   ext_ip_state="none", bios_profile_name="",
                   mgmt_fw_policy_name="", agent_policy_name="",
@@ -49,8 +49,8 @@ def test_001_sp_minimal():
     # Modify a single property in the Sp created above
     # and genertate XML with DIRTY option set
     ##########################################################
-    import ucscentralsdk.ucscentralxmlcodec as xc
-    from ucscentralsdk.ucscentralcoremeta import WriteXmlOption
+    import ucscsdk.ucscxmlcodec as xc
+    from ucscsdk.ucsccoremeta import WriteXmlOption
     obj = handle.query_dn("org-root/ls-test_sp")
     obj.usr_lbl = "new_label"
     print(xc.to_xml_str(obj.to_xml(option=WriteXmlOption.DIRTY)))
@@ -67,18 +67,18 @@ def test_001_sp_minimal():
 
 @with_setup(setup, teardown)
 def test_002_sp_expert():
-    from ucscentralsdk.mometa.ls.LsServer import LsServer
-    from ucscentralsdk.mometa.ls.LsVConAssign import LsVConAssign
-    from ucscentralsdk.mometa.vnic.VnicEther import VnicEther
-    from ucscentralsdk.mometa.vnic.VnicEtherIf import VnicEtherIf
-    from ucscentralsdk.mometa.vnic.VnicFc import VnicFc
-    from ucscentralsdk.mometa.vnic.VnicFcIf import VnicFcIf
-    from ucscentralsdk.mometa.vnic.VnicFcNode import VnicFcNode
-    from ucscentralsdk.mometa.storage.StorageIniGroup import StorageIniGroup
-    from ucscentralsdk.mometa.vnic.VnicFcGroupDef import VnicFcGroupDef
-    from ucscentralsdk.mometa.storage.StorageInitiator import StorageInitiator
-    from ucscentralsdk.mometa.ls.LsPower import LsPower
-    from ucscentralsdk.mometa.fabric.FabricVCon import FabricVCon
+    from ucscsdk.mometa.ls.LsServer import LsServer
+    from ucscsdk.mometa.ls.LsVConAssign import LsVConAssign
+    from ucscsdk.mometa.vnic.VnicEther import VnicEther
+    from ucscsdk.mometa.vnic.VnicEtherIf import VnicEtherIf
+    from ucscsdk.mometa.vnic.VnicFc import VnicFc
+    from ucscsdk.mometa.vnic.VnicFcIf import VnicFcIf
+    from ucscsdk.mometa.vnic.VnicFcNode import VnicFcNode
+    from ucscsdk.mometa.storage.StorageIniGroup import StorageIniGroup
+    from ucscsdk.mometa.vnic.VnicFcGroupDef import VnicFcGroupDef
+    from ucscsdk.mometa.storage.StorageInitiator import StorageInitiator
+    from ucscsdk.mometa.ls.LsPower import LsPower
+    from ucscsdk.mometa.fabric.FabricVCon import FabricVCon
 
     mo = LsServer(parent_mo_or_dn="org-root", vmedia_policy_name="",
                   ext_ip_state="none", bios_profile_name="SRIOV",

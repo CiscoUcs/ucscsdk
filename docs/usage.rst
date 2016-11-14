@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use ucscentralsdk in a project::
+To use ucscsdk in a project::
 
-    import ucscentralsdk
+    import ucscsdk

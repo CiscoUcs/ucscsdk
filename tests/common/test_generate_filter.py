@@ -12,8 +12,8 @@
 # limitations under the License.
 
 from nose.tools import *
-from ucscentralsdk.ucscentralfilter import generate_infilter
-from ucscentralsdk.ucscentralxmlcodec import to_xml_str
+from ucscsdk.ucscfilter import generate_infilter
+from ucscsdk.ucscxmlcodec import to_xml_str
 
 success = True
 
