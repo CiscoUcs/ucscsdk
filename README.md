@@ -1,9 +1,5 @@
 [![](https://ucspython.herokuapp.com/badge.svg)](https://ucspython.herokuapp.com)
 
-# Note:
-
-* This SDK is in early stages and not ready for consumption yet.
-
 # Python SDK for Cisco UCS Central
 
 * Apache License, Version 2.0 (the "License")
@@ -22,6 +18,12 @@ Installs the latest top of the tree development version,
     git clone https://github.com/CiscoUcs/ucscsdk.git
     cd ucscsdk
     make install
+```
+
+### From pip
+
+```
+    pip install ucscsdk
 ```
 
 ## Community:
