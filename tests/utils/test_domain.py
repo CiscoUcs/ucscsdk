@@ -11,11 +11,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from nose.tools import *
-from ..connection.info import custom_setup, custom_teardown
 from ucscsdk.mometa.org.OrgDomainGroup import OrgDomainGroup
 from ucscsdk.mometa.compute.ComputeSystemQual import ComputeSystemQual
 from ucscsdk.mometa.compute.ComputeOwnerQual import ComputeOwnerQual
+from nose.tools import *
+from ..connection.info import custom_setup, custom_teardown, \
+    get_domain_params, skipped
+domain_params = get_domain_params(1)
 handle = None
 
 
@@ -28,7 +30,6 @@ def teardown():
     custom_teardown(handle)
 
 
-@with_setup(setup, teardown)
 def test_001_create_domain_group():
     dom_grp_name = "new_test_domgrp"
     mo = OrgDomainGroup(parent_mo_or_dn="domaingroup-root", name=dom_grp_name)
@@ -49,7 +50,6 @@ def test_001_create_domain_group():
     handle.commit()
 
 
-@with_setup(setup, teardown)
 def test_002_create_domain_qual_policy():
     dom_qual_name = "new_dom_qual"
     dom_qual_mo = ComputeSystemQual(
@@ -73,23 +73,29 @@ def test_002_create_domain_qual_policy():
     handle.commit()
 
 
-@with_setup(setup, teardown)
 def test_003_domain_register():
     from ucscsdk.utils.ucscdomain import domain_register
-    domain_register(handle, domain_name_or_ip="10.10.10.1",
-                    username="guest", password="password")
+    if domain_params is None:
+        skipped("Arguments missing in config file")(
+            test_003_domain_register)()
+    domain_register(handle, domain_name_or_ip=domain_params[0]['ip'],
+                    username=domain_params[0]['username'],
+                    password=domain_params[0]['password'])
 
 
-@with_setup(setup, teardown)
-def test_003_domain_status():
+def test_004_domain_status():
     from ucscsdk.utils.ucscdomain import is_domain_registered, \
         get_domain_operational_status
-    if is_domain_registered(handle, domain_name_or_ip="10.10.10.1"):
-        print(get_domain_operational_status(handle, "10.10.10.1"))
+    if domain_params is None:
+        skipped("Arguments missing in config file")(
+            test_004_domain_status)()
+    if is_domain_registered(handle, domain_name_or_ip=domain_params[0]['ip']):
+        print(get_domain_operational_status(handle, domain_params[0]['ip']))
 
 
-@raises(Exception)
-@with_setup(setup, teardown)
-def test_004_domain_unregister():
+def test_005_domain_unregister():
     from ucscsdk.utils.ucscdomain import domain_unregister
-    domain_unregister(handle, "10.10.10.5")
+    if domain_params is None:
+        skipped("Arguments missing in config file")(
+            test_005_domain_unregister)()
+    domain_unregister(handle, domain_params[0]['ip'])

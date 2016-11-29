@@ -33,6 +33,9 @@ from ucscsdk.mometa.firmware.FirmwareCatalogue import FirmwareCatalogue
 from ucscsdk.mometa.firmware.FirmwareDownloader import \
         FirmwareDownloader, \
         FirmwareDownloaderConsts
+from ucscsdk.mometa.firmware.FirmwareDistributable import \
+        FirmwareDistributable, \
+        FirmwareDistributableConsts
 from ucscsdk.mometa.firmware.FirmwareInfraPack import FirmwareInfraPack
 from ucscsdk.mometa.firmware.FirmwareCatalogPack import \
         FirmwareCatalogPack
@@ -302,7 +305,7 @@ def firmware_add_remote(handle, remote_path, file_name, protocol, hostname,
     firmware_downloader.admin_state = \
         FirmwareDownloaderConsts.ADMIN_STATE_RESTART
 
-    handle.add_mo(firmware_downloader)
+    handle.add_mo(firmware_downloader, modify_present=True)
     handle.commit()
 
 
@@ -321,18 +324,20 @@ def firmware_remove(handle, image_name):
 
     top_system = TopSystem()
     firmware_catalogue = FirmwareCatalogue(parent_mo_or_dn=top_system)
-    firmware_downloader = FirmwareDownloader(
+    firmware_distributable = FirmwareDistributable(
         parent_mo_or_dn=firmware_catalogue,
-        file_name=image_name)
+        name=image_name)
 
-    dn = firmware_downloader.dn
+    dn = firmware_distributable.dn
     mo = handle.query_dn(dn)
-    if mo is None:
+    if mo is None or mo.oper_dnld_status != \
+            FirmwareDistributableConsts.OPER_DNLD_STATUS_DOWNLOADED:
         raise UcscOperationError(
             "Firmware remove",
             "Image not available on UCS Central.")
 
-    handle.remove_mo(mo)
+    mo.admin_state = FirmwareDistributableConsts.ADMIN_STATE_DELETED
+    handle.set_mo(mo)
     handle.commit()
 
 
