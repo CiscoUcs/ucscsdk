@@ -12,6 +12,7 @@
 # limitations under the License.
 
 from ucscsdk.utils.ucscbackup import *
+from nose.plugins.attrib import attr
 from ..connection.info import custom_setup, custom_teardown, \
     get_local_config_params, get_remote_config_params, \
     get_domain_params, skipped
@@ -111,12 +112,12 @@ def test_006_export_config_domain():
                                 password=password)
 
 
-@skipped("Config disruptive test")
+@attr('config-disruptive')
 def test_007_import_config_from_ucscentral():
     import_config_ucscentral(handle, "all-cfg.tgz")
 
 
-@skipped("Config disruptive test")
+@attr('config-disruptive')
 def test_008_import_config_from_local():
     if local_import is None:
         skipped("Arguments missing in config file")(
@@ -125,7 +126,7 @@ def test_008_import_config_from_local():
                         local_import['file_name'])
 
 
-@skipped("Config disruptive test")
+@attr('config-disruptive')
 def test_009_import_config_from_remote():
     if remote_import is None:
         skipped("Arguments missing in config file")(
@@ -138,7 +139,7 @@ def test_009_import_config_from_remote():
                          password=remote_import['password'])
 
 
-@skipped("Config disruptive test")
+@attr('config-disruptive')
 def test_010_import_config_domain():
     if domain_params is None:
         skipped("Arguments missing in config file")(

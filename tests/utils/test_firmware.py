@@ -12,6 +12,7 @@
 # limitations under the License.
 
 from ucscsdk.utils.ucscfirmware import *
+from nose.plugins.attrib import attr
 from ucscsdk import set_log_level
 from ..connection.info import custom_setup, custom_teardown, \
     get_local_config_params, get_remote_config_params, \
@@ -56,7 +57,7 @@ def test_001_get_firmware_bundles():
     failed_dw = get_failed_dw_firmware_bundles(handle)
 
 
-@skipped("Long test, Huge firmware download")
+@attr('slow')
 def test_002_get_cco_images():
     if local_download is None or cisco_account is None:
         skipped("Arguments missing in config file")(
@@ -70,7 +71,7 @@ def test_002_get_cco_images():
     get_ucsc_cco_image(image=dw_image, file_dir=local_download['file_dir'])
 
 
-@skipped("Long test, Huge firmware upload")
+@attr('slow')
 def test_003_add_firmware_local():
     if local_upload is None:
         skipped("Arguments missing in config file")(
@@ -79,6 +80,7 @@ def test_003_add_firmware_local():
                        local_upload['file_name'])
 
 
+@attr('slow')
 def test_004_add_firmware_remote():
     import time
     if remote_upload is None:
@@ -95,11 +97,12 @@ def test_004_add_firmware_remote():
     time.sleep(15)
 
 
+@attr('config-disruptive')
 def test_005_remove_firmware():
     firmware_remove(handle, image_name=remote_upload['file_name'])
 
 
-@skipped("Config disruptive test")
+@attr('config-disruptive')
 def test_006_schedule_infra_firmware_update():
     schedule_infra_fw_update(handle, domain_group="root",
                              schedule="2016-08-31T22:33:07",

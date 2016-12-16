@@ -14,6 +14,7 @@
 from ucscsdk.mometa.org.OrgDomainGroup import OrgDomainGroup
 from ucscsdk.mometa.compute.ComputeSystemQual import ComputeSystemQual
 from ucscsdk.mometa.compute.ComputeOwnerQual import ComputeOwnerQual
+from nose.plugins.attrib import attr
 from nose.tools import *
 from ..connection.info import custom_setup, custom_teardown, \
     get_domain_params, skipped
@@ -93,6 +94,7 @@ def test_004_domain_status():
         print(get_domain_operational_status(handle, domain_params[0]['ip']))
 
 
+@attr('config-disruptive')
 def test_005_domain_unregister():
     from ucscsdk.utils.ucscdomain import domain_unregister
     if domain_params is None:

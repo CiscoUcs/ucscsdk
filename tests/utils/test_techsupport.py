@@ -12,6 +12,7 @@
 # limitations under the License.
 
 from ucscsdk.utils.ucsctechsupport import *
+from nose.plugins.attrib import attr
 from ..connection.info import custom_setup, custom_teardown, \
     get_local_config_params, get_domain_params, skipped
 
@@ -31,7 +32,7 @@ def setup():
 def teardown():
     custom_teardown(handle)
 
-
+@attr('slow')
 def test_001_get_techsupport():
     if local_download is None:
         skipped("Arguments missing in config file")(test_001_get_techsupport)()
@@ -40,6 +41,7 @@ def test_001_get_techsupport():
                      remove_from_ucsc=True)
 
 
+@attr('slow')
 def test_002_get_domain_techsupport():
     if domain_params is None:
         skipped("Arguments missing in config file")(
