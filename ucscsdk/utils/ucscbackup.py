@@ -156,8 +156,14 @@ def _backup(handle, file_dir, file_name, timeout=600,
             raise UcscOperationError(
                   "Backup UcsCentral", " operation timed out")
 
-    # download backup
-    log.debug("Backup done")
+    if remote_enabled:
+        if mgmt_backup.over_all_status == \
+                MgmtBackupConsts.OVER_ALL_STATUS_FAILED:
+            log.debug("Backup failed")
+            handle.remove_mo(mgmt_backup)
+            handle.commit()
+            raise UcscOperationError(
+                "Backup UcsCentral", "%s" % mgmt_backup.fsm_rmt_inv_err_descr)
 
     if not remote_enabled:
         file_source = "backupfile" + file_path
@@ -363,8 +369,14 @@ def _export_config(handle, file_dir, file_name, timeout=600,
             raise UcscOperationError(
                 "Config Export UcsCentral", "operation timed out")
 
-    # download backup
-    log.debug("Config exported")
+    if remote_enabled:
+        if mgmt_export.over_all_status == \
+                MgmtDataExporterConsts.OVER_ALL_STATUS_FAILED:
+            log.debug("Config exported failed")
+            handle.remove_mo(mgmt_export)
+            handle.commit()
+            raise UcscOperationError(
+                "Config Export UcsCentral", "%s" % mgmt_export.fsm_rmt_inv_err_descr)
 
     if not remote_enabled:
         file_source = "backupfile" + file_path
