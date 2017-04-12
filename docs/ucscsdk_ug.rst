@@ -522,7 +522,7 @@ object.
 
 ::
 
-    from ucscsdk.ucscoreutils import get_meta_info
+    from ucscsdk.ucsccoreutils import get_meta_info
 
     class_meta = get_meta_info("FabricVlan")
     print class_meta
