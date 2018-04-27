@@ -18,7 +18,7 @@ class EquipmentGemCapProvider(ManagedObject):
     consts = EquipmentGemCapProviderConsts()
     naming_props = set([u'vendor', u'model', u'revision'])
 
-    mo_meta = MoMeta("EquipmentGemCapProvider", "equipmentGemCapProvider", "manufacturer-[vendor]-model-[model]-revision-[revision]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin"], [u'capabilityCatalogue'], [u'equipmentManufacturingDef', u'equipmentPicture', u'equipmentUnifiedPortCapProvider'], ["Get"])
+    mo_meta = MoMeta("EquipmentGemCapProvider", "equipmentGemCapProvider", "manufacturer-[vendor]-model-[model]-revision-[revision]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin"], [u'capabilityCatalogue'], [u'equipmentFruVariant', u'equipmentManufacturingDef', u'equipmentPicture', u'equipmentUnifiedPortCapProvider'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

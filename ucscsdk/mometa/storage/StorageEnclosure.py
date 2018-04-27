@@ -126,6 +126,8 @@ class StorageEnclosureConsts():
     TYPE_HDD_MOTHER_BOARD = "hdd-mother-board"
     TYPE_IOE_NVME_ENCLOSURE = "ioe-nvme-enclosure"
     TYPE_SB_NVME_ENCLOSURE = "sb-nvme-enclosure"
+    TYPE_SERVER_FRONT_LOAD = "server-front-load"
+    TYPE_SERVER_PCH = "server-pch"
     TYPE_UNKNOWN = "unknown"
     VOLTAGE_LOWER_CRITICAL = "lower-critical"
     VOLTAGE_LOWER_NON_CRITICAL = "lower-non-critical"
@@ -168,7 +170,7 @@ class StorageEnclosure(ManagedObject):
         "server_id": MoPropertyMeta("server_id", "serverId", "uint", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "thermal": MoPropertyMeta("thermal", "thermal", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["dedicated-rear-ssd-enclosure", "hdd-expansion-tray", "hdd-mother-board", "ioe-nvme-enclosure", "sb-nvme-enclosure", "unknown"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["dedicated-rear-ssd-enclosure", "hdd-expansion-tray", "hdd-mother-board", "ioe-nvme-enclosure", "sb-nvme-enclosure", "server-front-load", "server-pch", "unknown"], []), 
         "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "voltage": MoPropertyMeta("voltage", "voltage", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
     }

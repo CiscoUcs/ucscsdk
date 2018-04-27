@@ -15,6 +15,7 @@ class FaultSvcSummaryConsts():
     TYPE_POLICY_MGR = "policy-mgr"
     TYPE_RESOURCE_AGGR = "resource-aggr"
     TYPE_RESOURCE_MGR = "resource-mgr"
+    TYPE_SERVER_MGR = "server-mgr"
     TYPE_SERVICE_REG = "service-reg"
     TYPE_STATS_MGR = "stats-mgr"
     TYPE_STORAGE_BROKER = "storage-broker"
@@ -37,7 +38,7 @@ class FaultSvcSummary(ManagedObject):
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "total_faults": MoPropertyMeta("total_faults", "totalFaults", "ulong", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x20, None, None, None, ["boot-mgr", "central-mgr", "identifier-mgr", "managed-endpoint", "mgmt-controller", "operation-mgr", "policy-mgr", "resource-aggr", "resource-mgr", "service-reg", "stats-mgr", "storage-broker", "virtual-switching-mgr", "vm-mgr"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x20, None, None, None, ["boot-mgr", "central-mgr", "identifier-mgr", "managed-endpoint", "mgmt-controller", "operation-mgr", "policy-mgr", "resource-aggr", "resource-mgr", "server-mgr", "service-reg", "stats-mgr", "storage-broker", "virtual-switching-mgr", "vm-mgr"], []), 
     }
 
     prop_map = {

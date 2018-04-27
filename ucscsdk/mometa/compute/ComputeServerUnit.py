@@ -56,6 +56,10 @@ class ComputeServerUnitConsts():
     DISCOVERY_WAITING_FOR_MGMT_ACK = "waiting-for-mgmt-ack"
     DISCOVERY_WAITING_FOR_USER_ACK = "waiting-for-user-ack"
     INT_ID_NONE = "none"
+    KMIP_FAULT_FALSE = "false"
+    KMIP_FAULT_NO = "no"
+    KMIP_FAULT_TRUE = "true"
+    KMIP_FAULT_YES = "yes"
     LC_DECOMMISSION = "decommission"
     LC_DISCOVERED = "discovered"
     LC_MIGRATE = "migrate"
@@ -177,11 +181,12 @@ class ComputeServerUnit(ManagedObject):
     consts = ComputeServerUnitConsts()
     naming_props = set([u'serverInstanceId'])
 
-    mo_meta = MoMeta("ComputeServerUnit", "computeServerUnit", "server-[server_instance_id]", VersionMeta.Version131a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'computeCartridge'], [u'adaptorHostIfConfig', u'adaptorUnit', u'biosUnit', u'computeBoard', u'computeBoardController', u'computeExtBoard', u'computeFactoryResetOperation', u'computePhysicalOperation', u'computePoolable', u'equipmentBeaconLed', u'equipmentHealthLed', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'firmwareStatus', u'lsIdentityInfo', u'lsbootDef', u'mgmtController', u'storageEnclosure', u'storageVirtualDriveContainer'], ["Get", "Set"])
+    mo_meta = MoMeta("ComputeServerUnit", "computeServerUnit", "server-[server_instance_id]", VersionMeta.Version131a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'computeCartridge'], [u'adaptorHostIfConfig', u'adaptorUnit', u'biosUnit', u'computeBoard', u'computeBoardController', u'computeExtBoard', u'computeFactoryResetOp', u'computeFactoryResetOperation', u'computePhysicalExtension', u'computePhysicalOperation', u'computePoolable', u'computeRebootLog', u'diagSrvCtrl', u'equipmentBeaconLed', u'equipmentHealthLed', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'firmwareStatus', u'lsIdentityInfo', u'lsbootDef', u'mgmtController', u'mgmtSecurity', u'storageEnclosure', u'storageVirtualDriveContainer', u'sysdebugDiagnosticLog'], ["Get", "Set"])
 
     prop_meta = {
         "admin_power": MoPropertyMeta("admin_power", "adminPower", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["admin-down", "admin-up", "bmc-reset-immediate", "bmc-reset-wait", "cmos-reset-immediate", "cycle-immediate", "cycle-wait", "diagnostic-interrupt", "hard-reset-immediate", "hard-reset-wait", "ipmi-reset", "kvm-reset", "policy"], []), 
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["in-maintenance", "in-service", "out-of-service"], []), 
+        "asset_tag": MoPropertyMeta("asset_tag", "assetTag", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
         "assigned_to_dn": MoPropertyMeta("assigned_to_dn", "assignedToDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "association": MoPropertyMeta("association", "association", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["associated", "establishing", "failed", "none", "removing", "throttled"], []), 
         "availability": MoPropertyMeta("availability", "availability", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["available", "unavailable"], []), 
@@ -197,6 +202,8 @@ class ComputeServerUnit(ManagedObject):
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "flt_aggr": MoPropertyMeta("flt_aggr", "fltAggr", "ulong", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "int_id": MoPropertyMeta("int_id", "intId", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, None, ["none"], ["0-4294967295"]), 
+        "kmip_fault": MoPropertyMeta("kmip_fault", "kmipFault", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
+        "kmip_fault_description": MoPropertyMeta("kmip_fault_description", "kmipFaultDescription", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "lc": MoPropertyMeta("lc", "lc", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["decommission", "discovered", "migrate", "rediscover", "remove", "resetToFactory", "undiscovered"], []), 
         "lc_ts": MoPropertyMeta("lc_ts", "lcTs", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
         "local_id": MoPropertyMeta("local_id", "localId", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
@@ -243,6 +250,7 @@ class ComputeServerUnit(ManagedObject):
     prop_map = {
         "adminPower": "admin_power", 
         "adminState": "admin_state", 
+        "assetTag": "asset_tag", 
         "assignedToDn": "assigned_to_dn", 
         "association": "association", 
         "availability": "availability", 
@@ -258,6 +266,8 @@ class ComputeServerUnit(ManagedObject):
         "dn": "dn", 
         "fltAggr": "flt_aggr", 
         "intId": "int_id", 
+        "kmipFault": "kmip_fault", 
+        "kmipFaultDescription": "kmip_fault_description", 
         "lc": "lc", 
         "lcTs": "lc_ts", 
         "localId": "local_id", 
@@ -306,6 +316,7 @@ class ComputeServerUnit(ManagedObject):
         self.server_instance_id = server_instance_id
         self.admin_power = None
         self.admin_state = None
+        self.asset_tag = None
         self.assigned_to_dn = None
         self.association = None
         self.availability = None
@@ -320,6 +331,8 @@ class ComputeServerUnit(ManagedObject):
         self.discovery_status = None
         self.flt_aggr = None
         self.int_id = None
+        self.kmip_fault = None
+        self.kmip_fault_description = None
         self.lc = None
         self.lc_ts = None
         self.local_id = None

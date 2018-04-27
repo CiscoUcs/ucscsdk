@@ -12,6 +12,7 @@ class TagSoftwareInstConsts():
     SRC_DME_OPERATION_MGR = "operation-mgr"
     SRC_DME_POLICY_MGR = "policy-mgr"
     SRC_DME_RESOURCE_MGR = "resource-mgr"
+    SRC_DME_SERVER_MGR = "server-mgr"
     SRC_DME_SERVICE_REG = "service-reg"
     SRC_DME_STATS_MGR = "stats-mgr"
     SRC_DME_UNKNOWN = "unknown"
@@ -33,7 +34,7 @@ class TagSoftwareInst(ManagedObject):
         "object_name": MoPropertyMeta("object_name", "objectName", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\.:;=\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
         "object_type": MoPropertyMeta("object_type", "objectType", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
-        "src_dme": MoPropertyMeta("src_dme", "srcDme", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["central-mgr", "identifier-mgr", "mgmt-controller", "operation-mgr", "policy-mgr", "resource-mgr", "service-reg", "stats-mgr", "unknown"], []), 
+        "src_dme": MoPropertyMeta("src_dme", "srcDme", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["central-mgr", "identifier-mgr", "mgmt-controller", "operation-mgr", "policy-mgr", "resource-mgr", "server-mgr", "service-reg", "stats-mgr", "unknown"], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "tagged_object_dn": MoPropertyMeta("tagged_object_dn", "taggedObjectDn", "string", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x20, 0, 256, None, [], []), 
         "value": MoPropertyMeta("value", "value", "string", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x40, 1, 64, None, [], []), 

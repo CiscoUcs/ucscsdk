@@ -31,6 +31,10 @@ class EtherPIoConsts():
     IF_TYPE_PHYSICAL = "physical"
     IF_TYPE_UNKNOWN = "unknown"
     IF_TYPE_VIRTUAL = "virtual"
+    IS_BREAKOUT_XCVR_FALSE = "false"
+    IS_BREAKOUT_XCVR_NO = "no"
+    IS_BREAKOUT_XCVR_TRUE = "true"
+    IS_BREAKOUT_XCVR_YES = "yes"
     IS_PORT_CHANNEL_MEMBER_FALSE = "false"
     IS_PORT_CHANNEL_MEMBER_NO = "no"
     IS_PORT_CHANNEL_MEMBER_TRUE = "true"
@@ -79,6 +83,11 @@ class EtherPIoConsts():
     OPER_STATE_UDLD_AGGR_DOWN = "udld-aggr-down"
     OPER_STATE_UP = "up"
     PEER_CHASSIS_ID_N_A = "N/A"
+    PORT_CAPABILITY_ETH_APPLIANT_PORT = "ethAppliantPort"
+    PORT_CAPABILITY_ETH_FEX_SERVER_PORT = "ethFexServerPort"
+    PORT_CAPABILITY_ETH_RACK_SERVER_PORT = "ethRackServerPort"
+    PORT_CAPABILITY_ETH_UPLINK_PORT = "ethUplinkPort"
+    PORT_CAPABILITY_UNKNOWN = "unknown"
     SWITCH_ID_A = "A"
     SWITCH_ID_B = "B"
     SWITCH_ID_NONE = "NONE"
@@ -201,6 +210,7 @@ class EtherPIo(ManagedObject):
         "flt_aggr": MoPropertyMeta("flt_aggr", "fltAggr", "ulong", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "if_role": MoPropertyMeta("if_role", "ifRole", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["diag", "fcoe-nas-storage", "fcoe-storage", "fcoe-uplink", "mgmt", "monitor", "nas-storage", "network", "network-fcoe-uplink", "server", "service", "storage", "unknown"], []), 
         "if_type": MoPropertyMeta("if_type", "ifType", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["aggregation", "physical", "unknown", "virtual"], []), 
+        "is_breakout_xcvr": MoPropertyMeta("is_breakout_xcvr", "isBreakoutXcvr", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "is_port_channel_member": MoPropertyMeta("is_port_channel_member", "isPortChannelMember", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "lc": MoPropertyMeta("lc", "lc", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["allocated", "available", "deallocated", "repurposed"], []), 
         "lic_gp": MoPropertyMeta("lic_gp", "licGP", "ulong", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
@@ -218,6 +228,7 @@ class EtherPIo(ManagedObject):
         "peer_dn": MoPropertyMeta("peer_dn", "peerDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "peer_port_id": MoPropertyMeta("peer_port_id", "peerPortId", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "peer_slot_id": MoPropertyMeta("peer_slot_id", "peerSlotId", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "port_capability": MoPropertyMeta("port_capability", "portCapability", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ethAppliantPort", "ethFexServerPort", "ethRackServerPort", "ethUplinkPort", "unknown"], []), 
         "port_id": MoPropertyMeta("port_id", "portId", "uint", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x8, None, None, None, [], []), 
         "revision": MoPropertyMeta("revision", "revision", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
@@ -247,6 +258,7 @@ class EtherPIo(ManagedObject):
         "fltAggr": "flt_aggr", 
         "ifRole": "if_role", 
         "ifType": "if_type", 
+        "isBreakoutXcvr": "is_breakout_xcvr", 
         "isPortChannelMember": "is_port_channel_member", 
         "lc": "lc", 
         "licGP": "lic_gp", 
@@ -264,6 +276,7 @@ class EtherPIo(ManagedObject):
         "peerDn": "peer_dn", 
         "peerPortId": "peer_port_id", 
         "peerSlotId": "peer_slot_id", 
+        "portCapability": "port_capability", 
         "portId": "port_id", 
         "revision": "revision", 
         "rn": "rn", 
@@ -294,6 +307,7 @@ class EtherPIo(ManagedObject):
         self.flt_aggr = None
         self.if_role = None
         self.if_type = None
+        self.is_breakout_xcvr = None
         self.is_port_channel_member = None
         self.lc = None
         self.lic_gp = None
@@ -311,6 +325,7 @@ class EtherPIo(ManagedObject):
         self.peer_dn = None
         self.peer_port_id = None
         self.peer_slot_id = None
+        self.port_capability = None
         self.revision = None
         self.serial = None
         self.slot_id = None

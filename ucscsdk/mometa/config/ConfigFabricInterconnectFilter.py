@@ -32,7 +32,7 @@ class ConfigFabricInterconnectFilter(ManagedObject):
     consts = ConfigFabricInterconnectFilterConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ConfigFabricInterconnectFilter", "configFabricInterconnectFilter", "fabric-interconnect-filter", VersionMeta.Version131a, "InputOutput", 0xfff, [], ["read-only"], [], [], [None])
+    mo_meta = MoMeta("ConfigFabricInterconnectFilter", "configFabricInterconnectFilter", "fabric-interconnect-filter", VersionMeta.Version131a, "InputOutput", 0x1fff, [], ["read-only"], [], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
@@ -42,11 +42,12 @@ class ConfigFabricInterconnectFilter(ManagedObject):
         "domain_name": MoPropertyMeta("domain_name", "domainName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "fault_level": MoPropertyMeta("fault_level", "faultLevel", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["cleared", "condition", "critical", "info", "major", "minor", "warning"], []), 
         "fw_oper_state": MoPropertyMeta("fw_oper_state", "fwOperState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, ["activating", "bad-image", "failed", "pending-next-boot", "ready", "rebooting", "scheduled", "set-startup", "throttled", "updating", "upgrading"], []), 
-        "fw_version": MoPropertyMeta("fw_version", "fwVersion", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x80, 0, 510, None, [], []), 
-        "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x100, 0, 510, None, [], []), 
-        "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, [], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x400, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x800, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "fw_service_pack_version": MoPropertyMeta("fw_service_pack_version", "fwServicePackVersion", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x80, 0, 510, None, [], []), 
+        "fw_version": MoPropertyMeta("fw_version", "fwVersion", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x100, 0, 510, None, [], []), 
+        "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x200, 0, 510, None, [], []), 
+        "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x400, None, None, None, [], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x800, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x1000, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }
 
     prop_map = {
@@ -57,6 +58,7 @@ class ConfigFabricInterconnectFilter(ManagedObject):
         "domainName": "domain_name", 
         "faultLevel": "fault_level", 
         "fwOperState": "fw_oper_state", 
+        "fwServicePackVersion": "fw_service_pack_version", 
         "fwVersion": "fw_version", 
         "model": "model", 
         "operability": "operability", 
@@ -72,6 +74,7 @@ class ConfigFabricInterconnectFilter(ManagedObject):
         self.domain_name = None
         self.fault_level = None
         self.fw_oper_state = None
+        self.fw_service_pack_version = None
         self.fw_version = None
         self.model = None
         self.operability = None

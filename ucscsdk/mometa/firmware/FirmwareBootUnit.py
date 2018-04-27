@@ -56,7 +56,7 @@ class FirmwareBootUnit(ManagedObject):
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x40, 0, 256, None, [], []), 
         "skip_validation": MoPropertyMeta("skip_validation", "skipValidation", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x80, None, None, None, ["false", "no", "true", "yes"], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x100, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x200, None, None, r"""((kernel|system|combined|boot-loader),){0,3}(kernel|system|combined|boot-loader){0,1}""", [], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x200, None, None, r"""((kernel|system|combined|boot-loader|service-pack),){0,4}(kernel|system|combined|boot-loader|service-pack){0,1}""", [], []), 
         "version": MoPropertyMeta("version", "version", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x400, 0, 510, None, [], []), 
     }
 

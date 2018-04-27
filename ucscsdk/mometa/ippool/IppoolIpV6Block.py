@@ -18,7 +18,7 @@ class IppoolIpV6Block(ManagedObject):
     consts = IppoolIpV6BlockConsts()
     naming_props = set([u'from', u'to'])
 
-    mo_meta = MoMeta("IppoolIpV6Block", "ippoolIpV6Block", "v6block-[r_from]-[to]", VersionMeta.Version112a, "InputOutput", 0xfff, [], ["admin", "ls-network-policy"], [u'ippoolPool'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("IppoolIpV6Block", "ippoolIpV6Block", "v6block-[r_from]-[to]", VersionMeta.Version112a, "InputOutput", 0xfff, [], ["admin", "domain-group-management", "ls-network-policy"], [u'ippoolPool'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "assigned": MoPropertyMeta("assigned", "assigned", "uint", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

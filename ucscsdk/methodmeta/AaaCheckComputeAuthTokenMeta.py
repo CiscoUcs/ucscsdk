@@ -13,6 +13,7 @@ prop_meta = {
     "out_locales": MethodPropertyMeta("OutLocales", "outLocales", "Xs:string", "Version142b", "Output", False),
     "out_priv": MethodPropertyMeta("OutPriv", "outPriv", "Xs:string", "Version142b", "Output", False),
     "out_remote": MethodPropertyMeta("OutRemote", "outRemote", "Xs:string", "Version142b", "Output", False),
+    "out_role_list": MethodPropertyMeta("OutRoleList", "outRoleList", "Xs:string", "Version142b", "Output", False),
 }
 
 prop_map = {
@@ -24,5 +25,6 @@ prop_map = {
     "outLocales": "out_locales",
     "outPriv": "out_priv",
     "outRemote": "out_remote",
+    "outRoleList": "out_role_list",
 }
 

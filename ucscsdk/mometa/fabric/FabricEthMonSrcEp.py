@@ -17,7 +17,7 @@ class FabricEthMonSrcEp(ManagedObject):
     consts = FabricEthMonSrcEpConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("FabricEthMonSrcEp", "fabricEthMonSrcEp", "mon-src-[name]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'adaptorExtEthIf', u'fabricDceSwSrvEp', u'fabricEthEstcEp', u'fabricEthEstcPc', u'fabricEthLanEp', u'fabricEthLanPc', u'fabricFcoeEstcEp', u'fabricFcoeSanEp', u'fabricFcoeSanPc', u'fabricVlan', u'vmNic', u'vnicEther', u'vnicFc', u'vnicIScsi', u'vnicIScsiLCP', u'vnicIniGrpFc', u'vnicLstorageIScsi', u'vnicMgmt', u'vnicMonSesFc'], [], ["Get"])
+    mo_meta = MoMeta("FabricEthMonSrcEp", "fabricEthMonSrcEp", "mon-src-[name]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'adaptorExtEthIf', u'fabricDceSwSrvEp', u'fabricEthEstcEp', u'fabricEthEstcPc', u'fabricEthLanEp', u'fabricEthLanPc', u'fabricFcoeEstcEp', u'fabricFcoeSanEp', u'fabricFcoeSanPc', u'fabricVlan', u'vmNic', u'vnicEther', u'vnicFc', u'vnicIScsi', u'vnicIScsiLCP', u'vnicIniGrpFc', u'vnicIniGrpFcB', u'vnicLstorageIScsi', u'vnicMgmt', u'vnicMonSesFc'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

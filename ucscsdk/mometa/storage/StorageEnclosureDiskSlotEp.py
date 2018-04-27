@@ -11,6 +11,7 @@ class StorageEnclosureDiskSlotEpConsts():
     AUTO_ZONE_CAUSE_HOTSPARE_UNSUPPORTED = "hotspare-unsupported"
     AUTO_ZONE_CAUSE_MEZZ_CONTROLLER_IN_IOEXPANDER = "mezz-controller-in-ioexpander"
     AUTO_ZONE_CAUSE_NONE = "none"
+    AUTO_ZONE_CAUSE_SECOND_CONTROLLER_ABSENT = "second-controller-absent"
     AUTO_ZONE_CAUSE_SHARING_UNSUPPORTED = "sharing-unsupported"
     CONFIGURATION_NOT_SUPPORTED = "not-supported"
     CONFIGURATION_SUPPORTED = "supported"
@@ -82,7 +83,7 @@ class StorageEnclosureDiskSlotEp(ManagedObject):
     mo_meta = MoMeta("StorageEnclosureDiskSlotEp", "storageEnclosureDiskSlotEp", "disk-slot-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'storageEnclosure'], [u'storageControllerRef'], ["Get"])
 
     prop_meta = {
-        "auto_zone_cause": MoPropertyMeta("auto_zone_cause", "autoZoneCause", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["hdd-tray-in-lieu-of-server2", "hddslot-unassigned", "hotspare-unsupported", "mezz-controller-in-ioexpander", "none", "sharing-unsupported"], []), 
+        "auto_zone_cause": MoPropertyMeta("auto_zone_cause", "autoZoneCause", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["hdd-tray-in-lieu-of-server2", "hddslot-unassigned", "hotspare-unsupported", "mezz-controller-in-ioexpander", "none", "second-controller-absent", "sharing-unsupported"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "configuration": MoPropertyMeta("configuration", "configuration", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-supported", "supported", "unknown"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 

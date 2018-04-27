@@ -49,7 +49,7 @@ class ConfigAckItem(ManagedObject):
         "admin_state_ack": MoPropertyMeta("admin_state_ack", "adminStateAck", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["trigger", "trigger-immediate", "triggered", "untriggered", "user-ack"], []), 
         "admin_state_requestor": MoPropertyMeta("admin_state_requestor", "adminStateRequestor", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["auto-sched", "force-ack", "sched-ack"], []), 
         "change_by": MoPropertyMeta("change_by", "changeBy", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[a-zA-Z][a-zA-Z0-9_.@-]{0,31}""", [], []), 
-        "changes": MoPropertyMeta("changes", "changes", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|storage|boot-order|chassis-assignment|server-assignment|operational-policies|chassis-identity|server-identity|networking|vnic-vhba-placement),){0,9}(defaultValue|storage|boot-order|chassis-assignment|server-assignment|operational-policies|chassis-identity|server-identity|networking|vnic-vhba-placement){0,1}""", [], []), 
+        "changes": MoPropertyMeta("changes", "changes", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|storage|boot-order|chassis-assignment|server-assignment|operational-policies|chassis-identity|local-storage|server-identity|networking|vnic-vhba-placement),){0,10}(defaultValue|storage|boot-order|chassis-assignment|server-assignment|operational-policies|chassis-identity|local-storage|server-identity|networking|vnic-vhba-placement){0,1}""", [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "disr_type": MoPropertyMeta("disr_type", "disrType", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["fabric-interconnect", "firmware-infra", "host"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
@@ -60,6 +60,7 @@ class ConfigAckItem(ManagedObject):
         "oper_scheduler": MoPropertyMeta("oper_scheduler", "operScheduler", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_state_ack": MoPropertyMeta("oper_state_ack", "operStateAck", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["applied", "apply-pending", "evaluated", "evaluation-pending", "untriggered", "waiting-for-dependency", "waiting-for-maint-window", "waiting-for-user"], []), 
         "oper_state_requestor": MoPropertyMeta("oper_state_requestor", "operStateRequestor", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cap-reached", "failed", "in-progress", "pending", "pending-ack", "triggered"], []), 
+        "reboot_reason": MoPropertyMeta("reboot_reason", "rebootReason", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""((none|maintenance-tag|qos-settings|fc-mode|eth-mode),){0,4}(none|maintenance-tag|qos-settings|fc-mode|eth-mode){0,1}""", [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "scheduler": MoPropertyMeta("scheduler", "scheduler", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "server_id": MoPropertyMeta("server_id", "serverId", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
@@ -85,6 +86,7 @@ class ConfigAckItem(ManagedObject):
         "operScheduler": "oper_scheduler", 
         "operStateAck": "oper_state_ack", 
         "operStateRequestor": "oper_state_requestor", 
+        "rebootReason": "reboot_reason", 
         "rn": "rn", 
         "scheduler": "scheduler", 
         "serverId": "server_id", 
@@ -110,6 +112,7 @@ class ConfigAckItem(ManagedObject):
         self.oper_scheduler = None
         self.oper_state_ack = None
         self.oper_state_requestor = None
+        self.reboot_reason = None
         self.scheduler = None
         self.server_id = None
         self.service_profile_dn = None

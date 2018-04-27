@@ -19,7 +19,7 @@ class VnicFcGroupDef(ManagedObject):
     consts = VnicFcGroupDefConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicFcGroupDef", "vnicFcGroupDef", "fc-group", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storageIniGroup'], [u'faultInst', u'storageConnectionDef', u'vnicIniGrpFc'], ["Add", "Get", "Set"])
+    mo_meta = MoMeta("VnicFcGroupDef", "vnicFcGroupDef", "fc-group", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storageIniGroup'], [u'faultInst', u'storageConnectionDef', u'vnicIniGrpFc', u'vnicIniGrpFcB'], ["Add", "Get", "Set"])
 
     prop_meta = {
         "adaptor_profile_name": MoPropertyMeta("adaptor_profile_name", "adaptorProfileName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

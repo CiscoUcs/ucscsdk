@@ -9,6 +9,7 @@ class FabricEthMonSrcEpOperationConsts():
     ADMIN_STATE_DISABLED = "disabled"
     ADMIN_STATE_ENABLED = "enabled"
     ADMIN_STATE_REMOTE_TRIGGER = "remoteTrigger"
+    ADMIN_STATE_REMOVE = "remove"
     DIRECTION_BOTH = "both"
     DIRECTION_RX = "rx"
     DIRECTION_TX = "tx"
@@ -27,7 +28,7 @@ class FabricEthMonSrcEpOperation(ManagedObject):
     mo_meta = MoMeta("FabricEthMonSrcEpOperation", "fabricEthMonSrcEpOperation", "remoper-mon-src-[name]", VersionMeta.Version151a, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'adaptorExtEthIf', u'fabricDceSwSrvEp', u'fabricEthEstcEpOperation', u'fabricEthEstcPc', u'fabricEthLanEpOperation', u'fabricEthLanPcOperation', u'fabricFcoeEstcEpOperation', u'fabricFcoeSanEpOperation', u'fabricFcoeSanPcOperation', u'fabricVlan', u'vnicEther'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
-        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remoteTrigger"], []), 
+        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remoteTrigger", "remove"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "direction": MoPropertyMeta("direction", "direction", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["both", "rx", "tx"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 

@@ -16,6 +16,12 @@ class ConfigServerItemConsts():
     DECOMMISSIONED_NO = "no"
     DECOMMISSIONED_TRUE = "true"
     DECOMMISSIONED_YES = "yes"
+    DIAG_OPER_STATE_CANCELLED = "cancelled"
+    DIAG_OPER_STATE_COMPLETED = "completed"
+    DIAG_OPER_STATE_FAILED = "failed"
+    DIAG_OPER_STATE_IDLE = "idle"
+    DIAG_OPER_STATE_IN_PROGRESS = "in-progress"
+    DIAG_OPER_STATE_UNKNOWN = "unknown"
     DISCOVERY_COMPLETE = "complete"
     DISCOVERY_DIAGNOSTICS_COMPLETE = "diagnostics-complete"
     DISCOVERY_DIAGNOSTICS_FAILED = "diagnostics-failed"
@@ -129,6 +135,8 @@ class ConfigServerItem(ManagedObject):
         "association": MoPropertyMeta("association", "association", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["associated", "establishing", "failed", "none", "removing", "throttled"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "decommissioned": MoPropertyMeta("decommissioned", "decommissioned", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
+        "diag_oper_state": MoPropertyMeta("diag_oper_state", "diagOperState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cancelled", "completed", "failed", "idle", "in-progress", "unknown"], []), 
+        "diag_overall_progress": MoPropertyMeta("diag_overall_progress", "diagOverallProgress", "byte", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, [], ["0-100"]), 
         "discovery": MoPropertyMeta("discovery", "discovery", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["complete", "diagnostics-complete", "diagnostics-failed", "diagnostics-in-progress", "efidiagnostics-in-progress", "failed", "fru-identity-indeterminate", "fru-not-ready", "fru-state-indeterminate", "illegal-fru", "in-progress", "insufficiently-equipped", "invalid-adaptor-iocard", "malformed-fru-info", "retry", "throttled", "undiscovered", "user-acknowledged", "waiting-for-mgmt-ack", "waiting-for-user-ack"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "domain_connection_state": MoPropertyMeta("domain_connection_state", "domainConnectionState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["connected", "lost-connectivity"], []), 
@@ -162,6 +170,8 @@ class ConfigServerItem(ManagedObject):
         "association": "association", 
         "childAction": "child_action", 
         "decommissioned": "decommissioned", 
+        "diagOperState": "diag_oper_state", 
+        "diagOverallProgress": "diag_overall_progress", 
         "discovery": "discovery", 
         "dn": "dn", 
         "domainConnectionState": "domain_connection_state", 
@@ -196,6 +206,8 @@ class ConfigServerItem(ManagedObject):
         self.association = None
         self.child_action = None
         self.decommissioned = None
+        self.diag_oper_state = None
+        self.diag_overall_progress = None
         self.discovery = None
         self.domain_connection_state = None
         self.domain_dn = None

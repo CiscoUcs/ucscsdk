@@ -15,7 +15,7 @@ class DomainStorageParam(ManagedObject):
     consts = DomainStorageParamConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("DomainStorageParam", "domainStorageParam", "storage-param-[name]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin"], [u'domainEnvironmentFeature', u'domainFeatureCatalog', u'domainNetworkFeature', u'domainServerFeature', u'domainStorageFeature', u'featureEnvDef', u'featureNetworkDef', u'featureServerDef', u'featureStorageDef'], [], ["Get"])
+    mo_meta = MoMeta("DomainStorageParam", "domainStorageParam", "storage-param-[name]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin"], [u'domainChassisFeature', u'domainEnvironmentFeature', u'domainFeatureCatalog', u'domainNetworkFeature', u'domainServerFeature', u'domainStorageFeature', u'featureChassisDef', u'featureEnvDef', u'featureNetworkDef', u'featureServerDef', u'featureStorageDef'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

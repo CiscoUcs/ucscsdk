@@ -184,7 +184,7 @@ class AdaptorHostFcIf(ManagedObject):
     consts = AdaptorHostFcIfConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("AdaptorHostFcIf", "adaptorHostFcIf", "host-fc-[id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], [u'adaptorUnit'], [u'adaptorFcIfEventStats', u'adaptorFcIfFC4Stats', u'adaptorFcIfFrameStats', u'adaptorFcPortStats', u'adaptorVnicStats', u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("AdaptorHostFcIf", "adaptorHostFcIf", "host-fc-[id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], [u'adaptorUnit'], [u'adaptorFcIfEventStats', u'adaptorFcIfFC4Stats', u'adaptorFcIfFrameStats', u'adaptorFcPortStats', u'adaptorHostFcIfOperation', u'adaptorVnicStats', u'dcxVIf', u'faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

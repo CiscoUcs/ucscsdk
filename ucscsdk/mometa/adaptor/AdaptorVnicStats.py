@@ -18,7 +18,7 @@ class AdaptorVnicStats(ManagedObject):
     consts = AdaptorVnicStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorVnicStats", "adaptorVnicStats", "virtual-interface-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'adaptorHostEthIf', u'adaptorHostFcIf', u'adaptorHostScsiIf', u'vmNic'], [u'adaptorVnicStatsHist'], [None])
+    mo_meta = MoMeta("AdaptorVnicStats", "adaptorVnicStats", "virtual-interface-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'adaptorHostEthIf', u'adaptorHostFcIf', u'adaptorHostIscsiIf', u'adaptorHostScsiIf', u'vmNic'], [u'adaptorVnicStatsHist'], [None])
 
     prop_meta = {
         "bytes_rx": MoPropertyMeta("bytes_rx", "bytesRx", "ulong", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

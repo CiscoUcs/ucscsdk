@@ -28,7 +28,7 @@ class FabricNetGroup(ManagedObject):
     consts = FabricNetGroupConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("FabricNetGroup", "fabricNetGroup", "net-group-[name]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricNetGroup", "fabricNetGroup", "net-group-[name]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy", "ls-network"], [u'fabricEthLan', u'fabricLanCloud'], [u'fabricEthVlanPc', u'fabricEthVlanPortEp', u'fabricPooledVlan', u'fabricSwSubGroup'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "assigned": MoPropertyMeta("assigned", "assigned", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

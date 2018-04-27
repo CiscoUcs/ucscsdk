@@ -62,7 +62,7 @@ class FabricEthLanPc(ManagedObject):
     consts = FabricEthLanPcConsts()
     naming_props = set([u'portId'])
 
-    mo_meta = MoMeta("FabricEthLanPc", "fabricEthLanPc", "pc-[port_id]", VersionMeta.Version111a, "InputOutput", 0xfff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthLan'], [u'fabricEthLanPcEp', u'fabricEthMonSrcEp', u'fabricSubGroup', u'fabricVlanEp', u'faultInst'], ["Get"])
+    mo_meta = MoMeta("FabricEthLanPc", "fabricEthLanPc", "pc-[port_id]", VersionMeta.Version111a, "InputOutput", 0xfff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthLan'], [u'fabricEthLanPcEp', u'fabricEthMonSrcEp', u'fabricNetGroupEp', u'fabricSubGroup', u'fabricVlanEp', u'faultInst'], ["Get"])
 
     prop_meta = {
         "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["10gbps", "1gbps", "20gbps", "40gbps", "indeterminate"], []), 

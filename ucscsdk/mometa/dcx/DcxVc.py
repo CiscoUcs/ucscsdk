@@ -82,7 +82,7 @@ class DcxVc(ManagedObject):
     consts = DcxVcConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("DcxVc", "dcxVc", "vc-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["read-only"], [], [], ["Get"])
+    mo_meta = MoMeta("DcxVc", "dcxVc", "vc-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["read-only"], [], [u'fabricNetGroupRef', u'fabricSanGroupRef'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 

@@ -134,6 +134,7 @@ class EquipmentFanModule(ManagedObject):
     mo_meta = MoMeta("EquipmentFanModule", "equipmentFanModule", "fan-module-[tray]-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["read-only"], [u'computeRackUnit', u'equipmentChassis', u'networkElement'], [u'equipmentBeaconLed', u'equipmentFan', u'equipmentFanModuleStats', u'equipmentHealthLed', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'faultInst'], ["Get"])
 
     prop_meta = {
+        "asset_tag": MoPropertyMeta("asset_tag", "assetTag", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "flt_aggr": MoPropertyMeta("flt_aggr", "fltAggr", "ulong", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
@@ -159,6 +160,7 @@ class EquipmentFanModule(ManagedObject):
     }
 
     prop_map = {
+        "assetTag": "asset_tag", 
         "childAction": "child_action", 
         "dn": "dn", 
         "fltAggr": "flt_aggr", 
@@ -187,6 +189,7 @@ class EquipmentFanModule(ManagedObject):
         self._dirty_mask = 0
         self.tray = tray
         self.id = id
+        self.asset_tag = None
         self.child_action = None
         self.flt_aggr = None
         self.mfg_time = None

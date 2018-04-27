@@ -9,6 +9,7 @@ class FabricDceSwSrvEpOperationConsts():
     ADMIN_STATE_DISABLED = "disabled"
     ADMIN_STATE_ENABLED = "enabled"
     ADMIN_STATE_REMOTE_TRIGGER = "remoteTrigger"
+    ADMIN_STATE_REMOVE = "remove"
     TRIGGER_STATUS_TRIGGER_ACKED = "trigger-acked"
     TRIGGER_STATUS_TRIGGER_FAILED = "trigger-failed"
     TRIGGER_STATUS_TRIGGERED = "triggered"
@@ -24,7 +25,7 @@ class FabricDceSwSrvEpOperation(ManagedObject):
     mo_meta = MoMeta("FabricDceSwSrvEpOperation", "fabricDceSwSrvEpOperation", "remoper-slot-[slot_id]-port-[port_id]", VersionMeta.Version121a, "InputOutput", 0x1ff, [], ["admin", "ls-network", "ls-network-policy"], [u'fabricDceSwSrv', u'fabricSubGroup'], [u'faultInst'], ["Get", "Set"])
 
     prop_meta = {
-        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version121a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remoteTrigger"], []), 
+        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version121a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remoteTrigger", "remove"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version121a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "ep_dn": MoPropertyMeta("ep_dn", "epDn", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

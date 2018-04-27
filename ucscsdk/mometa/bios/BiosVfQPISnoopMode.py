@@ -8,8 +8,10 @@ from ...ucscmeta import VersionMeta
 class BiosVfQPISnoopModeConsts():
     SUPPORTED_BY_DEFAULT_NO = "no"
     SUPPORTED_BY_DEFAULT_YES = "yes"
+    VP_QPISNOOP_MODE_AUTO = "auto"
     VP_QPISNOOP_MODE_CLUSTER_ON_DIE = "cluster-on-die"
     VP_QPISNOOP_MODE_EARLY_SNOOP = "early-snoop"
+    VP_QPISNOOP_MODE_HOME_DIRECTORY_SNOOP_WITH_OSB = "home-directory-snoop-with-osb"
     VP_QPISNOOP_MODE_HOME_SNOOP = "home-snoop"
     VP_QPISNOOP_MODE_PLATFORM_DEFAULT = "platform-default"
     VP_QPISNOOP_MODE_PLATFORM_RECOMMENDED = "platform-recommended"
@@ -29,7 +31,7 @@ class BiosVfQPISnoopMode(ManagedObject):
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "supported_by_default": MoPropertyMeta("supported_by_default", "supportedByDefault", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["no", "yes"], []), 
-        "vp_qpi_snoop_mode": MoPropertyMeta("vp_qpi_snoop_mode", "vpQPISnoopMode", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["cluster-on-die", "early-snoop", "home-snoop", "platform-default", "platform-recommended"], []), 
+        "vp_qpi_snoop_mode": MoPropertyMeta("vp_qpi_snoop_mode", "vpQPISnoopMode", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["auto", "cluster-on-die", "early-snoop", "home-directory-snoop-with-osb", "home-snoop", "platform-default", "platform-recommended"], []), 
     }
 
     prop_map = {

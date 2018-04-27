@@ -17,6 +17,7 @@ class FirmwareTypeConsts():
     EP_DEBUG_PLUG_IN = "debug-plug-in"
     EP_DIAG = "diag"
     EP_FEX = "fex"
+    EP_FI_SERVICE_PACK = "fi-service-pack"
     EP_FLEXFLASH_CONTROLLER = "flexflash-controller"
     EP_GRAPHICS_CARD = "graphics-card"
     EP_HOST_HBA = "host-hba"
@@ -27,6 +28,7 @@ class FirmwareTypeConsts():
     EP_IOCARD = "iocard"
     EP_LOCAL_DISK = "local-disk"
     EP_MGMT_EXT = "mgmt-ext"
+    EP_MGMT_SERVICE_PACK = "mgmt-service-pack"
     EP_OPERATION_MGR = "operation-mgr"
     EP_POLICY_MGR = "policy-mgr"
     EP_PROVIDER = "provider"
@@ -59,7 +61,7 @@ class FirmwareType(ManagedObject):
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "ep": MoPropertyMeta("ep", "ep", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "catalog", "chassis-board-controller", "cmc", "core", "debug-plug-in", "diag", "fex", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "identifier-mgr", "iocard", "local-disk", "mgmt-ext", "operation-mgr", "policy-mgr", "provider", "psu", "resource-aggr", "sas-exp-reg-fw", "sas-expander", "service-reg", "stats-mgr", "storage-broker", "storage-controller", "storage-controller-onboard-device", "storage-controller-onboard-device-cpld", "storage-dev-bridge", "switch", "switch-kernel", "switch-software", "system", "unspecified"], []), 
+        "ep": MoPropertyMeta("ep", "ep", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "catalog", "chassis-board-controller", "cmc", "core", "debug-plug-in", "diag", "fex", "fi-service-pack", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "identifier-mgr", "iocard", "local-disk", "mgmt-ext", "mgmt-service-pack", "operation-mgr", "policy-mgr", "provider", "psu", "resource-aggr", "sas-exp-reg-fw", "sas-expander", "service-reg", "stats-mgr", "storage-broker", "storage-controller", "storage-controller-onboard-device", "storage-controller-onboard-device-cpld", "storage-dev-bridge", "switch", "switch-kernel", "switch-software", "system", "unspecified"], []), 
         "inv_tag": MoPropertyMeta("inv_tag", "invTag", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x8, 1, 510, None, [], []), 
         "max_ver": MoPropertyMeta("max_ver", "maxVer", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "min_ver": MoPropertyMeta("min_ver", "minVer", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

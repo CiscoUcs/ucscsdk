@@ -10,11 +10,13 @@ class FabricFcoeEstcEpOperationFsmStageConsts():
     NAME_FIPORT_BEGIN = "FIPortBegin"
     NAME_FIPORT_CLEAN_UP = "FIPortCleanUp"
     NAME_FIPORT_FAIL = "FIPortFail"
+    NAME_FIPORT_PUSH_POLICIES = "FIPortPushPolicies"
     NAME_FIPORT_PUSH_VXAN = "FIPortPushVxan"
     NAME_FIPORT_ROLE_CONFIG = "FIPortRoleConfig"
     NAME_FIPORT_SUCCESS = "FIPortSuccess"
     NAME_FIPORT_VXAN_CONFIG = "FIPortVxanConfig"
     NAME_FIPORT_WAIT = "FIPortWait"
+    NAME_FIPORT_WAIT_FOR_POLICIES = "FIPortWaitForPolicies"
     NAME_NOP = "nop"
     STAGE_STATUS_FAIL = "fail"
     STAGE_STATUS_IN_PROGRESS = "inProgress"
@@ -38,7 +40,7 @@ class FabricFcoeEstcEpOperationFsmStage(ManagedObject):
         "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "last_update_time": MoPropertyMeta("last_update_time", "lastUpdateTime", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [""], []), 
-        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version141a, MoPropertyMeta.NAMING, None, None, None, None, ["FIPortBegin", "FIPortCleanUp", "FIPortFail", "FIPortPushVxan", "FIPortRoleConfig", "FIPortSuccess", "FIPortVxanConfig", "FIPortWait", "nop"], []), 
+        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version141a, MoPropertyMeta.NAMING, None, None, None, None, ["FIPortBegin", "FIPortCleanUp", "FIPortFail", "FIPortPushPolicies", "FIPortPushVxan", "FIPortRoleConfig", "FIPortSuccess", "FIPortVxanConfig", "FIPortWait", "FIPortWaitForPolicies", "nop"], []), 
         "order": MoPropertyMeta("order", "order", "ushort", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "retry": MoPropertyMeta("retry", "retry", "byte", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
