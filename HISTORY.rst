@@ -6,7 +6,7 @@ History
 0.9.0.1 (2018-04-26)
 ---------------------
 
-* Support UCS Central release
+* Support UCS Central release 2.0(1d)
 * Adding test infra with parameters from config file to be used for sanity
 * Fix for the issue where None values are compared for validation of property
 
