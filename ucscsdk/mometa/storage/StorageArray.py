@@ -13,6 +13,7 @@ class StorageArrayConsts():
     ADMIN_STATE_OFFLINE = "offline"
     ADMIN_STATE_ONLINE = "online"
     ADMIN_STATE_RESTORE = "restore"
+    ADMIN_STATE_SECURE_DRIVE_GROUP = "secure-drive-group"
     ADMIN_STATE_TRANSPORT_READY = "transport-ready"
     ADMIN_STATE_UNDEFINED = "undefined"
     ADMIN_STATE_UNHIDE = "unhide"
@@ -48,7 +49,7 @@ class StorageArray(ManagedObject):
     mo_meta = MoMeta("StorageArray", "storageArray", "array-[name]", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin"], [u'storageCloud'], [u'storageDiskGroup', u'storagePartition', u'storageProcessor'], ["Get"])
 
     prop_meta = {
-        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["clear-transport-ready", "degraded", "delete", "hide", "offline", "online", "restore", "transport-ready", "undefined", "unhide"], []), 
+        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["clear-transport-ready", "degraded", "delete", "hide", "offline", "online", "restore", "secure-drive-group", "transport-ready", "undefined", "unhide"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "config_qualifier_reason": MoPropertyMeta("config_qualifier_reason", "configQualifierReason", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["N/A", "applied", "apply-failed", "applying", "not-applied", "not-in-use", "orphaned", "unknown"], []), 

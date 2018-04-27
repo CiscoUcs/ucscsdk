@@ -13,6 +13,7 @@ class FirmwareUpdatableConsts():
     DEPLOYMENT_BOOT_LOADER = "boot-loader"
     DEPLOYMENT_KERNEL = "kernel"
     DEPLOYMENT_PROVIDER = "provider"
+    DEPLOYMENT_SERVICE_PACK = "service-pack"
     DEPLOYMENT_SYSTEM = "system"
     DEPLOYMENT_UNSPECIFIED = "unspecified"
     OPER_STATE_ACTIVATING = "activating"
@@ -41,12 +42,12 @@ class FirmwareUpdatable(ManagedObject):
     consts = FirmwareUpdatableConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FirmwareUpdatable", "firmwareUpdatable", "", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], [u'equipmentPsu', u'storageOnboardDevice'], [], ["Get", "Set"])
+    mo_meta = MoMeta("FirmwareUpdatable", "firmwareUpdatable", "fw-updatable", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], [u'equipmentPsu', u'storageOnboardDevice'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["force-trigger", "trigger", "triggered"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "deployment": MoPropertyMeta("deployment", "deployment", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["backup", "boot-loader", "kernel", "provider", "system", "unspecified"], []), 
+        "deployment": MoPropertyMeta("deployment", "deployment", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["backup", "boot-loader", "kernel", "provider", "service-pack", "system", "unspecified"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["activating", "bad-image", "failed", "pending-next-boot", "ready", "rebooting", "scheduled", "set-startup", "throttled", "updating", "upgrading"], []), 
         "oper_state_qual": MoPropertyMeta("oper_state_qual", "operStateQual", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["boot-conf-missing", "checksum-failure", "crc-failure", "filesystem-error", "mgmt-connect-error", "none", "unknown-error"], []), 

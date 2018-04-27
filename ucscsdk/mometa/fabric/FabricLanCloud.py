@@ -20,7 +20,7 @@ class FabricLanCloud(ManagedObject):
     consts = FabricLanCloudConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FabricLanCloud", "fabricLanCloud", "lan", VersionMeta.Version111a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEp'], [u'extvmmNetworkSets', u'extvmmVMNetworkSets', u'fabricEthLan', u'fabricEthLinkProfile', u'fabricLanPinGroup', u'fabricLanPinGroupOperation', u'fabricUdldLinkPolicy', u'fabricVlan', u'flowctrlDefinition', u'mgmtInbandProfile', u'qosclassDefinition', u'statsThresholdPolicy', u'vnicProfileSet'], ["Get", "Set"])
+    mo_meta = MoMeta("FabricLanCloud", "fabricLanCloud", "lan", VersionMeta.Version111a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEp'], [u'extvmmNetworkSets', u'extvmmVMNetworkSets', u'fabricEthLan', u'fabricEthLinkProfile', u'fabricLanPinGroup', u'fabricLanPinGroupOperation', u'fabricNetGroup', u'fabricUdldLinkPolicy', u'fabricVlan', u'firmwareAck', u'flowctrlDefinition', u'mgmtInbandProfile', u'qosclassDefinition', u'statsThresholdPolicy', u'vnicNetGroup', u'vnicProfileSet'], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

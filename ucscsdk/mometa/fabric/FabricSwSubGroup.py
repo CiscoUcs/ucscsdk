@@ -26,7 +26,7 @@ class FabricSwSubGroup(ManagedObject):
     consts = FabricSwSubGroupConsts()
     naming_props = set([u'switchId', u'slotId', u'aggrPortId'])
 
-    mo_meta = MoMeta("FabricSwSubGroup", "fabricSwSubGroup", "sw-[switch_id]-slot-[slot_id]-aggr-port-[aggr_port_id]", VersionMeta.Version141a, "InputOutput", 0xff, [], ["admin", "ls-network", "ls-network-policy"], [u'fabricVlan', u'fabricVsan'], [u'fabricEthVlanPortEp', u'fabricFcoeVsanPortEp'], ["Get"])
+    mo_meta = MoMeta("FabricSwSubGroup", "fabricSwSubGroup", "sw-[switch_id]-slot-[slot_id]-aggr-port-[aggr_port_id]", VersionMeta.Version141a, "InputOutput", 0xff, [], ["admin", "ls-network", "ls-network-policy"], [u'fabricNetGroup', u'fabricVlan', u'fabricVsan'], [u'fabricEthVlanPortEp', u'fabricFcoeVsanPortEp'], ["Get"])
 
     prop_meta = {
         "aggr_port_id": MoPropertyMeta("aggr_port_id", "aggrPortId", "uint", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x2, None, None, None, [], ["1-48"]), 

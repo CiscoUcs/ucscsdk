@@ -34,6 +34,7 @@ class LsServerConsts():
     FSM_PREV_CONFIGURE_FAIL = "ConfigureFail"
     FSM_PREV_CONFIGURE_PROCESS_ID_CONSUMER_MAP = "ConfigureProcessIdConsumerMap"
     FSM_PREV_CONFIGURE_REPLACE_ID_ACQUIRER = "ConfigureReplaceIdAcquirer"
+    FSM_PREV_CONFIGURE_RESOLVE_DOMAIN_GROUP_POLICIES = "ConfigureResolveDomainGroupPolicies"
     FSM_PREV_CONFIGURE_RESOLVE_IDENTIFIERS = "ConfigureResolveIdentifiers"
     FSM_PREV_CONFIGURE_RESOLVE_NETWORK_TEMPLATES = "ConfigureResolveNetworkTemplates"
     FSM_PREV_CONFIGURE_RESOLVE_POLICIES = "ConfigureResolvePolicies"
@@ -42,7 +43,11 @@ class LsServerConsts():
     FSM_PREV_CONFIGURE_THROTTLE_WAIT = "ConfigureThrottleWait"
     FSM_PREV_CONFIGURE_WAIT_FOR_ASSOC_COMPLETION = "ConfigureWaitForAssocCompletion"
     FSM_PREV_CONFIGURE_WAIT_FOR_CONSUMER_RECEIVING_VXAN = "ConfigureWaitForConsumerReceivingVxan"
+    FSM_PREV_CONFIGURE_WAIT_FOR_DOMAIN_GROUP_POLICIES = "ConfigureWaitForDomainGroupPolicies"
     FSM_PREV_NOP = "nop"
+    FSM_RMT_INV_ERR_CODE_ERR_DIAG_CANCELLED = "ERR-DIAG-cancelled"
+    FSM_RMT_INV_ERR_CODE_ERR_DIAG_FSM_RESTARTED = "ERR-DIAG-fsm-restarted"
+    FSM_RMT_INV_ERR_CODE_ERR_DIAG_TEST_FAILED = "ERR-DIAG-test-failed"
     FSM_RMT_INV_ERR_CODE_ERR_DNLD_AUTHENTICATION_FAILURE = "ERR-DNLD-authentication-failure"
     FSM_RMT_INV_ERR_CODE_ERR_DNLD_ERROR = "ERR-DNLD-error"
     FSM_RMT_INV_ERR_CODE_ERR_DNLD_HOSTKEY_MISMATCH = "ERR-DNLD-hostkey-mismatch"
@@ -149,6 +154,7 @@ class LsServerConsts():
     FSM_STATUS_CONFIGURE_FAIL = "ConfigureFail"
     FSM_STATUS_CONFIGURE_PROCESS_ID_CONSUMER_MAP = "ConfigureProcessIdConsumerMap"
     FSM_STATUS_CONFIGURE_REPLACE_ID_ACQUIRER = "ConfigureReplaceIdAcquirer"
+    FSM_STATUS_CONFIGURE_RESOLVE_DOMAIN_GROUP_POLICIES = "ConfigureResolveDomainGroupPolicies"
     FSM_STATUS_CONFIGURE_RESOLVE_IDENTIFIERS = "ConfigureResolveIdentifiers"
     FSM_STATUS_CONFIGURE_RESOLVE_NETWORK_TEMPLATES = "ConfigureResolveNetworkTemplates"
     FSM_STATUS_CONFIGURE_RESOLVE_POLICIES = "ConfigureResolvePolicies"
@@ -157,6 +163,7 @@ class LsServerConsts():
     FSM_STATUS_CONFIGURE_THROTTLE_WAIT = "ConfigureThrottleWait"
     FSM_STATUS_CONFIGURE_WAIT_FOR_ASSOC_COMPLETION = "ConfigureWaitForAssocCompletion"
     FSM_STATUS_CONFIGURE_WAIT_FOR_CONSUMER_RECEIVING_VXAN = "ConfigureWaitForConsumerReceivingVxan"
+    FSM_STATUS_CONFIGURE_WAIT_FOR_DOMAIN_GROUP_POLICIES = "ConfigureWaitForDomainGroupPolicies"
     FSM_STATUS_NOP = "nop"
     INT_ID_NONE = "none"
     OPER_STATE_BIOS_RESTORE = "bios-restore"
@@ -213,7 +220,7 @@ class LsServer(ManagedObject):
     consts = LsServerConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("LsServer", "lsServer", "ls-[name]", VersionMeta.Version101a, "InputOutput", 0xfffffff, [], ["admin", "ls-compute", "ls-config", "ls-server"], [u'computeTemplate', u'orgOrg'], [u'cimcvmediaMountConfigDef', u'computeEnvFeatMask', u'computeNetworkFeatMask', u'computeServerFeatMask', u'computeStorageFeatMask', u'eventInst', u'fabricVCon', u'faultInst', u'identRequestEp', u'lsBinding', u'lsFcLocale', u'lsIdentityInfo', u'lsIssues', u'lsPower', u'lsRequirement', u'lsSPMeta', u'lsServerAssocCtx', u'lsServerExtension', u'lsServerFsm', u'lsServerFsmTask', u'lsServerOperation', u'lsVConAssign', u'lsbootDef', u'lsmaintAck', u'lstorageProfileBinding', u'lstorageProfileDef', u'mgmtInterface', u'storageIniGroup', u'storageIpV4PooledAddr', u'storageIpV4StaticAddr', u'storageLocalDiskConfigDef', u'storageScsiLunInstRef', u'storageVirtualDriveRef', u'vnicConnDef', u'vnicDefBeh', u'vnicDynamicCon', u'vnicEther', u'vnicFc', u'vnicFcNode', u'vnicIScsi', u'vnicIScsiBootParams', u'vnicIScsiLCP', u'vnicIScsiNode', u'vnicIniGrpFc', u'vnicIpV4MgmtPooledAddr', u'vnicIpV4PooledAddr', u'vnicIpV4StaticAddr', u'vnicLstorageIScsi', u'vnicMgmt', u'vnicMonSesFc'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LsServer", "lsServer", "ls-[name]", VersionMeta.Version101a, "InputOutput", 0x3fffffff, [], ["admin", "ls-compute", "ls-config", "ls-server"], [u'computeTemplate', u'orgOrg'], [u'cimcvmediaMountConfigDef', u'computeEnvFeatMask', u'computeNetworkFeatMask', u'computePowerSyncDef', u'computeServerFeatMask', u'computeStorageFeatMask', u'eventInst', u'fabricVCon', u'faultInst', u'identRequestEp', u'lsBinding', u'lsFcLocale', u'lsIdentityInfo', u'lsIssues', u'lsPower', u'lsRequirement', u'lsSPMeta', u'lsServerAssocCtx', u'lsServerExtension', u'lsServerFsm', u'lsServerFsmTask', u'lsServerOperation', u'lsVConAssign', u'lsbootDef', u'lsmaintAck', u'lstorageProfileBinding', u'lstorageProfileDef', u'mgmtInterface', u'storageIniGroup', u'storageIpV4PooledAddr', u'storageIpV4StaticAddr', u'storageLocalDiskConfigDef', u'storageScsiLunInstRef', u'storageVirtualDriveRef', u'vnicConnDef', u'vnicDefBeh', u'vnicDynamicCon', u'vnicEther', u'vnicFc', u'vnicFcNode', u'vnicIScsi', u'vnicIScsiBootParams', u'vnicIScsiLCP', u'vnicIScsiNode', u'vnicIniGrpFc', u'vnicIniGrpFcB', u'vnicIpV4MgmtPooledAddr', u'vnicIpV4PooledAddr', u'vnicIpV4StaticAddr', u'vnicLstorageIScsi', u'vnicMgmt', u'vnicMonSesFc'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "agent_policy_name": MoPropertyMeta("agent_policy_name", "agentPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
@@ -236,35 +243,40 @@ class LsServer(ManagedObject):
         "flt_aggr": MoPropertyMeta("flt_aggr", "fltAggr", "ulong", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "fsm_descr": MoPropertyMeta("fsm_descr", "fsmDescr", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "fsm_flags": MoPropertyMeta("fsm_flags", "fsmFlags", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], ["0-4294967295"]), 
-        "fsm_prev": MoPropertyMeta("fsm_prev", "fsmPrev", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ConfigureAnalyzeImpact", "ConfigureApplyConfig", "ConfigureApplyRename", "ConfigureApplyTemplate", "ConfigureApplyThrottle", "ConfigureBegin", "ConfigureConsumerVxanDeployment", "ConfigureDeleteIdConsumerMap", "ConfigureEvaluateAssociation", "ConfigureEvaluateServerAssign", "ConfigureFail", "ConfigureProcessIdConsumerMap", "ConfigureReplaceIdAcquirer", "ConfigureResolveIdentifiers", "ConfigureResolveNetworkTemplates", "ConfigureResolvePolicies", "ConfigureResolveStaticIdentifiers", "ConfigureSuccess", "ConfigureThrottleWait", "ConfigureWaitForAssocCompletion", "ConfigureWaitForConsumerReceivingVxan", "nop"], []), 
+        "fsm_prev": MoPropertyMeta("fsm_prev", "fsmPrev", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ConfigureAnalyzeImpact", "ConfigureApplyConfig", "ConfigureApplyRename", "ConfigureApplyTemplate", "ConfigureApplyThrottle", "ConfigureBegin", "ConfigureConsumerVxanDeployment", "ConfigureDeleteIdConsumerMap", "ConfigureEvaluateAssociation", "ConfigureEvaluateServerAssign", "ConfigureFail", "ConfigureProcessIdConsumerMap", "ConfigureReplaceIdAcquirer", "ConfigureResolveDomainGroupPolicies", "ConfigureResolveIdentifiers", "ConfigureResolveNetworkTemplates", "ConfigureResolvePolicies", "ConfigureResolveStaticIdentifiers", "ConfigureSuccess", "ConfigureThrottleWait", "ConfigureWaitForAssocCompletion", "ConfigureWaitForConsumerReceivingVxan", "ConfigureWaitForDomainGroupPolicies", "nop"], []), 
         "fsm_progr": MoPropertyMeta("fsm_progr", "fsmProgr", "byte", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], ["0-100"]), 
-        "fsm_rmt_inv_err_code": MoPropertyMeta("fsm_rmt_inv_err_code", "fsmRmtInvErrCode", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ERR-DNLD-authentication-failure", "ERR-DNLD-error", "ERR-DNLD-hostkey-mismatch", "ERR-DNLD-invalid-image", "ERR-DNLD-no-file", "ERR-DNLD-no-space", "ERR-DNS-delete-error", "ERR-DNS-get-error", "ERR-DNS-set-error", "ERR-Digest-Validation-error", "ERR-Exec-Gen-Cert-error", "ERR-Exec-Get-CA-Cert-error", "ERR-FILTER-illegal-format", "ERR-FSM-no-such-state", "ERR-Get-CA-Cert-error", "ERR-Get-Cert-error", "ERR-Get-Out-Diget-Message-error", "ERR-HTTP-Request-error", "ERR-HTTP-set-error", "ERR-HTTPS-set-error", "ERR-Ipv6-addr-configured", "ERR-MO-CONFIG-child-object-cant-be-configured", "ERR-MO-META-no-such-object-class", "ERR-MO-PROPERTY-no-such-property", "ERR-MO-PROPERTY-value-out-of-range", "ERR-MO-access-denied", "ERR-MO-deletion-rule-violation", "ERR-MO-duplicate-object", "ERR-MO-illegal-containment", "ERR-MO-illegal-creation", "ERR-MO-illegal-iterator-state", "ERR-MO-illegal-object-lifecycle-transition", "ERR-MO-naming-rule-violation", "ERR-MO-object-not-found", "ERR-MO-resource-allocation", "ERR-NTP-delete-error", "ERR-NTP-get-error", "ERR-NTP-set-error", "ERR-Policy-resolution-in-progress", "ERR-TOKEN-request-denied", "ERR-Update-VM-IP-Mask-Gateway-error", "ERR-aaa-config-modify-error", "ERR-acct-realm-set-error", "ERR-admin-passwd-set", "ERR-auth-realm-set-error", "ERR-authentication", "ERR-authorization-required", "ERR-create-chassispack-under-dg", "ERR-create-hfp-under-dg", "ERR-create-keyring", "ERR-create-locale", "ERR-create-role", "ERR-create-user", "ERR-delete-locale", "ERR-delete-role", "ERR-delete-session", "ERR-delete-user", "ERR-estimate-impact-on-reconnect", "ERR-get-max-http-user-sessions", "ERR-http-initializing", "ERR-internal-error", "ERR-ldap-delete-error", "ERR-ldap-get-error", "ERR-ldap-group-modify-error", "ERR-ldap-group-set-error", "ERR-ldap-set-error", "ERR-locale-set-error", "ERR-max-userid-sessions-reached", "ERR-modify-locale", "ERR-modify-role", "ERR-modify-user", "ERR-modify-user-locale", "ERR-modify-user-role", "ERR-nfs-down", "ERR-provider-group-modify-error", "ERR-provider-group-set-error", "ERR-radius-global-set-error", "ERR-radius-group-set-error", "ERR-radius-set-error", "ERR-role-set-error", "ERR-service-not-ready", "ERR-session-cache-full", "ERR-session-not-found", "ERR-set-password-strength-check", "ERR-tacacs-enable-error", "ERR-tacacs-global-set-error", "ERR-tacacs-group-set-error", "ERR-tacacs-set-error", "ERR-timezone-set-error", "ERR-user-account-expired", "ERR-user-set-error", "none"], ["0-4294967295"]), 
+        "fsm_rmt_inv_err_code": MoPropertyMeta("fsm_rmt_inv_err_code", "fsmRmtInvErrCode", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ERR-DIAG-cancelled", "ERR-DIAG-fsm-restarted", "ERR-DIAG-test-failed", "ERR-DNLD-authentication-failure", "ERR-DNLD-error", "ERR-DNLD-hostkey-mismatch", "ERR-DNLD-invalid-image", "ERR-DNLD-no-file", "ERR-DNLD-no-space", "ERR-DNS-delete-error", "ERR-DNS-get-error", "ERR-DNS-set-error", "ERR-Digest-Validation-error", "ERR-Exec-Gen-Cert-error", "ERR-Exec-Get-CA-Cert-error", "ERR-FILTER-illegal-format", "ERR-FSM-no-such-state", "ERR-Get-CA-Cert-error", "ERR-Get-Cert-error", "ERR-Get-Out-Diget-Message-error", "ERR-HTTP-Request-error", "ERR-HTTP-set-error", "ERR-HTTPS-set-error", "ERR-Ipv6-addr-configured", "ERR-MO-CONFIG-child-object-cant-be-configured", "ERR-MO-META-no-such-object-class", "ERR-MO-PROPERTY-no-such-property", "ERR-MO-PROPERTY-value-out-of-range", "ERR-MO-access-denied", "ERR-MO-deletion-rule-violation", "ERR-MO-duplicate-object", "ERR-MO-illegal-containment", "ERR-MO-illegal-creation", "ERR-MO-illegal-iterator-state", "ERR-MO-illegal-object-lifecycle-transition", "ERR-MO-naming-rule-violation", "ERR-MO-object-not-found", "ERR-MO-resource-allocation", "ERR-NTP-delete-error", "ERR-NTP-get-error", "ERR-NTP-set-error", "ERR-Policy-resolution-in-progress", "ERR-TOKEN-request-denied", "ERR-Update-VM-IP-Mask-Gateway-error", "ERR-aaa-config-modify-error", "ERR-acct-realm-set-error", "ERR-admin-passwd-set", "ERR-auth-realm-set-error", "ERR-authentication", "ERR-authorization-required", "ERR-create-chassispack-under-dg", "ERR-create-hfp-under-dg", "ERR-create-keyring", "ERR-create-locale", "ERR-create-role", "ERR-create-user", "ERR-delete-locale", "ERR-delete-role", "ERR-delete-session", "ERR-delete-user", "ERR-estimate-impact-on-reconnect", "ERR-get-max-http-user-sessions", "ERR-http-initializing", "ERR-internal-error", "ERR-ldap-delete-error", "ERR-ldap-get-error", "ERR-ldap-group-modify-error", "ERR-ldap-group-set-error", "ERR-ldap-set-error", "ERR-locale-set-error", "ERR-max-userid-sessions-reached", "ERR-modify-locale", "ERR-modify-role", "ERR-modify-user", "ERR-modify-user-locale", "ERR-modify-user-role", "ERR-nfs-down", "ERR-provider-group-modify-error", "ERR-provider-group-set-error", "ERR-radius-global-set-error", "ERR-radius-group-set-error", "ERR-radius-set-error", "ERR-role-set-error", "ERR-service-not-ready", "ERR-session-cache-full", "ERR-session-not-found", "ERR-set-password-strength-check", "ERR-tacacs-enable-error", "ERR-tacacs-global-set-error", "ERR-tacacs-group-set-error", "ERR-tacacs-set-error", "ERR-timezone-set-error", "ERR-user-account-expired", "ERR-user-set-error", "none"], ["0-4294967295"]), 
         "fsm_rmt_inv_err_descr": MoPropertyMeta("fsm_rmt_inv_err_descr", "fsmRmtInvErrDescr", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, 0, 510, None, [], []), 
         "fsm_rmt_inv_rslt": MoPropertyMeta("fsm_rmt_inv_rslt", "fsmRmtInvRslt", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((defaultValue|not-applicable|resource-unavailable|service-unavailable|intermittent-error|sw-defect|service-not-implemented-ignore|extend-timeout|capability-not-implemented-failure|illegal-fru|end-point-unavailable|failure|resource-capacity-exceeded|service-protocol-error|fw-defect|service-not-implemented-fail|task-reset|unidentified-fail|capability-not-supported|end-point-failed|fru-state-indeterminate|resource-dependency|fru-identity-indeterminate|internal-error|hw-defect|service-not-supported|fru-not-supported|end-point-protocol-error|capability-unavailable|fru-not-ready|capability-not-implemented-ignore|fru-info-malformed|timeout),){0,32}(defaultValue|not-applicable|resource-unavailable|service-unavailable|intermittent-error|sw-defect|service-not-implemented-ignore|extend-timeout|capability-not-implemented-failure|illegal-fru|end-point-unavailable|failure|resource-capacity-exceeded|service-protocol-error|fw-defect|service-not-implemented-fail|task-reset|unidentified-fail|capability-not-supported|end-point-failed|fru-state-indeterminate|resource-dependency|fru-identity-indeterminate|internal-error|hw-defect|service-not-supported|fru-not-supported|end-point-protocol-error|capability-unavailable|fru-not-ready|capability-not-implemented-ignore|fru-info-malformed|timeout){0,1}""", [], []), 
         "fsm_stage_descr": MoPropertyMeta("fsm_stage_descr", "fsmStageDescr", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "fsm_stamp": MoPropertyMeta("fsm_stamp", "fsmStamp", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", ["never"], []), 
-        "fsm_status": MoPropertyMeta("fsm_status", "fsmStatus", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ConfigureAnalyzeImpact", "ConfigureApplyConfig", "ConfigureApplyRename", "ConfigureApplyTemplate", "ConfigureApplyThrottle", "ConfigureBegin", "ConfigureConsumerVxanDeployment", "ConfigureDeleteIdConsumerMap", "ConfigureEvaluateAssociation", "ConfigureEvaluateServerAssign", "ConfigureFail", "ConfigureProcessIdConsumerMap", "ConfigureReplaceIdAcquirer", "ConfigureResolveIdentifiers", "ConfigureResolveNetworkTemplates", "ConfigureResolvePolicies", "ConfigureResolveStaticIdentifiers", "ConfigureSuccess", "ConfigureThrottleWait", "ConfigureWaitForAssocCompletion", "ConfigureWaitForConsumerReceivingVxan", "nop"], []), 
+        "fsm_status": MoPropertyMeta("fsm_status", "fsmStatus", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ConfigureAnalyzeImpact", "ConfigureApplyConfig", "ConfigureApplyRename", "ConfigureApplyTemplate", "ConfigureApplyThrottle", "ConfigureBegin", "ConfigureConsumerVxanDeployment", "ConfigureDeleteIdConsumerMap", "ConfigureEvaluateAssociation", "ConfigureEvaluateServerAssign", "ConfigureFail", "ConfigureProcessIdConsumerMap", "ConfigureReplaceIdAcquirer", "ConfigureResolveDomainGroupPolicies", "ConfigureResolveIdentifiers", "ConfigureResolveNetworkTemplates", "ConfigureResolvePolicies", "ConfigureResolveStaticIdentifiers", "ConfigureSuccess", "ConfigureThrottleWait", "ConfigureWaitForAssocCompletion", "ConfigureWaitForConsumerReceivingVxan", "ConfigureWaitForDomainGroupPolicies", "nop"], []), 
         "fsm_try": MoPropertyMeta("fsm_try", "fsmTry", "byte", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
-        "host_fw_policy_name": MoPropertyMeta("host_fw_policy_name", "hostFwPolicyName", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x200, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "ident_pool_name": MoPropertyMeta("ident_pool_name", "identPoolName", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x400, None, None, None, [], []), 
+        "graphics_card_policy_name": MoPropertyMeta("graphics_card_policy_name", "graphicsCardPolicyName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x200, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "host_fw_policy_name": MoPropertyMeta("host_fw_policy_name", "hostFwPolicyName", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x400, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "ident_pool_name": MoPropertyMeta("ident_pool_name", "identPoolName", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x800, None, None, None, [], []), 
         "int_id": MoPropertyMeta("int_id", "intId", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, ["none"], ["0-4294967295"]), 
-        "local_disk_policy_name": MoPropertyMeta("local_disk_policy_name", "localDiskPolicyName", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x800, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "kvm_mgmt_policy_name": MoPropertyMeta("kvm_mgmt_policy_name", "kvmMgmtPolicyName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "local_disk_policy_name": MoPropertyMeta("local_disk_policy_name", "localDiskPolicyName", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x1000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "ls_dn": MoPropertyMeta("ls_dn", "lsDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "maint_policy_name": MoPropertyMeta("maint_policy_name", "maintPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x1000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "mgmt_access_policy_name": MoPropertyMeta("mgmt_access_policy_name", "mgmtAccessPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "mgmt_fw_policy_name": MoPropertyMeta("mgmt_fw_policy_name", "mgmtFwPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x4000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x8000, None, None, r"""[\-\.:_a-zA-Z0-9]{2,32}""", [], []), 
+        "maint_policy_name": MoPropertyMeta("maint_policy_name", "maintPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "mgmt_access_policy_name": MoPropertyMeta("mgmt_access_policy_name", "mgmtAccessPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x4000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "mgmt_fw_policy_name": MoPropertyMeta("mgmt_fw_policy_name", "mgmtFwPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x8000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x10000, None, None, r"""[\-\.:_a-zA-Z0-9]{2,32}""", [], []), 
         "oper_bios_profile_name": MoPropertyMeta("oper_bios_profile_name", "operBiosProfileName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_boot_policy_name": MoPropertyMeta("oper_boot_policy_name", "operBootPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_dynamic_con_policy_name": MoPropertyMeta("oper_dynamic_con_policy_name", "operDynamicConPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_ext_ip_pool_name": MoPropertyMeta("oper_ext_ip_pool_name", "operExtIPPoolName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "oper_graphics_card_policy_name": MoPropertyMeta("oper_graphics_card_policy_name", "operGraphicsCardPolicyName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_host_fw_policy_name": MoPropertyMeta("oper_host_fw_policy_name", "operHostFwPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_ident_pool_name": MoPropertyMeta("oper_ident_pool_name", "operIdentPoolName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "oper_kvm_mgmt_policy_name": MoPropertyMeta("oper_kvm_mgmt_policy_name", "operKvmMgmtPolicyName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "oper_local_disk_policy_name": MoPropertyMeta("oper_local_disk_policy_name", "operLocalDiskPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_maint_policy_name": MoPropertyMeta("oper_maint_policy_name", "operMaintPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_mgmt_access_policy_name": MoPropertyMeta("oper_mgmt_access_policy_name", "operMgmtAccessPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_mgmt_fw_policy_name": MoPropertyMeta("oper_mgmt_fw_policy_name", "operMgmtFwPolicyName", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_power_policy_name": MoPropertyMeta("oper_power_policy_name", "operPowerPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "oper_power_sync_policy_name": MoPropertyMeta("oper_power_sync_policy_name", "operPowerSyncPolicyName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_scrub_policy_name": MoPropertyMeta("oper_scrub_policy_name", "operScrubPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_sol_policy_name": MoPropertyMeta("oper_sol_policy_name", "operSolPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "oper_src_templ_name": MoPropertyMeta("oper_src_templ_name", "operSrcTemplName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
@@ -276,19 +288,20 @@ class LsServer(ManagedObject):
         "pn_dn": MoPropertyMeta("pn_dn", "pnDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
-        "power_policy_name": MoPropertyMeta("power_policy_name", "powerPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x20000, 0, 256, None, [], []), 
-        "scrub_policy_name": MoPropertyMeta("scrub_policy_name", "scrubPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x40000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "sol_policy_name": MoPropertyMeta("sol_policy_name", "solPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x80000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "src_templ_name": MoPropertyMeta("src_templ_name", "srcTemplName", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x100000, None, None, None, [], []), 
-        "stats_policy_name": MoPropertyMeta("stats_policy_name", "statsPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x200000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x400000, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.CREATE_ONLY, 0x800000, None, None, None, ["initial-template", "instance", "updating-template"], []), 
-        "usr_lbl": MoPropertyMeta("usr_lbl", "usrLbl", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x1000000, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
-        "uuid": MoPropertyMeta("uuid", "uuid", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2000000, None, None, r"""(([0-9a-fA-F]){8}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){12})|0""", ["derived"], []), 
+        "power_policy_name": MoPropertyMeta("power_policy_name", "powerPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x20000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "power_sync_policy_name": MoPropertyMeta("power_sync_policy_name", "powerSyncPolicyName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x40000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x80000, 0, 256, None, [], []), 
+        "scrub_policy_name": MoPropertyMeta("scrub_policy_name", "scrubPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x100000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "sol_policy_name": MoPropertyMeta("sol_policy_name", "solPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x200000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "src_templ_name": MoPropertyMeta("src_templ_name", "srcTemplName", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x400000, None, None, None, [], []), 
+        "stats_policy_name": MoPropertyMeta("stats_policy_name", "statsPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x800000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x1000000, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.CREATE_ONLY, 0x2000000, None, None, None, ["initial-template", "instance", "updating-template"], []), 
+        "usr_lbl": MoPropertyMeta("usr_lbl", "usrLbl", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x4000000, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
+        "uuid": MoPropertyMeta("uuid", "uuid", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x8000000, None, None, r"""(([0-9a-fA-F]){8}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){12})|0""", ["derived"], []), 
         "uuid_suffix": MoPropertyMeta("uuid_suffix", "uuidSuffix", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F]){4}\-([0-9a-fA-F]){12})|0""", [], []), 
-        "vcon_profile_name": MoPropertyMeta("vcon_profile_name", "vconProfileName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x4000000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "vmedia_policy_name": MoPropertyMeta("vmedia_policy_name", "vmediaPolicyName", "string", VersionMeta.Version121e, MoPropertyMeta.READ_WRITE, 0x8000000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "vcon_profile_name": MoPropertyMeta("vcon_profile_name", "vconProfileName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10000000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "vmedia_policy_name": MoPropertyMeta("vmedia_policy_name", "vmediaPolicyName", "string", VersionMeta.Version121e, MoPropertyMeta.READ_WRITE, 0x20000000, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
     }
 
     prop_map = {
@@ -321,9 +334,11 @@ class LsServer(ManagedObject):
         "fsmStamp": "fsm_stamp", 
         "fsmStatus": "fsm_status", 
         "fsmTry": "fsm_try", 
+        "graphicsCardPolicyName": "graphics_card_policy_name", 
         "hostFwPolicyName": "host_fw_policy_name", 
         "identPoolName": "ident_pool_name", 
         "intId": "int_id", 
+        "kvmMgmtPolicyName": "kvm_mgmt_policy_name", 
         "localDiskPolicyName": "local_disk_policy_name", 
         "lsDn": "ls_dn", 
         "maintPolicyName": "maint_policy_name", 
@@ -334,13 +349,16 @@ class LsServer(ManagedObject):
         "operBootPolicyName": "oper_boot_policy_name", 
         "operDynamicConPolicyName": "oper_dynamic_con_policy_name", 
         "operExtIPPoolName": "oper_ext_ip_pool_name", 
+        "operGraphicsCardPolicyName": "oper_graphics_card_policy_name", 
         "operHostFwPolicyName": "oper_host_fw_policy_name", 
         "operIdentPoolName": "oper_ident_pool_name", 
+        "operKvmMgmtPolicyName": "oper_kvm_mgmt_policy_name", 
         "operLocalDiskPolicyName": "oper_local_disk_policy_name", 
         "operMaintPolicyName": "oper_maint_policy_name", 
         "operMgmtAccessPolicyName": "oper_mgmt_access_policy_name", 
         "operMgmtFwPolicyName": "oper_mgmt_fw_policy_name", 
         "operPowerPolicyName": "oper_power_policy_name", 
+        "operPowerSyncPolicyName": "oper_power_sync_policy_name", 
         "operScrubPolicyName": "oper_scrub_policy_name", 
         "operSolPolicyName": "oper_sol_policy_name", 
         "operSrcTemplName": "oper_src_templ_name", 
@@ -353,6 +371,7 @@ class LsServer(ManagedObject):
         "policyLevel": "policy_level", 
         "policyOwner": "policy_owner", 
         "powerPolicyName": "power_policy_name", 
+        "powerSyncPolicyName": "power_sync_policy_name", 
         "rn": "rn", 
         "scrubPolicyName": "scrub_policy_name", 
         "solPolicyName": "sol_policy_name", 
@@ -398,9 +417,11 @@ class LsServer(ManagedObject):
         self.fsm_stamp = None
         self.fsm_status = None
         self.fsm_try = None
+        self.graphics_card_policy_name = None
         self.host_fw_policy_name = None
         self.ident_pool_name = None
         self.int_id = None
+        self.kvm_mgmt_policy_name = None
         self.local_disk_policy_name = None
         self.ls_dn = None
         self.maint_policy_name = None
@@ -410,13 +431,16 @@ class LsServer(ManagedObject):
         self.oper_boot_policy_name = None
         self.oper_dynamic_con_policy_name = None
         self.oper_ext_ip_pool_name = None
+        self.oper_graphics_card_policy_name = None
         self.oper_host_fw_policy_name = None
         self.oper_ident_pool_name = None
+        self.oper_kvm_mgmt_policy_name = None
         self.oper_local_disk_policy_name = None
         self.oper_maint_policy_name = None
         self.oper_mgmt_access_policy_name = None
         self.oper_mgmt_fw_policy_name = None
         self.oper_power_policy_name = None
+        self.oper_power_sync_policy_name = None
         self.oper_scrub_policy_name = None
         self.oper_sol_policy_name = None
         self.oper_src_templ_name = None
@@ -429,6 +453,7 @@ class LsServer(ManagedObject):
         self.policy_level = None
         self.policy_owner = None
         self.power_policy_name = None
+        self.power_sync_policy_name = None
         self.scrub_policy_name = None
         self.sol_policy_name = None
         self.src_templ_name = None

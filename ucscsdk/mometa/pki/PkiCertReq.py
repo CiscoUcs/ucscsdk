@@ -22,7 +22,7 @@ class PkiCertReq(ManagedObject):
         "country": MoPropertyMeta("country", "country", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""^([A-Z]{2})?$""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "dns": MoPropertyMeta("dns", "dns", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""[\t\n\x0b\x0c\r \(\)\+,\-\./:@\^_a-zA-Z0-9]{0,255}""", [], []), 
-        "email": MoPropertyMeta("email", "email", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""[\t\n\x0b\x0c\r \(\)\+,\-\./:@\^_a-zA-Z0-9]{0,40}""", [], []), 
+        "email": MoPropertyMeta("email", "email", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""[\t\n\x0b\x0c\r \(\)\+,\-\./:@\^_a-zA-Z0-9]{0,64}""", [], []), 
         "ip": MoPropertyMeta("ip", "ip", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x20, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 
         "ip_a": MoPropertyMeta("ip_a", "ipA", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x40, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 
         "ip_b": MoPropertyMeta("ip_b", "ipB", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x80, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 

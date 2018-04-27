@@ -125,6 +125,8 @@ class AdaptorUnitConsts():
     THERMAL_UPPER_CRITICAL = "upper-critical"
     THERMAL_UPPER_NON_CRITICAL = "upper-non-critical"
     THERMAL_UPPER_NON_RECOVERABLE = "upper-non-recoverable"
+    VISIBILITY_NOT_VISIBLE = "not-visible"
+    VISIBILITY_VISIBLE = "visible"
     VOLTAGE_LOWER_CRITICAL = "lower-critical"
     VOLTAGE_LOWER_NON_CRITICAL = "lower-non-critical"
     VOLTAGE_LOWER_NON_RECOVERABLE = "lower-non-recoverable"
@@ -142,10 +144,11 @@ class AdaptorUnit(ManagedObject):
     consts = AdaptorUnitConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("AdaptorUnit", "adaptorUnit", "adaptor-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-policy"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'adaptorExtEthIf', u'adaptorHostEthIf', u'adaptorHostFcIf', u'adaptorHostScsiIf', u'adaptorMenloDcePortStats', u'adaptorMenloEthErrorStats', u'adaptorMenloEthStats', u'adaptorMenloFcErrorStats', u'adaptorMenloFcStats', u'adaptorMenloHostPortStats', u'adaptorMenloMcpuErrorStats', u'adaptorMenloMcpuStats', u'adaptorMenloNetEgStats', u'adaptorMenloNetInStats', u'adaptorMenloQErrorStats', u'adaptorMenloQStats', u'faultInst', u'mgmtController'], ["Get"])
+    mo_meta = MoMeta("AdaptorUnit", "adaptorUnit", "adaptor-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-policy"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'adaptorExtEthIf', u'adaptorHostEthIf', u'adaptorHostFcIf', u'adaptorHostIscsiIf', u'adaptorHostScsiIf', u'adaptorMenloDcePortStats', u'adaptorMenloEthErrorStats', u'adaptorMenloEthStats', u'adaptorMenloFcErrorStats', u'adaptorMenloFcStats', u'adaptorMenloHostPortStats', u'adaptorMenloMcpuErrorStats', u'adaptorMenloMcpuStats', u'adaptorMenloNetEgStats', u'adaptorMenloNetInStats', u'adaptorMenloQErrorStats', u'adaptorMenloQStats', u'adaptorUnitExtn', u'faultInst', u'mgmtController'], ["Get"])
 
     prop_meta = {
         "admin_power_state": MoPropertyMeta("admin_power_state", "adminPowerState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["none", "reset-power"], []), 
+        "asset_tag": MoPropertyMeta("asset_tag", "assetTag", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
         "base_mac": MoPropertyMeta("base_mac", "baseMac", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F]))|0""", [], []), 
         "blade_id": MoPropertyMeta("blade_id", "bladeId", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "cartridge_id": MoPropertyMeta("cartridge_id", "cartridgeId", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
@@ -179,11 +182,13 @@ class AdaptorUnit(ManagedObject):
         "thermal": MoPropertyMeta("thermal", "thermal", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
         "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "vid": MoPropertyMeta("vid", "vid", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "visibility": MoPropertyMeta("visibility", "visibility", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-visible", "visible"], []), 
         "voltage": MoPropertyMeta("voltage", "voltage", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
     }
 
     prop_map = {
         "adminPowerState": "admin_power_state", 
+        "assetTag": "asset_tag", 
         "baseMac": "base_mac", 
         "bladeId": "blade_id", 
         "cartridgeId": "cartridge_id", 
@@ -217,6 +222,7 @@ class AdaptorUnit(ManagedObject):
         "thermal": "thermal", 
         "vendor": "vendor", 
         "vid": "vid", 
+        "visibility": "visibility", 
         "voltage": "voltage", 
     }
 
@@ -224,6 +230,7 @@ class AdaptorUnit(ManagedObject):
         self._dirty_mask = 0
         self.id = id
         self.admin_power_state = None
+        self.asset_tag = None
         self.base_mac = None
         self.blade_id = None
         self.cartridge_id = None
@@ -254,6 +261,7 @@ class AdaptorUnit(ManagedObject):
         self.thermal = None
         self.vendor = None
         self.vid = None
+        self.visibility = None
         self.voltage = None
 
         ManagedObject.__init__(self, "AdaptorUnit", parent_mo_or_dn, **kwargs)

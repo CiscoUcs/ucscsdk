@@ -29,7 +29,7 @@ class LsbootPolicy(ManagedObject):
     consts = LsbootPolicyConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("LsbootPolicy", "lsbootPolicy", "boot-policy-[name]", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["read-only"], [u'orgOrg', u'policySystemEp'], [u'lsbootBootSecurity', u'lsbootEFIShell', u'lsbootIScsi', u'lsbootLan', u'lsbootSan', u'lsbootStorage', u'lsbootUpgradeStatus', u'lsbootVirtualMedia'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LsbootPolicy", "lsbootPolicy", "boot-policy-[name]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], [u'orgOrg', u'policySystemEp'], [u'lsbootBootSecurity', u'lsbootEFIShell', u'lsbootIScsi', u'lsbootLan', u'lsbootSan', u'lsbootStorage', u'lsbootUpgradeStatus', u'lsbootVirtualMedia'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "boot_mode": MoPropertyMeta("boot_mode", "bootMode", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 
@@ -41,10 +41,10 @@ class LsbootPolicy(ManagedObject):
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x20, None, None, r"""[\-\.:_a-zA-Z0-9]{1,16}""", [], []), 
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
-        "purpose": MoPropertyMeta("purpose", "purpose", "string", VersionMeta.Version111a, MoPropertyMeta.CREATE_ONLY, 0x40, None, None, None, ["operational", "utility"], []), 
-        "reboot_on_update": MoPropertyMeta("reboot_on_update", "rebootOnUpdate", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x80, None, None, None, ["false", "no", "true", "yes"], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x100, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x200, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "purpose": MoPropertyMeta("purpose", "purpose", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["operational", "utility"], []), 
+        "reboot_on_update": MoPropertyMeta("reboot_on_update", "rebootOnUpdate", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, ["false", "no", "true", "yes"], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x80, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x100, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }
 
     prop_map = {

@@ -17,7 +17,7 @@ class ExtpolDomain(ManagedObject):
     consts = ExtpolDomainConsts()
     naming_props = set([u'guid'])
 
-    mo_meta = MoMeta("ExtpolDomain", "extpolDomain", "domain-[guid]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], [u'extpolClientCont'], [u'changeEp', u'computeEnvFeatMask', u'computeNetworkFeatMask', u'computeServerFeatMask', u'computeStorageFeatMask', u'domainEnvironmentFeature', u'domainNetworkFeature', u'domainServerFeature', u'domainStorageFeature', u'lstorageBlade'], ["Get"])
+    mo_meta = MoMeta("ExtpolDomain", "extpolDomain", "domain-[guid]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], [u'extpolClientCont'], [u'changeEp', u'computeChassisFeatMask', u'computeEnvFeatMask', u'computeNetworkFeatMask', u'computeServerFeatMask', u'computeStorageFeatMask', u'domainChassisFeature', u'domainEnvironmentFeature', u'domainNetworkFeature', u'domainServerFeature', u'domainStorageFeature', u'lstorageBlade'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

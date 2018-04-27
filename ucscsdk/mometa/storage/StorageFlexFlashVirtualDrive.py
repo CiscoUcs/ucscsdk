@@ -6,7 +6,9 @@ from ...ucscmeta import VersionMeta
 
 
 class StorageFlexFlashVirtualDriveConsts():
+    BLOCK_SIZE_512 = "512"
     BLOCK_SIZE_UNKNOWN = "unknown"
+    CONNECTION_PROTOCOL_NVME = "NVME"
     CONNECTION_PROTOCOL_SAS = "SAS"
     CONNECTION_PROTOCOL_SATA = "SATA"
     CONNECTION_PROTOCOL_UNSPECIFIED = "unspecified"
@@ -41,6 +43,7 @@ class StorageFlexFlashVirtualDriveConsts():
     OPERABILITY_UNKNOWN = "unknown"
     OPERABILITY_UPGRADE_PROBLEM = "upgrade-problem"
     OPERABILITY_VOLTAGE_PROBLEM = "voltage-problem"
+    PHYSICAL_BLOCK_SIZE_512 = "512"
     PHYSICAL_BLOCK_SIZE_UNKNOWN = "unknown"
     PRESENCE_EMPTY = "empty"
     PRESENCE_EQUIPPED = "equipped"
@@ -91,16 +94,16 @@ class StorageFlexFlashVirtualDrive(ManagedObject):
     mo_meta = MoMeta("StorageFlexFlashVirtualDrive", "storageFlexFlashVirtualDrive", "vd-[id]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["read-only"], [u'storageFlexFlashController'], [], ["Get"])
 
     prop_meta = {
-        "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
+        "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "connection_protocol": MoPropertyMeta("connection_protocol", "connectionProtocol", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["SAS", "SATA", "unspecified"], []), 
+        "connection_protocol": MoPropertyMeta("connection_protocol", "connectionProtocol", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NVME", "SAS", "SATA", "unspecified"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "id": MoPropertyMeta("id", "id", "ulong", VersionMeta.Version112a, MoPropertyMeta.NAMING, 0x4, None, None, None, [], []), 
+        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version112a, MoPropertyMeta.NAMING, 0x4, None, None, None, [], []), 
         "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "number_of_blocks": MoPropertyMeta("number_of_blocks", "numberOfBlocks", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
         "oper_qualifier_reason": MoPropertyMeta("oper_qualifier_reason", "operQualifierReason", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
-        "physical_block_size": MoPropertyMeta("physical_block_size", "physicalBlockSize", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
+        "physical_block_size": MoPropertyMeta("physical_block_size", "physicalBlockSize", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 
         "presence": MoPropertyMeta("presence", "presence", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["empty", "equipped", "equipped-identity-unestablishable", "equipped-not-primary", "equipped-slave", "equipped-unsupported", "equipped-with-malformed-fru", "inaccessible", "mismatch", "mismatch-identity-unestablishable", "mismatch-slave", "missing", "missing-slave", "not-supported", "unauthorized", "unknown"], []), 
         "raid_health": MoPropertyMeta("raid_health", "raidHealth", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["FFR_HEALTH_DEGRADED", "FFR_HEALTH_NA", "FFR_HEALTH_NOT_REPORTING", "FFR_HEALTH_OK"], []), 
         "raid_state": MoPropertyMeta("raid_state", "raidState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["FFR_STATE_DISABLED", "FFR_STATE_ENABLED_NOT_PAIRED", "FFR_STATE_ENABLED_PAIRED", "FFR_STATE_ENABLED_PAIRED_INVALID_BOTH", "FFR_STATE_ENABLED_PAIRED_INVALID_PRIMARY", "FFR_STATE_ENABLED_PAIRED_INVALID_SECONDARY", "FFR_STATE_RAID_MIRRORING_DISABLED"], []), 

@@ -64,7 +64,7 @@ class FabricEthVlanPc(ManagedObject):
     consts = FabricEthVlanPcConsts()
     naming_props = set([u'switchId', u'portId'])
 
-    mo_meta = MoMeta("FabricEthVlanPc", "fabricEthVlanPc", "pc-switch-[switch_id]-pc-[port_id]", VersionMeta.Version141a, "InputOutput", 0xfff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricVlan'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricEthVlanPc", "fabricEthVlanPc", "pc-switch-[switch_id]-pc-[port_id]", VersionMeta.Version141a, "InputOutput", 0xfff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricNetGroup', u'fabricVlan'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["10gbps", "1gbps", "20gbps", "40gbps", "indeterminate"], []), 

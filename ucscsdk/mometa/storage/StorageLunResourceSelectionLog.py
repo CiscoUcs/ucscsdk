@@ -23,6 +23,7 @@ class StorageLunResourceSelectionLogConsts():
     DECISION_TYPE_VERIFY_RESOURCES = "verify-resources"
     DECISION_TYPE_VERIFY_STRIP_SIZE_CONFIG = "verify-strip-size-config"
     DECISION_TYPE_VERIFY_VIRTUAL_DRIVE_CONFIG = "verify-virtual-drive-config"
+    RESULT_DATA_LOSS = "data-loss"
     RESULT_FAILED = "failed"
     RESULT_SUCCEEDED = "succeeded"
     RESULT_UNSPECIFIED = "unspecified"
@@ -42,7 +43,7 @@ class StorageLunResourceSelectionLog(ManagedObject):
         "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "order": MoPropertyMeta("order", "order", "ushort", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x4, None, None, None, [], []), 
-        "result": MoPropertyMeta("result", "result", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["failed", "succeeded", "unspecified"], []), 
+        "result": MoPropertyMeta("result", "result", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["data-loss", "failed", "succeeded", "unspecified"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "time_stamp": MoPropertyMeta("time_stamp", "timeStamp", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 

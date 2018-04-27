@@ -17,6 +17,7 @@ class FirmwareBootDefinitionConsts():
     TYPE_DEBUG_PLUG_IN = "debug-plug-in"
     TYPE_DIAG = "diag"
     TYPE_FEX = "fex"
+    TYPE_FI_SERVICE_PACK = "fi-service-pack"
     TYPE_FLEXFLASH_CONTROLLER = "flexflash-controller"
     TYPE_GRAPHICS_CARD = "graphics-card"
     TYPE_HOST_HBA = "host-hba"
@@ -27,6 +28,7 @@ class FirmwareBootDefinitionConsts():
     TYPE_IOCARD = "iocard"
     TYPE_LOCAL_DISK = "local-disk"
     TYPE_MGMT_EXT = "mgmt-ext"
+    TYPE_MGMT_SERVICE_PACK = "mgmt-service-pack"
     TYPE_OPERATION_MGR = "operation-mgr"
     TYPE_POLICY_MGR = "policy-mgr"
     TYPE_PROVIDER = "provider"
@@ -61,7 +63,7 @@ class FirmwareBootDefinition(ManagedObject):
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "catalog", "chassis-board-controller", "cmc", "core", "debug-plug-in", "diag", "fex", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "identifier-mgr", "iocard", "local-disk", "mgmt-ext", "operation-mgr", "policy-mgr", "provider", "psu", "resource-aggr", "sas-exp-reg-fw", "sas-expander", "service-reg", "stats-mgr", "storage-broker", "storage-controller", "storage-controller-onboard-device", "storage-controller-onboard-device-cpld", "storage-dev-bridge", "switch", "switch-kernel", "switch-software", "system", "unspecified"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "catalog", "chassis-board-controller", "cmc", "core", "debug-plug-in", "diag", "fex", "fi-service-pack", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "identifier-mgr", "iocard", "local-disk", "mgmt-ext", "mgmt-service-pack", "operation-mgr", "policy-mgr", "provider", "psu", "resource-aggr", "sas-exp-reg-fw", "sas-expander", "service-reg", "stats-mgr", "storage-broker", "storage-controller", "storage-controller-onboard-device", "storage-controller-onboard-device-cpld", "storage-dev-bridge", "switch", "switch-kernel", "switch-software", "system", "unspecified"], []), 
     }
 
     prop_map = {

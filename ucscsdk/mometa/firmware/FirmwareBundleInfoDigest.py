@@ -16,6 +16,7 @@ class FirmwareBundleInfoDigestConsts():
     TYPE_M_SERIES_BUNDLE = "m-series-bundle"
     TYPE_PROVIDER_BUNDLE = "provider-bundle"
     TYPE_S_SERIES_BUNDLE = "s-series-bundle"
+    TYPE_SERVICE_PACK_BUNDLE = "service-pack-bundle"
     TYPE_UNKNOWN = "unknown"
 
 
@@ -33,7 +34,7 @@ class FirmwareBundleInfoDigest(ManagedObject):
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x10, None, None, None, ["b-series-bundle", "c-series-bundle", "catalog", "chassis-bundle", "full-bundle", "image", "infrastructure-bundle", "m-series-bundle", "provider-bundle", "s-series-bundle", "unknown"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x10, None, None, None, ["b-series-bundle", "c-series-bundle", "catalog", "chassis-bundle", "full-bundle", "image", "infrastructure-bundle", "m-series-bundle", "provider-bundle", "s-series-bundle", "service-pack-bundle", "unknown"], []), 
         "version": MoPropertyMeta("version", "version", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x20, 1, 510, None, [], []), 
     }
 

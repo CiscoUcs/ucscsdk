@@ -8,6 +8,7 @@ from ...ucscmeta import VersionMeta
 class FabricComputePhEpConsts():
     ADMIN_STATE_DISABLED = "disabled"
     ADMIN_STATE_ENABLED = "enabled"
+    ADMIN_STATE_REMOVE = "remove"
     CHASSIS_ID_N_A = "N/A"
     EQ_TYPE_BLADE = "blade"
     EQ_TYPE_CARTRIDGE = "cartridge"
@@ -31,7 +32,7 @@ class FabricComputePhEp(ManagedObject):
 
     prop_meta = {
         "address": MoPropertyMeta("address", "address", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 
+        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remove"], []), 
         "chassis_id": MoPropertyMeta("chassis_id", "chassisId", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["N/A"], ["1-255"]), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 

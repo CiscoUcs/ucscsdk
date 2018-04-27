@@ -26,7 +26,7 @@ class PolicyControlEp(ManagedObject):
     consts = PolicyControlEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("PolicyControlEp", "policyControlEp", "control-ep-policy", VersionMeta.Version121a, "InputOutput", 0x1ff, [], ["admin"], [u'computeSystem'], [u'policyCommunication', u'policyConfigBackup', u'policyControlEpOperation', u'policyDateTime', u'policyDiscovery', u'policyDns', u'policyEquipment', u'policyFault', u'policyInfraFirmware', u'policyMEp', u'policyMonitoring', u'policyPortConfig', u'policyPowerMgmt', u'policyPsu', u'policySecurity', u'policyStorageAutoConfig'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("PolicyControlEp", "policyControlEp", "control-ep-policy", VersionMeta.Version121a, "InputOutput", 0x1ff, [], ["admin"], [u'computeSystem', u'fabricSystem'], [u'policyCommunication', u'policyConfigBackup', u'policyControlEpOperation', u'policyDateTime', u'policyDestEp', u'policyDiscovery', u'policyDns', u'policyEquipment', u'policyFault', u'policyInfraFirmware', u'policyMEp', u'policyMonitoring', u'policyPortConfig', u'policyPowerMgmt', u'policyPsu', u'policySecurity', u'policySourceApp', u'policyStorageAutoConfig'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "ack_state": MoPropertyMeta("ack_state", "ackState", "string", VersionMeta.Version121a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["acked", "no-ack", "remoteTrigger"], []), 

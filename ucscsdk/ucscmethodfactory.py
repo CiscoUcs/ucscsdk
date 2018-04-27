@@ -72,11 +72,48 @@ def aaa_get_auth_token_client(in_cookie):
     return xml_request
 
 
+def aaa_get_auth_token_internal(cookie, in_id, in_ipv4, in_locales, in_parent_sess, in_priv, in_remote, in_role_list, in_user):
+    """ Auto-generated UCSC XML API Method. """
+    method = ExternalMethod("AaaGetAuthTokenInternal")
+
+    method.cookie = cookie
+    method.in_id = str(in_id)
+    method.in_ipv4 = in_ipv4
+    method.in_locales = in_locales
+    method.in_parent_sess = in_parent_sess
+    method.in_priv = in_priv
+    method.in_remote = in_remote
+    method.in_role_list = in_role_list
+    method.in_user = in_user
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
 def aaa_get_compute_auth_token(cookie):
     """ Auto-generated UCSC XML API Method. """
     method = ExternalMethod("AaaGetComputeAuthToken")
 
     method.cookie = cookie
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def aaa_get_kvm_launch_url_internal(cookie, in_cimc_ipv4, in_ipv4, in_ipv6, in_locales, in_parent_sess, in_priv, in_remote, in_role_list, in_user):
+    """ Auto-generated UCSC XML API Method. """
+    method = ExternalMethod("AaaGetKVMLaunchUrlInternal")
+
+    method.cookie = cookie
+    method.in_cimc_ipv4 = in_cimc_ipv4
+    method.in_ipv4 = in_ipv4
+    method.in_ipv6 = in_ipv6
+    method.in_locales = in_locales
+    method.in_parent_sess = in_parent_sess
+    method.in_priv = in_priv
+    method.in_remote = in_remote
+    method.in_role_list = in_role_list
+    method.in_user = in_user
 
     xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
     return xml_request
@@ -89,6 +126,26 @@ def aaa_get_n_compute_auth_token_by_dn(cookie, in_cookie, in_dn, in_number_of):
     method.cookie = cookie
     method.in_dn = in_dn
     method.in_number_of = str(in_number_of)
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def aaa_get_n_compute_auth_token_internal_by_dn(cookie, in_dn, in_id, in_ipv4, in_locales, in_number_of, in_parent_sess, in_priv, in_remote, in_role_list, in_user):
+    """ Auto-generated UCSC XML API Method. """
+    method = ExternalMethod("AaaGetNComputeAuthTokenInternalByDn")
+
+    method.cookie = cookie
+    method.in_dn = in_dn
+    method.in_id = str(in_id)
+    method.in_ipv4 = in_ipv4
+    method.in_locales = in_locales
+    method.in_number_of = str(in_number_of)
+    method.in_parent_sess = in_parent_sess
+    method.in_priv = in_priv
+    method.in_remote = in_remote
+    method.in_role_list = in_role_list
+    method.in_user = in_user
 
     xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
     return xml_request
@@ -133,6 +190,18 @@ def aaa_login(in_name, in_password):
 
     method.in_name = in_name
     method.in_password = in_password
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def aaa_login_by_token(cookie, in_name, in_token):
+    """ Auto-generated UCSC XML API Method. """
+    method = ExternalMethod("AaaLoginByToken")
+
+    method.cookie = cookie
+    method.in_name = in_name
+    method.in_token = in_token
 
     xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
     return xml_request
@@ -210,13 +279,16 @@ def compute_get_qualified_servers(cookie, in_qual_dn, in_return_pool_configs, in
     return xml_request
 
 
-def compute_get_server_catalog(cookie, in_domain_group_list, in_equipment_filter, in_include_props, in_limit, in_offset, in_recursive, in_return_count_only):
+def compute_get_server_catalog(cookie, in_domain_group_list, in_equipment_filter, in_exclude_total_result_size, in_filter, in_include_filter_list_only, in_include_props, in_limit, in_offset, in_recursive, in_return_count_only):
     """ Auto-generated UCSC XML API Method. """
     method = ExternalMethod("ComputeGetServerCatalog")
 
     method.cookie = cookie
     method.in_domain_group_list = in_domain_group_list
     method.in_equipment_filter = in_equipment_filter
+    method.in_exclude_total_result_size = in_exclude_total_result_size
+    method.in_filter = in_filter
+    method.in_include_filter_list_only = in_include_filter_list_only
     method.in_include_props = in_include_props
     method.in_limit = str(in_limit)
     method.in_offset = str(in_offset)
@@ -448,6 +520,19 @@ def config_get_last_backed_up_domains(cookie, in_backup_type, in_domains):
     method.cookie = cookie
     method.in_backup_type = in_backup_type
     method.in_domains = in_domains
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def config_get_net_refs(cookie, in_org_dn, in_server_dn, in_type):
+    """ Auto-generated UCSC XML API Method. """
+    method = ExternalMethod("ConfigGetNetRefs")
+
+    method.cookie = cookie
+    method.in_org_dn = in_org_dn
+    method.in_server_dn = in_server_dn
+    method.in_type = in_type
 
     xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
     return xml_request
@@ -848,16 +933,19 @@ def config_resolve_dns(cookie, in_dns, in_hierarchical=YesOrNo.FALSE):
     return xml_request
 
 
-def config_resolve_domain_elements(cookie, in_assoc_state, in_domain_group_context, in_domain_id, in_fetch_size, in_ignore_assoc_state, in_include_props, in_instance_type, in_limit, in_name, in_offset, in_org_context, in_owner, in_recursive_domain_group, in_recursive_org_group, in_return_count_only):
+def config_resolve_domain_elements(cookie, in_assoc_state, in_class_id, in_domain_group_context, in_domain_id, in_fetch_size, in_filter, in_ignore_assoc_state, in_include_filter_list_only, in_include_props, in_instance_type, in_limit, in_name, in_offset, in_org_context, in_owner, in_recursive_domain_group, in_recursive_org_group, in_return_count_only):
     """ Auto-generated UCSC XML API Method. """
     method = ExternalMethod("ConfigResolveDomainElements")
 
     method.cookie = cookie
     method.in_assoc_state = in_assoc_state
+    method.in_class_id = in_class_id
     method.in_domain_group_context = in_domain_group_context
     method.in_domain_id = str(in_domain_id)
     method.in_fetch_size = str(in_fetch_size)
+    method.in_filter = in_filter
     method.in_ignore_assoc_state = in_ignore_assoc_state
+    method.in_include_filter_list_only = in_include_filter_list_only
     method.in_include_props = in_include_props
     method.in_instance_type = in_instance_type
     method.in_limit = str(in_limit)
@@ -880,6 +968,28 @@ def config_resolve_parent(cookie, dn, in_hierarchical=YesOrNo.FALSE):
     method.cookie = cookie
     method.dn = dn
     method.in_hierarchical = (("false", "true")[in_hierarchical in ucscgenutils.AFFIRMATIVE_LIST])
+
+    xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
+    return xml_request
+
+
+def config_resolve_spot_light_idx(cookie, class_id, in_class, in_filter, in_include_facet, in_include_prop, in_limit, in_offset, in_query, in_sort_str):
+    """ Auto-generated UCSC XML API Method. """
+    method = ExternalMethod("ConfigResolveSpotLightIdx")
+
+    meta_class_id = coreutils.find_class_id_in_mo_meta_ignore_case(class_id)
+    if meta_class_id is not None:
+        class_id = ucscgenutils.word_l(meta_class_id)
+    method.class_id = class_id
+    method.cookie = cookie
+    method.in_class = in_class
+    method.in_filter = in_filter
+    method.in_include_facet = in_include_facet
+    method.in_include_prop = in_include_prop
+    method.in_limit = str(in_limit)
+    method.in_offset = str(in_offset)
+    method.in_query = in_query
+    method.in_sort_str = in_sort_str
 
     xml_request = method.to_xml(option=WriteXmlOption.DIRTY)
     return xml_request

@@ -14,6 +14,9 @@ class GraphicsCardConsts():
     LC_AVAILABLE = "available"
     LC_DEALLOCATED = "deallocated"
     LC_REPURPOSED = "repurposed"
+    MODE_COMPUTE = "compute"
+    MODE_GRAPHICS = "graphics"
+    MODE_NA = "na"
     OPER_STATE_ACCESSIBILITY_PROBLEM = "accessibility-problem"
     OPER_STATE_AUTO_UPGRADE = "auto-upgrade"
     OPER_STATE_BACKPLANE_PORT_PROBLEM = "backplane-port-problem"
@@ -150,6 +153,7 @@ class GraphicsCard(ManagedObject):
         "is_supported": MoPropertyMeta("is_supported", "isSupported", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "lc": MoPropertyMeta("lc", "lc", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["allocated", "available", "deallocated", "repurposed"], []), 
         "location_dn": MoPropertyMeta("location_dn", "locationDn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "mode": MoPropertyMeta("mode", "mode", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["compute", "graphics", "na"], []), 
         "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "oper_qualifier_reason": MoPropertyMeta("oper_qualifier_reason", "operQualifierReason", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
@@ -183,6 +187,7 @@ class GraphicsCard(ManagedObject):
         "isSupported": "is_supported", 
         "lc": "lc", 
         "locationDn": "location_dn", 
+        "mode": "mode", 
         "model": "model", 
         "operQualifierReason": "oper_qualifier_reason", 
         "operState": "oper_state", 
@@ -216,6 +221,7 @@ class GraphicsCard(ManagedObject):
         self.is_supported = None
         self.lc = None
         self.location_dn = None
+        self.mode = None
         self.model = None
         self.oper_qualifier_reason = None
         self.oper_state = None

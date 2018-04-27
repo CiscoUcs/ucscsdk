@@ -28,7 +28,7 @@ class LstorageControllerRef(ManagedObject):
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "controller_id": MoPropertyMeta("controller_id", "controllerId", "uint", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x2, None, None, None, [], ["1-1"]), 
+        "controller_id": MoPropertyMeta("controller_id", "controllerId", "uint", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x2, None, None, None, [], ["1-2"]), 
         "controller_type": MoPropertyMeta("controller_type", "controllerType", "string", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x4, None, None, None, ["FLASH", "HBA", "NVME", "PCH", "PT", "SAS", "SATA", "SD", "external", "unknown"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 

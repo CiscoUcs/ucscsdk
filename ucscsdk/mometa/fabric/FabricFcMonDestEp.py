@@ -62,7 +62,7 @@ class FabricFcMonDestEp(ManagedObject):
     consts = FabricFcMonDestEpConsts()
     naming_props = set([u'slotId', u'portId'])
 
-    mo_meta = MoMeta("FabricFcMonDestEp", "fabricFcMonDestEp", "dest-slot-[slot_id]-port-[port_id]", VersionMeta.Version151a, "InputOutput", 0x7ff, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcMon', u'fabricFcMonOperation'], [], ["Get"])
+    mo_meta = MoMeta("FabricFcMonDestEp", "fabricFcMonDestEp", "dest-slot-[slot_id]-port-[port_id]", VersionMeta.Version151a, "InputOutput", 0xfff, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcMon', u'fabricFcMonOperation'], [], ["Get"])
 
     prop_meta = {
         "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["16gbps", "1gbps", "2gbps", "4gbps", "8gbps", "auto", "indeterminate"], []), 
@@ -94,6 +94,7 @@ class FabricFcMonDestEp(ManagedObject):
         "switch_id": MoPropertyMeta("switch_id", "switchId", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
         "transport": MoPropertyMeta("transport", "transport", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|ether|dce|fc),){0,4}(defaultValue|unknown|ether|dce|fc){0,1}""", [], []), 
         "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|lan|san|ipc),){0,4}(defaultValue|unknown|lan|san|ipc){0,1}""", [], []), 
+        "usr_lbl": MoPropertyMeta("usr_lbl", "usrLbl", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x800, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
         "warnings": MoPropertyMeta("warnings", "warnings", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|none|fc-zoning-enabled|configuration-error),){0,3}(defaultValue|none|fc-zoning-enabled|configuration-error){0,1}""", [], []), 
     }
 
@@ -127,6 +128,7 @@ class FabricFcMonDestEp(ManagedObject):
         "switchId": "switch_id", 
         "transport": "transport", 
         "type": "type", 
+        "usrLbl": "usr_lbl", 
         "warnings": "warnings", 
     }
 
@@ -159,6 +161,7 @@ class FabricFcMonDestEp(ManagedObject):
         self.switch_id = None
         self.transport = None
         self.type = None
+        self.usr_lbl = None
         self.warnings = None
 
         ManagedObject.__init__(self, "FabricFcMonDestEp", parent_mo_or_dn, **kwargs)

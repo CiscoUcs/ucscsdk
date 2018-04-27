@@ -15,7 +15,7 @@ class VnicIpV4StaticAddr(ManagedObject):
     consts = VnicIpV4StaticAddrConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicIpV4StaticAddr", "vnicIpV4StaticAddr", "ipv4-static-addr", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server"], [u'computeInstance', u'lsServer', u'lsbootLanImagePath', u'mgmtController', u'mgmtVnet', u'vnicIPv4If', u'vnicMgmtIf'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicIpV4StaticAddr", "vnicIpV4StaticAddr", "ipv4-static-addr", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server"], [u'computeInstance', u'lsServer', u'lsbootLanImagePath', u'mgmtController', u'mgmtVnet', u'vnicIPv4If', u'vnicMgmtIf', u'vnicOutbandMgmtEp'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 

@@ -66,6 +66,7 @@ class ConfigDomainItem(ManagedObject):
         "fault_level": MoPropertyMeta("fault_level", "faultLevel", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cleared", "condition", "critical", "info", "major", "minor", "warning"], []), 
         "fw_oper_state": MoPropertyMeta("fw_oper_state", "fwOperState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["failed", "in-progress", "pending-user-ack", "ready", "scheduled", "start-pending-ext-permission"], []), 
         "fw_package_version": MoPropertyMeta("fw_package_version", "fwPackageVersion", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "fw_service_pack_version": MoPropertyMeta("fw_service_pack_version", "fwServicePackVersion", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "inventory_status": MoPropertyMeta("inventory_status", "inventoryStatus", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["in-progress", "ok", "throttled"], []), 
         "ip": MoPropertyMeta("ip", "ip", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 
         "ipv6": MoPropertyMeta("ipv6", "ipv6", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
@@ -97,6 +98,7 @@ class ConfigDomainItem(ManagedObject):
         "faultLevel": "fault_level", 
         "fwOperState": "fw_oper_state", 
         "fwPackageVersion": "fw_package_version", 
+        "fwServicePackVersion": "fw_service_pack_version", 
         "inventoryStatus": "inventory_status", 
         "ip": "ip", 
         "ipv6": "ipv6", 
@@ -128,6 +130,7 @@ class ConfigDomainItem(ManagedObject):
         self.fault_level = None
         self.fw_oper_state = None
         self.fw_package_version = None
+        self.fw_service_pack_version = None
         self.inventory_status = None
         self.ip = None
         self.ipv6 = None

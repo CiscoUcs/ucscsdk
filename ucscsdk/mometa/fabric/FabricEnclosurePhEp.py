@@ -58,7 +58,7 @@ class FabricEnclosurePhEp(ManagedObject):
     consts = FabricEnclosurePhEpConsts()
     naming_props = set([u'vendor', u'model', u'serial'])
 
-    mo_meta = MoMeta("FabricEnclosurePhEp", "fabricEnclosurePhEp", "enc-ep-ven-[vendor]-mod-[model]-ser-[serial]", VersionMeta.Version131a, "InputOutput", 0x7ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'fabricDceSrv'], [u'fabricEnclosurePhEpOperation', u'fabricLastAckedSlot'], ["Get"])
+    mo_meta = MoMeta("FabricEnclosurePhEp", "fabricEnclosurePhEp", "enc-ep-ven-[vendor]-mod-[model]-ser-[serial]", VersionMeta.Version131a, "InputOutput", 0xfff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'fabricDceSrv'], [u'fabricEnclosurePhEpOperation', u'fabricLastAckedSlot'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 
@@ -93,7 +93,8 @@ class FabricEnclosurePhEp(ManagedObject):
         "switch_id": MoPropertyMeta("switch_id", "switchId", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
         "transport": MoPropertyMeta("transport", "transport", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|ether|dce|fc),){0,4}(defaultValue|unknown|ether|dce|fc){0,1}""", [], []), 
         "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|lan|san|ipc),){0,4}(defaultValue|unknown|lan|san|ipc){0,1}""", [], []), 
-        "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x400, 1, 510, None, [], []), 
+        "usr_lbl": MoPropertyMeta("usr_lbl", "usrLbl", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x400, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
+        "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x800, 1, 510, None, [], []), 
     }
 
     prop_map = {
@@ -129,6 +130,7 @@ class FabricEnclosurePhEp(ManagedObject):
         "switchId": "switch_id", 
         "transport": "transport", 
         "type": "type", 
+        "usrLbl": "usr_lbl", 
         "vendor": "vendor", 
     }
 
@@ -165,6 +167,7 @@ class FabricEnclosurePhEp(ManagedObject):
         self.switch_id = None
         self.transport = None
         self.type = None
+        self.usr_lbl = None
 
         ManagedObject.__init__(self, "FabricEnclosurePhEp", parent_mo_or_dn, **kwargs)
 

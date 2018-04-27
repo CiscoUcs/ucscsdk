@@ -133,6 +133,7 @@ class SecurityUnit(ManagedObject):
     mo_meta = MoMeta("SecurityUnit", "securityUnit", "security-unit-[id]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["read-only"], [u'computeBoard'], [], ["Get"])
 
     prop_meta = {
+        "asset_tag": MoPropertyMeta("asset_tag", "assetTag", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x4, None, None, None, [], ["1-255"]), 
@@ -158,6 +159,7 @@ class SecurityUnit(ManagedObject):
     }
 
     prop_map = {
+        "assetTag": "asset_tag", 
         "childAction": "child_action", 
         "dn": "dn", 
         "id": "id", 
@@ -185,6 +187,7 @@ class SecurityUnit(ManagedObject):
     def __init__(self, parent_mo_or_dn, id, **kwargs):
         self._dirty_mask = 0
         self.id = id
+        self.asset_tag = None
         self.child_action = None
         self.location_dn = None
         self.model = None

@@ -28,7 +28,7 @@ class FirmwareChassisPack(ManagedObject):
     consts = FirmwareChassisPackConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("FirmwareChassisPack", "firmwareChassisPack", "fw-chassis-pack-[name]", VersionMeta.Version151a, "InputOutput", 0xfff, [], ["read-only"], [u'orgDomainGroup', u'orgOrg'], [u'firmwareExcludeChassisComponent'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FirmwareChassisPack", "firmwareChassisPack", "fw-chassis-pack-[name]", VersionMeta.Version151a, "InputOutput", 0x1fff, [], ["read-only"], [u'orgDomainGroup', u'orgOrg'], [u'firmwareExcludeChassisComponent'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "chassis_bundle_name": MoPropertyMeta("chassis_bundle_name", "chassisBundleName", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
@@ -44,9 +44,11 @@ class FirmwareChassisPack(ManagedObject):
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, 0x100, 0, 256, None, [], []), 
-        "stage_size": MoPropertyMeta("stage_size", "stageSize", "ushort", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x400, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "update_trigger": MoPropertyMeta("update_trigger", "updateTrigger", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x800, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", ["immediate"], []), 
+        "service_pack_bundle_name": MoPropertyMeta("service_pack_bundle_name", "servicePackBundleName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "service_pack_bundle_version": MoPropertyMeta("service_pack_bundle_version", "servicePackBundleVersion", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x200, 0, 510, None, [], []), 
+        "stage_size": MoPropertyMeta("stage_size", "stageSize", "ushort", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x400, None, None, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x800, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "update_trigger": MoPropertyMeta("update_trigger", "updateTrigger", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x1000, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", ["immediate"], []), 
     }
 
     prop_map = {
@@ -63,6 +65,8 @@ class FirmwareChassisPack(ManagedObject):
         "policyLevel": "policy_level", 
         "policyOwner": "policy_owner", 
         "rn": "rn", 
+        "servicePackBundleName": "service_pack_bundle_name", 
+        "servicePackBundleVersion": "service_pack_bundle_version", 
         "stageSize": "stage_size", 
         "status": "status", 
         "updateTrigger": "update_trigger", 
@@ -81,6 +85,8 @@ class FirmwareChassisPack(ManagedObject):
         self.override_default_exclusion = None
         self.policy_level = None
         self.policy_owner = None
+        self.service_pack_bundle_name = None
+        self.service_pack_bundle_version = None
         self.stage_size = None
         self.status = None
         self.update_trigger = None

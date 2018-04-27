@@ -6,7 +6,10 @@ from ...ucscmeta import VersionMeta
 
 
 class StorageLocalDiskConsts():
+    ADMIN_ACTION_CLEAR_SECURE_DRIVE = "clear-secure-drive"
+    ADMIN_ACTION_CLEAR_SECURE_FOREIGN_CONFIG_DRIVE = "clear-secure-foreign-config-drive"
     ADMIN_ACTION_DEDICATED_HOT_SPARE = "dedicated-hot-spare"
+    ADMIN_ACTION_ENABLE_SECURITY = "enable-security"
     ADMIN_ACTION_GLOBAL_HOT_SPARE = "global-hot-spare"
     ADMIN_ACTION_JBOD = "jbod"
     ADMIN_ACTION_LED_OFF = "led-off"
@@ -15,11 +18,13 @@ class StorageLocalDiskConsts():
     ADMIN_ACTION_REMOVE_HOT_SPARE = "remove-hot-spare"
     ADMIN_ACTION_UNCONFIGURED_GOOD = "unconfigured-good"
     ADMIN_ACTION_UNDO_PREPARE_FOR_REMOVAL = "undo-prepare-for-removal"
+    ADMIN_ACTION_UNLOCK_FOREIGN_DRIVE = "unlock-foreign-drive"
     ADMIN_ACTION_UNSPECIFIED = "unspecified"
     ADMIN_ACTION_TRIGGER_CANCELED = "canceled"
     ADMIN_ACTION_TRIGGER_IDLE = "idle"
     ADMIN_ACTION_TRIGGER_TRIGGERED = "triggered"
     ADMIN_VIRTUAL_DRIVE_ID_UNSPECIFIED = "unspecified"
+    BLOCK_SIZE_512 = "512"
     BLOCK_SIZE_UNKNOWN = "unknown"
     BOOTABLE_FALSE = "false"
     BOOTABLE_TRUE = "true"
@@ -32,6 +37,7 @@ class StorageLocalDiskConsts():
     CONFIG_STATE_NOT_IN_USE = "not-in-use"
     CONFIG_STATE_ORPHANED = "orphaned"
     CONFIG_STATE_UNKNOWN = "unknown"
+    CONNECTION_PROTOCOL_NVME = "NVME"
     CONNECTION_PROTOCOL_SAS = "SAS"
     CONNECTION_PROTOCOL_SATA = "SATA"
     CONNECTION_PROTOCOL_UNSPECIFIED = "unspecified"
@@ -51,6 +57,7 @@ class StorageLocalDiskConsts():
     DISK_STATE_GLOBAL_HOT_SPARE = "global-hot-spare"
     DISK_STATE_GOOD = "good"
     DISK_STATE_JBOD = "jbod"
+    DISK_STATE_LOCKED_FOREIGN_CONFIGURATION = "locked-foreign-configuration"
     DISK_STATE_OFFLINE = "offline"
     DISK_STATE_ONLINE = "online"
     DISK_STATE_PREDICTIVE_FAILURE = "predictive-failure"
@@ -110,6 +117,7 @@ class StorageLocalDiskConsts():
     OPERABILITY_UNKNOWN = "unknown"
     OPERABILITY_UPGRADE_PROBLEM = "upgrade-problem"
     OPERABILITY_VOLTAGE_PROBLEM = "voltage-problem"
+    PHYSICAL_BLOCK_SIZE_512 = "512"
     PHYSICAL_BLOCK_SIZE_UNKNOWN = "unknown"
     POWER_STATE_ACTIVE = "active"
     POWER_STATE_OFF = "off"
@@ -151,24 +159,28 @@ class StorageLocalDisk(ManagedObject):
     consts = StorageLocalDiskConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("StorageLocalDisk", "storageLocalDisk", "disk-[id]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storageController', u'storageEnclosure'], [u'equipmentLocatorLed', u'firmwareBootDefinition', u'firmwareRunning', u'storageControllerEp', u'storageLocalDiskOperation', u'storageLocalDiskPartition', u'storageOperation', u'storageSasPort'], ["Get"])
+    mo_meta = MoMeta("StorageLocalDisk", "storageLocalDisk", "disk-[id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storageController', u'storageEnclosure'], [u'equipmentLocatorLed', u'faultInst', u'firmwareBootDefinition', u'firmwareRunning', u'storageControllerEp', u'storageDiskEnvStats', u'storageLocalDiskOperation', u'storageLocalDiskPartition', u'storageOperation', u'storageSasPort'], ["Get"])
 
     prop_meta = {
-        "admin_action": MoPropertyMeta("admin_action", "adminAction", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["dedicated-hot-spare", "global-hot-spare", "jbod", "led-off", "led-on", "prepare-for-removal", "remove-hot-spare", "unconfigured-good", "undo-prepare-for-removal", "unspecified"], []), 
+        "admin_action": MoPropertyMeta("admin_action", "adminAction", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["clear-secure-drive", "clear-secure-foreign-config-drive", "dedicated-hot-spare", "enable-security", "global-hot-spare", "jbod", "led-off", "led-on", "prepare-for-removal", "remove-hot-spare", "unconfigured-good", "undo-prepare-for-removal", "unlock-foreign-drive", "unspecified"], []), 
         "admin_action_trigger": MoPropertyMeta("admin_action_trigger", "adminActionTrigger", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["canceled", "idle", "triggered"], []), 
-        "admin_virtual_drive_id": MoPropertyMeta("admin_virtual_drive_id", "adminVirtualDriveId", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["unspecified"], ["0-4294967295"]), 
-        "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
+        "admin_security_key": MoPropertyMeta("admin_security_key", "adminSecurityKey", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x8, 0, 510, None, [], []), 
+        "admin_virtual_drive_id": MoPropertyMeta("admin_virtual_drive_id", "adminVirtualDriveId", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["unspecified"], ["0-4294967295"]), 
+        "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 
         "bootable": MoPropertyMeta("bootable", "bootable", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "true", "unknown"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "config_check_point": MoPropertyMeta("config_check_point", "configCheckPoint", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|firmware-inventory-reported),){0,2}(defaultValue|unknown|firmware-inventory-reported){0,1}""", [], []), 
         "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["N/A", "applied", "apply-failed", "applying", "not-applied", "not-in-use", "orphaned", "unknown"], []), 
-        "connection_protocol": MoPropertyMeta("connection_protocol", "connectionProtocol", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["SAS", "SATA", "unspecified"], []), 
+        "connection_protocol": MoPropertyMeta("connection_protocol", "connectionProtocol", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NVME", "SAS", "SATA", "unspecified"], []), 
         "device_type": MoPropertyMeta("device_type", "deviceType", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["HDD", "NVME", "SSD", "unspecified"], []), 
+        "device_version": MoPropertyMeta("device_version", "deviceVersion", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "discovered_path": MoPropertyMeta("discovered_path", "discoveredPath", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["default", "ib", "oob"], []), 
-        "disk_state": MoPropertyMeta("disk_state", "diskState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["bad", "copyback", "dedicated-hot-spare", "disabled-for-removal", "failed", "foreign-configuration", "global-hot-spare", "good", "jbod", "offline", "online", "predictive-failure", "rebuilding", "unconfigured-bad", "unconfigured-good", "unknown", "zeroing"], []), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
+        "disk_state": MoPropertyMeta("disk_state", "diskState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["bad", "copyback", "dedicated-hot-spare", "disabled-for-removal", "failed", "foreign-configuration", "global-hot-spare", "good", "jbod", "locked-foreign-configuration", "offline", "online", "predictive-failure", "rebuilding", "unconfigured-bad", "unconfigured-good", "unknown", "zeroing"], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x20, 0, 256, None, [], []), 
+        "drive_state": MoPropertyMeta("drive_state", "driveState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|none|securityCapable|securityEnabled|secured|locked|foreignSecured),){0,6}(defaultValue|none|securityCapable|securityEnabled|secured|locked|foreignSecured){0,1}""", [], []), 
         "enc_association": MoPropertyMeta("enc_association", "encAssociation", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["direct-attached", "expander-attached", "unknown"], []), 
-        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x20, None, None, None, [], []), 
+        "err_description": MoPropertyMeta("err_description", "errDescription", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 64, None, [], []), 
+        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x40, None, None, None, [], []), 
         "lc": MoPropertyMeta("lc", "lc", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["allocated", "available", "deallocated", "repurposed"], []), 
         "link_speed": MoPropertyMeta("link_speed", "linkSpeed", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["1-5-gbps", "12-gbps", "3-gbps", "6-gbps", "disabled", "down", "host-power-off", "unknown", "unsupported-device"], []), 
         "link_state": MoPropertyMeta("link_state", "linkState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["misconnect", "optimal", "sub-optimal", "unknown"], []), 
@@ -177,22 +189,24 @@ class StorageLocalDisk(ManagedObject):
         "number_of_blocks": MoPropertyMeta("number_of_blocks", "numberOfBlocks", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
         "oper_qualifier_reason": MoPropertyMeta("oper_qualifier_reason", "operQualifierReason", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
-        "physical_block_size": MoPropertyMeta("physical_block_size", "physicalBlockSize", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
+        "physical_block_size": MoPropertyMeta("physical_block_size", "physicalBlockSize", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 
         "power_state": MoPropertyMeta("power_state", "powerState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["active", "off", "powersave", "transitioning", "unknown"], []), 
         "presence": MoPropertyMeta("presence", "presence", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["empty", "equipped", "equipped-identity-unestablishable", "equipped-not-primary", "equipped-slave", "equipped-unsupported", "equipped-with-malformed-fru", "inaccessible", "mismatch", "mismatch-identity-unestablishable", "mismatch-slave", "missing", "missing-slave", "not-supported", "unauthorized", "unknown"], []), 
         "raw_size": MoPropertyMeta("raw_size", "rawSize", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-applicable"], ["0-4294967295"]), 
         "revision": MoPropertyMeta("revision", "revision", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x40, 0, 256, None, [], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x80, 0, 256, None, [], []), 
         "serial": MoPropertyMeta("serial", "serial", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "size": MoPropertyMeta("size", "size", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-applicable"], ["0-4294967295"]), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x80, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x100, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "thermal": MoPropertyMeta("thermal", "thermal", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
+        "variant_type": MoPropertyMeta("variant_type", "variantType", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
     }
 
     prop_map = {
         "adminAction": "admin_action", 
         "adminActionTrigger": "admin_action_trigger", 
+        "adminSecurityKey": "admin_security_key", 
         "adminVirtualDriveId": "admin_virtual_drive_id", 
         "blockSize": "block_size", 
         "bootable": "bootable", 
@@ -201,10 +215,13 @@ class StorageLocalDisk(ManagedObject):
         "configState": "config_state", 
         "connectionProtocol": "connection_protocol", 
         "deviceType": "device_type", 
+        "deviceVersion": "device_version", 
         "discoveredPath": "discovered_path", 
         "diskState": "disk_state", 
         "dn": "dn", 
+        "driveState": "drive_state", 
         "encAssociation": "enc_association", 
+        "errDescription": "err_description", 
         "id": "id", 
         "lc": "lc", 
         "linkSpeed": "link_speed", 
@@ -224,6 +241,7 @@ class StorageLocalDisk(ManagedObject):
         "size": "size", 
         "status": "status", 
         "thermal": "thermal", 
+        "variantType": "variant_type", 
         "vendor": "vendor", 
     }
 
@@ -232,6 +250,7 @@ class StorageLocalDisk(ManagedObject):
         self.id = id
         self.admin_action = None
         self.admin_action_trigger = None
+        self.admin_security_key = None
         self.admin_virtual_drive_id = None
         self.block_size = None
         self.bootable = None
@@ -240,9 +259,12 @@ class StorageLocalDisk(ManagedObject):
         self.config_state = None
         self.connection_protocol = None
         self.device_type = None
+        self.device_version = None
         self.discovered_path = None
         self.disk_state = None
+        self.drive_state = None
         self.enc_association = None
+        self.err_description = None
         self.lc = None
         self.link_speed = None
         self.link_state = None
@@ -260,6 +282,7 @@ class StorageLocalDisk(ManagedObject):
         self.size = None
         self.status = None
         self.thermal = None
+        self.variant_type = None
         self.vendor = None
 
         ManagedObject.__init__(self, "StorageLocalDisk", parent_mo_or_dn, **kwargs)

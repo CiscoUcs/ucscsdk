@@ -11,6 +11,18 @@ class PowerMgmtPolicyConsts():
     POLICY_OWNER_PENDING_POLICY = "pending-policy"
     POLICY_OWNER_POLICY = "policy"
     POLICY_OWNER_UNSPECIFIED = "unspecified"
+    PROFILING_FALSE = "false"
+    PROFILING_NO = "no"
+    PROFILING_TRUE = "true"
+    PROFILING_YES = "yes"
+    SKIP_POWER_CHECK_FALSE = "false"
+    SKIP_POWER_CHECK_NO = "no"
+    SKIP_POWER_CHECK_TRUE = "true"
+    SKIP_POWER_CHECK_YES = "yes"
+    SKIP_POWER_DEPLOY_CHECK_FALSE = "false"
+    SKIP_POWER_DEPLOY_CHECK_NO = "no"
+    SKIP_POWER_DEPLOY_CHECK_TRUE = "true"
+    SKIP_POWER_DEPLOY_CHECK_YES = "yes"
     STYLE_INTELLIGENT_POLICY_DRIVEN = "intelligent-policy-driven"
     STYLE_MANUAL_PER_BLADE = "manual-per-blade"
 
@@ -21,7 +33,7 @@ class PowerMgmtPolicy(ManagedObject):
     consts = PowerMgmtPolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("PowerMgmtPolicy", "powerMgmtPolicy", "pwr-mgmt-policy", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "domain-group-management", "power-mgmt"], [u'orgDomainGroup'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("PowerMgmtPolicy", "powerMgmtPolicy", "pwr-mgmt-policy", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "domain-group-management", "power-mgmt"], [u'orgDomainGroup'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
@@ -31,9 +43,12 @@ class PowerMgmtPolicy(ManagedObject):
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "style": MoPropertyMeta("style", "style", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, ["intelligent-policy-driven", "manual-per-blade"], []), 
+        "profiling": MoPropertyMeta("profiling", "profiling", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["false", "no", "true", "yes"], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x20, 0, 256, None, [], []), 
+        "skip_power_check": MoPropertyMeta("skip_power_check", "skipPowerCheck", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, ["false", "no", "true", "yes"], []), 
+        "skip_power_deploy_check": MoPropertyMeta("skip_power_deploy_check", "skipPowerDeployCheck", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x80, None, None, None, ["false", "no", "true", "yes"], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x100, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "style": MoPropertyMeta("style", "style", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, ["intelligent-policy-driven", "manual-per-blade"], []), 
     }
 
     prop_map = {
@@ -44,7 +59,10 @@ class PowerMgmtPolicy(ManagedObject):
         "name": "name", 
         "policyLevel": "policy_level", 
         "policyOwner": "policy_owner", 
+        "profiling": "profiling", 
         "rn": "rn", 
+        "skipPowerCheck": "skip_power_check", 
+        "skipPowerDeployCheck": "skip_power_deploy_check", 
         "status": "status", 
         "style": "style", 
     }
@@ -57,6 +75,9 @@ class PowerMgmtPolicy(ManagedObject):
         self.name = None
         self.policy_level = None
         self.policy_owner = None
+        self.profiling = None
+        self.skip_power_check = None
+        self.skip_power_deploy_check = None
         self.status = None
         self.style = None
 

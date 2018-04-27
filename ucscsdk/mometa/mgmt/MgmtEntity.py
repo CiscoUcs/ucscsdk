@@ -29,6 +29,10 @@ class MgmtEntityConsts():
     ID_B = "B"
     ID_NONE = "NONE"
     ID_MGMT = "mgmt"
+    LEAD_ID_FOR_AUTO_INSTALL_A = "A"
+    LEAD_ID_FOR_AUTO_INSTALL_B = "B"
+    LEAD_ID_FOR_AUTO_INSTALL_NONE = "NONE"
+    LEAD_ID_FOR_AUTO_INSTALL_MGMT = "mgmt"
     SSH_KEY_STATUS_MATCHED = "matched"
     SSH_KEY_STATUS_MISMATCHED = "mismatched"
     SSH_KEY_STATUS_NONE = "none"
@@ -59,6 +63,7 @@ class MgmtEntity(ManagedObject):
         "ha_readiness": MoPropertyMeta("ha_readiness", "haReadiness", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "ha_ready": MoPropertyMeta("ha_ready", "haReady", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "id": MoPropertyMeta("id", "id", "string", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x4, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
+        "lead_id_for_auto_install": MoPropertyMeta("lead_id_for_auto_install", "leadIdForAutoInstall", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
         "leadership": MoPropertyMeta("leadership", "leadership", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "mgmt_services_state": MoPropertyMeta("mgmt_services_state", "mgmtServicesState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "problems": MoPropertyMeta("problems", "problems", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
@@ -87,6 +92,7 @@ class MgmtEntity(ManagedObject):
         "haReadiness": "ha_readiness", 
         "haReady": "ha_ready", 
         "id": "id", 
+        "leadIdForAutoInstall": "lead_id_for_auto_install", 
         "leadership": "leadership", 
         "mgmtServicesState": "mgmt_services_state", 
         "problems": "problems", 
@@ -115,6 +121,7 @@ class MgmtEntity(ManagedObject):
         self.ha_failure_reason = None
         self.ha_readiness = None
         self.ha_ready = None
+        self.lead_id_for_auto_install = None
         self.leadership = None
         self.mgmt_services_state = None
         self.problems = None

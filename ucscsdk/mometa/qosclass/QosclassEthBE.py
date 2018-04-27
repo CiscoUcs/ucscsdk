@@ -34,7 +34,7 @@ class QosclassEthBE(ManagedObject):
     consts = QosclassEthBEConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("QosclassEthBE", "qosclassEthBE", "class-best-effort", VersionMeta.Version141a, "InputOutput", 0xff, [], ["admin", "ext-lan-qos", "ext-san-qos", "ls-network", "ls-network-policy", "ls-qos-policy"], [u'qosclassDefinition'], [], ["Get", "Set"])
+    mo_meta = MoMeta("QosclassEthBE", "qosclassEthBE", "class-best-effort", VersionMeta.Version141a, "InputOutput", 0xff, [], ["admin", "ext-lan-qos", "ext-san-qos", "ls-network", "ls-network-policy", "ls-qos-policy"], [u'qosclassDefinition', u'qosclassPolicy'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 

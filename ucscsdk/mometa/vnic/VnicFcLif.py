@@ -7,6 +7,7 @@ from ...ucscmeta import VersionMeta
 
 class VnicFcLifConsts():
     OWNER_CONN_POLICY = "conn_policy"
+    OWNER_INITIATOR_POLICY = "initiator_policy"
     OWNER_LOGICAL = "logical"
     OWNER_PHYSICAL = "physical"
     OWNER_POLICY = "policy"
@@ -36,7 +37,7 @@ class VnicFcLif(ManagedObject):
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x4, None, None, r"""[\-\.:_a-zA-Z0-9]{1,16}""", [], []), 
         "nic_dn": MoPropertyMeta("nic_dn", "nicDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, 0, 256, None, [], []), 
-        "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["conn_policy", "logical", "physical", "policy", "unknown"], []), 
+        "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["conn_policy", "initiator_policy", "logical", "physical", "policy", "unknown"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "switch_id": MoPropertyMeta("switch_id", "switchId", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 

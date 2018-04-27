@@ -55,7 +55,7 @@ class FabricEthTargetEp(ManagedObject):
     consts = FabricEthTargetEpConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("FabricEthTargetEp", "fabricEthTargetEp", "eth-target-ep-[name]", VersionMeta.Version141a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthEstcEp', u'fabricEthEstcPc'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricEthTargetEp", "fabricEthTargetEp", "eth-target-ep-[name]", VersionMeta.Version141a, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthEstcEp', u'fabricEthEstcPc'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 
@@ -87,6 +87,7 @@ class FabricEthTargetEp(ManagedObject):
         "switch_id": MoPropertyMeta("switch_id", "switchId", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
         "transport": MoPropertyMeta("transport", "transport", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|ether|dce|fc),){0,4}(defaultValue|unknown|ether|dce|fc){0,1}""", [], []), 
         "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|lan|san|ipc),){0,4}(defaultValue|unknown|lan|san|ipc){0,1}""", [], []), 
+        "usr_lbl": MoPropertyMeta("usr_lbl", "usrLbl", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x100, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
         "warnings": MoPropertyMeta("warnings", "warnings", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|none|fc-zoning-enabled|configuration-error),){0,3}(defaultValue|none|fc-zoning-enabled|configuration-error){0,1}""", [], []), 
     }
 
@@ -120,6 +121,7 @@ class FabricEthTargetEp(ManagedObject):
         "switchId": "switch_id", 
         "transport": "transport", 
         "type": "type", 
+        "usrLbl": "usr_lbl", 
         "warnings": "warnings", 
     }
 
@@ -152,6 +154,7 @@ class FabricEthTargetEp(ManagedObject):
         self.switch_id = None
         self.transport = None
         self.type = None
+        self.usr_lbl = None
         self.warnings = None
 
         ManagedObject.__init__(self, "FabricEthTargetEp", parent_mo_or_dn, **kwargs)

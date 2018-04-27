@@ -9,6 +9,7 @@ class FabricSwChPhEpOperationConsts():
     ADMIN_STATE_DISABLED = "disabled"
     ADMIN_STATE_ENABLED = "enabled"
     ADMIN_STATE_REMOTE_TRIGGER = "remoteTrigger"
+    ADMIN_STATE_REMOVE = "remove"
     CHASSIS_ID_N_A = "N/A"
     TRIGGER_STATUS_TRIGGER_ACKED = "trigger-acked"
     TRIGGER_STATUS_TRIGGER_FAILED = "trigger-failed"
@@ -25,7 +26,7 @@ class FabricSwChPhEpOperation(ManagedObject):
     mo_meta = MoMeta("FabricSwChPhEpOperation", "fabricSwChPhEpOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'fabricSwChPhEp'], [u'faultInst'], ["Get", "Set"])
 
     prop_meta = {
-        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remoteTrigger"], []), 
+        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remoteTrigger", "remove"], []), 
         "chassis_id": MoPropertyMeta("chassis_id", "chassisId", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["N/A"], ["1-40"]), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 

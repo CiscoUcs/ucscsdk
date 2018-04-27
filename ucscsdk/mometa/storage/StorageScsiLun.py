@@ -13,9 +13,11 @@ class StorageScsiLunConsts():
     ADMIN_STATE_OFFLINE = "offline"
     ADMIN_STATE_ONLINE = "online"
     ADMIN_STATE_RESTORE = "restore"
+    ADMIN_STATE_SECURE_DRIVE_GROUP = "secure-drive-group"
     ADMIN_STATE_TRANSPORT_READY = "transport-ready"
     ADMIN_STATE_UNDEFINED = "undefined"
     ADMIN_STATE_UNHIDE = "unhide"
+    BLOCK_SIZE_512 = "512"
     BLOCK_SIZE_UNKNOWN = "unknown"
     CLONE_STATUS_NOT_APPLICABLE = "not-applicable"
     CLONE_STATUS_UNKNOWN = "unknown"
@@ -27,6 +29,7 @@ class StorageScsiLunConsts():
     CONFIG_STATE_NOT_IN_USE = "not-in-use"
     CONFIG_STATE_ORPHANED = "orphaned"
     CONFIG_STATE_UNKNOWN = "unknown"
+    CONNECTION_PROTOCOL_NVME = "NVME"
     CONNECTION_PROTOCOL_SAS = "SAS"
     CONNECTION_PROTOCOL_SATA = "SATA"
     CONNECTION_PROTOCOL_UNSPECIFIED = "unspecified"
@@ -84,6 +87,7 @@ class StorageScsiLunConsts():
     OPERABILITY_UNKNOWN = "unknown"
     OPERABILITY_UPGRADE_PROBLEM = "upgrade-problem"
     OPERABILITY_VOLTAGE_PROBLEM = "voltage-problem"
+    PHYSICAL_BLOCK_SIZE_512 = "512"
     PHYSICAL_BLOCK_SIZE_UNKNOWN = "unknown"
     PRESENCE_EMPTY = "empty"
     PRESENCE_EQUIPPED = "equipped"
@@ -131,19 +135,19 @@ class StorageScsiLun(ManagedObject):
 
     prop_meta = {
         "actual_size": MoPropertyMeta("actual_size", "actualSize", "ulong", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
-        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["clear-transport-ready", "degraded", "delete", "hide", "offline", "online", "restore", "transport-ready", "undefined", "unhide"], []), 
-        "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
+        "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["clear-transport-ready", "degraded", "delete", "hide", "offline", "online", "restore", "secure-drive-group", "transport-ready", "undefined", "unhide"], []), 
+        "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 
         "change_flag": MoPropertyMeta("change_flag", "changeFlag", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "clone_status": MoPropertyMeta("clone_status", "cloneStatus", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-applicable", "unknown"], ["0-101"]), 
         "config_qualifier_reason": MoPropertyMeta("config_qualifier_reason", "configQualifierReason", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["N/A", "applied", "apply-failed", "applying", "not-applied", "not-in-use", "orphaned", "unknown"], []), 
-        "connection_protocol": MoPropertyMeta("connection_protocol", "connectionProtocol", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["SAS", "SATA", "unspecified"], []), 
+        "connection_protocol": MoPropertyMeta("connection_protocol", "connectionProtocol", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NVME", "SAS", "SATA", "unspecified"], []), 
         "deploy_action": MoPropertyMeta("deploy_action", "deployAction", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["abort-replication", "create", "delete", "modify", "no-action", "replace", "restore", "set-offline", "set-online"], []), 
         "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "device_id": MoPropertyMeta("device_id", "deviceId", "uint", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
-        "id": MoPropertyMeta("id", "id", "ulong", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, [], []), 
+        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, [], []), 
         "last_snapshot_id": MoPropertyMeta("last_snapshot_id", "lastSnapshotId", "uint", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "locale": MoPropertyMeta("locale", "locale", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "lun_map_type": MoPropertyMeta("lun_map_type", "lunMapType", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["non-shared", "shared", "unassigned"], []), 
@@ -157,7 +161,7 @@ class StorageScsiLun(ManagedObject):
         "oper_volume_name": MoPropertyMeta("oper_volume_name", "operVolumeName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
         "parent_lun_name": MoPropertyMeta("parent_lun_name", "parentLunName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "physical_block_size": MoPropertyMeta("physical_block_size", "physicalBlockSize", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
+        "physical_block_size": MoPropertyMeta("physical_block_size", "physicalBlockSize", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 
         "presence": MoPropertyMeta("presence", "presence", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["empty", "equipped", "equipped-identity-unestablishable", "equipped-not-primary", "equipped-slave", "equipped-unsupported", "equipped-with-malformed-fru", "inaccessible", "mismatch", "mismatch-identity-unestablishable", "mismatch-slave", "missing", "missing-slave", "not-supported", "unauthorized", "unknown"], []), 
         "revision": MoPropertyMeta("revision", "revision", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x20, 0, 256, None, [], []), 

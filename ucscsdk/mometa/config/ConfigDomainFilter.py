@@ -49,7 +49,7 @@ class ConfigDomainFilter(ManagedObject):
     consts = ConfigDomainFilterConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ConfigDomainFilter", "configDomainFilter", "domain-filter", VersionMeta.Version131a, "InputOutput", 0x3fff, [], ["read-only"], [], [], [None])
+    mo_meta = MoMeta("ConfigDomainFilter", "configDomainFilter", "domain-filter", VersionMeta.Version131a, "InputOutput", 0x7fff, [], ["read-only"], [], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
@@ -59,13 +59,14 @@ class ConfigDomainFilter(ManagedObject):
         "fault_level": MoPropertyMeta("fault_level", "faultLevel", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["cleared", "condition", "critical", "info", "major", "minor", "warning"], []), 
         "fw_oper_state": MoPropertyMeta("fw_oper_state", "fwOperState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["failed", "in-progress", "pending-user-ack", "ready", "scheduled", "start-pending-ext-permission"], []), 
         "fw_package_version": MoPropertyMeta("fw_package_version", "fwPackageVersion", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x40, 0, 510, None, [], []), 
-        "inventory_status": MoPropertyMeta("inventory_status", "inventoryStatus", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x80, None, None, None, ["in-progress", "ok", "throttled"], []), 
-        "lic_state": MoPropertyMeta("lic_state", "licState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x100, None, None, None, ["license-expired", "license-graceperiod", "license-insufficient", "license-ok", "not-applicable", "unknown"], []), 
-        "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, ["lost-visibility", "registered", "registering", "synchronizing", "unregistered", "version-mismatch"], []), 
-        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x400, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-mini"], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x800, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x1000, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "suspend_state": MoPropertyMeta("suspend_state", "suspendState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2000, None, None, None, ["off", "on"], []), 
+        "fw_service_pack_version": MoPropertyMeta("fw_service_pack_version", "fwServicePackVersion", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x80, 0, 510, None, [], []), 
+        "inventory_status": MoPropertyMeta("inventory_status", "inventoryStatus", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x100, None, None, None, ["in-progress", "ok", "throttled"], []), 
+        "lic_state": MoPropertyMeta("lic_state", "licState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, ["license-expired", "license-graceperiod", "license-insufficient", "license-ok", "not-applicable", "unknown"], []), 
+        "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x400, None, None, None, ["lost-visibility", "registered", "registering", "synchronizing", "unregistered", "version-mismatch"], []), 
+        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x800, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-mini"], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x1000, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2000, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "suspend_state": MoPropertyMeta("suspend_state", "suspendState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x4000, None, None, None, ["off", "on"], []), 
     }
 
     prop_map = {
@@ -76,6 +77,7 @@ class ConfigDomainFilter(ManagedObject):
         "faultLevel": "fault_level", 
         "fwOperState": "fw_oper_state", 
         "fwPackageVersion": "fw_package_version", 
+        "fwServicePackVersion": "fw_service_pack_version", 
         "inventoryStatus": "inventory_status", 
         "licState": "lic_state", 
         "operState": "oper_state", 
@@ -93,6 +95,7 @@ class ConfigDomainFilter(ManagedObject):
         self.fault_level = None
         self.fw_oper_state = None
         self.fw_package_version = None
+        self.fw_service_pack_version = None
         self.inventory_status = None
         self.lic_state = None
         self.oper_state = None

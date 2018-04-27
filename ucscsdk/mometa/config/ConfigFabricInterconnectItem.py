@@ -66,6 +66,7 @@ class ConfigFabricInterconnectItem(ManagedObject):
         "fabric_interconnect_dn": MoPropertyMeta("fabric_interconnect_dn", "fabricInterconnectDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "fault_level": MoPropertyMeta("fault_level", "faultLevel", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cleared", "condition", "critical", "info", "major", "minor", "warning"], []), 
         "fw_oper_state": MoPropertyMeta("fw_oper_state", "fwOperState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["activating", "bad-image", "failed", "pending-next-boot", "ready", "rebooting", "scheduled", "set-startup", "throttled", "updating", "upgrading"], []), 
+        "fw_service_pack_version": MoPropertyMeta("fw_service_pack_version", "fwServicePackVersion", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "fw_version": MoPropertyMeta("fw_version", "fwVersion", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "id": MoPropertyMeta("id", "id", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
         "leadership": MoPropertyMeta("leadership", "leadership", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
@@ -94,6 +95,7 @@ class ConfigFabricInterconnectItem(ManagedObject):
         "fabricInterconnectDn": "fabric_interconnect_dn", 
         "faultLevel": "fault_level", 
         "fwOperState": "fw_oper_state", 
+        "fwServicePackVersion": "fw_service_pack_version", 
         "fwVersion": "fw_version", 
         "id": "id", 
         "leadership": "leadership", 
@@ -122,6 +124,7 @@ class ConfigFabricInterconnectItem(ManagedObject):
         self.fabric_interconnect_dn = None
         self.fault_level = None
         self.fw_oper_state = None
+        self.fw_service_pack_version = None
         self.fw_version = None
         self.id = None
         self.leadership = None

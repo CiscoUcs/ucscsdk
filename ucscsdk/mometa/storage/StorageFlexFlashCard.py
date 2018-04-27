@@ -6,6 +6,7 @@ from ...ucscmeta import VersionMeta
 
 
 class StorageFlexFlashCardConsts():
+    BLOCK_SIZE_512 = "512"
     BLOCK_SIZE_UNKNOWN = "unknown"
     CARD_HEALTH_FF_PHY_HEALTH_NA = "FF_PHY_HEALTH_NA"
     CARD_HEALTH_FF_PHY_HEALTH_OK = "FF_PHY_HEALTH_OK"
@@ -28,6 +29,7 @@ class StorageFlexFlashCardConsts():
     CARD_SYNC_MANUAL = "Manual"
     CARD_SYNC_NA = "NA"
     CARD_SYNC_UNKNOWN = "Unknown"
+    CONNECTION_PROTOCOL_NVME = "NVME"
     CONNECTION_PROTOCOL_SAS = "SAS"
     CONNECTION_PROTOCOL_SATA = "SATA"
     CONNECTION_PROTOCOL_UNSPECIFIED = "unspecified"
@@ -62,6 +64,7 @@ class StorageFlexFlashCardConsts():
     OPERABILITY_UNKNOWN = "unknown"
     OPERABILITY_UPGRADE_PROBLEM = "upgrade-problem"
     OPERABILITY_VOLTAGE_PROBLEM = "voltage-problem"
+    PHYSICAL_BLOCK_SIZE_512 = "512"
     PHYSICAL_BLOCK_SIZE_UNKNOWN = "unknown"
     PRESENCE_EMPTY = "empty"
     PRESENCE_EQUIPPED = "equipped"
@@ -93,14 +96,14 @@ class StorageFlexFlashCard(ManagedObject):
     mo_meta = MoMeta("StorageFlexFlashCard", "storageFlexFlashCard", "card-[slot_number]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["read-only"], [u'storageFlexFlashController'], [u'storageFlexFlashDrive'], ["Get"])
 
     prop_meta = {
-        "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
+        "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 
         "card_health": MoPropertyMeta("card_health", "cardHealth", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["FF_PHY_HEALTH_NA", "FF_PHY_HEALTH_OK", "FF_PHY_RAID_OUT_OF_SYNC", "FF_PHY_RAID_SYNC_IN_PROGRESS", "FF_PHY_UNHEALTHY_IO_ERROR", "FF_PHY_UNHEALTHY_RAID"], []), 
         "card_mode": MoPropertyMeta("card_mode", "cardMode", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["FF_PHY_DRIVE_PRIMARY", "FF_PHY_DRIVE_SECONDARY_ACT", "FF_PHY_DRIVE_SECONDARY_UNHEALTHY", "FF_PHY_DRIVE_UNPAIRED_PRIMARY"], []), 
         "card_state": MoPropertyMeta("card_state", "cardState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["Active", "Configured", "Failed", "Ignored", "Initializing", "Undefined", "Unknown"], []), 
         "card_sync": MoPropertyMeta("card_sync", "cardSync", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["Auto", "Manual", "NA", "Unknown"], []), 
         "card_type": MoPropertyMeta("card_type", "cardType", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "connection_protocol": MoPropertyMeta("connection_protocol", "connectionProtocol", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["SAS", "SATA", "unspecified"], []), 
+        "connection_protocol": MoPropertyMeta("connection_protocol", "connectionProtocol", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NVME", "SAS", "SATA", "unspecified"], []), 
         "controller_index": MoPropertyMeta("controller_index", "controllerIndex", "ushort", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "drives_enabled": MoPropertyMeta("drives_enabled", "drivesEnabled", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
@@ -113,7 +116,7 @@ class StorageFlexFlashCard(ManagedObject):
         "oper_qualifier_reason": MoPropertyMeta("oper_qualifier_reason", "operQualifierReason", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
         "partition_count": MoPropertyMeta("partition_count", "partitionCount", "ushort", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
-        "physical_block_size": MoPropertyMeta("physical_block_size", "physicalBlockSize", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
+        "physical_block_size": MoPropertyMeta("physical_block_size", "physicalBlockSize", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 
         "presence": MoPropertyMeta("presence", "presence", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["empty", "equipped", "equipped-identity-unestablishable", "equipped-not-primary", "equipped-slave", "equipped-unsupported", "equipped-with-malformed-fru", "inaccessible", "mismatch", "mismatch-identity-unestablishable", "mismatch-slave", "missing", "missing-slave", "not-supported", "unauthorized", "unknown"], []), 
         "read_error_threshold": MoPropertyMeta("read_error_threshold", "readErrorThreshold", "uint", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "read_io_error_count": MoPropertyMeta("read_io_error_count", "readIOErrorCount", "uint", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

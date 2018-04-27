@@ -13,6 +13,7 @@ class StorageIniGroupConsts():
     OPER_STATE_MISCONFIGURED = "misconfigured"
     OPER_STATE_OK = "ok"
     OWNER_CONN_POLICY = "conn_policy"
+    OWNER_INITIATOR_POLICY = "initiator_policy"
     OWNER_LOGICAL = "logical"
     OWNER_PHYSICAL = "physical"
     OWNER_POLICY = "policy"
@@ -43,7 +44,7 @@ class StorageIniGroup(ManagedObject):
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x10, None, None, r"""[\-\.:_a-zA-Z0-9]{1,16}""", [], []), 
         "oper_protocol": MoPropertyMeta("oper_protocol", "operProtocol", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["derived", "fc", "iscsi"], []), 
         "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["misconfigured", "ok"], []), 
-        "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["conn_policy", "logical", "physical", "policy", "unknown"], []), 
+        "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["conn_policy", "initiator_policy", "logical", "physical", "policy", "unknown"], []), 
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_name": MoPropertyMeta("policy_name", "policyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
