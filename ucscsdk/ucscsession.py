@@ -247,7 +247,13 @@ class UcscSession(object):
         self.dump_xml_request(elem)
         xml_str = xc.to_xml_str(elem)
 
-        response_str = self.post_xml(xml_str, dme=dme)
+        response_str = ""
+        try:
+            response_str = self.post_xml(xml_str, dme=dme)
+        except:
+            self._tx_lock_release_conditional(elem)
+            raise
+
         self.dump_xml_response(response_str)
 
         try:
