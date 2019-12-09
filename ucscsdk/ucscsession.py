@@ -160,7 +160,7 @@ class UcscSession(object):
         self.__cookie = response.out_cookie
         self.__session_id = response.out_session_id
         self.__version = UcscVersion(response.out_version)
-        self.__refresh_period = response.out_refresh_period
+        self.__refresh_period = int(response.out_refresh_period)
         self.__priv = response.out_priv
         self.__domains = response.out_domains
         self.__channel = response.out_channel
