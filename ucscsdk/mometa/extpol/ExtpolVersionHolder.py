@@ -14,6 +14,7 @@ class ExtpolVersionHolderConsts():
     OPERATION_NO_OPERATION = "noOperation"
     PRODUCT_FAMILY_UCS_CLASSIC = "ucs-classic"
     PRODUCT_FAMILY_UCS_CLASSIC_3GEN = "ucs-classic-3gen"
+    PRODUCT_FAMILY_UCS_CLASSIC_4GEN = "ucs-classic-4gen"
     PRODUCT_FAMILY_UCS_MINI = "ucs-mini"
     VERSION_HOLDER_FALSE = "false"
     VERSION_HOLDER_NO = "no"
@@ -43,7 +44,7 @@ class ExtpolVersionHolder(ManagedObject):
         "ipv4": MoPropertyMeta("ipv4", "ipv4", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 
         "ipv6": MoPropertyMeta("ipv6", "ipv6", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "operation": MoPropertyMeta("operation", "operation", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["add", "delete", "noOperation"], []), 
-        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-mini"], []), 
+        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-classic-4gen", "ucs-mini"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "version_holder": MoPropertyMeta("version_holder", "versionHolder", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 

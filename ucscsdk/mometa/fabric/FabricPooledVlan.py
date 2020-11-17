@@ -23,7 +23,7 @@ class FabricPooledVlan(ManagedObject):
     mo_meta = MoMeta("FabricPooledVlan", "fabricPooledVlan", "net-[name]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricNetGroup'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
-        "assigned": MoPropertyMeta("assigned", "assigned", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
+        "assigned": MoPropertyMeta("assigned", "assigned", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "assigned_to_dn": MoPropertyMeta("assigned_to_dn", "assignedToDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "block_dn": MoPropertyMeta("block_dn", "blockDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

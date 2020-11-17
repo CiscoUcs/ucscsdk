@@ -16,16 +16,16 @@ class PolicyScope(ManagedObject):
     consts = PolicyScopeConsts()
     naming_props = set([u'policyType', u'resolveType', u'policyName'])
 
-    mo_meta = MoMeta("PolicyScope", "policyScope", "scope-[policy_type]-[resolve_type]-[policy_name]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["read-only"], [u'policyContext'], [u'policyPolicyDestClass', u'policyRequestor'], ["get"])
+    mo_meta = MoMeta("PolicyScope", "policyScope", "scope-[policy_type]-[resolve_type]-[policy_name]", VersionMeta.Version201a, "InputOutput", 0x7f, [], ["read-only"], [u'policyContext'], [u'policyPolicyDestClass', u'policyRequestor'], ["get"])
 
     prop_meta = {
-        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "policy_name": MoPropertyMeta("policy_name", "policyName", "string", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x4, 1, 510, None, [], []), 
-        "policy_type": MoPropertyMeta("policy_type", "policyType", "string", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x8, 1, 510, None, [], []), 
-        "resolve_type": MoPropertyMeta("resolve_type", "resolveType", "string", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x10, None, None, None, ["name", "rn"], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x20, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
+        "policy_name": MoPropertyMeta("policy_name", "policyName", "string", VersionMeta.Version201a, MoPropertyMeta.NAMING, 0x4, 1, 510, None, [], []), 
+        "policy_type": MoPropertyMeta("policy_type", "policyType", "string", VersionMeta.Version201a, MoPropertyMeta.NAMING, 0x8, 1, 510, None, [], []), 
+        "resolve_type": MoPropertyMeta("resolve_type", "resolveType", "string", VersionMeta.Version201a, MoPropertyMeta.NAMING, 0x10, None, None, None, ["name", "rn"], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x20, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }
 
     prop_map = {

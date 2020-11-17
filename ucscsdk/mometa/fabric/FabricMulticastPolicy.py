@@ -34,7 +34,7 @@ class FabricMulticastPolicy(ManagedObject):
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
         "querier_ip_addr": MoPropertyMeta("querier_ip_addr", "querierIpAddr", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 
-        "querier_ip_addr_peer": MoPropertyMeta("querier_ip_addr_peer", "querierIpAddrPeer", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x20, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 
+        "querier_ip_addr_peer": MoPropertyMeta("querier_ip_addr_peer", "querierIpAddrPeer", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x20, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 
         "querier_state": MoPropertyMeta("querier_state", "querierState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, ["disabled", "enabled"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x80, 0, 256, None, [], []), 
         "snooping_state": MoPropertyMeta("snooping_state", "snoopingState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x100, None, None, None, ["disabled", "enabled"], []), 

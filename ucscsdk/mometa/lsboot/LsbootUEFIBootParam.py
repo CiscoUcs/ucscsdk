@@ -15,7 +15,7 @@ class LsbootUEFIBootParam(ManagedObject):
     consts = LsbootUEFIBootParamConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("LsbootUEFIBootParam", "lsbootUEFIBootParam", "uefi-boot-param", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "ls-config-policy", "ls-server-policy", "ls-storage-policy"], [u'lsbootIScsiImagePath', u'lsbootLanImagePath', u'lsbootLocalHddImage', u'lsbootLocalLunImagePath', u'lsbootSanCatSanImagePath', u'lsbootSanImagePath'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LsbootUEFIBootParam", "lsbootUEFIBootParam", "uefi-boot-param", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "ls-config-policy", "ls-server-policy", "ls-storage-policy"], [u'lsbootDefaultLocalImage', u'lsbootEmbeddedLocalDiskImage', u'lsbootEmbeddedLocalDiskImagePath', u'lsbootEmbeddedLocalLunImage', u'lsbootIScsiImagePath', u'lsbootLanImagePath', u'lsbootLocalDiskImage', u'lsbootLocalDiskImagePath', u'lsbootLocalHddImage', u'lsbootLocalLunImagePath', u'lsbootNvme', u'lsbootSanCatSanImagePath', u'lsbootSanImagePath', u'lsbootUsbExternalImage', u'lsbootUsbFlashStorageImage', u'lsbootUsbInternalImage'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "boot_description": MoPropertyMeta("boot_description", "bootDescription", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, 0, 510, None, [], []), 

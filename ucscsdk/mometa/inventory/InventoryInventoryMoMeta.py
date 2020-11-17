@@ -15,18 +15,18 @@ class InventoryInventoryMoMeta(ManagedObject):
     consts = InventoryInventoryMoMetaConsts()
     naming_props = set([u'instId'])
 
-    mo_meta = MoMeta("InventoryInventoryMoMeta", "inventoryInventoryMoMeta", "mo-[inst_id]", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin", "operations"], [u'inventoryDomainEp', u'inventoryGlobalEp'], [], [None])
+    mo_meta = MoMeta("InventoryInventoryMoMeta", "inventoryInventoryMoMeta", "mo-[inst_id]", VersionMeta.Version201a, "InputOutput", 0xff, [], ["admin", "operations"], [u'inventoryDomainEp', u'inventoryGlobalEp'], [], [None])
 
     prop_meta = {
-        "admin_prop_mod": MoPropertyMeta("admin_prop_mod", "adminPropMod", "ulong", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 
-        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
-        "inst_id": MoPropertyMeta("inst_id", "instId", "uint", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x8, None, None, None, [], []), 
-        "latest_update_time": MoPropertyMeta("latest_update_time", "latestUpdateTime", "ulong", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, [], []), 
-        "mo_dn": MoPropertyMeta("mo_dn", "moDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "oper_prop_mod": MoPropertyMeta("oper_prop_mod", "operPropMod", "ulong", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, [], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x40, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x80, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "admin_prop_mod": MoPropertyMeta("admin_prop_mod", "adminPropMod", "ulong", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 
+        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
+        "inst_id": MoPropertyMeta("inst_id", "instId", "uint", VersionMeta.Version201a, MoPropertyMeta.NAMING, 0x8, None, None, None, [], []), 
+        "latest_update_time": MoPropertyMeta("latest_update_time", "latestUpdateTime", "ulong", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, [], []), 
+        "mo_dn": MoPropertyMeta("mo_dn", "moDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "oper_prop_mod": MoPropertyMeta("oper_prop_mod", "operPropMod", "ulong", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, [], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x40, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x80, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }
 
     prop_map = {

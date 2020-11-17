@@ -135,7 +135,7 @@ class DupeChangeTrackerEp(ManagedObject):
         "fsm_stamp": MoPropertyMeta("fsm_stamp", "fsmStamp", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", ["never"], []), 
         "fsm_status": MoPropertyMeta("fsm_status", "fsmStatus", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ConfigureBegin", "ConfigureFail", "ConfigureSendChange", "ConfigureSuccess", "nop"], []), 
         "fsm_try": MoPropertyMeta("fsm_try", "fsmTry", "byte", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
-        "latest_send_time": MoPropertyMeta("latest_send_time", "latestSendTime", "ulong", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, [], []), 
+        "latest_send_time": MoPropertyMeta("latest_send_time", "latestSendTime", "ulong", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }

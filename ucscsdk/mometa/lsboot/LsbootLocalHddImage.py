@@ -11,6 +11,7 @@ class LsbootLocalHddImageConsts():
     TYPE_LOCAL_ANY = "local-any"
     TYPE_LOCAL_JBOD = "local-jbod"
     TYPE_LOCAL_LUN = "local-lun"
+    TYPE_NVME = "nvme"
     TYPE_SD_CARD = "sd-card"
     TYPE_USB_EXTERN = "usb-extern"
     TYPE_USB_INTERN = "usb-intern"
@@ -30,7 +31,7 @@ class LsbootLocalHddImage(ManagedObject):
         "order": MoPropertyMeta("order", "order", "ushort", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, [], ["1-16"]), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["embedded-local-jbod", "embedded-local-lun", "local-any", "local-jbod", "local-lun", "sd-card", "usb-extern", "usb-intern"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["embedded-local-jbod", "embedded-local-lun", "local-any", "local-jbod", "local-lun", "nvme", "sd-card", "usb-extern", "usb-intern"], []), 
     }
 
     prop_map = {

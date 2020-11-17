@@ -24,7 +24,7 @@ class FabricSanPinTarget(ManagedObject):
     mo_meta = MoMeta("FabricSanPinTarget", "fabricSanPinTarget", "target-[fabric_id]", VersionMeta.Version141a, "InputOutput", 0x1ff, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricSanPinGroup'], [], ["Get"])
 
     prop_meta = {
-        "aggr_port_id": MoPropertyMeta("aggr_port_id", "aggrPortId", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], ["1-48"]), 
+        "aggr_port_id": MoPropertyMeta("aggr_port_id", "aggrPortId", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], ["1-108"]), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "ep_dn": MoPropertyMeta("ep_dn", "epDn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, 0, 256, None, [], []), 

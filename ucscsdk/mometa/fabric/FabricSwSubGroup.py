@@ -29,7 +29,7 @@ class FabricSwSubGroup(ManagedObject):
     mo_meta = MoMeta("FabricSwSubGroup", "fabricSwSubGroup", "sw-[switch_id]-slot-[slot_id]-aggr-port-[aggr_port_id]", VersionMeta.Version141a, "InputOutput", 0xff, [], ["admin", "ls-network", "ls-network-policy"], [u'fabricNetGroup', u'fabricVlan', u'fabricVsan'], [u'fabricEthVlanPortEp', u'fabricFcoeVsanPortEp'], ["Get"])
 
     prop_meta = {
-        "aggr_port_id": MoPropertyMeta("aggr_port_id", "aggrPortId", "uint", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x2, None, None, None, [], ["1-48"]), 
+        "aggr_port_id": MoPropertyMeta("aggr_port_id", "aggrPortId", "uint", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x2, None, None, None, [], ["1-108"]), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 

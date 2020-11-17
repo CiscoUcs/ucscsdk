@@ -38,6 +38,7 @@ class ConfigDomainFilterConsts():
     OPER_STATE_VERSION_MISMATCH = "version-mismatch"
     PRODUCT_FAMILY_UCS_CLASSIC = "ucs-classic"
     PRODUCT_FAMILY_UCS_CLASSIC_3GEN = "ucs-classic-3gen"
+    PRODUCT_FAMILY_UCS_CLASSIC_4GEN = "ucs-classic-4gen"
     PRODUCT_FAMILY_UCS_MINI = "ucs-mini"
     SUSPEND_STATE_OFF = "off"
     SUSPEND_STATE_ON = "on"
@@ -59,11 +60,11 @@ class ConfigDomainFilter(ManagedObject):
         "fault_level": MoPropertyMeta("fault_level", "faultLevel", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["cleared", "condition", "critical", "info", "major", "minor", "warning"], []), 
         "fw_oper_state": MoPropertyMeta("fw_oper_state", "fwOperState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["failed", "in-progress", "pending-user-ack", "ready", "scheduled", "start-pending-ext-permission"], []), 
         "fw_package_version": MoPropertyMeta("fw_package_version", "fwPackageVersion", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x40, 0, 510, None, [], []), 
-        "fw_service_pack_version": MoPropertyMeta("fw_service_pack_version", "fwServicePackVersion", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x80, 0, 510, None, [], []), 
+        "fw_service_pack_version": MoPropertyMeta("fw_service_pack_version", "fwServicePackVersion", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x80, 0, 510, None, [], []), 
         "inventory_status": MoPropertyMeta("inventory_status", "inventoryStatus", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x100, None, None, None, ["in-progress", "ok", "throttled"], []), 
         "lic_state": MoPropertyMeta("lic_state", "licState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, ["license-expired", "license-graceperiod", "license-insufficient", "license-ok", "not-applicable", "unknown"], []), 
         "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x400, None, None, None, ["lost-visibility", "registered", "registering", "synchronizing", "unregistered", "version-mismatch"], []), 
-        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x800, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-mini"], []), 
+        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x800, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-classic-4gen", "ucs-mini"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x1000, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2000, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "suspend_state": MoPropertyMeta("suspend_state", "suspendState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x4000, None, None, None, ["off", "on"], []), 

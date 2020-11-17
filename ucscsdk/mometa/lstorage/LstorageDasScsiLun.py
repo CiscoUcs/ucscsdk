@@ -57,7 +57,7 @@ class LstorageDasScsiLun(ManagedObject):
         "deferred_naming": MoPropertyMeta("deferred_naming", "deferredNaming", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["false", "no", "true", "yes"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
         "expand_to_avail": MoPropertyMeta("expand_to_avail", "expandToAvail", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["false", "no", "true", "yes"], []), 
-        "fractional_size": MoPropertyMeta("fractional_size", "fractionalSize", "ulong", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, [], ["0-1023"]), 
+        "fractional_size": MoPropertyMeta("fractional_size", "fractionalSize", "ulong", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, [], ["0-1023"]), 
         "local_disk_policy_name": MoPropertyMeta("local_disk_policy_name", "localDiskPolicyName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x80, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "lun_dn": MoPropertyMeta("lun_dn", "lunDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "lun_map_type": MoPropertyMeta("lun_map_type", "lunMapType", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x100, None, None, None, ["non-shared", "shared", "unassigned"], []), 

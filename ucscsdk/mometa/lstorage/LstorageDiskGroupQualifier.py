@@ -39,7 +39,7 @@ class LstorageDiskGroupQualifier(ManagedObject):
         "num_glob_hot_spares": MoPropertyMeta("num_glob_hot_spares", "numGlobHotSpares", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, ["unspecified"], ["0-60"]), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x80, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x100, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "use_jbod_disks": MoPropertyMeta("use_jbod_disks", "useJbodDisks", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, ["no", "yes"], []), 
+        "use_jbod_disks": MoPropertyMeta("use_jbod_disks", "useJbodDisks", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, ["no", "yes"], []), 
         "use_remaining_disks": MoPropertyMeta("use_remaining_disks", "useRemainingDisks", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x400, None, None, None, ["false", "no", "true", "yes"], []), 
     }
 
