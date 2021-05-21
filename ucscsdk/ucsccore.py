@@ -192,7 +192,7 @@ class BaseObject(UcscBase):
                     ucscgenutils.convert_to_python_var_name(attr_name),
                     str(attr_value))
 
-        child_elems = elem.getchildren()
+        child_elems = list(elem)
         if child_elems:
             for child_elem in child_elems:
                 if not ET.iselement(child_elem):
