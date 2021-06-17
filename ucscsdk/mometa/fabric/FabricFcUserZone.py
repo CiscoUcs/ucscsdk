@@ -28,22 +28,22 @@ class FabricFcUserZone(ManagedObject):
     consts = FabricFcUserZoneConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("FabricFcUserZone", "fabricFcUserZone", "zone-[name]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcZoneProfile'], [u'fabricFcEndpoint', u'messageEp', u'storageVsanRef'], [None])
+    mo_meta = MoMeta("FabricFcUserZone", "fabricFcUserZone", "zone-[name]", VersionMeta.Version201a, "InputOutput", 0x7f, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcZoneProfile'], [u'fabricFcEndpoint', u'messageEp', u'storageVsanRef'], [None])
 
     prop_meta = {
-        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "config_qualifier": MoPropertyMeta("config_qualifier", "configQualifier", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|none|zone-limit),){0,2}(defaultValue|none|zone-limit){0,1}""", [], []), 
-        "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["applied", "applying", "failed-to-apply", "not-applied"], []), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
-        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x4, None, None, r"""[\-\.:_a-zA-Z0-9]{2,16}""", [], []), 
-        "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["active", "create-failed", "created", "deleted", "not-active", "zone-merge-failure"], []), 
-        "path": MoPropertyMeta("path", "path", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
-        "peer_dn": MoPropertyMeta("peer_dn", "peerDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "vsan_name": MoPropertyMeta("vsan_name", "vsanName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""[\-\.:_a-zA-Z0-9]{1,32}""", [], []), 
-        "zone_name": MoPropertyMeta("zone_name", "zoneName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{1,64}""", [], []), 
+        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "config_qualifier": MoPropertyMeta("config_qualifier", "configQualifier", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|none|zone-limit),){0,2}(defaultValue|none|zone-limit){0,1}""", [], []), 
+        "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["applied", "applying", "failed-to-apply", "not-applied"], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
+        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version201a, MoPropertyMeta.NAMING, 0x4, None, None, r"""[\-\.:_a-zA-Z0-9]{2,16}""", [], []), 
+        "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["active", "create-failed", "created", "deleted", "not-active", "zone-merge-failure"], []), 
+        "path": MoPropertyMeta("path", "path", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
+        "peer_dn": MoPropertyMeta("peer_dn", "peerDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "vsan_name": MoPropertyMeta("vsan_name", "vsanName", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""[\-\.:_a-zA-Z0-9]{1,32}""", [], []), 
+        "zone_name": MoPropertyMeta("zone_name", "zoneName", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{1,64}""", [], []), 
     }
 
     prop_map = {

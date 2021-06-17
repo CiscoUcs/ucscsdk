@@ -8,6 +8,7 @@ from ...ucscmeta import VersionMeta
 class ExtpolDomainConsts():
     PRODUCT_FAMILY_UCS_CLASSIC = "ucs-classic"
     PRODUCT_FAMILY_UCS_CLASSIC_3GEN = "ucs-classic-3gen"
+    PRODUCT_FAMILY_UCS_CLASSIC_4GEN = "ucs-classic-4gen"
     PRODUCT_FAMILY_UCS_MINI = "ucs-mini"
 
 
@@ -24,7 +25,7 @@ class ExtpolDomain(ManagedObject):
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "guid": MoPropertyMeta("guid", "guid", "string", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x4, 1, 510, None, [], []), 
         "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
-        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-mini"], []), 
+        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-classic-4gen", "ucs-mini"], []), 
         "reg_count": MoPropertyMeta("reg_count", "regCount", "ulong", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 

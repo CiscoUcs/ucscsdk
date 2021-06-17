@@ -6,10 +6,13 @@ from ...ucscmeta import VersionMeta
 
 
 class FabricEthEstcEpOperationConsts():
+    ADMIN_SPEED_100GBPS = "100gbps"
     ADMIN_SPEED_10GBPS = "10gbps"
     ADMIN_SPEED_1GBPS = "1gbps"
     ADMIN_SPEED_20GBPS = "20gbps"
+    ADMIN_SPEED_25GBPS = "25gbps"
     ADMIN_SPEED_40GBPS = "40gbps"
+    ADMIN_SPEED_AUTO = "auto"
     ADMIN_SPEED_INDETERMINATE = "indeterminate"
     ADMIN_STATE_DISABLED = "disabled"
     ADMIN_STATE_ENABLED = "enabled"
@@ -157,7 +160,7 @@ class FabricEthEstcEpOperation(ManagedObject):
     mo_meta = MoMeta("FabricEthEstcEpOperation", "fabricEthEstcEpOperation", "remoper-phys-eth-slot-[slot_id]-port-[port_id]", VersionMeta.Version141a, "InputOutput", 0xffff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthEstc', u'fabricSubGroup'], [u'eventInst', u'fabricEthEstcEpOperationFsm', u'fabricEthMonSrcEpOperation', u'fabricEthPortOperationFsm', u'fabricEthTargetEpOperation', u'fabricFIPortOperationFsm', u'fabricFIPortOperationFsmTask', u'faultInst', u'messageEp', u'vnicEther'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
-        "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["10gbps", "1gbps", "20gbps", "40gbps", "indeterminate"], []), 
+        "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["100gbps", "10gbps", "1gbps", "20gbps", "25gbps", "40gbps", "auto", "indeterminate"], []), 
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["disabled", "enabled", "remoteTrigger", "remove"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
@@ -177,7 +180,7 @@ class FabricEthEstcEpOperation(ManagedObject):
         "nw_ctrl_policy_name": MoPropertyMeta("nw_ctrl_policy_name", "nwCtrlPolicyName", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "oper_nw_ctrl_policy_name": MoPropertyMeta("oper_nw_ctrl_policy_name", "operNwCtrlPolicyName", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "pin_group_name": MoPropertyMeta("pin_group_name", "pinGroupName", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x40, 0, 510, None, [], []), 
-        "port_id": MoPropertyMeta("port_id", "portId", "uint", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x80, None, None, None, [], ["1-48"]), 
+        "port_id": MoPropertyMeta("port_id", "portId", "uint", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x80, None, None, None, [], ["1-108"]), 
         "port_mode": MoPropertyMeta("port_mode", "portMode", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x100, None, None, None, ["access", "trunk"], []), 
         "prio": MoPropertyMeta("prio", "prio", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, ["best-effort", "bronze", "fc", "gold", "platinum", "silver", "unknown"], []), 
         "remote_error_code": MoPropertyMeta("remote_error_code", "remoteErrorCode", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

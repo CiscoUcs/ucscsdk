@@ -140,10 +140,13 @@ class FabricDceSwSrvPcOperationConsts():
     IF_ROLE_SERVICE = "service"
     IF_ROLE_STORAGE = "storage"
     IF_ROLE_UNKNOWN = "unknown"
+    OPER_SPEED_100GBPS = "100gbps"
     OPER_SPEED_10GBPS = "10gbps"
     OPER_SPEED_1GBPS = "1gbps"
     OPER_SPEED_20GBPS = "20gbps"
+    OPER_SPEED_25GBPS = "25gbps"
     OPER_SPEED_40GBPS = "40gbps"
+    OPER_SPEED_AUTO = "auto"
     OPER_SPEED_INDETERMINATE = "indeterminate"
     TRIGGER_STATUS_TRIGGER_ACKED = "trigger-acked"
     TRIGGER_STATUS_TRIGGER_FAILED = "trigger-failed"
@@ -179,7 +182,7 @@ class FabricDceSwSrvPcOperation(ManagedObject):
         "if_role": MoPropertyMeta("if_role", "ifRole", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["diag", "fcoe-nas-storage", "fcoe-storage", "fcoe-uplink", "mgmt", "monitor", "nas-storage", "network", "network-fcoe-uplink", "server", "service", "storage", "unknown"], []), 
         "last_modified": MoPropertyMeta("last_modified", "lastModified", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "oper_speed": MoPropertyMeta("oper_speed", "operSpeed", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["10gbps", "1gbps", "20gbps", "40gbps", "indeterminate"], []), 
+        "oper_speed": MoPropertyMeta("oper_speed", "operSpeed", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["100gbps", "10gbps", "1gbps", "20gbps", "25gbps", "40gbps", "auto", "indeterminate"], []), 
         "port_id": MoPropertyMeta("port_id", "portId", "uint", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x20, None, None, None, [], ["1024-4096"]), 
         "remote_error_code": MoPropertyMeta("remote_error_code", "remoteErrorCode", "uint", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "remote_error_descr": MoPropertyMeta("remote_error_descr", "remoteErrorDescr", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

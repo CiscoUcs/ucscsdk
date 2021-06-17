@@ -69,7 +69,7 @@ class FabricVlan(ManagedObject):
     consts = FabricVlanConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("FabricVlan", "fabricVlan", "net-[name]", VersionMeta.Version111a, "InputOutput", 0xfff, [], ["admin", "ext-lan-config", "ext-lan-policy", "ls-network"], [u'fabricEthEstcCloud', u'fabricLanCloud'], [u'fabricConsumer', u'fabricEthMonSrcEp', u'fabricEthMonSrcEpOperation', u'fabricEthVlanPc', u'fabricEthVlanPortEp', u'fabricEtherRef', u'fabricExtension', u'fabricSwSubGroup', u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricVlan", "fabricVlan", "net-[name]", VersionMeta.Version111a, "InputOutput", 0xfff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthEstcCloud', u'fabricLanCloud'], [u'fabricConsumer', u'fabricEthMonSrcEp', u'fabricEthMonSrcEpOperation', u'fabricEthVlanPc', u'fabricEthVlanPortEp', u'fabricEtherRef', u'fabricExtension', u'fabricSwSubGroup', u'faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "assoc_primary_vlan_state": MoPropertyMeta("assoc_primary_vlan_state", "assocPrimaryVlanState", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["does-not-exists", "is-empty", "is-in-error-state", "is-not-primary-type", "ok"], []), 
@@ -83,7 +83,7 @@ class FabricVlan(ManagedObject):
         "ep_dn": MoPropertyMeta("ep_dn", "epDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "flt_aggr": MoPropertyMeta("flt_aggr", "fltAggr", "ulong", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "r_global": MoPropertyMeta("r_global", "global", "ulong", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
-        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, [], ["1-4029", "4048-4093"]), 
+        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, [], ["1-4042", "4048-4093"]), 
         "if_role": MoPropertyMeta("if_role", "ifRole", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["diag", "fcoe-nas-storage", "fcoe-storage", "fcoe-uplink", "mgmt", "monitor", "nas-storage", "network", "network-fcoe-uplink", "server", "service", "storage", "unknown"], []), 
         "if_type": MoPropertyMeta("if_type", "ifType", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["aggregation", "physical", "unknown", "virtual"], []), 
         "local": MoPropertyMeta("local", "local", "ulong", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

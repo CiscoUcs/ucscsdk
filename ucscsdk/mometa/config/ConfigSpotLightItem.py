@@ -15,28 +15,28 @@ class ConfigSpotLightItem(ManagedObject):
     consts = ConfigSpotLightItemConsts()
     naming_props = set([u'compositeId'])
 
-    mo_meta = MoMeta("ConfigSpotLightItem", "configSpotLightItem", "spotlight-[composite_id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin"], [], [], [None])
+    mo_meta = MoMeta("ConfigSpotLightItem", "configSpotLightItem", "spotlight-[composite_id]", VersionMeta.Version201a, "InputOutput", 0x1f, [], ["admin"], [], [], [None])
 
     prop_meta = {
-        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "composite_id": MoPropertyMeta("composite_id", "compositeId", "string", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x2, 1, 510, None, [], []), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
-        "oper_category": MoPropertyMeta("oper_category", "operCategory", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_dn": MoPropertyMeta("oper_dn", "operDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_domain_dn": MoPropertyMeta("oper_domain_dn", "operDomainDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_domain_group_dn": MoPropertyMeta("oper_domain_group_dn", "operDomainGroupDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_id": MoPropertyMeta("oper_id", "operId", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_name": MoPropertyMeta("oper_name", "operName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_org_dn": MoPropertyMeta("oper_org_dn", "operOrgDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_search_field": MoPropertyMeta("oper_search_field", "operSearchField", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_sec_search_field": MoPropertyMeta("oper_sec_search_field", "operSecSearchField", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_src_dme": MoPropertyMeta("oper_src_dme", "operSrcDme", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_sub_type": MoPropertyMeta("oper_sub_type", "operSubType", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_third_search_field": MoPropertyMeta("oper_third_search_field", "operThirdSearchField", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_type": MoPropertyMeta("oper_type", "operType", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
-        "score": MoPropertyMeta("score", "score", "float", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "composite_id": MoPropertyMeta("composite_id", "compositeId", "string", VersionMeta.Version201a, MoPropertyMeta.NAMING, 0x2, 1, 510, None, [], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
+        "oper_category": MoPropertyMeta("oper_category", "operCategory", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_dn": MoPropertyMeta("oper_dn", "operDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_domain_dn": MoPropertyMeta("oper_domain_dn", "operDomainDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_domain_group_dn": MoPropertyMeta("oper_domain_group_dn", "operDomainGroupDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_id": MoPropertyMeta("oper_id", "operId", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_name": MoPropertyMeta("oper_name", "operName", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_org_dn": MoPropertyMeta("oper_org_dn", "operOrgDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_search_field": MoPropertyMeta("oper_search_field", "operSearchField", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_sec_search_field": MoPropertyMeta("oper_sec_search_field", "operSecSearchField", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_src_dme": MoPropertyMeta("oper_src_dme", "operSrcDme", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_sub_type": MoPropertyMeta("oper_sub_type", "operSubType", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_third_search_field": MoPropertyMeta("oper_third_search_field", "operThirdSearchField", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oper_type": MoPropertyMeta("oper_type", "operType", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
+        "score": MoPropertyMeta("score", "score", "float", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }
 
     prop_map = {

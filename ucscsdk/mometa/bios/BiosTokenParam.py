@@ -18,6 +18,7 @@ class BiosTokenParam(ManagedObject):
     mo_meta = MoMeta("BiosTokenParam", "biosTokenParam", "tokn-param-[target_token_name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-policy", "pn-policy"], [u'biosTokenFeatureGroup'], [u'biosTokenSettings'], [None])
 
     prop_meta = {
+        "type": MoPropertyMeta("type", "Type", "string", VersionMeta.Version201k, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "legacy_prop_id": MoPropertyMeta("legacy_prop_id", "legacyPropId", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
@@ -29,6 +30,7 @@ class BiosTokenParam(ManagedObject):
     }
 
     prop_map = {
+        "Type": "type", 
         "childAction": "child_action", 
         "dn": "dn", 
         "legacyPropId": "legacy_prop_id", 
@@ -42,6 +44,7 @@ class BiosTokenParam(ManagedObject):
     def __init__(self, parent_mo_or_dn, target_token_name, **kwargs):
         self._dirty_mask = 0
         self.target_token_name = target_token_name
+        self.type = None
         self.child_action = None
         self.legacy_prop_id = None
         self.param_name = None

@@ -42,7 +42,7 @@ class ConfigFabricInterconnectFilter(ManagedObject):
         "domain_name": MoPropertyMeta("domain_name", "domainName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "fault_level": MoPropertyMeta("fault_level", "faultLevel", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["cleared", "condition", "critical", "info", "major", "minor", "warning"], []), 
         "fw_oper_state": MoPropertyMeta("fw_oper_state", "fwOperState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, ["activating", "bad-image", "failed", "pending-next-boot", "ready", "rebooting", "scheduled", "set-startup", "throttled", "updating", "upgrading"], []), 
-        "fw_service_pack_version": MoPropertyMeta("fw_service_pack_version", "fwServicePackVersion", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x80, 0, 510, None, [], []), 
+        "fw_service_pack_version": MoPropertyMeta("fw_service_pack_version", "fwServicePackVersion", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x80, 0, 510, None, [], []), 
         "fw_version": MoPropertyMeta("fw_version", "fwVersion", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x100, 0, 510, None, [], []), 
         "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x200, 0, 510, None, [], []), 
         "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x400, None, None, None, [], []), 

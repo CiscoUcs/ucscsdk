@@ -30,23 +30,23 @@ class DiagRslt(ManagedObject):
     consts = DiagRsltConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("DiagRslt", "diagRslt", "rslt-[id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], [""], [u'diagSrvCtrl'], [u'diagLogEp'], ["get"])
+    mo_meta = MoMeta("DiagRslt", "diagRslt", "rslt-[id]", VersionMeta.Version201a, "InputOutput", 0x1f, [], [""], [u'diagSrvCtrl'], [u'diagLogEp'], ["get"])
 
     prop_meta = {
-        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "end_ts": MoPropertyMeta("end_ts", "endTs", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
-        "est_prog_weight": MoPropertyMeta("est_prog_weight", "estProgWeight", "uint", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
-        "id": MoPropertyMeta("id", "id", "byte", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x4, None, None, None, [], []), 
-        "progress": MoPropertyMeta("progress", "progress", "byte", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, [], ["0-100"]), 
-        "result": MoPropertyMeta("result", "result", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["fail", "na", "pass", "unknown"], ["0-4294967295"]), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
-        "rslt_status": MoPropertyMeta("rslt_status", "rsltStatus", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cancelled", "completed", "failed", "idle", "in-progress", "unknown"], []), 
-        "start_ts": MoPropertyMeta("start_ts", "startTs", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "test_dn": MoPropertyMeta("test_dn", "testDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "test_type": MoPropertyMeta("test_type", "testType", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disk", "memtest", "pci", "pmem2", "processor", "stress"], []), 
+        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
+        "end_ts": MoPropertyMeta("end_ts", "endTs", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
+        "est_prog_weight": MoPropertyMeta("est_prog_weight", "estProgWeight", "uint", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "id": MoPropertyMeta("id", "id", "byte", VersionMeta.Version201a, MoPropertyMeta.NAMING, 0x4, None, None, None, [], []), 
+        "progress": MoPropertyMeta("progress", "progress", "byte", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], ["0-100"]), 
+        "result": MoPropertyMeta("result", "result", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["fail", "na", "pass", "unknown"], ["0-4294967295"]), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
+        "rslt_status": MoPropertyMeta("rslt_status", "rsltStatus", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cancelled", "completed", "failed", "idle", "in-progress", "unknown"], []), 
+        "start_ts": MoPropertyMeta("start_ts", "startTs", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "test_dn": MoPropertyMeta("test_dn", "testDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "test_type": MoPropertyMeta("test_type", "testType", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disk", "memtest", "pci", "pmem2", "processor", "stress"], []), 
     }
 
     prop_map = {

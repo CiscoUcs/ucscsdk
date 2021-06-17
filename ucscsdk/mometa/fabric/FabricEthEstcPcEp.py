@@ -9,6 +9,7 @@ class FabricEthEstcPcEpConsts():
     ADMIN_SPEED_16GBPS = "16gbps"
     ADMIN_SPEED_1GBPS = "1gbps"
     ADMIN_SPEED_2GBPS = "2gbps"
+    ADMIN_SPEED_32GBPS = "32gbps"
     ADMIN_SPEED_4GBPS = "4gbps"
     ADMIN_SPEED_8GBPS = "8gbps"
     ADMIN_SPEED_AUTO = "auto"
@@ -75,7 +76,7 @@ class FabricEthEstcPcEp(ManagedObject):
     mo_meta = MoMeta("FabricEthEstcPcEp", "fabricEthEstcPcEp", "ep-slot-[slot_id]-port-[port_id]", VersionMeta.Version141a, "InputOutput", 0x7ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthEstcPc', u'fabricSubGroup'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
-        "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["16gbps", "1gbps", "2gbps", "4gbps", "8gbps", "auto", "indeterminate"], []), 
+        "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["16gbps", "1gbps", "2gbps", "32gbps", "4gbps", "8gbps", "auto", "indeterminate"], []), 
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["disabled", "enabled"], []), 
         "aggr_port_id": MoPropertyMeta("aggr_port_id", "aggrPortId", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "auto_negotiate": MoPropertyMeta("auto_negotiate", "autoNegotiate", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["false", "no", "true", "yes"], []), 
@@ -99,7 +100,7 @@ class FabricEthEstcPcEp(ManagedObject):
         "peer_dn": MoPropertyMeta("peer_dn", "peerDn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "peer_port_id": MoPropertyMeta("peer_port_id", "peerPortId", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "peer_slot_id": MoPropertyMeta("peer_slot_id", "peerSlotId", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
-        "port_id": MoPropertyMeta("port_id", "portId", "uint", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x40, None, None, None, [], ["1-48"]), 
+        "port_id": MoPropertyMeta("port_id", "portId", "uint", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x40, None, None, None, [], ["1-108"]), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x80, 0, 256, None, [], []), 
         "slot_id": MoPropertyMeta("slot_id", "slotId", "uint", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x100, None, None, None, [], ["1-4"]), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x200, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 

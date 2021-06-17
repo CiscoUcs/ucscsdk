@@ -93,7 +93,7 @@ class DomainServiceProfileItem(ManagedObject):
         "org_dn": MoPropertyMeta("org_dn", "orgDn", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "org_name": MoPropertyMeta("org_name", "orgName", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
-        "server_dn": MoPropertyMeta("server_dn", "serverDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "server_dn": MoPropertyMeta("server_dn", "serverDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "server_id": MoPropertyMeta("server_id", "serverId", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "service_profile_dn": MoPropertyMeta("service_profile_dn", "serviceProfileDn", "string", VersionMeta.Version121a, MoPropertyMeta.NAMING, 0x8, 1, 510, None, [], []), 
         "service_profile_name": MoPropertyMeta("service_profile_name", "serviceProfileName", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

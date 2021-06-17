@@ -15,7 +15,7 @@ class AdaptorRssProfile(ManagedObject):
     consts = AdaptorRssProfileConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorRssProfile", "adaptorRssProfile", "rss", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], [u'adaptorHostEthIfProfile', u'adaptorUsnicConnDef'], [], ["Get", "Set"])
+    mo_meta = MoMeta("AdaptorRssProfile", "adaptorRssProfile", "rss", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], [u'adaptorHostEthIfProfile', u'adaptorUsnicConnDef', u'adaptorVmmqConnDef'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

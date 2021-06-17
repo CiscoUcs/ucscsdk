@@ -98,7 +98,7 @@ class VnicMgmt(ManagedObject):
         "inst_type": MoPropertyMeta("inst_type", "instType", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["default", "dynamic", "dynamic-vf", "manual"], []), 
         "ip_v4_state": MoPropertyMeta("ip_v4_state", "ipV4State", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x100, None, None, None, ["none", "pooled", "static"], []), 
         "ip_v6_state": MoPropertyMeta("ip_v6_state", "ipV6State", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, ["none", "pooled", "static"], []), 
-        "is_default_derived": MoPropertyMeta("is_default_derived", "isDefaultDerived", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
+        "is_default_derived": MoPropertyMeta("is_default_derived", "isDefaultDerived", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "mode": MoPropertyMeta("mode", "mode", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["in-band"], []), 
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x400, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "nw_templ_name": MoPropertyMeta("nw_templ_name", "nwTemplName", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x800, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

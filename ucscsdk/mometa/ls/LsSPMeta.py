@@ -43,7 +43,7 @@ class LsSPMeta(ManagedObject):
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "config_qualifier": MoPropertyMeta("config_qualifier", "configQualifier", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|not-applicable|ungrouped-domain),){0,2}(defaultValue|not-applicable|ungrouped-domain){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "globalization_state": MoPropertyMeta("globalization_state", "globalizationState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["Globalized", "globalizing", "no-op"], []), 
+        "globalization_state": MoPropertyMeta("globalization_state", "globalizationState", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["Globalized", "globalizing", "no-op"], []), 
         "guid": MoPropertyMeta("guid", "guid", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "is_rename": MoPropertyMeta("is_rename", "isRename", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "need_id_re_evaluate": MoPropertyMeta("need_id_re_evaluate", "needIdReEvaluate", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["no", "yes"], []), 

@@ -25,7 +25,7 @@ class IppoolIpV6Pooled(ManagedObject):
     mo_meta = MoMeta("IppoolIpV6Pooled", "ippoolIpV6Pooled", "[id]", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["read-only"], [u'ippoolPool'], [], ["Get"])
 
     prop_meta = {
-        "assigned": MoPropertyMeta("assigned", "assigned", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
+        "assigned": MoPropertyMeta("assigned", "assigned", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "assigned_to_dn": MoPropertyMeta("assigned_to_dn", "assignedToDn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "block_dn": MoPropertyMeta("block_dn", "blockDn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

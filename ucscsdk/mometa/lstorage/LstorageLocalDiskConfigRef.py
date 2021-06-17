@@ -26,7 +26,7 @@ class LstorageLocalDiskConfigRef(ManagedObject):
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "role": MoPropertyMeta("role", "role", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["ded-hot-spare", "glob-hot-spare", "normal", "unknown"], []), 
-        "slot_num": MoPropertyMeta("slot_num", "slotNum", "ushort", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x10, None, None, None, [], ["1-205"]), 
+        "slot_num": MoPropertyMeta("slot_num", "slotNum", "ushort", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x10, None, None, None, [], ["1-254"]), 
         "span_id": MoPropertyMeta("span_id", "spanId", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["unspecified"], ["0-8"]), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }

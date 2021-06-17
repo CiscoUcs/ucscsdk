@@ -9,6 +9,7 @@ class FabricFcMonDestEpConsts():
     ADMIN_SPEED_16GBPS = "16gbps"
     ADMIN_SPEED_1GBPS = "1gbps"
     ADMIN_SPEED_2GBPS = "2gbps"
+    ADMIN_SPEED_32GBPS = "32gbps"
     ADMIN_SPEED_4GBPS = "4gbps"
     ADMIN_SPEED_8GBPS = "8gbps"
     ADMIN_SPEED_AUTO = "auto"
@@ -65,7 +66,7 @@ class FabricFcMonDestEp(ManagedObject):
     mo_meta = MoMeta("FabricFcMonDestEp", "fabricFcMonDestEp", "dest-slot-[slot_id]-port-[port_id]", VersionMeta.Version151a, "InputOutput", 0xfff, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcMon', u'fabricFcMonOperation'], [], ["Get"])
 
     prop_meta = {
-        "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["16gbps", "1gbps", "2gbps", "4gbps", "8gbps", "auto", "indeterminate"], []), 
+        "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["16gbps", "1gbps", "2gbps", "32gbps", "4gbps", "8gbps", "auto", "indeterminate"], []), 
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["disabled", "enabled"], []), 
         "aggr_port_id": MoPropertyMeta("aggr_port_id", "aggrPortId", "uint", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "auto_negotiate": MoPropertyMeta("auto_negotiate", "autoNegotiate", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["false", "no", "true", "yes"], []), 
@@ -94,7 +95,7 @@ class FabricFcMonDestEp(ManagedObject):
         "switch_id": MoPropertyMeta("switch_id", "switchId", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
         "transport": MoPropertyMeta("transport", "transport", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|ether|dce|fc),){0,4}(defaultValue|unknown|ether|dce|fc){0,1}""", [], []), 
         "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|lan|san|ipc),){0,4}(defaultValue|unknown|lan|san|ipc){0,1}""", [], []), 
-        "usr_lbl": MoPropertyMeta("usr_lbl", "usrLbl", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x800, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
+        "usr_lbl": MoPropertyMeta("usr_lbl", "usrLbl", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x800, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 
         "warnings": MoPropertyMeta("warnings", "warnings", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|none|fc-zoning-enabled|configuration-error),){0,3}(defaultValue|none|fc-zoning-enabled|configuration-error){0,1}""", [], []), 
     }
 

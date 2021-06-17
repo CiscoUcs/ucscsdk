@@ -34,7 +34,7 @@ class IdentpoolConsumed(ManagedObject):
         "cons_type": MoPropertyMeta("cons_type", "consType", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["chassis", "server", "vhba", "vm", "vmnic", "vnic"], []), 
         "defined_in_idm": MoPropertyMeta("defined_in_idm", "definedInIdm", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["no", "yes"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "domain_id": MoPropertyMeta("domain_id", "domainId", "uint", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "domain_id": MoPropertyMeta("domain_id", "domainId", "uint", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "id": MoPropertyMeta("id", "id", "ulong", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, [], []), 
         "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["end-point", "pool"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 

@@ -63,7 +63,7 @@ class MgmtEntity(ManagedObject):
         "ha_readiness": MoPropertyMeta("ha_readiness", "haReadiness", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "ha_ready": MoPropertyMeta("ha_ready", "haReady", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "id": MoPropertyMeta("id", "id", "string", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x4, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
-        "lead_id_for_auto_install": MoPropertyMeta("lead_id_for_auto_install", "leadIdForAutoInstall", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
+        "lead_id_for_auto_install": MoPropertyMeta("lead_id_for_auto_install", "leadIdForAutoInstall", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
         "leadership": MoPropertyMeta("leadership", "leadership", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "mgmt_services_state": MoPropertyMeta("mgmt_services_state", "mgmtServicesState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "problems": MoPropertyMeta("problems", "problems", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

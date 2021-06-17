@@ -10,6 +10,9 @@ class AdaptorFruCapProviderConsts():
     DEPRECATED_NO = "no"
     DEPRECATED_TRUE = "true"
     DEPRECATED_YES = "yes"
+    FORM_ON_BOARD = "on-board"
+    FORM_PCI = "pci"
+    FORM_UNKNOWN = "unknown"
 
 
 class AdaptorFruCapProvider(ManagedObject):
@@ -24,6 +27,7 @@ class AdaptorFruCapProvider(ManagedObject):
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "deprecated": MoPropertyMeta("deprecated", "deprecated", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
+        "form": MoPropertyMeta("form", "form", "string", VersionMeta.Version201f, MoPropertyMeta.READ_ONLY, None, None, None, None, ["on-board", "pci", "unknown"], []), 
         "gencount": MoPropertyMeta("gencount", "gencount", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "mgmt_plane_ver": MoPropertyMeta("mgmt_plane_ver", "mgmtPlaneVer", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x4, 1, 510, None, [], []), 
@@ -38,6 +42,7 @@ class AdaptorFruCapProvider(ManagedObject):
         "childAction": "child_action", 
         "deprecated": "deprecated", 
         "dn": "dn", 
+        "form": "form", 
         "gencount": "gencount", 
         "mgmtPlaneVer": "mgmt_plane_ver", 
         "model": "model", 
@@ -55,6 +60,7 @@ class AdaptorFruCapProvider(ManagedObject):
         self.revision = revision
         self.child_action = None
         self.deprecated = None
+        self.form = None
         self.gencount = None
         self.mgmt_plane_ver = None
         self.prom_card_type = None

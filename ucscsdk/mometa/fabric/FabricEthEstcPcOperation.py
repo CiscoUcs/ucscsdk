@@ -6,10 +6,13 @@ from ...ucscmeta import VersionMeta
 
 
 class FabricEthEstcPcOperationConsts():
+    ADMIN_SPEED_100GBPS = "100gbps"
     ADMIN_SPEED_10GBPS = "10gbps"
     ADMIN_SPEED_1GBPS = "1gbps"
     ADMIN_SPEED_20GBPS = "20gbps"
+    ADMIN_SPEED_25GBPS = "25gbps"
     ADMIN_SPEED_40GBPS = "40gbps"
+    ADMIN_SPEED_AUTO = "auto"
     ADMIN_SPEED_INDETERMINATE = "indeterminate"
     ADMIN_STATE_DISABLED = "disabled"
     ADMIN_STATE_ENABLED = "enabled"
@@ -156,7 +159,7 @@ class FabricEthEstcPcOperation(ManagedObject):
     mo_meta = MoMeta("FabricEthEstcPcOperation", "fabricEthEstcPcOperation", "remoper-pc-[port_id]", VersionMeta.Version141a, "InputOutput", 0x3ffff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthEstc'], [u'eventInst', u'fabricEthEstcPcEpOperation', u'fabricEthEstcPcOperationFsm', u'fabricEthPortOperationFsm', u'fabricEthTargetEpOperation', u'fabricFIPortOperationFsm', u'fabricFIPortOperationFsmTask', u'fabricSubGroup', u'faultInst', u'messageEp', u'vnicEther'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
-        "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["10gbps", "1gbps", "20gbps", "40gbps", "indeterminate"], []), 
+        "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["100gbps", "10gbps", "1gbps", "20gbps", "25gbps", "40gbps", "auto", "indeterminate"], []), 
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["disabled", "enabled"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 

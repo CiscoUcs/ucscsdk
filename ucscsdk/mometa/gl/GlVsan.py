@@ -42,26 +42,26 @@ class GlVsan(ManagedObject):
     consts = GlVsanConsts()
     naming_props = set([u'id'])
 
-    mo_meta = MoMeta("GlVsan", "glVsan", "vsan-[id]", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin"], [u'glVnetInvHolder'], [u'messageEp'], [None])
+    mo_meta = MoMeta("GlVsan", "glVsan", "vsan-[id]", VersionMeta.Version201a, "InputOutput", 0x3f, [], ["admin"], [u'glVnetInvHolder'], [u'messageEp'], [None])
 
     prop_meta = {
-        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "context_dn": MoPropertyMeta("context_dn", "contextDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, 0, 256, None, [], []), 
-        "deploy_dn": MoPropertyMeta("deploy_dn", "deployDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
-        "globalized_dn": MoPropertyMeta("globalized_dn", "globalizedDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x8, None, None, None, [], []), 
-        "if_role": MoPropertyMeta("if_role", "ifRole", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["diag", "fcoe-nas-storage", "fcoe-storage", "fcoe-uplink", "mgmt", "monitor", "nas-storage", "network", "network-fcoe-uplink", "server", "service", "storage", "unknown"], []), 
-        "inv_dn": MoPropertyMeta("inv_dn", "invDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["Conflict", "ConflictResolved", "FailedToGlobalize", "Globalized", "Globalizing", "NotConflict", "NotEvaluated"], []), 
-        "policy_class_name": MoPropertyMeta("policy_class_name", "policyClassName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "switch_id": MoPropertyMeta("switch_id", "switchId", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|lan|san|ipc),){0,4}(defaultValue|unknown|lan|san|ipc){0,1}""", [], []), 
-        "vnet_id": MoPropertyMeta("vnet_id", "vnetId", "uint", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, [], ["1-4093"]), 
+        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "context_dn": MoPropertyMeta("context_dn", "contextDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x2, 0, 256, None, [], []), 
+        "deploy_dn": MoPropertyMeta("deploy_dn", "deployDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
+        "globalized_dn": MoPropertyMeta("globalized_dn", "globalizedDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version201a, MoPropertyMeta.NAMING, 0x8, None, None, None, [], []), 
+        "if_role": MoPropertyMeta("if_role", "ifRole", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["diag", "fcoe-nas-storage", "fcoe-storage", "fcoe-uplink", "mgmt", "monitor", "nas-storage", "network", "network-fcoe-uplink", "server", "service", "storage", "unknown"], []), 
+        "inv_dn": MoPropertyMeta("inv_dn", "invDn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["Conflict", "ConflictResolved", "FailedToGlobalize", "Globalized", "Globalizing", "NotConflict", "NotEvaluated"], []), 
+        "policy_class_name": MoPropertyMeta("policy_class_name", "policyClassName", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "switch_id": MoPropertyMeta("switch_id", "switchId", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["A", "B", "NONE", "mgmt"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|lan|san|ipc),){0,4}(defaultValue|unknown|lan|san|ipc){0,1}""", [], []), 
+        "vnet_id": MoPropertyMeta("vnet_id", "vnetId", "uint", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], ["1-4093"]), 
     }
 
     prop_map = {

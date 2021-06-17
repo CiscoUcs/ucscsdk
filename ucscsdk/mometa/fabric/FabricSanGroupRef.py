@@ -17,17 +17,17 @@ class FabricSanGroupRef(ManagedObject):
     consts = FabricSanGroupRefConsts()
     naming_props = set([u'name'])
 
-    mo_meta = MoMeta("FabricSanGroupRef", "fabricSanGroupRef", "san-group-ref-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin", "ls-config", "ls-network", "ls-server"], [u'dcxVc', u'vnicLanConnTempl', u'vnicSanConnTempl'], [u'faultInst'], [None])
+    mo_meta = MoMeta("FabricSanGroupRef", "fabricSanGroupRef", "san-group-ref-[name]", VersionMeta.Version201a, "InputOutput", 0x1f, [], ["admin", "ls-config", "ls-network", "ls-server"], [u'dcxVc', u'vnicLanConnTempl', u'vnicSanConnTempl'], [u'faultInst'], [None])
 
     prop_meta = {
-        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x4, None, None, r"""[\-\.:_a-zA-Z0-9]{1,16}""", [], []), 
-        "oper_name": MoPropertyMeta("oper_name", "operName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "oper_net_group_name": MoPropertyMeta("oper_net_group_name", "operNetGroupName", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
-        "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["policy-external", "policy-global", "policy-local"], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
+        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version201a, MoPropertyMeta.NAMING, 0x4, None, None, r"""[\-\.:_a-zA-Z0-9]{1,16}""", [], []), 
+        "oper_name": MoPropertyMeta("oper_name", "operName", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
+        "oper_net_group_name": MoPropertyMeta("oper_net_group_name", "operNetGroupName", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["policy-external", "policy-global", "policy-local"], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }
 
     prop_map = {

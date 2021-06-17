@@ -18,17 +18,17 @@ class InventoryDomainEp(ManagedObject):
     consts = InventoryDomainEpConsts()
     naming_props = set([u'sysId'])
 
-    mo_meta = MoMeta("InventoryDomainEp", "inventoryDomainEp", "domain-[sys_id]", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin", "operations"], [u'inventoryHolder'], [u'inventoryInventoryMoMeta'], ["get", "set"])
+    mo_meta = MoMeta("InventoryDomainEp", "inventoryDomainEp", "domain-[sys_id]", VersionMeta.Version201a, "InputOutput", 0xff, [], ["admin", "operations"], [u'inventoryHolder'], [u'inventoryInventoryMoMeta'], ["get", "set"])
 
     prop_meta = {
-        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
-        "inventory_trig_state": MoPropertyMeta("inventory_trig_state", "inventoryTrigState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["off", "on"], []), 
-        "latest_update_time": MoPropertyMeta("latest_update_time", "latestUpdateTime", "ulong", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, [], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "sys_id": MoPropertyMeta("sys_id", "sysId", "uint", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x40, None, None, None, [], []), 
-        "trig_full_inventory": MoPropertyMeta("trig_full_inventory", "trigFullInventory", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x80, None, None, None, ["off", "on"], []), 
+        "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
+        "inventory_trig_state": MoPropertyMeta("inventory_trig_state", "inventoryTrigState", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["off", "on"], []), 
+        "latest_update_time": MoPropertyMeta("latest_update_time", "latestUpdateTime", "ulong", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, [], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "sys_id": MoPropertyMeta("sys_id", "sysId", "uint", VersionMeta.Version201a, MoPropertyMeta.NAMING, 0x40, None, None, None, [], []), 
+        "trig_full_inventory": MoPropertyMeta("trig_full_inventory", "trigFullInventory", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x80, None, None, None, ["off", "on"], []), 
     }
 
     prop_map = {
