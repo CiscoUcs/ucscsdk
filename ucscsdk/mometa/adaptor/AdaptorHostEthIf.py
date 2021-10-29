@@ -171,6 +171,7 @@ class AdaptorHostEthIfConsts():
     VIRTUALIZATION_PREFERENCE_SRIOV = "SRIOV"
     VIRTUALIZATION_PREFERENCE_SRIOV_USNIC = "SRIOV-USNIC"
     VIRTUALIZATION_PREFERENCE_SRIOV_VMFEX = "SRIOV-VMFEX"
+    VIRTUALIZATION_PREFERENCE_VMMQ = "VMMQ"
     VIRTUALIZATION_PREFERENCE_VMQ = "VMQ"
     VOLTAGE_LOWER_CRITICAL = "lower-critical"
     VOLTAGE_LOWER_NON_CRITICAL = "lower-non-critical"
@@ -241,7 +242,7 @@ class AdaptorHostEthIf(ManagedObject):
         "transport": MoPropertyMeta("transport", "transport", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|ether|dce|fc),){0,4}(defaultValue|unknown|ether|dce|fc){0,1}""", [], []), 
         "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|lan|san|ipc),){0,4}(defaultValue|unknown|lan|san|ipc){0,1}""", [], []), 
         "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "virtualization_preference": MoPropertyMeta("virtualization_preference", "virtualizationPreference", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NONE", "SRIOV", "SRIOV-USNIC", "SRIOV-VMFEX", "VMQ"], []), 
+        "virtualization_preference": MoPropertyMeta("virtualization_preference", "virtualizationPreference", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NONE", "SRIOV", "SRIOV-USNIC", "SRIOV-VMFEX", "VMMQ", "VMQ"], []), 
         "vnic_dn": MoPropertyMeta("vnic_dn", "vnicDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "voltage": MoPropertyMeta("voltage", "voltage", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
     }
