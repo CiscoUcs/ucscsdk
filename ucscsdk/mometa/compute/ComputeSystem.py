@@ -165,7 +165,7 @@ class ComputeSystem(ManagedObject):
         "fw_oper_state": MoPropertyMeta("fw_oper_state", "fwOperState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["failed", "in-progress", "pending-user-ack", "ready", "scheduled", "start-pending-ext-permission"], []), 
         "fw_pack_name": MoPropertyMeta("fw_pack_name", "fwPackName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "fw_package_version": MoPropertyMeta("fw_package_version", "fwPackageVersion", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "fw_service_pack_version": MoPropertyMeta("fw_service_pack_version", "fwServicePackVersion", "string", VersionMeta.Version201a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "fw_service_pack_version": MoPropertyMeta("fw_service_pack_version", "fwServicePackVersion", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x8, None, None, None, [], []), 
         "inventory_status": MoPropertyMeta("inventory_status", "inventoryStatus", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["in-progress", "ok", "throttled"], []), 
         "last_refreshed_ts": MoPropertyMeta("last_refreshed_ts", "lastRefreshedTs", "ulong", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
@@ -180,7 +180,7 @@ class ComputeSystem(ManagedObject):
         "site": MoPropertyMeta("site", "site", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x80, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "subscribe_status": MoPropertyMeta("subscribe_status", "subscribeStatus", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ok", "pending"], []), 
-        "sync_inventory_from_sm": MoPropertyMeta("sync_inventory_from_sm", "syncInventoryFromSM", "string", VersionMeta.Version201a, MoPropertyMeta.READ_WRITE, 0x100, None, None, None, ["false", "no", "true", "yes"], []), 
+        "sync_inventory_from_sm": MoPropertyMeta("sync_inventory_from_sm", "syncInventoryFromSM", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x100, None, None, None, ["false", "no", "true", "yes"], []), 
         "total_physical_cnt": MoPropertyMeta("total_physical_cnt", "totalPhysicalCnt", "ushort", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
     }
 
