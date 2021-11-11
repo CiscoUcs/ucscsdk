@@ -19,6 +19,7 @@ setup(
     version='0.9.0.2',
     description="Python SDK for Cisco Ucs Central",
     long_description=readme + '\n\n' + history,
+    long_description_content_type='text/markdown',
     author="Cisco Systemc Inc.",
     author_email='ucs-python@cisco.com',
     url='https://github.com/ciscoucs/ucscsdk',
