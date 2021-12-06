@@ -871,7 +871,7 @@ def config_resolve_class_sorted(cookie, class_id, in_filter, in_size, in_hierarc
     return xml_request
 
 
-def config_resolve_classes(cookie, in_ids, in_return_count_only, in_hierarchical=YesOrNo.FALSE):
+def config_resolve_classes(cookie, in_ids, in_return_count_only=None, in_hierarchical=YesOrNo.FALSE):
     """ Auto-generated UCSC XML API Method. """
     method = ExternalMethod("ConfigResolveClasses")
 
