@@ -240,17 +240,17 @@ class UcscSession(object):
 
         from . import ucscxmlcodec as xc
 
-        self._tx_lock_acquire_conditional(elem)
-        if self._is_stale_cookie(elem):
-            elem.attrib['cookie'] = self.cookie
-
-        self.dump_xml_request(elem)
-        xml_str = xc.to_xml_str(elem)
-
-        response_str = self.post_xml(xml_str, dme=dme)
-        self.dump_xml_response(response_str)
-
         try:
+            self._tx_lock_acquire_conditional(elem)
+            if self._is_stale_cookie(elem):
+                elem.attrib['cookie'] = self.cookie
+
+            self.dump_xml_request(elem)
+            xml_str = xc.to_xml_str(elem)
+
+            response_str = self.post_xml(xml_str, dme=dme)
+            self.dump_xml_response(response_str)
+            
             if response_str:
                 response = xc.from_xml_str(response_str, self)
 
