@@ -18,14 +18,11 @@ import sys
 import socket
 import ssl
 
-try:
-    import urllib2
-    import httplib
-    from urllib2 import HTTPError
-except:
-    import urllib.request as urllib2
-    import http.client as httplib
-    from urllib.error import HTTPError
+from six.moves import urllib as urllib2
+from six.moves import http_client as httplib
+from six.moves.urllib import request as Request
+from six.moves.urllib.error import HTTPError
+from six.moves.urllib.request import HTTPRedirectHandler, HTTPSHandler
 
 
 import logging
@@ -33,11 +30,74 @@ import logging
 log = logging.getLogger('ucscentral')
 
 
-class TLS1Handler(urllib2.HTTPSHandler):
+class SmartRedirectHandler(HTTPRedirectHandler):
+    """This class is to handle redirection error."""
+    
+    def http_error_301(self, req, fp, code, msg, headers):
+        """This is to handle redirection error code 301"""
+        resp_status = [code, headers.get('Location')]
+        return resp_status
+
+    def http_error_302(self, req, fp, code, msg, headers):
+        """This is to handle redirection error code 302"""
+        resp_status = [code, headers.get('Location')]
+        return resp_status
+
+
+class TLSHandler(HTTPSHandler):
     """Like HTTPSHandler but more specific"""
 
     def __init__(self):
-        urllib2.HTTPSHandler.__init__(self)
+        HTTPSHandler.__init__(self)
+
+    def https_open(self, req):
+        return self.do_open(TLSConnection, req)
+
+
+class TLSConnection(httplib.HTTPSConnection):
+    """Like HTTPSConnection but more specific"""
+
+    def __init__(self, host, **kwargs):
+        httplib.HTTPSConnection.__init__(self, host, **kwargs)
+
+    def connect(self):
+        """Overrides HTTPSConnection.connect to specify TLS version"""
+        # Standard implementation from HTTPSConnection, which is not
+        # designed for extension, unfortunately
+        if sys.version_info >= (2, 7):
+            sock = socket.create_connection((self.host, self.port),
+                                            self.timeout, self.source_address)
+        elif sys.version_info >= (2, 6):
+            sock = socket.create_connection((self.host, self.port),
+                                            self.timeout)
+        else:
+            sock = socket.create_connection((self.host, self.port))
+
+        if getattr(self, '_tunnel_host', None):
+            self.sock = sock
+            self._tunnel()
+
+        if sys.version_info >= (2, 7, 9):
+            # Since python 2.7.9, tls 1.1 and 1.2 are supported via
+            # SSLContext
+            ssl_context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+            ssl_context.options |= ssl.OP_NO_SSLv2
+            ssl_context.options |= ssl.OP_NO_SSLv3
+            if self.key_file and self.cert_file:
+                ssl_context.load_cert_chain(keyfile=self.key_file,
+                                            certfile=self.cert_file)
+            self.sock = ssl_context.wrap_socket(sock)
+        else:
+            # fallback to TLSv1
+            self.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file,
+                                        ssl_version=ssl.PROTOCOL_TLSv1)
+
+
+class TLS1Handler(HTTPSHandler):
+    """Like HTTPSHandler but more specific"""
+
+    def __init__(self):
+        HTTPSHandler.__init__(self)
 
     def https_open(self, req):
         return self.do_open(TLS1Connection, req)
@@ -66,7 +126,7 @@ class TLS1Connection(httplib.HTTPSConnection):
             self.sock = sock
             self._tunnel()
 
-        # This is the only difference; default wrap_socket uses SSLv23
+        # fallback to TLSv1
         self.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file,
                                     ssl_version=ssl.PROTOCOL_TLSv1)
 
@@ -84,16 +144,23 @@ class UcscDriver(object):
     """
 
     def __init__(self, proxy=None):
+        self.__redirect_uri = None
         self.__proxy = proxy
         self.__headers = {}
         self.__handlers = self.__get_handlers()
+    
+    def update_handlers(self, tls_proto=None):
+        self.__handlers = self.__get_handlers(tls_proto)
 
-    def __get_handlers(self):
+    def __get_handlers(self, tls_proto=None):
         """
         Internal method to handle redirection and use TLS protocol.
         """
 
-        handlers = [TLS1Handler]
+        # tls_handler implements a fallback mechanism for servers that
+        # do not support TLS 1.1/1.2
+        tls_handler = (TLSHandler, TLS1Handler)[tls_proto == "tlsv1"]
+        handlers = [SmartRedirectHandler, tls_handler]
         if self.__proxy:
             proxy_handler = urllib2.ProxyHandler(
                 {'http': self.__proxy, 'https': self.__proxy})
@@ -135,6 +202,13 @@ class UcscDriver(object):
 
         del self.__headers[header_prop]
 
+    @property
+    def redirect_uri(self):
+        """
+        Getter method of UcsDriver class
+        """
+        return self.__redirect_uri
+
     def __create_request(self, uri, data=None):
         """
         Internal method to create http/https web request
@@ -147,7 +221,7 @@ class UcscDriver(object):
             web request object
         """
 
-        request_ = urllib2.Request(url=uri, data=data)
+        request_ = Request.Request(url=uri, data=data)
         headers = self.__headers
         for header in headers:
             request_.add_header(header, headers[header])
@@ -156,7 +230,7 @@ class UcscDriver(object):
     def get(self, uri):
         pass
 
-    def post(self, uri, data=None, dump_xml=False, read=True):
+    def post(self, uri, data=None, dump_xml=False, read=True, timeout=None):
         """
         sends the web request and receives the response from UcsCentral server
 
@@ -165,6 +239,7 @@ class UcscDriver(object):
             data (str): request data to send via post request
             dump_xml (bool): if True, displays request and response
             read (bool): if True, returns response.read() else returns object.
+            timeout (int): if set, this will be used as timeout in secs for urllib2
 
         Returns:
             response xml string or response object
@@ -174,12 +249,34 @@ class UcscDriver(object):
         """
 
         try:
+            if self.__redirect_uri:
+                uri = self.__redirect_uri
             request = self.__create_request(uri=uri, data=data)
             if dump_xml:
                 log.debug('%s ====> %s' % (uri, data))
 
-            opener = urllib2.build_opener(*self.__handlers)
-            response = opener.open(request)
+            opener = Request.build_opener(*self.__handlers)
+            try:
+                response = opener.open(request, timeout=timeout)
+            except Exception as e:
+                if "SSL".lower() not in str(e).lower():
+                    raise
+                # Fallback to TLSv1 for this server
+                self.update_handlers(tls_proto="tlsv1")
+                opener = Request.build_opener(*self.__handlers)
+                response = opener.open(request, timeout=timeout)
+            if type(response) is list:
+                if len(response) == 2 and \
+                        (response[0] == 302 or response[0] == 301):
+                    uri = response[1]
+                    self.__redirect = True
+                    self.__redirect_uri = uri
+                    request = self.__create_request(uri=uri, data=data)
+                    if dump_xml:
+                        log.debug('%s <==== %s' % (uri, data))
+                    opener = Request.build_opener(*self.__handlers)
+                    response = opener.open(request, timeout=timeout)
+                    # response = urllib2.urlopen(request)
 
             if read:
                 response = response.read().decode('utf-8')
