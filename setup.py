@@ -16,7 +16,7 @@ with open('HISTORY.rst') as history_file:
 
 setup(
     name='ucscsdk',
-    version='0.9.0.2',
+    version='0.9.0.3',
     description="Python SDK for Cisco Ucs Central",
     long_description=readme + '\n\n' + history,
     long_description_content_type='text/markdown',
