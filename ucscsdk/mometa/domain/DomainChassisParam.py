@@ -13,9 +13,9 @@ class DomainChassisParam(ManagedObject):
     """This is DomainChassisParam class."""
 
     consts = DomainChassisParamConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("DomainChassisParam", "domainChassisParam", "chassis-param-[name]", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin"], [u'domainChassisFeature', u'domainEnvironmentFeature', u'domainFeatureCatalog', u'domainNetworkFeature', u'domainServerFeature', u'domainStorageFeature', u'featureChassisDef', u'featureEnvDef', u'featureNetworkDef', u'featureServerDef', u'featureStorageDef'], [], ["get"])
+    mo_meta = MoMeta("DomainChassisParam", "domainChassisParam", "chassis-param-[name]", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin"], ['domainChassisFeature', 'domainEnvironmentFeature', 'domainFeatureCatalog', 'domainNetworkFeature', 'domainServerFeature', 'domainStorageFeature', 'featureChassisDef', 'featureEnvDef', 'featureNetworkDef', 'featureServerDef', 'featureStorageDef'], [], ["get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

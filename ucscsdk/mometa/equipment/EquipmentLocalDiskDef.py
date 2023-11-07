@@ -30,7 +30,7 @@ class EquipmentLocalDiskDef(ManagedObject):
     consts = EquipmentLocalDiskDefConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentLocalDiskDef", "equipmentLocalDiskDef", "disk", VersionMeta.Version111a, "InputOutput", 0x1f, [], [""], [u'equipmentLocalDiskCapProvider'], [], ["Get"])
+    mo_meta = MoMeta("EquipmentLocalDiskDef", "equipmentLocalDiskDef", "disk", VersionMeta.Version111a, "InputOutput", 0x1f, [], [""], ['equipmentLocalDiskCapProvider'], [], ["Get"])
 
     prop_meta = {
         "block_size": MoPropertyMeta("block_size", "blockSize", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

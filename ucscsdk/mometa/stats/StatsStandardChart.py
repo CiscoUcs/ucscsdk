@@ -38,9 +38,9 @@ class StatsStandardChart(ManagedObject):
     """This is StatsStandardChart class."""
 
     consts = StatsStandardChartConsts()
-    naming_props = set([u'name', u'chartDomain'])
+    naming_props = set(['name', 'chartDomain'])
 
-    mo_meta = MoMeta("StatsStandardChart", "statsStandardChart", "standard-chart-[name]domain-[chart_domain]", VersionMeta.Version111b, "InputOutput", 0x3fffff, [], ["admin", "stats-management"], [u'statsStandardEp'], [], ["Get"])
+    mo_meta = MoMeta("StatsStandardChart", "statsStandardChart", "standard-chart-[name]domain-[chart_domain]", VersionMeta.Version111b, "InputOutput", 0x3fffff, [], ["admin", "stats-management"], ['statsStandardEp'], [], ["Get"])
 
     prop_meta = {
         "chart_domain": MoPropertyMeta("chart_domain", "chartDomain", "string", VersionMeta.Version111b, MoPropertyMeta.NAMING, 0x2, None, None, None, ["cooling", "network", "power", "temp"], []), 

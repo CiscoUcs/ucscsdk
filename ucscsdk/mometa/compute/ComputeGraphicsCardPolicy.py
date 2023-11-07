@@ -20,9 +20,9 @@ class ComputeGraphicsCardPolicy(ManagedObject):
     """This is ComputeGraphicsCardPolicy class."""
 
     consts = ComputeGraphicsCardPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("ComputeGraphicsCardPolicy", "computeGraphicsCardPolicy", "graphics-card-policy-[name]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-policy", "pn-equipment", "pn-maintenance", "pn-policy"], [u'orgOrg'], [], ["add", "get", "remove", "set"])
+    mo_meta = MoMeta("ComputeGraphicsCardPolicy", "computeGraphicsCardPolicy", "graphics-card-policy-[name]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-policy", "pn-equipment", "pn-maintenance", "pn-policy"], ['orgOrg'], [], ["add", "get", "remove", "set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

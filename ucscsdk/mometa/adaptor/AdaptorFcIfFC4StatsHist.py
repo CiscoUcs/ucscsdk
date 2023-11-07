@@ -45,9 +45,9 @@ class AdaptorFcIfFC4StatsHist(ManagedObject):
     """This is AdaptorFcIfFC4StatsHist class."""
 
     consts = AdaptorFcIfFC4StatsHistConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorFcIfFC4StatsHist", "adaptorFcIfFC4StatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], [u'adaptorFcIfFC4Stats'], [], [None])
+    mo_meta = MoMeta("AdaptorFcIfFC4StatsHist", "adaptorFcIfFC4StatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], ['adaptorFcIfFC4Stats'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

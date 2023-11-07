@@ -30,7 +30,7 @@ class QosclassFc(ManagedObject):
     consts = QosclassFcConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("QosclassFc", "qosclassFc", "class-fc", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "ext-lan-qos", "ext-san-qos", "ls-network", "ls-network-policy", "ls-qos-policy"], [u'qosclassDefinition', u'qosclassPolicy'], [], ["Get", "Set"])
+    mo_meta = MoMeta("QosclassFc", "qosclassFc", "class-fc", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "ext-lan-qos", "ext-san-qos", "ls-network", "ls-network-policy", "ls-qos-policy"], ['qosclassDefinition', 'qosclassPolicy'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 

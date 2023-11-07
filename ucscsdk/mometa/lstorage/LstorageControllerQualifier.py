@@ -25,7 +25,7 @@ class LstorageControllerQualifier(ManagedObject):
     consts = LstorageControllerQualifierConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("LstorageControllerQualifier", "lstorageControllerQualifier", "controller-qual", VersionMeta.Version141a, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-storage", "ls-storage-policy"], [u'lstorageControllerDef'], [], [None])
+    mo_meta = MoMeta("LstorageControllerQualifier", "lstorageControllerQualifier", "controller-qual", VersionMeta.Version141a, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-storage", "ls-storage-policy"], ['lstorageControllerDef'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

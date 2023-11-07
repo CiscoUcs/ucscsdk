@@ -15,7 +15,7 @@ class NetworkSystemCACert(ManagedObject):
     consts = NetworkSystemCACertConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("NetworkSystemCACert", "networkSystemCACert", "system-ca-cert", VersionMeta.Version101a, "InputOutput", 0xf, [], ["admin", "read-only"], [u'networkElement'], [], [None])
+    mo_meta = MoMeta("NetworkSystemCACert", "networkSystemCACert", "system-ca-cert", VersionMeta.Version101a, "InputOutput", 0xf, [], ["admin", "read-only"], ['networkElement'], [], [None])
 
     prop_meta = {
         "checksum": MoPropertyMeta("checksum", "checksum", "ushort", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

@@ -13,7 +13,7 @@ class FirmwareInstallImpact(ManagedObject):
     """This is FirmwareInstallImpact class."""
 
     consts = FirmwareInstallImpactConsts()
-    naming_props = set([u'keyDn'])
+    naming_props = set(['keyDn'])
 
     mo_meta = MoMeta("FirmwareInstallImpact", "firmwareInstallImpact", "fw-sys-InstallImpact-[key_dn]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin"], [], [], ["Get"])
 

@@ -15,9 +15,9 @@ class PolicyDeviceProfile(ManagedObject):
     """This is PolicyDeviceProfile class."""
 
     consts = PolicyDeviceProfileConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("PolicyDeviceProfile", "policyDeviceProfile", "deviceprofile-[name]", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin"], [u'orgOrg'], [u'aaaAuthRealm', u'aaaLdapEp', u'aaaLocale', u'aaaPwdProfile', u'aaaRadiusEp', u'aaaRole', u'aaaTacacsPlusEp', u'aaaUser', u'callhomeEp', u'commCoreFile', u'commDateTime', u'commDns', u'commHttp', u'commHttps', u'commShellSvcLimits', u'commSnmp', u'commSsh', u'commSyslog', u'commTelnet', u'commWebSvcLimits', u'extmgmtIfMonPolicy', u'faultPolicy', u'mgmtBackupPolicy', u'mgmtCfgExportPolicy', u'pkiEp', u'smartlicenseEp', u'sysdebugAutoCoreFileExportTarget'], ["Get", "Set"])
+    mo_meta = MoMeta("PolicyDeviceProfile", "policyDeviceProfile", "deviceprofile-[name]", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin"], ['orgOrg'], ['aaaAuthRealm', 'aaaLdapEp', 'aaaLocale', 'aaaPwdProfile', 'aaaRadiusEp', 'aaaRole', 'aaaTacacsPlusEp', 'aaaUser', 'callhomeEp', 'commCoreFile', 'commDateTime', 'commDns', 'commHttp', 'commHttps', 'commShellSvcLimits', 'commSnmp', 'commSsh', 'commSyslog', 'commTelnet', 'commWebSvcLimits', 'extmgmtIfMonPolicy', 'faultPolicy', 'mgmtBackupPolicy', 'mgmtCfgExportPolicy', 'pkiEp', 'smartlicenseEp', 'sysdebugAutoCoreFileExportTarget'], ["Get", "Set"])
 
     prop_meta = {
         "migrate_admin_setting": MoPropertyMeta("migrate_admin_setting", "MigrateAdminSetting", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

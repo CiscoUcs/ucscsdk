@@ -107,9 +107,9 @@ class StorageProcessor(ManagedObject):
     """This is StorageProcessor class."""
 
     consts = StorageProcessorConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StorageProcessor", "storageProcessor", "processor-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'storageArray'], [u'commLocale', u'osController', u'storageEthLif', u'storageProcessorRuntime'], ["Get"])
+    mo_meta = MoMeta("StorageProcessor", "storageProcessor", "processor-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['storageArray'], ['commLocale', 'osController', 'storageEthLif', 'storageProcessorRuntime'], ["Get"])
 
     prop_meta = {
         "admin_leadership": MoPropertyMeta("admin_leadership", "adminLeadership", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["active", "passive", "unknown"], []), 

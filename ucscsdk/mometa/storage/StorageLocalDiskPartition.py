@@ -23,9 +23,9 @@ class StorageLocalDiskPartition(ManagedObject):
     """This is StorageLocalDiskPartition class."""
 
     consts = StorageLocalDiskPartitionConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("StorageLocalDiskPartition", "storageLocalDiskPartition", "partition-[id]", VersionMeta.Version131a, "InputOutput", 0x1ff, [], ["read-only"], [u'storageLocalDisk', u'storageLocalDiskConfigDef', u'storageLocalDiskConfigPolicy'], [], ["Get"])
+    mo_meta = MoMeta("StorageLocalDiskPartition", "storageLocalDiskPartition", "partition-[id]", VersionMeta.Version131a, "InputOutput", 0x1ff, [], ["read-only"], ['storageLocalDisk', 'storageLocalDiskConfigDef', 'storageLocalDiskConfigPolicy'], [], ["Get"])
 
     prop_meta = {
         "bootable": MoPropertyMeta("bootable", "bootable", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "true", "unknown"], []), 

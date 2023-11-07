@@ -126,9 +126,9 @@ class GlRequestVnetEpDomainEp(ManagedObject):
     """This is GlRequestVnetEpDomainEp class."""
 
     consts = GlRequestVnetEpDomainEpConsts()
-    naming_props = set([u'domainId'])
+    naming_props = set(['domainId'])
 
-    mo_meta = MoMeta("GlRequestVnetEpDomainEp", "glRequestVnetEpDomainEp", "domain-[domain_id]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin"], [u'glRequestVnetEp'], [u'eventInst', u'faultInst', u'glRequestVnetEpDomainEpFsm', u'glRequestVnetEpDomainEpFsmTask', u'glVnetInvHolder'], [None])
+    mo_meta = MoMeta("GlRequestVnetEpDomainEp", "glRequestVnetEpDomainEp", "domain-[domain_id]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin"], ['glRequestVnetEp'], ['eventInst', 'faultInst', 'glRequestVnetEpDomainEpFsm', 'glRequestVnetEpDomainEpFsmTask', 'glVnetInvHolder'], [None])
 
     prop_meta = {
         "ucs_dn": MoPropertyMeta("ucs_dn", "UcsDn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

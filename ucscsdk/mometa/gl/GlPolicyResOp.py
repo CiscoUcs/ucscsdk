@@ -55,9 +55,9 @@ class GlPolicyResOp(ManagedObject):
     """This is GlPolicyResOp class."""
 
     consts = GlPolicyResOpConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("GlPolicyResOp", "glPolicyResOp", "presp-[id]", VersionMeta.Version201b, "InputOutput", 0x3ff, [], ["admin"], [u'glGlobalDefaultPolicyEp', u'glPolicyEp'], [u'glByMo', u'glComplexRefEp', u'glConflictEp', u'glRefsEp', u'glRequestorEp', u'messageEp'], [None])
+    mo_meta = MoMeta("GlPolicyResOp", "glPolicyResOp", "presp-[id]", VersionMeta.Version201b, "InputOutput", 0x3ff, [], ["admin"], ['glGlobalDefaultPolicyEp', 'glPolicyEp'], ['glByMo', 'glComplexRefEp', 'glConflictEp', 'glRefsEp', 'glRequestorEp', 'messageEp'], [None])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["default", "evaluate"], []), 

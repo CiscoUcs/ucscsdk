@@ -18,7 +18,7 @@ class AdaptorHBAVnicStats(ManagedObject):
     consts = AdaptorHBAVnicStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorHBAVnicStats", "adaptorHBAVnicStats", "hba-vnic-stats", VersionMeta.Version111b, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [], [u'adaptorHBAVnicStatsHist'], ["Get"])
+    mo_meta = MoMeta("AdaptorHBAVnicStats", "adaptorHBAVnicStats", "hba-vnic-stats", VersionMeta.Version111b, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [], ['adaptorHBAVnicStatsHist'], ["Get"])
 
     prop_meta = {
         "bytes_rx": MoPropertyMeta("bytes_rx", "bytesRx", "ulong", VersionMeta.Version111b, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

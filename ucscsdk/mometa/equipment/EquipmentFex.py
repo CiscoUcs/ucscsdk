@@ -142,9 +142,9 @@ class EquipmentFex(ManagedObject):
     """This is EquipmentFex class."""
 
     consts = EquipmentFexConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("EquipmentFex", "equipmentFex", "fex-[id]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin", "ls-network", "ls-network-policy", "pn-equipment", "pn-maintenance", "pn-policy"], [u'computeSystem'], [u'equipmentBeaconLed', u'equipmentFan', u'equipmentFexEnvStats', u'equipmentFexOperation', u'equipmentFexPowerSummary', u'equipmentHealthLed', u'equipmentIOCard', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'equipmentPsu', u'faultInst', u'firmwareStatus'], ["Get"])
+    mo_meta = MoMeta("EquipmentFex", "equipmentFex", "fex-[id]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin", "ls-network", "ls-network-policy", "pn-equipment", "pn-maintenance", "pn-policy"], ['computeSystem'], ['equipmentBeaconLed', 'equipmentFan', 'equipmentFexEnvStats', 'equipmentFexOperation', 'equipmentFexPowerSummary', 'equipmentHealthLed', 'equipmentIOCard', 'equipmentIndicatorLed', 'equipmentLocatorLed', 'equipmentPsu', 'faultInst', 'firmwareStatus'], ["Get"])
 
     prop_meta = {
         "admin_power_state": MoPropertyMeta("admin_power_state", "adminPowerState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["cycle-immediate", "cycle-wait", "policy"], []), 

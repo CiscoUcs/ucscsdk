@@ -14,9 +14,9 @@ class PolicyUniverse(ManagedObject):
     """This is PolicyUniverse class."""
 
     consts = PolicyUniverseConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("PolicyUniverse", "policyUniverse", "universe-[type]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin"], [u'topRoot'], [u'policyCluster'], ["Get"])
+    mo_meta = MoMeta("PolicyUniverse", "policyUniverse", "universe-[type]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin"], ['topRoot'], ['policyCluster'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

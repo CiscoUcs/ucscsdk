@@ -13,9 +13,9 @@ class ConfigOrgItem(ManagedObject):
     """This is ConfigOrgItem class."""
 
     consts = ConfigOrgItemConsts()
-    naming_props = set([u'context'])
+    naming_props = set(['context'])
 
-    mo_meta = MoMeta("ConfigOrgItem", "configOrgItem", "org-item-[context]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["read-only"], [u'fabricVlanPermitItem'], [], [None])
+    mo_meta = MoMeta("ConfigOrgItem", "configOrgItem", "org-item-[context]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["read-only"], ['fabricVlanPermitItem'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

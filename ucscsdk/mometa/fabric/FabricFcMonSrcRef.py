@@ -17,9 +17,9 @@ class FabricFcMonSrcRef(ManagedObject):
     """This is FabricFcMonSrcRef class."""
 
     consts = FabricFcMonSrcRefConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("FabricFcMonSrcRef", "fabricFcMonSrcRef", "src-ref-[id]", VersionMeta.Version151a, "InputOutput", 0x1f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricFcMon'], [], ["Get"])
+    mo_meta = MoMeta("FabricFcMonSrcRef", "fabricFcMonSrcRef", "src-ref-[id]", VersionMeta.Version151a, "InputOutput", 0x1f, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['fabricFcMon'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

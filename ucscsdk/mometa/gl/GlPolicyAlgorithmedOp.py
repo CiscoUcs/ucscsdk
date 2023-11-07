@@ -51,9 +51,9 @@ class GlPolicyAlgorithmedOp(ManagedObject):
     """This is GlPolicyAlgorithmedOp class."""
 
     consts = GlPolicyAlgorithmedOpConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("GlPolicyAlgorithmedOp", "glPolicyAlgorithmedOp", "paop-[id]", VersionMeta.Version201b, "InputOutput", 0x3ff, [], ["read-only"], [u'glPolicyEp'], [u'glConflictEp', u'glRequestorEp', u'messageEp'], [None])
+    mo_meta = MoMeta("GlPolicyAlgorithmedOp", "glPolicyAlgorithmedOp", "paop-[id]", VersionMeta.Version201b, "InputOutput", 0x3ff, [], ["read-only"], ['glPolicyEp'], ['glConflictEp', 'glRequestorEp', 'messageEp'], [None])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["default", "evaluate"], []), 

@@ -26,9 +26,9 @@ class FabricComputePhEp(ManagedObject):
     """This is FabricComputePhEp class."""
 
     consts = FabricComputePhEpConsts()
-    naming_props = set([u'vendor', u'model', u'serial'])
+    naming_props = set(['vendor', 'model', 'serial'])
 
-    mo_meta = MoMeta("FabricComputePhEp", "fabricComputePhEp", "compute-ep-ven-[vendor]-mod-[model]-ser-[serial]", VersionMeta.Version112a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'fabricDceSrv'], [u'fabricComputePhEpOperation'], ["Get", "Set"])
+    mo_meta = MoMeta("FabricComputePhEp", "fabricComputePhEp", "compute-ep-ven-[vendor]-mod-[model]-ser-[serial]", VersionMeta.Version112a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['fabricDceSrv'], ['fabricComputePhEpOperation'], ["Get", "Set"])
 
     prop_meta = {
         "address": MoPropertyMeta("address", "address", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

@@ -70,7 +70,7 @@ class StorageTransportableFlashModule(ManagedObject):
     consts = StorageTransportableFlashModuleConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageTransportableFlashModule", "storageTransportableFlashModule", "flash-module", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'storageRaidBattery'], [], ["Get"])
+    mo_meta = MoMeta("StorageTransportableFlashModule", "storageTransportableFlashModule", "flash-module", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['storageRaidBattery'], [], ["Get"])
 
     prop_meta = {
         "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 

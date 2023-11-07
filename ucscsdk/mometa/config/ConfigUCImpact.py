@@ -23,9 +23,9 @@ class ConfigUCImpact(ManagedObject):
     """This is ConfigUCImpact class."""
 
     consts = ConfigUCImpactConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("ConfigUCImpact", "configUCImpact", "ls-[name]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], [u'configAppImpactResponse'], [], [None])
+    mo_meta = MoMeta("ConfigUCImpact", "configUCImpact", "ls-[name]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], ['configAppImpactResponse'], [], [None])
 
     prop_meta = {
         "affected_obj": MoPropertyMeta("affected_obj", "affectedObj", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

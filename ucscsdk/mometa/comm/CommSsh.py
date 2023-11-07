@@ -25,7 +25,7 @@ class CommSsh(ManagedObject):
     consts = CommSshConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CommSsh", "commSsh", "ssh-svc", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["aaa", "admin"], [u'orgDomainGroup', u'orgOrg', u'policyDeviceProfile'], [], ["Get"])
+    mo_meta = MoMeta("CommSsh", "commSsh", "ssh-svc", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["aaa", "admin"], ['orgDomainGroup', 'orgOrg', 'policyDeviceProfile'], [], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 

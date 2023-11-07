@@ -32,9 +32,9 @@ class StorageSsdHealthStats(ManagedObject):
     """This is StorageSsdHealthStats class."""
 
     consts = StorageSsdHealthStatsConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("StorageSsdHealthStats", "storageSsdHealthStats", "ssd-health-stats-[id]", VersionMeta.Version201b, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'storageController'], [u'storageSsdHealthStatsHist'], [None])
+    mo_meta = MoMeta("StorageSsdHealthStats", "storageSsdHealthStats", "ssd-health-stats-[id]", VersionMeta.Version201b, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], ['storageController'], ['storageSsdHealthStatsHist'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

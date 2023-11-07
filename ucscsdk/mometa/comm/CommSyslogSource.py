@@ -20,7 +20,7 @@ class CommSyslogSource(ManagedObject):
     consts = CommSyslogSourceConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CommSyslogSource", "commSyslogSource", "source", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["admin", "domain-group-management", "operations"], [u'commSyslog'], [], ["Add", "Get", "Set"])
+    mo_meta = MoMeta("CommSyslogSource", "commSyslogSource", "source", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["admin", "domain-group-management", "operations"], ['commSyslog'], [], ["Add", "Get", "Set"])
 
     prop_meta = {
         "audits": MoPropertyMeta("audits", "audits", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

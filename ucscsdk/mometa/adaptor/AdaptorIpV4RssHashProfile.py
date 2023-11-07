@@ -15,7 +15,7 @@ class AdaptorIpV4RssHashProfile(ManagedObject):
     consts = AdaptorIpV4RssHashProfileConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorIpV4RssHashProfile", "adaptorIpV4RssHashProfile", "ipv4-rss-hash", VersionMeta.Version111a, "InputOutput", 0xf, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], [u'adaptorHostEthIfProfile', u'adaptorUsnicConnDef'], [], ["Get"])
+    mo_meta = MoMeta("AdaptorIpV4RssHashProfile", "adaptorIpV4RssHashProfile", "ipv4-rss-hash", VersionMeta.Version111a, "InputOutput", 0xf, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], ['adaptorHostEthIfProfile', 'adaptorUsnicConnDef'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

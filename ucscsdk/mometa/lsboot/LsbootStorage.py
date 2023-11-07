@@ -29,7 +29,7 @@ class LsbootStorage(ManagedObject):
     consts = LsbootStorageConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("LsbootStorage", "lsbootStorage", "storage", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], [u'lsbootDef', u'lsbootPolicy'], [u'lsbootLocalStorage', u'lsbootSanImage'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LsbootStorage", "lsbootStorage", "storage", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], ['lsbootDef', 'lsbootPolicy'], ['lsbootLocalStorage', 'lsbootSanImage'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "access": MoPropertyMeta("access", "access", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["read-only", "read-only-local", "read-only-remote", "read-only-remote-cimc", "read-write", "read-write-drive", "read-write-local", "read-write-remote", "read-write-remote-cimc"], []), 

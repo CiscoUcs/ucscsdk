@@ -25,7 +25,7 @@ class NetworkElementOperation(ManagedObject):
     consts = NetworkElementOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("NetworkElementOperation", "networkElementOperation", "remote-oper", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "ext-lan-config"], [u'networkElement'], [u'faultInst'], ["get", "set"])
+    mo_meta = MoMeta("NetworkElementOperation", "networkElementOperation", "remote-oper", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "ext-lan-config"], ['networkElement'], ['faultInst'], ["get", "set"])
 
     prop_meta = {
         "admin_evac_state": MoPropertyMeta("admin_evac_state", "adminEvacState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["drain", "fill", "unknown"], []), 

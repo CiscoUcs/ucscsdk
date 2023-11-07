@@ -13,9 +13,9 @@ class QueryDependencyRef(ManagedObject):
     """This is QueryDependencyRef class."""
 
     consts = QueryDependencyRefConsts()
-    naming_props = set([u'index'])
+    naming_props = set(['index'])
 
-    mo_meta = MoMeta("QueryDependencyRef", "queryDependencyRef", "depref-[index]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin"], [u'queryImportContext'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("QueryDependencyRef", "queryDependencyRef", "depref-[index]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin"], ['queryImportContext'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "dependency_dn": MoPropertyMeta("dependency_dn", "DependencyDn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, 0, 256, None, [], []), 

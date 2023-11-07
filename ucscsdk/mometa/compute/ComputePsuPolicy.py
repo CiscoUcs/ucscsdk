@@ -13,6 +13,7 @@ class ComputePsuPolicyConsts():
     POLICY_OWNER_UNSPECIFIED = "unspecified"
     REDUNDANCY_GRID = "grid"
     REDUNDANCY_N_1 = "n+1"
+    REDUNDANCY_N_2 = "n+2"
     REDUNDANCY_NON_REDUNDANT = "non-redundant"
 
 
@@ -22,7 +23,7 @@ class ComputePsuPolicy(ManagedObject):
     consts = ComputePsuPolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ComputePsuPolicy", "computePsuPolicy", "psu-policy", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "domain-group-management", "pn-equipment", "pn-policy"], [u'orgDomainGroup'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("ComputePsuPolicy", "computePsuPolicy", "psu-policy", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "domain-group-management", "pn-equipment", "pn-policy"], ['orgDomainGroup'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
@@ -32,7 +33,7 @@ class ComputePsuPolicy(ManagedObject):
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
-        "redundancy": MoPropertyMeta("redundancy", "redundancy", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["grid", "n+1", "non-redundant"], []), 
+        "redundancy": MoPropertyMeta("redundancy", "redundancy", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["grid", "n+1", "n+2", "non-redundant"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }

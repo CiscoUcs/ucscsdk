@@ -17,9 +17,9 @@ class VnicIScsiBootVnic(ManagedObject):
     """This is VnicIScsiBootVnic class."""
 
     consts = VnicIScsiBootVnicConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("VnicIScsiBootVnic", "vnicIScsiBootVnic", "boot-vnic-[name]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server", "ls-storage"], [u'vnicIScsiBootParams', u'vnicIScsiInitiatorParams'], [u'faultInst', u'vnicIPv4If', u'vnicIScsiAutoTargetIf', u'vnicIScsiStaticTargetIf'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicIScsiBootVnic", "vnicIScsiBootVnic", "boot-vnic-[name]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server", "ls-storage"], ['vnicIScsiBootParams', 'vnicIScsiInitiatorParams'], ['faultInst', 'vnicIPv4If', 'vnicIScsiAutoTargetIf', 'vnicIScsiStaticTargetIf'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "auth_profile_name": MoPropertyMeta("auth_profile_name", "authProfileName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

@@ -29,9 +29,9 @@ class InventoryHolder(ManagedObject):
     """This is InventoryHolder class."""
 
     consts = InventoryHolderConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("InventoryHolder", "inventoryHolder", "holder-[type]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "operations"], [u'inventoryEp'], [u'inventoryDomainEp', u'inventoryGlobalEp'], [None])
+    mo_meta = MoMeta("InventoryHolder", "inventoryHolder", "holder-[type]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "operations"], ['inventoryEp'], ['inventoryDomainEp', 'inventoryGlobalEp'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -13,9 +13,9 @@ class HcSupportedOsItem(ManagedObject):
     """This is HcSupportedOsItem class."""
 
     consts = HcSupportedOsItemConsts()
-    naming_props = set([u'itemId'])
+    naming_props = set(['itemId'])
 
-    mo_meta = MoMeta("HcSupportedOsItem", "hcSupportedOsItem", "supported-os-[item_id]", VersionMeta.Version151a, "InputOutput", 0x3ff, [], ["admin"], [u'hcOsItem'], [], [None])
+    mo_meta = MoMeta("HcSupportedOsItem", "hcSupportedOsItem", "supported-os-[item_id]", VersionMeta.Version151a, "InputOutput", 0x3ff, [], ["admin"], ['hcOsItem'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

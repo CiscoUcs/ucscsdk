@@ -25,7 +25,7 @@ class FabricLanCloudPolicy(ManagedObject):
     consts = FabricLanCloudPolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FabricLanCloudPolicy", "fabricLanCloudPolicy", "lan-policy", VersionMeta.Version141a, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'orgDomainGroup', u'orgOrg'], [], ["Get", "Set"])
+    mo_meta = MoMeta("FabricLanCloudPolicy", "fabricLanCloudPolicy", "lan-policy", VersionMeta.Version141a, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['orgDomainGroup', 'orgOrg'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

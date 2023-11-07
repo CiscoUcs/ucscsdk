@@ -44,9 +44,9 @@ class StorageArray(ManagedObject):
     """This is StorageArray class."""
 
     consts = StorageArrayConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StorageArray", "storageArray", "array-[name]", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin"], [u'storageCloud'], [u'storageDiskGroup', u'storagePartition', u'storageProcessor'], ["Get"])
+    mo_meta = MoMeta("StorageArray", "storageArray", "array-[name]", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin"], ['storageCloud'], ['storageDiskGroup', 'storagePartition', 'storageProcessor'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["clear-transport-ready", "degraded", "delete", "hide", "offline", "online", "restore", "secure-drive-group", "transport-ready", "undefined", "unhide"], []), 

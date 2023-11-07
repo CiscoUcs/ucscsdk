@@ -5960,9 +5960,9 @@ class FaultDomainInst(ManagedObject):
     """This is FaultDomainInst class."""
 
     consts = FaultDomainInstConsts()
-    naming_props = set([u'faultCode', u'id'])
+    naming_props = set(['faultCode', 'id'])
 
-    mo_meta = MoMeta("FaultDomainInst", "faultDomainInst", "domain-fault-[fault_code]-[id]", VersionMeta.Version131a, "InputOutput", 0x3ff, [], ["admin", "fault", "operations"], [u'faultDomainEp'], [], ["Get"])
+    mo_meta = MoMeta("FaultDomainInst", "faultDomainInst", "domain-fault-[fault_code]-[id]", VersionMeta.Version131a, "InputOutput", 0x3ff, [], ["admin", "fault", "operations"], ['faultDomainEp'], [], ["Get"])
 
     prop_meta = {
         "ack": MoPropertyMeta("ack", "ack", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["false", "no", "true", "yes"], []), 

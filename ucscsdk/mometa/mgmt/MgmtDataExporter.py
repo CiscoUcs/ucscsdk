@@ -159,9 +159,9 @@ class MgmtDataExporter(ManagedObject):
     """This is MgmtDataExporter class."""
 
     consts = MgmtDataExporterConsts()
-    naming_props = set([u'hostname'])
+    naming_props = set(['hostname'])
 
-    mo_meta = MoMeta("MgmtDataExporter", "mgmtDataExporter", "exporter-[hostname]", VersionMeta.Version101a, "InputOutput", 0x7fff, [], ["admin"], [u'topSystem'], [u'eventInst', u'faultInst', u'mgmtDataExporterFsm', u'mgmtDataExporterFsmTask', u'mgmtDataItem'], ["Get", "Remove", "Set"])
+    mo_meta = MoMeta("MgmtDataExporter", "mgmtDataExporter", "exporter-[hostname]", VersionMeta.Version101a, "InputOutput", 0x7fff, [], ["admin"], ['topSystem'], ['eventInst', 'faultInst', 'mgmtDataExporterFsm', 'mgmtDataExporterFsmTask', 'mgmtDataItem'], ["Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

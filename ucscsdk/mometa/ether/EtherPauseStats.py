@@ -18,7 +18,7 @@ class EtherPauseStats(ManagedObject):
     consts = EtherPauseStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EtherPauseStats", "etherPauseStats", "pause-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'etherServerIntFIo'], [u'etherPauseStatsHist'], [None])
+    mo_meta = MoMeta("EtherPauseStats", "etherPauseStats", "pause-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], ['etherServerIntFIo'], ['etherPauseStatsHist'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -21,7 +21,7 @@ class EquipmentRequirement(ManagedObject):
     consts = EquipmentRequirementConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentRequirement", "equipmentRequirement", "chassis-req", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy", "read-only"], [u'equipmentChassisProfile'], [u'faultInst'], ["Get"])
+    mo_meta = MoMeta("EquipmentRequirement", "equipmentRequirement", "chassis-req", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy", "read-only"], ['equipmentChassisProfile'], ['faultInst'], ["Get"])
 
     prop_meta = {
         "assigned_to_dn": MoPropertyMeta("assigned_to_dn", "assignedToDn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

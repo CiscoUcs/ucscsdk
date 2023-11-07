@@ -181,9 +181,9 @@ class AdaptorHostIscsiIf(ManagedObject):
     """This is AdaptorHostIscsiIf class."""
 
     consts = AdaptorHostIscsiIfConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorHostIscsiIf", "adaptorHostIscsiIf", "host-iscsi-[id]", VersionMeta.Version201b, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], [u'adaptorUnit'], [u'adaptorHostIscsiIfOperation', u'adaptorVlan', u'adaptorVnicStats', u'faultInst'], ["get"])
+    mo_meta = MoMeta("AdaptorHostIscsiIf", "adaptorHostIscsiIf", "host-iscsi-[id]", VersionMeta.Version201b, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], ['adaptorUnit'], ['adaptorHostIscsiIfOperation', 'adaptorVlan', 'adaptorVnicStats', 'faultInst'], ["get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

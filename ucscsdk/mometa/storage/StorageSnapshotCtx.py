@@ -20,7 +20,7 @@ class StorageSnapshotCtx(ManagedObject):
     consts = StorageSnapshotCtxConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageSnapshotCtx", "storageSnapshotCtx", "snap-ctx", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storageScsiLun'], [], ["Get"])
+    mo_meta = MoMeta("StorageSnapshotCtx", "storageSnapshotCtx", "snap-ctx", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], ['storageScsiLun'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

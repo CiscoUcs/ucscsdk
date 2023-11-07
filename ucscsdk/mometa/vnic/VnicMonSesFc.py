@@ -61,9 +61,9 @@ class VnicMonSesFc(ManagedObject):
     """This is VnicMonSesFc class."""
 
     consts = VnicMonSesFcConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("VnicMonSesFc", "vnicMonSesFc", "monses-fc-[name]", VersionMeta.Version151a, "InputOutput", 0x1ffff, [], ["admin", "ls-config", "ls-server", "ls-storage"], [u'fabricFcEstcEpOperation', u'fabricFcMonOperation', u'fabricFcSanEpOperation', u'fabricFcSanPcOperation', u'fabricFcoeEstcEpOperation', u'fabricFcoeSanEpOperation', u'fabricFcoeSanPcOperation', u'lsServer'], [u'fabricEthMonSrcEp', u'fabricFcMonSrcEp', u'faultInst', u'vnicMonSesFcIf'], ["Get"])
+    mo_meta = MoMeta("VnicMonSesFc", "vnicMonSesFc", "monses-fc-[name]", VersionMeta.Version151a, "InputOutput", 0x1ffff, [], ["admin", "ls-config", "ls-server", "ls-storage"], ['fabricFcEstcEpOperation', 'fabricFcMonOperation', 'fabricFcSanEpOperation', 'fabricFcSanPcOperation', 'fabricFcoeEstcEpOperation', 'fabricFcoeSanEpOperation', 'fabricFcoeSanPcOperation', 'lsServer'], ['fabricEthMonSrcEp', 'fabricFcMonSrcEp', 'faultInst', 'vnicMonSesFcIf'], ["Get"])
 
     prop_meta = {
         "adaptor_profile_name": MoPropertyMeta("adaptor_profile_name", "adaptorProfileName", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

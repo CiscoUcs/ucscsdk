@@ -50,7 +50,7 @@ class FirmwareAck(ManagedObject):
     consts = FirmwareAckConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FirmwareAck", "firmwareAck", "ack", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin"], [u'fabricLanCloud', u'fabricSanCloud', u'firmwareSystem', u'qosclassDefinition'], [u'faultInst'], ["get", "set"])
+    mo_meta = MoMeta("FirmwareAck", "firmwareAck", "ack", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin"], ['fabricLanCloud', 'fabricSanCloud', 'firmwareSystem', 'qosclassDefinition'], ['faultInst'], ["get", "set"])
 
     prop_meta = {
         "acked": MoPropertyMeta("acked", "acked", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 

@@ -21,9 +21,9 @@ class FabricLanPinTargetOperation(ManagedObject):
     """This is FabricLanPinTargetOperation class."""
 
     consts = FabricLanPinTargetOperationConsts()
-    naming_props = set([u'fabricId'])
+    naming_props = set(['fabricId'])
 
-    mo_meta = MoMeta("FabricLanPinTargetOperation", "fabricLanPinTargetOperation", "remoper-target-[fabric_id]", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricLanPinGroupOperation'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricLanPinTargetOperation", "fabricLanPinTargetOperation", "remoper-target-[fabric_id]", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['fabricLanPinGroupOperation'], ['faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -20,9 +20,9 @@ class ComputeMbPowerStatsHist(ManagedObject):
     """This is ComputeMbPowerStatsHist class."""
 
     consts = ComputeMbPowerStatsHistConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("ComputeMbPowerStatsHist", "computeMbPowerStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], [u'computeMbPowerStats'], [], [None])
+    mo_meta = MoMeta("ComputeMbPowerStatsHist", "computeMbPowerStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], ['computeMbPowerStats'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

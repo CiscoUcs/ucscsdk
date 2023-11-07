@@ -22,7 +22,7 @@ class VnicFcNode(ManagedObject):
     consts = VnicFcNodeConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicFcNode", "vnicFcNode", "fc-node", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "ls-config", "ls-server", "ls-storage"], [u'lsServer', u'vnicSanConnPolicy'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicFcNode", "vnicFcNode", "fc-node", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "ls-config", "ls-server", "ls-storage"], ['lsServer', 'vnicSanConnPolicy'], ['faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, 0, 256, r"""(([A-Fa-f0-9][A-Fa-f0-9]:){7}[A-Fa-f0-9][A-Fa-f0-9])|0""", ["pool-derived", "vnic-derived"], []), 

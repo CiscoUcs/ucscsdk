@@ -20,9 +20,9 @@ class ComputePooledRackUnit(ManagedObject):
     """This is ComputePooledRackUnit class."""
 
     consts = ComputePooledRackUnitConsts()
-    naming_props = set([u'systemId', u'id'])
+    naming_props = set(['systemId', 'id'])
 
-    mo_meta = MoMeta("ComputePooledRackUnit", "computePooledRackUnit", "system-[system_id]-rack-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "pn-policy"], [u'computePool'], [], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("ComputePooledRackUnit", "computePooledRackUnit", "system-[system_id]-rack-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "pn-policy"], ['computePool'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "assigned": MoPropertyMeta("assigned", "assigned", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 

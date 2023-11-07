@@ -82,9 +82,9 @@ class StorageLocalLun(ManagedObject):
     """This is StorageLocalLun class."""
 
     consts = StorageLocalLunConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("StorageLocalLun", "storageLocalLun", "lun-[id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], [u'storageController'], [], ["Get"])
+    mo_meta = MoMeta("StorageLocalLun", "storageLocalLun", "lun-[id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], ['storageController'], [], ["Get"])
 
     prop_meta = {
         "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 

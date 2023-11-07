@@ -61,9 +61,9 @@ class FirmwareRunning(ManagedObject):
     """This is FirmwareRunning class."""
 
     consts = FirmwareRunningConsts()
-    naming_props = set([u'deployment'])
+    naming_props = set(['deployment'])
 
-    mo_meta = MoMeta("FirmwareRunning", "firmwareRunning", "fw-[deployment]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], [u'biosUnit', u'equipmentPsu', u'graphicsCard', u'mgmtController', u'osController', u'storageController', u'storageFlexFlashController', u'storageLocalDisk', u'storageOnboardDevice', u'storageSasExpander'], [], ["Get"])
+    mo_meta = MoMeta("FirmwareRunning", "firmwareRunning", "fw-[deployment]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], ['biosUnit', 'equipmentPsu', 'graphicsCard', 'mgmtController', 'osController', 'storageController', 'storageFlexFlashController', 'storageLocalDisk', 'storageOnboardDevice', 'storageSasExpander'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

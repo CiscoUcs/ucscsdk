@@ -37,7 +37,7 @@ class VnicMgmtIf(ManagedObject):
     consts = VnicMgmtIfConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicMgmtIf", "vnicMgmtIf", "mgmt-if", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["admin", "ls-config", "ls-network", "ls-server"], [u'vnicMgmt'], [u'faultInst', u'storageIpV4PooledAddr', u'storageIpV4StaticAddr', u'vnicFault', u'vnicIpV4MgmtPooledAddr', u'vnicIpV4PooledAddr', u'vnicIpV4StaticAddr', u'vnicIpV6MgmtPooledAddr', u'vnicIpV6StaticAddr'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicMgmtIf", "vnicMgmtIf", "mgmt-if", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["admin", "ls-config", "ls-network", "ls-server"], ['vnicMgmt'], ['faultInst', 'storageIpV4PooledAddr', 'storageIpV4StaticAddr', 'vnicFault', 'vnicIpV4MgmtPooledAddr', 'vnicIpV4PooledAddr', 'vnicIpV4StaticAddr', 'vnicIpV6MgmtPooledAddr', 'vnicIpV6StaticAddr'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

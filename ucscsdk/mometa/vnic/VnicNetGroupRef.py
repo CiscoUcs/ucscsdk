@@ -13,9 +13,9 @@ class VnicNetGroupRef(ManagedObject):
     """This is VnicNetGroupRef class."""
 
     consts = VnicNetGroupRefConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("VnicNetGroupRef", "vnicNetGroupRef", "ngref-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin"], [u'vnicNetGroup'], [u'vnicEther'], [None])
+    mo_meta = MoMeta("VnicNetGroupRef", "vnicNetGroupRef", "ngref-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin"], ['vnicNetGroup'], ['vnicEther'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

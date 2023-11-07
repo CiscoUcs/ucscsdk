@@ -37,7 +37,7 @@ class MgmtBackupOperation(ManagedObject):
     consts = MgmtBackupOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("MgmtBackupOperation", "mgmtBackupOperation", "remote-oper", VersionMeta.Version131a, "InputOutput", 0x7fff, [], ["admin"], [u'computeSystem'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("MgmtBackupOperation", "mgmtBackupOperation", "remote-oper", VersionMeta.Version131a, "InputOutput", 0x7fff, [], ["admin"], ['computeSystem'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

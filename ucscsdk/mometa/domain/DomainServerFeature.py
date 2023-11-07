@@ -16,9 +16,9 @@ class DomainServerFeature(ManagedObject):
     """This is DomainServerFeature class."""
 
     consts = DomainServerFeatureConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("DomainServerFeature", "domainServerFeature", "server-feature-[name]", VersionMeta.Version112a, "InputOutput", 0x3f, [], [""], [u'computeSystem', u'domainFeatureCatalog', u'extpolDomain'], [u'domainChassisParam', u'domainEnvironmentParam', u'domainNetworkParam', u'domainServerParam', u'domainStorageParam'], ["Get"])
+    mo_meta = MoMeta("DomainServerFeature", "domainServerFeature", "server-feature-[name]", VersionMeta.Version112a, "InputOutput", 0x3f, [], [""], ['computeSystem', 'domainFeatureCatalog', 'extpolDomain'], ['domainChassisParam', 'domainEnvironmentParam', 'domainNetworkParam', 'domainServerParam', 'domainStorageParam'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

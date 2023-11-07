@@ -19,9 +19,9 @@ class TestingServiceProfileFsmTask(ManagedObject):
     """This is TestingServiceProfileFsmTask class."""
 
     consts = TestingServiceProfileFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("TestingServiceProfileFsmTask", "testingServiceProfileFsmTask", "task-[item]", VersionMeta.Version101a, "OutputOnly", 0xf, [], [""], [u'testingServiceProfile'], [], [None])
+    mo_meta = MoMeta("TestingServiceProfileFsmTask", "testingServiceProfileFsmTask", "task-[item]", VersionMeta.Version101a, "OutputOnly", 0xf, [], [""], ['testingServiceProfile'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

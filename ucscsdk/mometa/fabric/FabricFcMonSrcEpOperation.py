@@ -23,9 +23,9 @@ class FabricFcMonSrcEpOperation(ManagedObject):
     """This is FabricFcMonSrcEpOperation class."""
 
     consts = FabricFcMonSrcEpOperationConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricFcMonSrcEpOperation", "fabricFcMonSrcEpOperation", "remoper-mon-src-[name]", VersionMeta.Version151a, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricFcEstcEpOperation', u'fabricFcSanEpOperation', u'fabricFcSanPcOperation', u'fabricVsan', u'vnicFc'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricFcMonSrcEpOperation", "fabricFcMonSrcEpOperation", "remoper-mon-src-[name]", VersionMeta.Version151a, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['fabricFcEstcEpOperation', 'fabricFcSanEpOperation', 'fabricFcSanPcOperation', 'fabricVsan', 'vnicFc'], ['faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remoteTrigger", "remove"], []), 

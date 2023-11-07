@@ -30,7 +30,7 @@ class SwCardEnvStats(ManagedObject):
     consts = SwCardEnvStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SwCardEnvStats", "swCardEnvStats", "cardenvstats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'networkElement'], [u'swCardEnvStatsHist'], [None])
+    mo_meta = MoMeta("SwCardEnvStats", "swCardEnvStats", "cardenvstats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], ['networkElement'], ['swCardEnvStatsHist'], [None])
 
     prop_meta = {
         "slot_outlet1": MoPropertyMeta("slot_outlet1", "SlotOutlet1", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-applicable"], ["0-4294967295"]), 

@@ -13,9 +13,9 @@ class FdChassis(ManagedObject):
     """This is FdChassis class."""
 
     consts = FdChassisConsts()
-    naming_props = set([u'chassisId'])
+    naming_props = set(['chassisId'])
 
-    mo_meta = MoMeta("FdChassis", "fdChassis", "chassis-[chassis_id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricSystem'], [u'fdBlade', u'messageEp'], ["get"])
+    mo_meta = MoMeta("FdChassis", "fdChassis", "chassis-[chassis_id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['fabricSystem'], ['fdBlade', 'messageEp'], ["get"])
 
     prop_meta = {
         "chassis_id": MoPropertyMeta("chassis_id", "chassisId", "string", VersionMeta.Version201b, MoPropertyMeta.NAMING, 0x2, None, None, None, ["N/A"], ["0-255"]), 

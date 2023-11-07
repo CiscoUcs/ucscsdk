@@ -22,9 +22,9 @@ class NfsMountDef(ManagedObject):
     """This is NfsMountDef class."""
 
     consts = NfsMountDefConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("NfsMountDef", "nfsMountDef", "nfs-mount-def-[name]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], [u'consumerInst'], [], [None])
+    mo_meta = MoMeta("NfsMountDef", "nfsMountDef", "nfs-mount-def-[name]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], ['consumerInst'], [], [None])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled", "suspended"], []), 

@@ -15,7 +15,7 @@ class TopMetaInf(ManagedObject):
     consts = TopMetaInfConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("TopMetaInf", "topMetaInf", "meta", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [u'topRoot'], [], ["Get"])
+    mo_meta = MoMeta("TopMetaInf", "topMetaInf", "meta", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], ['topRoot'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

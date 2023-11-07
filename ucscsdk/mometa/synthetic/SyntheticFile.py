@@ -13,9 +13,9 @@ class SyntheticFile(ManagedObject):
     """This is SyntheticFile class."""
 
     consts = SyntheticFileConsts()
-    naming_props = set([u'ino'])
+    naming_props = set(['ino'])
 
-    mo_meta = MoMeta("SyntheticFile", "syntheticFile", "file-[ino]", VersionMeta.Version101a, "InputOutput", 0x7ffff, [], ["admin"], [u'syntheticDirectory'], [], ["Get"])
+    mo_meta = MoMeta("SyntheticFile", "syntheticFile", "file-[ino]", VersionMeta.Version101a, "InputOutput", 0x7ffff, [], ["admin"], ['syntheticDirectory'], [], ["Get"])
 
     prop_meta = {
         "atime": MoPropertyMeta("atime", "atime", "ulong", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

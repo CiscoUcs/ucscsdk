@@ -120,7 +120,7 @@ class CallhomeHolderFsm(ManagedObject):
     consts = CallhomeHolderFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CallhomeHolderFsm", "callhomeHolderFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], [u'callhomeHolder'], [u'callhomeHolderFsmStage'], ["Get"])
+    mo_meta = MoMeta("CallhomeHolderFsm", "callhomeHolderFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], ['callhomeHolder'], ['callhomeHolderFsmStage'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -119,7 +119,7 @@ class AaaRadiusEpFsm(ManagedObject):
     consts = AaaRadiusEpFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AaaRadiusEpFsm", "aaaRadiusEpFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], [u'aaaRadiusEp'], [u'aaaRadiusEpFsmStage'], [None])
+    mo_meta = MoMeta("AaaRadiusEpFsm", "aaaRadiusEpFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], ['aaaRadiusEp'], ['aaaRadiusEpFsmStage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

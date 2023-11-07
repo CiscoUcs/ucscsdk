@@ -44,9 +44,9 @@ class PkiKeyRing(ManagedObject):
     """This is PkiKeyRing class."""
 
     consts = PkiKeyRingConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("PkiKeyRing", "pkiKeyRing", "keyring-[name]", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["aaa", "admin"], [u'pkiEp'], [u'faultInst', u'pkiCertReq'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("PkiKeyRing", "pkiKeyRing", "keyring-[name]", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["aaa", "admin"], ['pkiEp'], ['faultInst', 'pkiCertReq'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["completed", "created", "reqCreated", "started", "tpSet"], []), 

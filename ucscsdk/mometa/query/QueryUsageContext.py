@@ -18,9 +18,9 @@ class QueryUsageContext(ManagedObject):
     """This is QueryUsageContext class."""
 
     consts = QueryUsageContextConsts()
-    naming_props = set([u'sessionId'])
+    naming_props = set(['sessionId'])
 
-    mo_meta = MoMeta("QueryUsageContext", "queryUsageContext", "usage-[session_id]", VersionMeta.Version112a, "InputOutput", 0x1ff, [], ["admin"], [u'queryEp'], [u'faultInst', u'queryresultUsage'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("QueryUsageContext", "queryUsageContext", "usage-[session_id]", VersionMeta.Version112a, "InputOutput", 0x1ff, [], ["admin"], ['queryEp'], ['faultInst', 'queryresultUsage'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["idle", "restart"], []), 

@@ -37,7 +37,7 @@ class VnicIPv4If(ManagedObject):
     consts = VnicIPv4IfConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicIPv4If", "vnicIPv4If", "ipv4", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server", "ls-storage"], [u'storageEthLif', u'vnicEtherIf', u'vnicIScsiBootVnic', u'vnicStorageEthLif', u'vnicVlan'], [u'storageIpV4PooledAddr', u'storageIpV4StaticAddr', u'vnicFault', u'vnicIPv4Dhcp', u'vnicIPv4Dns', u'vnicIPv4IscsiAddr', u'vnicIPv4PooledIscsiAddr', u'vnicIPv4StaticRoute', u'vnicIpV4MgmtPooledAddr', u'vnicIpV4PooledAddr', u'vnicIpV4ProfDerivedAddr', u'vnicIpV4StaticAddr'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicIPv4If", "vnicIPv4If", "ipv4", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server", "ls-storage"], ['storageEthLif', 'vnicEtherIf', 'vnicIScsiBootVnic', 'vnicStorageEthLif', 'vnicVlan'], ['storageIpV4PooledAddr', 'storageIpV4StaticAddr', 'vnicFault', 'vnicIPv4Dhcp', 'vnicIPv4Dns', 'vnicIPv4IscsiAddr', 'vnicIPv4PooledIscsiAddr', 'vnicIPv4StaticRoute', 'vnicIpV4MgmtPooledAddr', 'vnicIpV4PooledAddr', 'vnicIpV4ProfDerivedAddr', 'vnicIpV4StaticAddr'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 

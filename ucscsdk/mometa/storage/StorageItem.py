@@ -20,9 +20,9 @@ class StorageItem(ManagedObject):
     """This is StorageItem class."""
 
     consts = StorageItemConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StorageItem", "storageItem", "stor-part-[name]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [u'networkElement', u'nfsExportDef'], [u'faultInst'], ["Get"])
+    mo_meta = MoMeta("StorageItem", "storageItem", "stor-part-[name]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], ['networkElement', 'nfsExportDef'], ['faultInst'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

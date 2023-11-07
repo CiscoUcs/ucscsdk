@@ -31,7 +31,7 @@ class StorageControllerOperation(ManagedObject):
     consts = StorageControllerOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageControllerOperation", "storageControllerOperation", "remote-oper", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'storageController'], [u'faultInst'], ["Get"])
+    mo_meta = MoMeta("StorageControllerOperation", "storageControllerOperation", "remote-oper", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['storageController'], ['faultInst'], ["Get"])
 
     prop_meta = {
         "admin_action_trigger": MoPropertyMeta("admin_action_trigger", "adminActionTrigger", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["canceled", "idle", "triggered"], []), 

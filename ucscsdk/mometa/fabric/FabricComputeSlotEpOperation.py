@@ -21,7 +21,7 @@ class FabricComputeSlotEpOperation(ManagedObject):
     consts = FabricComputeSlotEpOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FabricComputeSlotEpOperation", "fabricComputeSlotEpOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'fabricComputeSlotEp'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("FabricComputeSlotEpOperation", "fabricComputeSlotEpOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['fabricComputeSlotEp'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["acknowledged", "reacknowledge", "remoteTrigger"], []), 

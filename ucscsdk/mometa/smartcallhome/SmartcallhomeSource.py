@@ -22,7 +22,7 @@ class SmartcallhomeSource(ManagedObject):
     consts = SmartcallhomeSourceConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SmartcallhomeSource", "smartcallhomeSource", "sch-source", VersionMeta.Version141a, "InputOutput", 0x3fff, [], ["admin", "operations"], [u'callhomeEp'], [], ["Get", "Set"])
+    mo_meta = MoMeta("SmartcallhomeSource", "smartcallhomeSource", "sch-source", VersionMeta.Version141a, "InputOutput", 0x3fff, [], ["admin", "operations"], ['callhomeEp'], [], ["Get", "Set"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, 0, 255, None, [], []), 

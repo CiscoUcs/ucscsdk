@@ -119,7 +119,7 @@ class GlRequestVnetEpDomainEpFsm(ManagedObject):
     consts = GlRequestVnetEpDomainEpFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("GlRequestVnetEpDomainEpFsm", "glRequestVnetEpDomainEpFsm", "fsm", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], [u'glRequestVnetEpDomainEp'], [u'glRequestVnetEpDomainEpFsmStage'], [None])
+    mo_meta = MoMeta("GlRequestVnetEpDomainEpFsm", "glRequestVnetEpDomainEpFsm", "fsm", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], ['glRequestVnetEpDomainEp'], ['glRequestVnetEpDomainEpFsmStage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

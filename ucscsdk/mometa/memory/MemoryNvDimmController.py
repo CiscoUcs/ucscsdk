@@ -154,9 +154,9 @@ class MemoryNvDimmController(ManagedObject):
     """This is MemoryNvDimmController class."""
 
     consts = MemoryNvDimmControllerConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("MemoryNvDimmController", "memoryNvDimmController", "mem-controller-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'memoryArray'], [u'memoryNvDimm'], ["Get"])
+    mo_meta = MoMeta("MemoryNvDimmController", "memoryNvDimmController", "mem-controller-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['memoryArray'], ['memoryNvDimm'], ["Get"])
 
     prop_meta = {
         "backup_ability": MoPropertyMeta("backup_ability", "backupAbility", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-ready", "ready", "unknown"], []), 

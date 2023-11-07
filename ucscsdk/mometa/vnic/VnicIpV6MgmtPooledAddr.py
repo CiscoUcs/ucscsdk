@@ -15,7 +15,7 @@ class VnicIpV6MgmtPooledAddr(ManagedObject):
     consts = VnicIpV6MgmtPooledAddrConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicIpV6MgmtPooledAddr", "vnicIpV6MgmtPooledAddr", "ipv6-pooled-addr", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server"], [u'mgmtVnet', u'vnicMgmtIf'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicIpV6MgmtPooledAddr", "vnicIpV6MgmtPooledAddr", "ipv6-pooled-addr", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server"], ['mgmtVnet', 'vnicMgmtIf'], ['faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

@@ -20,9 +20,9 @@ class AaaRadiusProvider(ManagedObject):
     """This is AaaRadiusProvider class."""
 
     consts = AaaRadiusProviderConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("AaaRadiusProvider", "aaaRadiusProvider", "provider-[name]", VersionMeta.Version101a, "InputOutput", 0xfff, [], ["aaa", "admin"], [u'aaaRadiusEp'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("AaaRadiusProvider", "aaaRadiusProvider", "provider-[name]", VersionMeta.Version101a, "InputOutput", 0xfff, [], ["aaa", "admin"], ['aaaRadiusEp'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "auth_port": MoPropertyMeta("auth_port", "authPort", "uint", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], ["1-65535"]), 

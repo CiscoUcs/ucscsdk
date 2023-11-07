@@ -15,7 +15,7 @@ class GlTemplateEp(ManagedObject):
     consts = GlTemplateEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("GlTemplateEp", "glTemplateEp", "tep", VersionMeta.Version201b, "InputOutput", 0xf, [], ["read-only"], [u'glOperationEp'], [u'glTemplateOp'], [None])
+    mo_meta = MoMeta("GlTemplateEp", "glTemplateEp", "tep", VersionMeta.Version201b, "InputOutput", 0xf, [], ["read-only"], ['glOperationEp'], ['glTemplateOp'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

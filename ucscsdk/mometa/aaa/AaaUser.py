@@ -31,9 +31,9 @@ class AaaUser(ManagedObject):
     """This is AaaUser class."""
 
     consts = AaaUserConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("AaaUser", "aaaUser", "user-[name]", VersionMeta.Version101a, "InputOutput", 0x1ffff, [], ["aaa", "admin"], [u'orgDomainGroup', u'policyDeviceProfile'], [u'aaaSession', u'aaaSshAuth', u'aaaUserData', u'aaaUserLocale', u'aaaUserRole'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("AaaUser", "aaaUser", "user-[name]", VersionMeta.Version101a, "InputOutput", 0x1ffff, [], ["aaa", "admin"], ['orgDomainGroup', 'policyDeviceProfile'], ['aaaSession', 'aaaSshAuth', 'aaaUserData', 'aaaUserLocale', 'aaaUserRole'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "account_status": MoPropertyMeta("account_status", "accountStatus", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["active", "inactive"], []), 

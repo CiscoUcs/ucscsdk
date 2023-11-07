@@ -21,9 +21,9 @@ class QueryDependencyContext(ManagedObject):
     """This is QueryDependencyContext class."""
 
     consts = QueryDependencyContextConsts()
-    naming_props = set([u'sessionId'])
+    naming_props = set(['sessionId'])
 
-    mo_meta = MoMeta("QueryDependencyContext", "queryDependencyContext", "dependency-[session_id]", VersionMeta.Version112a, "InputOutput", 0x1ff, [], ["admin"], [u'queryEp'], [u'faultInst', u'queryresultDomainGroupEp', u'queryresultOrgEp'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("QueryDependencyContext", "queryDependencyContext", "dependency-[session_id]", VersionMeta.Version112a, "InputOutput", 0x1ff, [], ["admin"], ['queryEp'], ['faultInst', 'queryresultDomainGroupEp', 'queryresultOrgEp'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "numberof_policy": MoPropertyMeta("numberof_policy", "NumberofPolicy", "uint", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

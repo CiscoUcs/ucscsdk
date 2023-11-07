@@ -147,9 +147,9 @@ class NetworkElement(ManagedObject):
     """This is NetworkElement class."""
 
     consts = NetworkElementConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("NetworkElement", "networkElement", "switch-[id]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "ext-lan-config"], [u'computeSystem', u'topSystem'], [u'equipmentFan', u'equipmentFanModule', u'equipmentLocatorLed', u'equipmentPsu', u'equipmentSwitchCard', u'eventInst', u'faultInst', u'firmwareStatus', u'mgmtController', u'mgmtIPv6IfAddr', u'mgmtIPv6IfConfig', u'networkElementFsm', u'networkElementFsmTask', u'networkElementOperation', u'networkSystemCACert', u'storageItem', u'swCardEnvStats', u'swEnvStats', u'swSystemStats'], ["Get", "Set"])
+    mo_meta = MoMeta("NetworkElement", "networkElement", "switch-[id]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "ext-lan-config"], ['computeSystem', 'topSystem'], ['equipmentFan', 'equipmentFanModule', 'equipmentLocatorLed', 'equipmentPsu', 'equipmentSwitchCard', 'eventInst', 'faultInst', 'firmwareStatus', 'mgmtController', 'mgmtIPv6IfAddr', 'mgmtIPv6IfConfig', 'networkElementFsm', 'networkElementFsmTask', 'networkElementOperation', 'networkSystemCACert', 'storageItem', 'swCardEnvStats', 'swEnvStats', 'swSystemStats'], ["Get", "Set"])
 
     prop_meta = {
         "admin_evac_state": MoPropertyMeta("admin_evac_state", "adminEvacState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["drain", "fill", "unknown"], []), 

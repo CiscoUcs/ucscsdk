@@ -13,9 +13,9 @@ class VnicDynamicConPolicyRef(ManagedObject):
     """This is VnicDynamicConPolicyRef class."""
 
     consts = VnicDynamicConPolicyRefConsts()
-    naming_props = set([u'conPolicyName'])
+    naming_props = set(['conPolicyName'])
 
-    mo_meta = MoMeta("VnicDynamicConPolicyRef", "vnicDynamicConPolicyRef", "con-ref-[con_policy_name]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-config", "ls-network", "ls-network-policy", "ls-server"], [u'vnicEther', u'vnicLanConnTempl'], [u'faultInst'], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("VnicDynamicConPolicyRef", "vnicDynamicConPolicyRef", "con-ref-[con_policy_name]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-config", "ls-network", "ls-network-policy", "ls-server"], ['vnicEther', 'vnicLanConnTempl'], ['faultInst'], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

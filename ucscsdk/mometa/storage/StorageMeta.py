@@ -15,7 +15,7 @@ class StorageMeta(ManagedObject):
     consts = StorageMetaConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageMeta", "storageMeta", "meta", VersionMeta.Version131a, "InputOutput", 0xf, [], ["admin"], [u'storageBlade'], [u'faultInst'], [None])
+    mo_meta = MoMeta("StorageMeta", "storageMeta", "meta", VersionMeta.Version131a, "InputOutput", 0xf, [], ["admin"], ['storageBlade'], ['faultInst'], [None])
 
     prop_meta = {
         "ucs_domain_name": MoPropertyMeta("ucs_domain_name", "UCSDomainName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

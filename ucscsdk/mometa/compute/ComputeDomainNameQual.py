@@ -13,9 +13,9 @@ class ComputeDomainNameQual(ManagedObject):
     """This is ComputeDomainNameQual class."""
 
     consts = ComputeDomainNameQualConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("ComputeDomainNameQual", "computeDomainNameQual", "domain-name-qualifier-[name]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin", "pn-policy", "read-only"], [u'computeDomainQual'], [], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("ComputeDomainNameQual", "computeDomainNameQual", "domain-name-qualifier-[name]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin", "pn-policy", "read-only"], ['computeDomainQual'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

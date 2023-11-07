@@ -39,9 +39,9 @@ class VnicStorageEthLif(ManagedObject):
     """This is VnicStorageEthLif class."""
 
     consts = VnicStorageEthLifConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("VnicStorageEthLif", "vnicStorageEthLif", "eth-lif-[name]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-config", "ls-network", "ls-server", "ls-storage"], [], [u'faultInst', u'vnicFault', u'vnicIPv4If'], [None])
+    mo_meta = MoMeta("VnicStorageEthLif", "vnicStorageEthLif", "eth-lif-[name]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-config", "ls-network", "ls-server", "ls-storage"], [], ['faultInst', 'vnicFault', 'vnicIPv4If'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

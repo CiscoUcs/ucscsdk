@@ -125,7 +125,7 @@ class AaaLdapEp(ManagedObject):
     consts = AaaLdapEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AaaLdapEp", "aaaLdapEp", "ldap-ext", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["aaa", "admin"], [u'orgDomainGroup', u'policyDeviceProfile', u'topSystem'], [u'aaaEpFsm', u'aaaEpFsmTask', u'aaaLdapEpFsm', u'aaaLdapGroup', u'aaaLdapGroupRule', u'aaaLdapProvider', u'aaaProviderGroup', u'eventInst', u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("AaaLdapEp", "aaaLdapEp", "ldap-ext", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["aaa", "admin"], ['orgDomainGroup', 'policyDeviceProfile', 'topSystem'], ['aaaEpFsm', 'aaaEpFsmTask', 'aaaLdapEpFsm', 'aaaLdapGroup', 'aaaLdapGroupRule', 'aaaLdapProvider', 'aaaProviderGroup', 'eventInst', 'faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "attribute": MoPropertyMeta("attribute", "attribute", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, 0, 63, None, [], []), 

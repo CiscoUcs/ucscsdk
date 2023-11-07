@@ -13,9 +13,9 @@ class GuiGuiComponent(ManagedObject):
     """This is GuiGuiComponent class."""
 
     consts = GuiGuiComponentConsts()
-    naming_props = set([u'appId'])
+    naming_props = set(['appId'])
 
-    mo_meta = MoMeta("GuiGuiComponent", "guiGuiComponent", "gui-[app_id]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin"], [u'guiGuiCont'], [], [None])
+    mo_meta = MoMeta("GuiGuiComponent", "guiGuiComponent", "gui-[app_id]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin"], ['guiGuiCont'], [], [None])
 
     prop_meta = {
         "app_id": MoPropertyMeta("app_id", "appId", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x2, 1, 510, None, [], []), 

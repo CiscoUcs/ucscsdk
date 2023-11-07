@@ -13,9 +13,9 @@ class VnicIPv4Dns(ManagedObject):
     """This is VnicIPv4Dns class."""
 
     consts = VnicIPv4DnsConsts()
-    naming_props = set([u'pref'])
+    naming_props = set(['pref'])
 
-    mo_meta = MoMeta("VnicIPv4Dns", "vnicIPv4Dns", "ipv4-dns-[pref]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server"], [u'vnicIPv4If', u'vnicIPv4IscsiAddr', u'vnicIPv4PooledIscsiAddr'], [], ["Get"])
+    mo_meta = MoMeta("VnicIPv4Dns", "vnicIPv4Dns", "ipv4-dns-[pref]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server"], ['vnicIPv4If', 'vnicIPv4IscsiAddr', 'vnicIPv4PooledIscsiAddr'], [], ["Get"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 

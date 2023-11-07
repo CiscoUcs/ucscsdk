@@ -15,7 +15,7 @@ class FabricFcEstcCloud(ManagedObject):
     consts = FabricFcEstcCloudConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FabricFcEstcCloud", "fabricFcEstcCloud", "fc-estc", VersionMeta.Version111a, "InputOutput", 0xf, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricEp'], [u'fabricFcEstc', u'fabricFcZoneProfile', u'fabricFcZoneProfileIvt', u'fabricVsan', u'statsThresholdPolicy'], ["Get"])
+    mo_meta = MoMeta("FabricFcEstcCloud", "fabricFcEstcCloud", "fc-estc", VersionMeta.Version111a, "InputOutput", 0xf, [], ["admin", "ext-san-config", "ext-san-policy"], ['fabricEp'], ['fabricFcEstc', 'fabricFcZoneProfile', 'fabricFcZoneProfileIvt', 'fabricVsan', 'statsThresholdPolicy'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

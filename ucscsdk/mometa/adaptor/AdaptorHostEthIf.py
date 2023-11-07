@@ -188,9 +188,9 @@ class AdaptorHostEthIf(ManagedObject):
     """This is AdaptorHostEthIf class."""
 
     consts = AdaptorHostEthIfConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorHostEthIf", "adaptorHostEthIf", "host-eth-[id]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], [u'adaptorUnit'], [u'adaptorEthPortBySizeLargeStats', u'adaptorEthPortBySizeSmallStats', u'adaptorEthPortErrStats', u'adaptorEthPortMcastStats', u'adaptorEthPortOutsizedStats', u'adaptorEthPortStats', u'adaptorHostEthIfOperation', u'adaptorUsnicConnDef', u'adaptorVlan', u'adaptorVmmqConnDef', u'adaptorVnicStats', u'dcxVIf', u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("AdaptorHostEthIf", "adaptorHostEthIf", "host-eth-[id]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], ['adaptorUnit'], ['adaptorEthPortBySizeLargeStats', 'adaptorEthPortBySizeSmallStats', 'adaptorEthPortErrStats', 'adaptorEthPortMcastStats', 'adaptorEthPortOutsizedStats', 'adaptorEthPortStats', 'adaptorHostEthIfOperation', 'adaptorUsnicConnDef', 'adaptorVlan', 'adaptorVmmqConnDef', 'adaptorVnicStats', 'dcxVIf', 'faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

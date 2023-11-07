@@ -19,9 +19,9 @@ class FsmStatus(ManagedObject):
     """This is FsmStatus class."""
 
     consts = FsmStatusConsts()
-    naming_props = set([u'convertedEpRef'])
+    naming_props = set(['convertedEpRef'])
 
-    mo_meta = MoMeta("FsmStatus", "fsmStatus", "status-[converted_ep_ref]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["read-only"], [u'computeSystem', u'topSystem'], [], ["Get"])
+    mo_meta = MoMeta("FsmStatus", "fsmStatus", "status-[converted_ep_ref]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["read-only"], ['computeSystem', 'topSystem'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

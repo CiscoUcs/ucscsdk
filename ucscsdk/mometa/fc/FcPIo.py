@@ -201,9 +201,9 @@ class FcPIo(ManagedObject):
     """This is FcPIo class."""
 
     consts = FcPIoConsts()
-    naming_props = set([u'portId'])
+    naming_props = set(['portId'])
 
-    mo_meta = MoMeta("FcPIo", "fcPIo", "port-[port_id]", VersionMeta.Version111a, "InputOutput", 0x7f, [], ["read-only"], [u'portGroup', u'portSubGroup'], [u'equipmentXcvr'], ["Get"])
+    mo_meta = MoMeta("FcPIo", "fcPIo", "port-[port_id]", VersionMeta.Version111a, "InputOutput", 0x7f, [], ["read-only"], ['portGroup', 'portSubGroup'], ['equipmentXcvr'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 

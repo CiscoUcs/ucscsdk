@@ -16,7 +16,7 @@ class MgmtIPv6IfConfig(ManagedObject):
     consts = MgmtIPv6IfConfigConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("MgmtIPv6IfConfig", "mgmtIPv6IfConfig", "ifConfig-ipv6", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["admin", "ext-lan-config"], [u'mgmtIf', u'networkElement'], [u'mgmtIPv6IfAddr'], ["Get", "Set"])
+    mo_meta = MoMeta("MgmtIPv6IfConfig", "mgmtIPv6IfConfig", "ifConfig-ipv6", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["admin", "ext-lan-config"], ['mgmtIf', 'networkElement'], ['mgmtIPv6IfAddr'], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

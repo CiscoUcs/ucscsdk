@@ -58,7 +58,7 @@ class LstorageAck(ManagedObject):
     consts = LstorageAckConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("LstorageAck", "lstorageAck", "ack", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-storage"], [], [u'faultInst'], [None])
+    mo_meta = MoMeta("LstorageAck", "lstorageAck", "ack", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-storage"], [], ['faultInst'], [None])
 
     prop_meta = {
         "acked": MoPropertyMeta("acked", "acked", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 

@@ -15,7 +15,7 @@ class ComputeFaultUpgradeFlag(ManagedObject):
     consts = ComputeFaultUpgradeFlagConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ComputeFaultUpgradeFlag", "computeFaultUpgradeFlag", "fltUpgFlg", VersionMeta.Version112a, "InputOutput", 0xf, [], ["admin"], [u'computeResourceAggrEp'], [], ["Get"])
+    mo_meta = MoMeta("ComputeFaultUpgradeFlag", "computeFaultUpgradeFlag", "fltUpgFlg", VersionMeta.Version112a, "InputOutput", 0xf, [], ["admin"], ['computeResourceAggrEp'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

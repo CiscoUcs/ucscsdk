@@ -19,9 +19,9 @@ class ComputePool(ManagedObject):
     """This is ComputePool class."""
 
     consts = ComputePoolConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("ComputePool", "computePool", "compute-pool-[name]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "pn-policy"], [u'orgOrg'], [u'computePooledEnclosureComputeSlot', u'computePooledRackUnit', u'computePooledSlot', u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("ComputePool", "computePool", "compute-pool-[name]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "pn-policy"], ['orgOrg'], ['computePooledEnclosureComputeSlot', 'computePooledRackUnit', 'computePooledSlot', 'faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "assigned": MoPropertyMeta("assigned", "assigned", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

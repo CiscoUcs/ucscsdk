@@ -146,9 +146,9 @@ class MemoryNvDimmBattery(ManagedObject):
     """This is MemoryNvDimmBattery class."""
 
     consts = MemoryNvDimmBatteryConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("MemoryNvDimmBattery", "memoryNvDimmBattery", "nvdimm-batt-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'memoryArray'], [], ["Get"])
+    mo_meta = MoMeta("MemoryNvDimmBattery", "memoryNvDimmBattery", "nvdimm-batt-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['memoryArray'], [], ["Get"])
 
     prop_meta = {
         "capacity": MoPropertyMeta("capacity", "capacity", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 

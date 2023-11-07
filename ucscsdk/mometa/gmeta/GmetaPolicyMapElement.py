@@ -13,7 +13,7 @@ class GmetaPolicyMapElement(ManagedObject):
     """This is GmetaPolicyMapElement class."""
 
     consts = GmetaPolicyMapElementConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
     mo_meta = MoMeta("GmetaPolicyMapElement", "gmetaPolicyMapElement", "policymapelem-[name]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], [], [], [None])
 

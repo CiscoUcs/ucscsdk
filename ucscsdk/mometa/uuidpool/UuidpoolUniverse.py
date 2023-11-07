@@ -15,7 +15,7 @@ class UuidpoolUniverse(ManagedObject):
     consts = UuidpoolUniverseConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("UuidpoolUniverse", "uuidpoolUniverse", "uuid", VersionMeta.Version101a, "InputOutput", 0xf, [], ["read-only"], [u'topRoot'], [u'uuidpoolAddr', u'uuidpoolFormat'], ["Get"])
+    mo_meta = MoMeta("UuidpoolUniverse", "uuidpoolUniverse", "uuid", VersionMeta.Version101a, "InputOutput", 0xf, [], ["read-only"], ['topRoot'], ['uuidpoolAddr', 'uuidpoolFormat'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

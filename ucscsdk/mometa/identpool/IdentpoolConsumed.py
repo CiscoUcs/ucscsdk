@@ -22,9 +22,9 @@ class IdentpoolConsumed(ManagedObject):
     """This is IdentpoolConsumed class."""
 
     consts = IdentpoolConsumedConsts()
-    naming_props = set([u'sysId'])
+    naming_props = set(['sysId'])
 
-    mo_meta = MoMeta("IdentpoolConsumed", "identpoolConsumed", "cons-[sys_id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [u'fcpoolAddr', u'ippoolAddr', u'ippoolIpV6Addr', u'iqnpoolAddr', u'macpoolAddr', u'uuidpoolAddr'], [u'identpoolDomain'], [None])
+    mo_meta = MoMeta("IdentpoolConsumed", "identpoolConsumed", "cons-[sys_id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], ['fcpoolAddr', 'ippoolAddr', 'ippoolIpV6Addr', 'iqnpoolAddr', 'macpoolAddr', 'uuidpoolAddr'], ['identpoolDomain'], [None])
 
     prop_meta = {
         "assigned_from_pool": MoPropertyMeta("assigned_from_pool", "assignedFromPool", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

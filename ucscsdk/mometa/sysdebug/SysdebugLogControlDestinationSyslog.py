@@ -34,7 +34,7 @@ class SysdebugLogControlDestinationSyslog(ManagedObject):
     consts = SysdebugLogControlDestinationSyslogConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SysdebugLogControlDestinationSyslog", "sysdebugLogControlDestinationSyslog", "syslog", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "operations"], [u'sysdebugLogControlDomain'], [], ["Get", "Set"])
+    mo_meta = MoMeta("SysdebugLogControlDestinationSyslog", "sysdebugLogControlDestinationSyslog", "syslog", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "operations"], ['sysdebugLogControlDomain'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

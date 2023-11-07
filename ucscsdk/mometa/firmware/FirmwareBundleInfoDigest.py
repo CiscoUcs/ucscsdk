@@ -24,7 +24,7 @@ class FirmwareBundleInfoDigest(ManagedObject):
     """This is FirmwareBundleInfoDigest class."""
 
     consts = FirmwareBundleInfoDigestConsts()
-    naming_props = set([u'type', u'version'])
+    naming_props = set(['type', 'version'])
 
     mo_meta = MoMeta("FirmwareBundleInfoDigest", "firmwareBundleInfoDigest", "bundleinfo-[type]-version-[version]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [], [], [None])
 

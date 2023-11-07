@@ -16,9 +16,9 @@ class UuidpoolBlock(ManagedObject):
     """This is UuidpoolBlock class."""
 
     consts = UuidpoolBlockConsts()
-    naming_props = set([u'from', u'to'])
+    naming_props = set(['from', 'to'])
 
-    mo_meta = MoMeta("UuidpoolBlock", "uuidpoolBlock", "block-from-[r_from]-to-[to]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "pn-policy"], [u'uuidpoolPool'], [], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("UuidpoolBlock", "uuidpoolBlock", "block-from-[r_from]-to-[to]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "pn-policy"], ['uuidpoolPool'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "assigned": MoPropertyMeta("assigned", "assigned", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

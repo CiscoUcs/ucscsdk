@@ -21,7 +21,7 @@ class EquipmentBinding(ManagedObject):
     consts = EquipmentBindingConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentBinding", "equipmentBinding", "chassis", VersionMeta.Version151a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy", "read-only"], [u'equipmentChassisProfile'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("EquipmentBinding", "equipmentBinding", "chassis", VersionMeta.Version151a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy", "read-only"], ['equipmentChassisProfile'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "assigned_to_dn": MoPropertyMeta("assigned_to_dn", "assignedToDn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

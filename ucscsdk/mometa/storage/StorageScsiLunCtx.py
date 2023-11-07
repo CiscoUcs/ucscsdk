@@ -26,7 +26,7 @@ class StorageScsiLunCtx(ManagedObject):
     consts = StorageScsiLunCtxConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageScsiLunCtx", "storageScsiLunCtx", "lun-ctx", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storageScsiLun'], [], [None])
+    mo_meta = MoMeta("StorageScsiLunCtx", "storageScsiLunCtx", "lun-ctx", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], ['storageScsiLun'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

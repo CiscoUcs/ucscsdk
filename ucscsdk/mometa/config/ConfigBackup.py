@@ -122,9 +122,9 @@ class ConfigBackup(ManagedObject):
     """This is ConfigBackup class."""
 
     consts = ConfigBackupConsts()
-    naming_props = set([u'backupType', u'creationTS'])
+    naming_props = set(['backupType', 'creationTS'])
 
-    mo_meta = MoMeta("ConfigBackup", "configBackup", "type-[backup_type]-ts-[creation_ts]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin"], [u'configConsumerCatalogue'], [u'configBackupFsm', u'configBackupFsmTask', u'eventInst', u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("ConfigBackup", "configBackup", "type-[backup_type]-ts-[creation_ts]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin"], ['configConsumerCatalogue'], ['configBackupFsm', 'configBackupFsmTask', 'eventInst', 'faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["active", "delete"], []), 

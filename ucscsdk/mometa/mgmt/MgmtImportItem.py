@@ -18,9 +18,9 @@ class MgmtImportItem(ManagedObject):
     """This is MgmtImportItem class."""
 
     consts = MgmtImportItemConsts()
-    naming_props = set([u'sysid'])
+    naming_props = set(['sysid'])
 
-    mo_meta = MoMeta("MgmtImportItem", "mgmtImportItem", "imp-provider-[sysid]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin"], [u'mgmtDataImporter'], [u'faultInst'], ["Get"])
+    mo_meta = MoMeta("MgmtImportItem", "mgmtImportItem", "imp-provider-[sysid]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin"], ['mgmtDataImporter'], ['faultInst'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -21,7 +21,7 @@ class TopInfoSyncPolicy(ManagedObject):
     consts = TopInfoSyncPolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("TopInfoSyncPolicy", "topInfoSyncPolicy", "info-sync-policy", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-san-config"], [u'orgDomainGroup'], [], ["Get", "Set"])
+    mo_meta = MoMeta("TopInfoSyncPolicy", "topInfoSyncPolicy", "info-sync-policy", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-san-config"], ['orgDomainGroup'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

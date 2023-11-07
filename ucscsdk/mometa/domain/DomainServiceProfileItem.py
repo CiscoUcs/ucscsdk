@@ -71,7 +71,7 @@ class DomainServiceProfileItem(ManagedObject):
     """This is DomainServiceProfileItem class."""
 
     consts = DomainServiceProfileItemConsts()
-    naming_props = set([u'serviceProfileDn'])
+    naming_props = set(['serviceProfileDn'])
 
     mo_meta = MoMeta("DomainServiceProfileItem", "domainServiceProfileItem", "SP[service_profile_dn]", VersionMeta.Version121a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-server", "pn-equipment", "pn-maintenance", "pn-policy"], [], [], ["Get"])
 

@@ -44,9 +44,9 @@ class StoragePartition(ManagedObject):
     """This is StoragePartition class."""
 
     consts = StoragePartitionConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StoragePartition", "storagePartition", "part-[name]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], [u'storageArray'], [u'storageLunCounters', u'storageLunMaskGroup', u'storageLunReplica', u'storageLunSnapshot', u'storageScsiLun', u'storageUsageCounters', u'storageVolume'], ["Get"])
+    mo_meta = MoMeta("StoragePartition", "storagePartition", "part-[name]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], ['storageArray'], ['storageLunCounters', 'storageLunMaskGroup', 'storageLunReplica', 'storageLunSnapshot', 'storageScsiLun', 'storageUsageCounters', 'storageVolume'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["clear-transport-ready", "degraded", "delete", "hide", "offline", "online", "restore", "secure-drive-group", "transport-ready", "undefined", "unhide"], []), 

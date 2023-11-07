@@ -26,7 +26,7 @@ class EquipmentIOCardStats(ManagedObject):
     consts = EquipmentIOCardStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentIOCardStats", "equipmentIOCardStats", "stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'equipmentIOCard'], [u'equipmentIOCardStatsHist'], [None])
+    mo_meta = MoMeta("EquipmentIOCardStats", "equipmentIOCardStats", "stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], ['equipmentIOCard'], ['equipmentIOCardStatsHist'], [None])
 
     prop_meta = {
         "ambient_temp": MoPropertyMeta("ambient_temp", "ambientTemp", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-applicable"], ["0-4294967295"]), 

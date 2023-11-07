@@ -83,9 +83,9 @@ class GlIdentCtxOp(ManagedObject):
     """This is GlIdentCtxOp class."""
 
     consts = GlIdentCtxOpConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("GlIdentCtxOp", "glIdentCtxOp", "icop-[id]", VersionMeta.Version201b, "InputOutput", 0x3ff, [], ["read-only"], [u'glIdentCtxEp'], [u'glConflictEp', u'glRequestorEp', u'messageEp'], [None])
+    mo_meta = MoMeta("GlIdentCtxOp", "glIdentCtxOp", "icop-[id]", VersionMeta.Version201b, "InputOutput", 0x3ff, [], ["read-only"], ['glIdentCtxEp'], ['glConflictEp', 'glRequestorEp', 'messageEp'], [None])
 
     prop_meta = {
         "assigned": MoPropertyMeta("assigned", "assigned", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

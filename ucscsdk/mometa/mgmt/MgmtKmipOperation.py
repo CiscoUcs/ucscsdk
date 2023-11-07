@@ -20,7 +20,7 @@ class MgmtKmipOperation(ManagedObject):
     consts = MgmtKmipOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("MgmtKmipOperation", "mgmtKmipOperation", "remote-oper", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-storage", "ls-storage-policy"], [u'mgmtKmip'], [u'faultInst'], ["get", "set"])
+    mo_meta = MoMeta("MgmtKmipOperation", "mgmtKmipOperation", "remote-oper", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-storage", "ls-storage-policy"], ['mgmtKmip'], ['faultInst'], ["get", "set"])
 
     prop_meta = {
         "ca_certificate": MoPropertyMeta("ca_certificate", "caCertificate", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

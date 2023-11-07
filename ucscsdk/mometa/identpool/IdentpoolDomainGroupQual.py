@@ -16,9 +16,9 @@ class IdentpoolDomainGroupQual(ManagedObject):
     """This is IdentpoolDomainGroupQual class."""
 
     consts = IdentpoolDomainGroupQualConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("IdentpoolDomainGroupQual", "identpoolDomainGroupQual", "domaingroup-[name]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin"], [u'identpoolBlockQual'], [], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("IdentpoolDomainGroupQual", "identpoolDomainGroupQual", "domaingroup-[name]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin"], ['identpoolBlockQual'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "allow_descendants": MoPropertyMeta("allow_descendants", "allowDescendants", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 

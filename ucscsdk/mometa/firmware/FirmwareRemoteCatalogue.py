@@ -13,9 +13,9 @@ class FirmwareRemoteCatalogue(ManagedObject):
     """This is FirmwareRemoteCatalogue class."""
 
     consts = FirmwareRemoteCatalogueConsts()
-    naming_props = set([u'server'])
+    naming_props = set(['server'])
 
-    mo_meta = MoMeta("FirmwareRemoteCatalogue", "firmwareRemoteCatalogue", "remote-fw-catalogue-[server]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], [u'topSystem'], [u'firmwareCompSource', u'firmwareDistributable', u'firmwareImage'], [None])
+    mo_meta = MoMeta("FirmwareRemoteCatalogue", "firmwareRemoteCatalogue", "remote-fw-catalogue-[server]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], ['topSystem'], ['firmwareCompSource', 'firmwareDistributable', 'firmwareImage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

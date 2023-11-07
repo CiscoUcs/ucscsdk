@@ -78,9 +78,9 @@ class ComputeBladeEp(ManagedObject):
     """This is ComputeBladeEp class."""
 
     consts = ComputeBladeEpConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("ComputeBladeEp", "computeBladeEp", "blade-ep-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'storageBlade'], [], ["Get"])
+    mo_meta = MoMeta("ComputeBladeEp", "computeBladeEp", "blade-ep-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['storageBlade'], [], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["in-maintenance", "in-service", "out-of-service"], []), 

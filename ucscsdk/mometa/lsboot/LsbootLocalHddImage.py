@@ -23,7 +23,7 @@ class LsbootLocalHddImage(ManagedObject):
     consts = LsbootLocalHddImageConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("LsbootLocalHddImage", "lsbootLocalHddImage", "local-hdd", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], [u'lsbootLocalStorage'], [u'lsbootLocalLunImagePath', u'lsbootUEFIBootParam'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LsbootLocalHddImage", "lsbootLocalHddImage", "local-hdd", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], ['lsbootLocalStorage'], ['lsbootLocalLunImagePath', 'lsbootUEFIBootParam'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

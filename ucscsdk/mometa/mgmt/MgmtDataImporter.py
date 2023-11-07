@@ -154,9 +154,9 @@ class MgmtDataImporter(ManagedObject):
     """This is MgmtDataImporter class."""
 
     consts = MgmtDataImporterConsts()
-    naming_props = set([u'hostname'])
+    naming_props = set(['hostname'])
 
-    mo_meta = MoMeta("MgmtDataImporter", "mgmtDataImporter", "importer-[hostname]", VersionMeta.Version101a, "InputOutput", 0x1fff, [], ["admin"], [u'topSystem'], [u'eventInst', u'faultInst', u'mgmtDataImporterFsm', u'mgmtDataImporterFsmTask', u'mgmtImportItem'], ["Get", "Remove", "Set"])
+    mo_meta = MoMeta("MgmtDataImporter", "mgmtDataImporter", "importer-[hostname]", VersionMeta.Version101a, "InputOutput", 0x1fff, [], ["admin"], ['topSystem'], ['eventInst', 'faultInst', 'mgmtDataImporterFsm', 'mgmtDataImporterFsmTask', 'mgmtImportItem'], ["Get", "Remove", "Set"])
 
     prop_meta = {
         "action": MoPropertyMeta("action", "action", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["merge", "replace"], []), 

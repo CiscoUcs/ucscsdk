@@ -37,9 +37,9 @@ class FirmwareDownloadPolicy(ManagedObject):
     """This is FirmwareDownloadPolicy class."""
 
     consts = FirmwareDownloadPolicyConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("FirmwareDownloadPolicy", "firmwareDownloadPolicy", "dl-policy-[type]", VersionMeta.Version101a, "InputOutput", 0x3ffff, [], ["admin"], [u'firmwareSource', u'orgDomainGroup'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("FirmwareDownloadPolicy", "firmwareDownloadPolicy", "dl-policy-[type]", VersionMeta.Version101a, "InputOutput", 0x3ffff, [], ["admin"], ['firmwareSource', 'orgDomainGroup'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_eula_status": MoPropertyMeta("admin_eula_status", "adminEULAStatus", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["false", "no", "true", "yes"], []), 

@@ -19,9 +19,9 @@ class NfsClientDefFsmTask(ManagedObject):
     """This is NfsClientDefFsmTask class."""
 
     consts = NfsClientDefFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("NfsClientDefFsmTask", "nfsClientDefFsmTask", "task-[item]", VersionMeta.Version101a, "OutputOnly", 0xf, [], [""], [u'nfsClientDef'], [], [None])
+    mo_meta = MoMeta("NfsClientDefFsmTask", "nfsClientDefFsmTask", "task-[item]", VersionMeta.Version101a, "OutputOnly", 0xf, [], [""], ['nfsClientDef'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

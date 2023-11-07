@@ -13,9 +13,9 @@ class IdentpoolMetaSystem(ManagedObject):
     """This is IdentpoolMetaSystem class."""
 
     consts = IdentpoolMetaSystemConsts()
-    naming_props = set([u'sysId'])
+    naming_props = set(['sysId'])
 
-    mo_meta = MoMeta("IdentpoolMetaSystem", "identpoolMetaSystem", "metasys-[sys_id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [u'identpoolMetaVerse'], [], [None])
+    mo_meta = MoMeta("IdentpoolMetaSystem", "identpoolMetaSystem", "metasys-[sys_id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], ['identpoolMetaVerse'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

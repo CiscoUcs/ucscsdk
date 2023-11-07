@@ -13,9 +13,9 @@ class ComputeInstanceIdQual(ManagedObject):
     """This is ComputeInstanceIdQual class."""
 
     consts = ComputeInstanceIdQualConsts()
-    naming_props = set([u'minId', u'maxId'])
+    naming_props = set(['minId', 'maxId'])
 
-    mo_meta = MoMeta("ComputeInstanceIdQual", "computeInstanceIdQual", "inst-from-[min_id]-to-[max_id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["admin", "pn-policy", "read-only"], [u'computeSlotQual'], [], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("ComputeInstanceIdQual", "computeInstanceIdQual", "inst-from-[min_id]-to-[max_id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["admin", "pn-policy", "read-only"], ['computeSlotQual'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

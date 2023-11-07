@@ -137,9 +137,9 @@ class FdBlade(ManagedObject):
     """This is FdBlade class."""
 
     consts = FdBladeConsts()
-    naming_props = set([u'slotId'])
+    naming_props = set(['slotId'])
 
-    mo_meta = MoMeta("FdBlade", "fdBlade", "blade-[slot_id]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fdChassis'], [u'eventInst', u'faultInst', u'fdBladeFsm', u'fdPhysicalFsm', u'fdPhysicalFsmTask', u'identRequestEp', u'messageEp', u'vnicMgmt', u'vnicOutbandMgmtEp'], ["get"])
+    mo_meta = MoMeta("FdBlade", "fdBlade", "blade-[slot_id]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['fdChassis'], ['eventInst', 'faultInst', 'fdBladeFsm', 'fdPhysicalFsm', 'fdPhysicalFsmTask', 'identRequestEp', 'messageEp', 'vnicMgmt', 'vnicOutbandMgmtEp'], ["get"])
 
     prop_meta = {
         "chassis_id": MoPropertyMeta("chassis_id", "chassisId", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["N/A"], ["0-255"]), 

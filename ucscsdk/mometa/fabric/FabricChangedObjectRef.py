@@ -20,9 +20,9 @@ class FabricChangedObjectRef(ManagedObject):
     """This is FabricChangedObjectRef class."""
 
     consts = FabricChangedObjectRefConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("FabricChangedObjectRef", "fabricChangedObjectRef", "ChangedObjectRef[id]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], [u'fabricVnetEpSyncEp'], [u'faultInst'], [None])
+    mo_meta = MoMeta("FabricChangedObjectRef", "fabricChangedObjectRef", "ChangedObjectRef[id]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], ['fabricVnetEpSyncEp'], ['faultInst'], [None])
 
     prop_meta = {
         "central_range_check_config_state": MoPropertyMeta("central_range_check_config_state", "centralRangeCheckConfigState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["deployment-error", "not-deployed-yet"], []), 

@@ -15,7 +15,7 @@ class StorageIpV4PooledAddr(ManagedObject):
     consts = StorageIpV4PooledAddrConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageIpV4PooledAddr", "storageIpV4PooledAddr", "storage-ipv4-pooled-addr", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-storage"], [u'computeInstance', u'lsServer', u'mgmtVnet', u'vnicIPv4If', u'vnicMgmtIf'], [u'faultInst'], ["Get"])
+    mo_meta = MoMeta("StorageIpV4PooledAddr", "storageIpV4PooledAddr", "storage-ipv4-pooled-addr", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-storage"], ['computeInstance', 'lsServer', 'mgmtVnet', 'vnicIPv4If', 'vnicMgmtIf'], ['faultInst'], ["Get"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 

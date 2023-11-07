@@ -24,9 +24,9 @@ class PortSubGroup(ManagedObject):
     """This is PortSubGroup class."""
 
     consts = PortSubGroupConsts()
-    naming_props = set([u'aggrPortId'])
+    naming_props = set(['aggrPortId'])
 
-    mo_meta = MoMeta("PortSubGroup", "portSubGroup", "aggr-port-[aggr_port_id]", VersionMeta.Version121a, "InputOutput", 0x3f, [], ["read-only"], [u'portGroup'], [u'etherPIo', u'fcPIo'], ["Get", "Set"])
+    mo_meta = MoMeta("PortSubGroup", "portSubGroup", "aggr-port-[aggr_port_id]", VersionMeta.Version121a, "InputOutput", 0x3f, [], ["read-only"], ['portGroup'], ['etherPIo', 'fcPIo'], ["Get", "Set"])
 
     prop_meta = {
         "aggr_port_id": MoPropertyMeta("aggr_port_id", "aggrPortId", "uint", VersionMeta.Version121a, MoPropertyMeta.NAMING, 0x2, None, None, None, [], []), 

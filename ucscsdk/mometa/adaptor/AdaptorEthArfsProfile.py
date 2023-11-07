@@ -15,7 +15,7 @@ class AdaptorEthArfsProfile(ManagedObject):
     consts = AdaptorEthArfsProfileConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorEthArfsProfile", "adaptorEthArfsProfile", "eth-arfs", VersionMeta.Version121a, "InputOutput", 0x1f, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], [u'adaptorHostEthIfProfile'], [], ["Get", "Set"])
+    mo_meta = MoMeta("AdaptorEthArfsProfile", "adaptorEthArfsProfile", "eth-arfs", VersionMeta.Version121a, "InputOutput", 0x1f, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], ['adaptorHostEthIfProfile'], [], ["Get", "Set"])
 
     prop_meta = {
         "accelarated_rfs": MoPropertyMeta("accelarated_rfs", "accelaratedRFS", "string", VersionMeta.Version121a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

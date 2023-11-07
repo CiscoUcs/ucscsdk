@@ -140,7 +140,7 @@ class MgmtBackupTrigger(ManagedObject):
     consts = MgmtBackupTriggerConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("MgmtBackupTrigger", "mgmtBackupTrigger", "trigger", VersionMeta.Version131a, "InputOutput", 0x1ff, [], ["read-only"], [u'mgmtBackupPolicy', u'mgmtCfgExportPolicy'], [u'eventInst', u'faultInst', u'mgmtBackupTriggerFsm', u'mgmtBackupTriggerFsmTask'], ["Get", "Set"])
+    mo_meta = MoMeta("MgmtBackupTrigger", "mgmtBackupTrigger", "trigger", VersionMeta.Version131a, "InputOutput", 0x1ff, [], ["read-only"], ['mgmtBackupPolicy', 'mgmtCfgExportPolicy'], ['eventInst', 'faultInst', 'mgmtBackupTriggerFsm', 'mgmtBackupTriggerFsmTask'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["trigger", "trigger-immediate", "triggered", "untriggered", "user-ack"], []), 

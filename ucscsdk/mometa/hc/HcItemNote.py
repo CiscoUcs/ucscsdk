@@ -13,9 +13,9 @@ class HcItemNote(ManagedObject):
     """This is HcItemNote class."""
 
     consts = HcItemNoteConsts()
-    naming_props = set([u'refItemId', u'id'])
+    naming_props = set(['refItemId', 'id'])
 
-    mo_meta = MoMeta("HcItemNote", "hcItemNote", "note-[ref_item_id]-[id]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin"], [u'hcAdapterFirmwareItem', u'hcAdapterItem', u'hcDriverItem', u'hcOsItem'], [], [None])
+    mo_meta = MoMeta("HcItemNote", "hcItemNote", "note-[ref_item_id]-[id]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin"], ['hcAdapterFirmwareItem', 'hcAdapterItem', 'hcDriverItem', 'hcOsItem'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

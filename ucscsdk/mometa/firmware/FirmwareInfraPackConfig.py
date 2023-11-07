@@ -26,9 +26,9 @@ class FirmwareInfraPackConfig(ManagedObject):
     """This is FirmwareInfraPackConfig class."""
 
     consts = FirmwareInfraPackConfigConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FirmwareInfraPackConfig", "firmwareInfraPackConfig", "fw-infra-pack-config[name]", VersionMeta.Version151a, "InputOutput", 0x1fff, [], ["admin", "operations"], [u'firmwareProductFamily', u'orgDomainGroup', u'orgOrg'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FirmwareInfraPackConfig", "firmwareInfraPackConfig", "fw-infra-pack-config[name]", VersionMeta.Version151a, "InputOutput", 0x1fff, [], ["admin", "operations"], ['firmwareProductFamily', 'orgDomainGroup', 'orgOrg'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

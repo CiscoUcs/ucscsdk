@@ -21,7 +21,7 @@ class ComputeResourceAggrEp(ManagedObject):
     consts = ComputeResourceAggrEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ComputeResourceAggrEp", "computeResourceAggrEp", "compute", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin"], [u'topRoot'], [u'computeFaultUpgradeFlag', u'computeGroupMembership', u'computeProfile', u'computeResourceSetManager', u'computeSystem', u'faultGlobalSeverityHolder', u'faultGlobalTypedHolder'], ["Get", "Set"])
+    mo_meta = MoMeta("ComputeResourceAggrEp", "computeResourceAggrEp", "compute", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin"], ['topRoot'], ['computeFaultUpgradeFlag', 'computeGroupMembership', 'computeProfile', 'computeResourceSetManager', 'computeSystem', 'faultGlobalSeverityHolder', 'faultGlobalTypedHolder'], ["Get", "Set"])
 
     prop_meta = {
         "available_physical_cnt": MoPropertyMeta("available_physical_cnt", "availablePhysicalCnt", "ushort", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

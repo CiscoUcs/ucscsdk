@@ -18,9 +18,9 @@ class EquipmentSystemFruCapProvider(ManagedObject):
     """This is EquipmentSystemFruCapProvider class."""
 
     consts = EquipmentSystemFruCapProviderConsts()
-    naming_props = set([u'vendor', u'model', u'revision'])
+    naming_props = set(['vendor', 'model', 'revision'])
 
-    mo_meta = MoMeta("EquipmentSystemFruCapProvider", "equipmentSystemFruCapProvider", "manufacturer-[vendor]-model-[model]-revision-[revision]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin"], [u'capabilityCatalogue'], [u'equipmentFruVariant', u'equipmentManufacturingDef', u'equipmentPicture'], ["Get"])
+    mo_meta = MoMeta("EquipmentSystemFruCapProvider", "equipmentSystemFruCapProvider", "manufacturer-[vendor]-model-[model]-revision-[revision]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin"], ['capabilityCatalogue'], ['equipmentFruVariant', 'equipmentManufacturingDef', 'equipmentPicture'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

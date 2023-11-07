@@ -20,9 +20,9 @@ class ConfigAppImpactResponse(ManagedObject):
     """This is ConfigAppImpactResponse class."""
 
     consts = ConfigAppImpactResponseConsts()
-    naming_props = set([u'appConnectorId', u'sourceConnectorId'])
+    naming_props = set(['appConnectorId', 'sourceConnectorId'])
 
-    mo_meta = MoMeta("ConfigAppImpactResponse", "configAppImpactResponse", "app-id-[app_connector_id]src-id-[source_connector_id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], [u'configImpactAnalyzer'], [u'configUCImpact'], [None])
+    mo_meta = MoMeta("ConfigAppImpactResponse", "configAppImpactResponse", "app-id-[app_connector_id]src-id-[source_connector_id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], ['configImpactAnalyzer'], ['configUCImpact'], [None])
 
     prop_meta = {
         "app_connector_id": MoPropertyMeta("app_connector_id", "appConnectorId", "uint", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x2, None, None, None, [], []), 

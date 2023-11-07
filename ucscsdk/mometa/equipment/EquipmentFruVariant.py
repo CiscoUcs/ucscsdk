@@ -13,9 +13,9 @@ class EquipmentFruVariant(ManagedObject):
     """This is EquipmentFruVariant class."""
 
     consts = EquipmentFruVariantConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("EquipmentFruVariant", "equipmentFruVariant", "fruVariant-[type]", VersionMeta.Version201b, "InputOutput", 0x1f, [], [""], [u'adaptorFruCapProvider', u'diagSrvCapProvider', u'equipmentBladeCapProvider', u'equipmentChassisCapProvider', u'equipmentFanModuleCapProvider', u'equipmentFexCapProvider', u'equipmentGemCapProvider', u'equipmentHostIfCapProvider', u'equipmentIOCardCapProvider', u'equipmentLocalDiskCapProvider', u'equipmentLocalDiskControllerCapProvider', u'equipmentMemoryUnitCapProvider', u'equipmentProcessorUnitCapProvider', u'equipmentPsuCapProvider', u'equipmentRackUnitCapProvider', u'equipmentServerUnitCapProvider', u'equipmentSwitchCapProvider', u'equipmentSwitchIOCardCapProvider', u'equipmentSystemFruCapProvider'], [], ["get"])
+    mo_meta = MoMeta("EquipmentFruVariant", "equipmentFruVariant", "fruVariant-[type]", VersionMeta.Version201b, "InputOutput", 0x1f, [], [""], ['adaptorFruCapProvider', 'diagSrvCapProvider', 'equipmentBladeCapProvider', 'equipmentChassisCapProvider', 'equipmentCrossFabricModuleCapProvider', 'equipmentFanModuleCapProvider', 'equipmentFexCapProvider', 'equipmentGemCapProvider', 'equipmentHostIfCapProvider', 'equipmentIOCardCapProvider', 'equipmentLocalDiskCapProvider', 'equipmentLocalDiskControllerCapProvider', 'equipmentMemoryUnitCapProvider', 'equipmentProcessorUnitCapProvider', 'equipmentPsuCapProvider', 'equipmentRackUnitCapProvider', 'equipmentServerUnitCapProvider', 'equipmentSwitchCapProvider', 'equipmentSwitchIOCardCapProvider', 'equipmentSystemFruCapProvider'], [], ["get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

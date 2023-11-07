@@ -54,9 +54,9 @@ class FirmwareDependency(ManagedObject):
     """This is FirmwareDependency class."""
 
     consts = FirmwareDependencyConsts()
-    naming_props = set([u'ep', u'invTag', u'hwVendor', u'hwModel', u'hwRevision'])
+    naming_props = set(['ep', 'invTag', 'hwVendor', 'hwModel', 'hwRevision'])
 
-    mo_meta = MoMeta("FirmwareDependency", "firmwareDependency", "dep-[ep]-[inv_tag]-[hw_vendor]|[hw_model]|[hw_revision]", VersionMeta.Version101a, "InputOutput", 0x1ff, [], [""], [u'firmwareType'], [], ["Get"])
+    mo_meta = MoMeta("FirmwareDependency", "firmwareDependency", "dep-[ep]-[inv_tag]-[hw_vendor]|[hw_model]|[hw_revision]", VersionMeta.Version101a, "InputOutput", 0x1ff, [], [""], ['firmwareType'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

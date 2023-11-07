@@ -18,9 +18,9 @@ class FabricFIPortOperationFsmTask(ManagedObject):
     """This is FabricFIPortOperationFsmTask class."""
 
     consts = FabricFIPortOperationFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("FabricFIPortOperationFsmTask", "fabricFIPortOperationFsmTask", "task-[item]", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], [u'fabricDceSwSrvPcOperation', u'fabricEthEstcEpOperation', u'fabricEthEstcPcOperation', u'fabricEthLanEpOperation', u'fabricEthLanPcOperation', u'fabricEthMonOperation', u'fabricFcEstcEpOperation', u'fabricFcMonOperation', u'fabricFcSanEpOperation', u'fabricFcSanPcOperation', u'fabricFcoeEstcEpOperation', u'fabricFcoeSanEpOperation', u'fabricFcoeSanPcOperation'], [], [None])
+    mo_meta = MoMeta("FabricFIPortOperationFsmTask", "fabricFIPortOperationFsmTask", "task-[item]", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], ['fabricDceSwSrvPcOperation', 'fabricEthEstcEpOperation', 'fabricEthEstcPcOperation', 'fabricEthLanEpOperation', 'fabricEthLanPcOperation', 'fabricEthMonOperation', 'fabricFcEstcEpOperation', 'fabricFcMonOperation', 'fabricFcSanEpOperation', 'fabricFcSanPcOperation', 'fabricFcoeEstcEpOperation', 'fabricFcoeSanEpOperation', 'fabricFcoeSanPcOperation'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

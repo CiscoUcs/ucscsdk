@@ -57,9 +57,9 @@ class EquipmentInstance(ManagedObject):
     """This is EquipmentInstance class."""
 
     consts = EquipmentInstanceConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("EquipmentInstance", "equipmentInstance", "inst-[id]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-server"], [u'equipmentChassisRequirement'], [u'cpmaintAck', u'equipmentChassisIssues'], ["Get"])
+    mo_meta = MoMeta("EquipmentInstance", "equipmentInstance", "inst-[id]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-server"], ['equipmentChassisRequirement'], ['cpmaintAck', 'equipmentChassisIssues'], ["Get"])
 
     prop_meta = {
         "assign_state": MoPropertyMeta("assign_state", "assignState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["assigned", "failed", "unassigned"], []), 

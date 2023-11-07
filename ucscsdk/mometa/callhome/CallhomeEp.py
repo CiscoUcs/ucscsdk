@@ -25,7 +25,7 @@ class CallhomeEp(ManagedObject):
     consts = CallhomeEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CallhomeEp", "callhomeEp", "call-home", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin", "operations"], [u'callhomeHolder', u'orgDomainGroup', u'orgOrg', u'policyDeviceProfile', u'smartlicenseHolder'], [u'callhomeFaultInst', u'callhomeHttp', u'callhomePeriodicSystemInventory', u'callhomePolicy', u'callhomeProfile', u'callhomeSmtp', u'callhomeSource', u'callhomeTestAlert', u'smartcallhomeHttpProxy', u'smartcallhomePeriodicSystemInventory', u'smartcallhomePolicy', u'smartcallhomeProfile', u'smartcallhomeSource', u'smartcallhomeTransportGateway'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("CallhomeEp", "callhomeEp", "call-home", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin", "operations"], ['callhomeHolder', 'orgDomainGroup', 'orgOrg', 'policyDeviceProfile', 'smartlicenseHolder'], ['callhomeFaultInst', 'callhomeHttp', 'callhomePeriodicSystemInventory', 'callhomePolicy', 'callhomeProfile', 'callhomeSmtp', 'callhomeSource', 'callhomeTestAlert', 'smartcallhomeHttpProxy', 'smartcallhomePeriodicSystemInventory', 'smartcallhomePolicy', 'smartcallhomeProfile', 'smartcallhomeSource', 'smartcallhomeTransportGateway'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["off", "on"], []), 

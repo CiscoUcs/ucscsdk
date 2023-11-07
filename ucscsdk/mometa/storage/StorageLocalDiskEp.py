@@ -13,9 +13,9 @@ class StorageLocalDiskEp(ManagedObject):
     """This is StorageLocalDiskEp class."""
 
     consts = StorageLocalDiskEpConsts()
-    naming_props = set([u'encId', u'id'])
+    naming_props = set(['encId', 'id'])
 
-    mo_meta = MoMeta("StorageLocalDiskEp", "storageLocalDiskEp", "disk-ep-[enc_id]-id-[id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], [u'storageController'], [], ["Get"])
+    mo_meta = MoMeta("StorageLocalDiskEp", "storageLocalDiskEp", "disk-ep-[enc_id]-id-[id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], ['storageController'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

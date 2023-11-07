@@ -16,9 +16,9 @@ class ComputeDomainGroupQual(ManagedObject):
     """This is ComputeDomainGroupQual class."""
 
     consts = ComputeDomainGroupQualConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("ComputeDomainGroupQual", "computeDomainGroupQual", "domaingroup-qualifier-[name]", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "pn-policy", "read-only"], [u'computeDomainQual'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("ComputeDomainGroupQual", "computeDomainGroupQual", "domaingroup-qualifier-[name]", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "pn-policy", "read-only"], ['computeDomainQual'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

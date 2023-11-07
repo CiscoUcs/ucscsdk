@@ -14,9 +14,9 @@ class TrigServerToken(ManagedObject):
     """This is TrigServerToken class."""
 
     consts = TrigServerTokenConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("TrigServerToken", "trigServerToken", "servertoken-[id]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], [u'trigMeta'], [], ["Get"])
+    mo_meta = MoMeta("TrigServerToken", "trigServerToken", "servertoken-[id]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], ['trigMeta'], [], ["Get"])
 
     prop_meta = {
         "activity_ts": MoPropertyMeta("activity_ts", "activityTs", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 

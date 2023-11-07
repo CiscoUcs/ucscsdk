@@ -79,7 +79,7 @@ class VnicMgmt(ManagedObject):
     consts = VnicMgmtConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicMgmt", "vnicMgmt", "mgmt", VersionMeta.Version112a, "InputOutput", 0x7ffff, [], ["admin", "ls-config", "ls-server", "ls-storage"], [u'fdBlade', u'fdRackUnit', u'lsServer'], [u'fabricEthMonSrcEp', u'fabricFcMonSrcEp', u'faultInst', u'vnicMgmtIf'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicMgmt", "vnicMgmt", "mgmt", VersionMeta.Version112a, "InputOutput", 0x7ffff, [], ["admin", "ls-config", "ls-server", "ls-storage"], ['fdBlade', 'fdRackUnit', 'lsServer'], ['fabricEthMonSrcEp', 'fabricFcMonSrcEp', 'faultInst', 'vnicMgmtIf'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "adaptor_profile_name": MoPropertyMeta("adaptor_profile_name", "adaptorProfileName", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

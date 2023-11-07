@@ -32,7 +32,7 @@ class FaultPolicy(ManagedObject):
     consts = FaultPolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FaultPolicy", "faultPolicy", "fault-policy", VersionMeta.Version101a, "InputOutput", 0x7fff, [], ["admin", "fault"], [u'orgDomainGroup', u'orgOrg', u'policyDeviceProfile'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FaultPolicy", "faultPolicy", "fault-policy", VersionMeta.Version101a, "InputOutput", 0x7fff, [], ["admin", "fault"], ['orgDomainGroup', 'orgOrg', 'policyDeviceProfile'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "ack_action": MoPropertyMeta("ack_action", "ackAction", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["delete-on-clear", "initial-severity"], []), 

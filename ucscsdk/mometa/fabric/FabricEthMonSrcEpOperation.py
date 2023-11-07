@@ -23,9 +23,9 @@ class FabricEthMonSrcEpOperation(ManagedObject):
     """This is FabricEthMonSrcEpOperation class."""
 
     consts = FabricEthMonSrcEpOperationConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricEthMonSrcEpOperation", "fabricEthMonSrcEpOperation", "remoper-mon-src-[name]", VersionMeta.Version151a, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'adaptorExtEthIf', u'fabricDceSwSrvEp', u'fabricEthEstcEpOperation', u'fabricEthEstcPc', u'fabricEthLanEpOperation', u'fabricEthLanPcOperation', u'fabricFcoeEstcEpOperation', u'fabricFcoeSanEpOperation', u'fabricFcoeSanPcOperation', u'fabricVlan', u'vnicEther'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricEthMonSrcEpOperation", "fabricEthMonSrcEpOperation", "remoper-mon-src-[name]", VersionMeta.Version151a, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['adaptorExtEthIf', 'fabricDceSwSrvEp', 'fabricEthEstcEpOperation', 'fabricEthEstcPc', 'fabricEthLanEpOperation', 'fabricEthLanPcOperation', 'fabricFcoeEstcEpOperation', 'fabricFcoeSanEpOperation', 'fabricFcoeSanPcOperation', 'fabricVlan', 'vnicEther'], ['faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remoteTrigger", "remove"], []), 

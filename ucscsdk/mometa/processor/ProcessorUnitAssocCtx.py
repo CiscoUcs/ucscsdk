@@ -15,7 +15,7 @@ class ProcessorUnitAssocCtx(ManagedObject):
     consts = ProcessorUnitAssocCtxConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ProcessorUnitAssocCtx", "processorUnitAssocCtx", "procunit-assoc-ctx", VersionMeta.Version111a, "InputOutput", 0xf, [], ["read-only"], [u'lsServerAssocCtx'], [], ["Get"])
+    mo_meta = MoMeta("ProcessorUnitAssocCtx", "processorUnitAssocCtx", "procunit-assoc-ctx", VersionMeta.Version111a, "InputOutput", 0xf, [], ["read-only"], ['lsServerAssocCtx'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

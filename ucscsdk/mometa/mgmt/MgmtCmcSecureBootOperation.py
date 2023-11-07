@@ -20,7 +20,7 @@ class MgmtCmcSecureBootOperation(ManagedObject):
     consts = MgmtCmcSecureBootOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("MgmtCmcSecureBootOperation", "mgmtCmcSecureBootOperation", "remote-oper", VersionMeta.Version151a, "InputOutput", 0x3f, [], ["admin", "ls-compute"], [u'mgmtCmcSecureBoot'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("MgmtCmcSecureBootOperation", "mgmtCmcSecureBootOperation", "remote-oper", VersionMeta.Version151a, "InputOutput", 0x3f, [], ["admin", "ls-compute"], ['mgmtCmcSecureBoot'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disable", "enable"], []), 

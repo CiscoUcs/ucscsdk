@@ -40,7 +40,7 @@ class VnicFcIf(ManagedObject):
     consts = VnicFcIfConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicFcIf", "vnicFcIf", "if-default", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-config", "ls-network", "ls-server"], [u'vnicFc', u'vnicSanConnTempl'], [u'faultInst', u'vnicFault'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicFcIf", "vnicFcIf", "if-default", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-config", "ls-network", "ls-server"], ['vnicFc', 'vnicSanConnTempl'], ['faultInst', 'vnicFault'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

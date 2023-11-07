@@ -19,9 +19,9 @@ class AdaptorFruCapProvider(ManagedObject):
     """This is AdaptorFruCapProvider class."""
 
     consts = AdaptorFruCapProviderConsts()
-    naming_props = set([u'vendor', u'model', u'revision'])
+    naming_props = set(['vendor', 'model', 'revision'])
 
-    mo_meta = MoMeta("AdaptorFruCapProvider", "adaptorFruCapProvider", "manufacturer-[vendor]-model-[model]-revision-[revision]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin"], [u'capabilityCatalogue'], [u'adaptorCapSpec', u'adaptorIScsiCap', u'adaptorRnicCapSpec', u'equipmentFruVariant', u'equipmentManufacturingDef', u'equipmentPicture'], ["Get"])
+    mo_meta = MoMeta("AdaptorFruCapProvider", "adaptorFruCapProvider", "manufacturer-[vendor]-model-[model]-revision-[revision]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin"], ['capabilityCatalogue'], ['adaptorCapSpec', 'adaptorIScsiCap', 'adaptorRnicCapSpec', 'equipmentFruVariant', 'equipmentManufacturingDef', 'equipmentPicture'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

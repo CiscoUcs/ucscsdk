@@ -18,9 +18,9 @@ class MgmtDataExporterFsmTask(ManagedObject):
     """This is MgmtDataExporterFsmTask class."""
 
     consts = MgmtDataExporterFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("MgmtDataExporterFsmTask", "mgmtDataExporterFsmTask", "task-[item]", VersionMeta.Version101a, "OutputOnly", 0xf, [], [""], [u'mgmtDataExporter'], [], ["Get"])
+    mo_meta = MoMeta("MgmtDataExporterFsmTask", "mgmtDataExporterFsmTask", "task-[item]", VersionMeta.Version101a, "OutputOnly", 0xf, [], [""], ['mgmtDataExporter'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -24,9 +24,9 @@ class ConfigImpactAnalyzer(ManagedObject):
     """This is ConfigImpactAnalyzer class."""
 
     consts = ConfigImpactAnalyzerConsts()
-    naming_props = set([u'impactAnalyzerId'])
+    naming_props = set(['impactAnalyzerId'])
 
-    mo_meta = MoMeta("ConfigImpactAnalyzer", "configImpactAnalyzer", "impact-analyzer-[impact_analyzer_id]", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["read-only"], [u'configImpactAnalyzerEp'], [u'configAppImpactResponse', u'configInputConfigSet', u'configManagedEpImpactResponse'], [None])
+    mo_meta = MoMeta("ConfigImpactAnalyzer", "configImpactAnalyzer", "impact-analyzer-[impact_analyzer_id]", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["read-only"], ['configImpactAnalyzerEp'], ['configAppImpactResponse', 'configInputConfigSet', 'configManagedEpImpactResponse'], [None])
 
     prop_meta = {
         "ack_app_response_count": MoPropertyMeta("ack_app_response_count", "ackAppResponseCount", "ushort", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

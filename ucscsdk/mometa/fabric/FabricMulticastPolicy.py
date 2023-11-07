@@ -21,9 +21,9 @@ class FabricMulticastPolicy(ManagedObject):
     """This is FabricMulticastPolicy class."""
 
     consts = FabricMulticastPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricMulticastPolicy", "fabricMulticastPolicy", "mc-policy-[name]", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'orgDomainGroup'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricMulticastPolicy", "fabricMulticastPolicy", "mc-policy-[name]", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['orgDomainGroup'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

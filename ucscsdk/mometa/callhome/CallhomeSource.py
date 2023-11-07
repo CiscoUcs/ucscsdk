@@ -22,7 +22,7 @@ class CallhomeSource(ManagedObject):
     consts = CallhomeSourceConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CallhomeSource", "callhomeSource", "source", VersionMeta.Version101a, "InputOutput", 0x3fff, [], ["admin", "operations"], [u'callhomeEp'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("CallhomeSource", "callhomeSource", "source", VersionMeta.Version101a, "InputOutput", 0x3fff, [], ["admin", "operations"], ['callhomeEp'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[a-zA-Z0-9=\[\]!#$%()*+\\,-./:;@_\s{|}~?`<>""'&^]+""", [], []), 

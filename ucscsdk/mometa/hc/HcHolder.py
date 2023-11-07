@@ -15,7 +15,7 @@ class HcHolder(ManagedObject):
     consts = HcHolderConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("HcHolder", "hcHolder", "hc-ep", VersionMeta.Version151a, "InputOutput", 0xf, [], ["read-only"], [u'topRoot'], [u'hcAdmin', u'hcCatalog', u'hcCatalogList', u'hcCatalogVersion', u'hcDownloader', u'hcDriverInfoItem', u'hcOsInfoItem', u'hcReport', u'hcUcsVersionItem'], ["Get"])
+    mo_meta = MoMeta("HcHolder", "hcHolder", "hc-ep", VersionMeta.Version151a, "InputOutput", 0xf, [], ["read-only"], ['topRoot'], ['hcAdmin', 'hcCatalog', 'hcCatalogList', 'hcCatalogVersion', 'hcDownloader', 'hcDriverInfoItem', 'hcOsInfoItem', 'hcReport', 'hcUcsVersionItem'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

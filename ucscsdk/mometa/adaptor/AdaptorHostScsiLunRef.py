@@ -15,9 +15,9 @@ class AdaptorHostScsiLunRef(ManagedObject):
     """This is AdaptorHostScsiLunRef class."""
 
     consts = AdaptorHostScsiLunRefConsts()
-    naming_props = set([u'lunOrder'])
+    naming_props = set(['lunOrder'])
 
-    mo_meta = MoMeta("AdaptorHostScsiLunRef", "adaptorHostScsiLunRef", "host-scsi-lun-[lun_order]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'adaptorHostScsiIf'], [], ["Get"])
+    mo_meta = MoMeta("AdaptorHostScsiLunRef", "adaptorHostScsiLunRef", "host-scsi-lun-[lun_order]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['adaptorHostScsiIf'], [], ["Get"])
 
     prop_meta = {
         "boot_dev": MoPropertyMeta("boot_dev", "bootDev", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 

@@ -33,7 +33,7 @@ class CommSyslog(ManagedObject):
     consts = CommSyslogConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CommSyslog", "commSyslog", "syslog", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "operations"], [u'commLocale', u'commSvcPolicy', u'orgDomainGroup', u'orgOrg', u'policyDeviceProfile'], [u'commLogComponent', u'commSyslogClient', u'commSyslogConsole', u'commSyslogFile', u'commSyslogMonitor', u'commSyslogSource'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("CommSyslog", "commSyslog", "syslog", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "operations"], ['commLocale', 'commSvcPolicy', 'orgDomainGroup', 'orgOrg', 'policyDeviceProfile'], ['commLogComponent', 'commSyslogClient', 'commSyslogConsole', 'commSyslogFile', 'commSyslogMonitor', 'commSyslogSource'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 

@@ -31,7 +31,7 @@ class FirmwarePolicy(ManagedObject):
     consts = FirmwarePolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FirmwarePolicy", "firmwarePolicy", "fw-policy", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "operations"], [u'orgDomainGroup'], [], [None])
+    mo_meta = MoMeta("FirmwarePolicy", "firmwarePolicy", "fw-policy", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "operations"], ['orgDomainGroup'], [], [None])
 
     prop_meta = {
         "blade_version": MoPropertyMeta("blade_version", "bladeVersion", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

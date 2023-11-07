@@ -17,9 +17,9 @@ class FirmwareCompSource(ManagedObject):
     """This is FirmwareCompSource class."""
 
     consts = FirmwareCompSourceConsts()
-    naming_props = set([u'invTag', u'version'])
+    naming_props = set(['invTag', 'version'])
 
-    mo_meta = MoMeta("FirmwareCompSource", "firmwareCompSource", "source-[inv_tag]-ver-[version]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["read-only"], [u'firmwareCatalogue', u'firmwareRemoteCatalogue'], [u'firmwareCompTarget'], [None])
+    mo_meta = MoMeta("FirmwareCompSource", "firmwareCompSource", "source-[inv_tag]-ver-[version]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["read-only"], ['firmwareCatalogue', 'firmwareRemoteCatalogue'], ['firmwareCompTarget'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

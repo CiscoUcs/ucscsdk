@@ -33,7 +33,7 @@ class StorageLocalDiskOperation(ManagedObject):
     consts = StorageLocalDiskOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageLocalDiskOperation", "storageLocalDiskOperation", "remote-oper", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'storageLocalDisk'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("StorageLocalDiskOperation", "storageLocalDiskOperation", "remote-oper", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['storageLocalDisk'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_security_key": MoPropertyMeta("admin_security_key", "adminSecurityKey", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, 0, 510, None, [], []), 

@@ -25,7 +25,7 @@ class CommSnmp(ManagedObject):
     consts = CommSnmpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CommSnmp", "commSnmp", "snmp-svc", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["aaa", "admin"], [u'orgDomainGroup', u'orgOrg', u'policyDeviceProfile'], [u'commSnmpCommunity', u'commSnmpTrap', u'commSnmpTrapData', u'commSnmpUser'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("CommSnmp", "commSnmp", "snmp-svc", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["aaa", "admin"], ['orgDomainGroup', 'orgOrg', 'policyDeviceProfile'], ['commSnmpCommunity', 'commSnmpTrap', 'commSnmpTrapData', 'commSnmpUser'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

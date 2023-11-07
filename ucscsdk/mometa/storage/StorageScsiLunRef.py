@@ -13,9 +13,9 @@ class StorageScsiLunRef(ManagedObject):
     """This is StorageScsiLunRef class."""
 
     consts = StorageScsiLunRefConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("StorageScsiLunRef", "storageScsiLunRef", "scsi-lun-ref-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'storageLunReplica', u'storageLunSnapshot', u'storageScsiLun', u'storageVirtualDrive'], [], ["Get"])
+    mo_meta = MoMeta("StorageScsiLunRef", "storageScsiLunRef", "scsi-lun-ref-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['storageLunReplica', 'storageLunSnapshot', 'storageScsiLun', 'storageVirtualDrive'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

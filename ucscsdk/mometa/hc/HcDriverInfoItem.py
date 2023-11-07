@@ -13,9 +13,9 @@ class HcDriverInfoItem(ManagedObject):
     """This is HcDriverInfoItem class."""
 
     consts = HcDriverInfoItemConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("HcDriverInfoItem", "hcDriverInfoItem", "driver-[id]", VersionMeta.Version151a, "InputOutput", 0x1ff, [], ["admin"], [u'hcHolder'], [], [None])
+    mo_meta = MoMeta("HcDriverInfoItem", "hcDriverInfoItem", "driver-[id]", VersionMeta.Version151a, "InputOutput", 0x1ff, [], ["admin"], ['hcHolder'], [], [None])
 
     prop_meta = {
         "adapter_pid": MoPropertyMeta("adapter_pid", "adapterPid", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, 0, 510, None, [], []), 

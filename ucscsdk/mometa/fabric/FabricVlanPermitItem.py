@@ -23,9 +23,9 @@ class FabricVlanPermitItem(ManagedObject):
     """This is FabricVlanPermitItem class."""
 
     consts = FabricVlanPermitItemConsts()
-    naming_props = set([u'vlanName'])
+    naming_props = set(['vlanName'])
 
-    mo_meta = MoMeta("FabricVlanPermitItem", "fabricVlanPermitItem", "vlan-permit-item-[vlan_name]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["read-only"], [], [u'configOrgItem'], [None])
+    mo_meta = MoMeta("FabricVlanPermitItem", "fabricVlanPermitItem", "vlan-permit-item-[vlan_name]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["read-only"], [], ['configOrgItem'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

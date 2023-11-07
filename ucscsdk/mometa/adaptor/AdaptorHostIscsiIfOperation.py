@@ -28,7 +28,7 @@ class AdaptorHostIscsiIfOperation(ManagedObject):
     consts = AdaptorHostIscsiIfOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorHostIscsiIfOperation", "adaptorHostIscsiIfOperation", "remote-oper", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance"], [u'adaptorHostIscsiIf'], [u'faultInst'], ["get", "set"])
+    mo_meta = MoMeta("AdaptorHostIscsiIfOperation", "adaptorHostIscsiIfOperation", "remote-oper", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance"], ['adaptorHostIscsiIf'], ['faultInst'], ["get", "set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "disabled-active", "disabled-passive", "enabled", "enabled-active", "enabled-passive", "remoteTrigger", "reset-connectivity", "reset-connectivity-active", "reset-connectivity-passive"], []), 

@@ -101,7 +101,7 @@ class StorageRaidBattery(ManagedObject):
     consts = StorageRaidBatteryConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageRaidBattery", "storageRaidBattery", "raid-battery", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], [u'storageController'], [u'storageOperation', u'storageTransportableFlashModule'], ["Get"])
+    mo_meta = MoMeta("StorageRaidBattery", "storageRaidBattery", "raid-battery", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], ['storageController'], ['storageOperation', 'storageTransportableFlashModule'], ["Get"])
 
     prop_meta = {
         "battery_type": MoPropertyMeta("battery_type", "batteryType", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["battery", "supercap", "unknown"], []), 

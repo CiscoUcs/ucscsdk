@@ -71,7 +71,7 @@ class DomainChassisProfileItem(ManagedObject):
     """This is DomainChassisProfileItem class."""
 
     consts = DomainChassisProfileItemConsts()
-    naming_props = set([u'chassisProfileDn'])
+    naming_props = set(['chassisProfileDn'])
 
     mo_meta = MoMeta("DomainChassisProfileItem", "domainChassisProfileItem", "CP[chassis_profile_dn]", VersionMeta.Version151a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-server", "pn-equipment", "pn-maintenance", "pn-policy"], [], [], [None])
 

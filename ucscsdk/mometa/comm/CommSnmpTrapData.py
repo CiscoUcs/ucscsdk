@@ -21,9 +21,9 @@ class CommSnmpTrapData(ManagedObject):
     """This is CommSnmpTrapData class."""
 
     consts = CommSnmpTrapDataConsts()
-    naming_props = set([u'propOid'])
+    naming_props = set(['propOid'])
 
-    mo_meta = MoMeta("CommSnmpTrapData", "commSnmpTrapData", "snmp-trap-data[prop_oid]", VersionMeta.Version141a, "InputOutput", 0x3ff, [], ["read-only"], [u'commSnmp'], [], [None])
+    mo_meta = MoMeta("CommSnmpTrapData", "commSnmpTrapData", "snmp-trap-data[prop_oid]", VersionMeta.Version141a, "InputOutput", 0x3ff, [], ["read-only"], ['commSnmp'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

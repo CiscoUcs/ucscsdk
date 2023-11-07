@@ -17,9 +17,9 @@ class LstorageArrayRequirement(ManagedObject):
     """This is LstorageArrayRequirement class."""
 
     consts = LstorageArrayRequirementConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("LstorageArrayRequirement", "lstorageArrayRequirement", "strreq-[name]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["admin", "ls-storage"], [u'orgOrg'], [], [None])
+    mo_meta = MoMeta("LstorageArrayRequirement", "lstorageArrayRequirement", "strreq-[name]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["admin", "ls-storage"], ['orgOrg'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

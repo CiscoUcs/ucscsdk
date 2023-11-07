@@ -64,9 +64,9 @@ class AdaptorVlan(ManagedObject):
     """This is AdaptorVlan class."""
 
     consts = AdaptorVlanConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorVlan", "adaptorVlan", "vlan-[id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], [u'adaptorHostEthIf', u'adaptorHostIscsiIf'], [u'adaptorEtherIfStats', u'fabricConsumer', u'fabricEtherRef', u'faultInst'], ["Get"])
+    mo_meta = MoMeta("AdaptorVlan", "adaptorVlan", "vlan-[id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], ['adaptorHostEthIf', 'adaptorHostIscsiIf'], ['adaptorEtherIfStats', 'fabricConsumer', 'fabricEtherRef', 'faultInst'], ["Get"])
 
     prop_meta = {
         "assoc_primary_vlan_state": MoPropertyMeta("assoc_primary_vlan_state", "assocPrimaryVlanState", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["does-not-exists", "is-empty", "is-in-error-state", "is-not-primary-type", "ok"], []), 

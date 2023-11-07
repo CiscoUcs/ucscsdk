@@ -119,7 +119,7 @@ class FdPhysicalFsm(ManagedObject):
     consts = FdPhysicalFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FdPhysicalFsm", "fdPhysicalFsm", "fsm", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], [u'fdBlade', u'fdRackUnit'], [u'fdPhysicalFsmStage'], [None])
+    mo_meta = MoMeta("FdPhysicalFsm", "fdPhysicalFsm", "fsm", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], ['fdBlade', 'fdRackUnit'], ['fdPhysicalFsmStage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

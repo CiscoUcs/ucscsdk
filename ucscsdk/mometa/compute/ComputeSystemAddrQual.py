@@ -13,9 +13,9 @@ class ComputeSystemAddrQual(ManagedObject):
     """This is ComputeSystemAddrQual class."""
 
     consts = ComputeSystemAddrQualConsts()
-    naming_props = set([u'minAddr', u'maxAddr'])
+    naming_props = set(['minAddr', 'maxAddr'])
 
-    mo_meta = MoMeta("ComputeSystemAddrQual", "computeSystemAddrQual", "ip-from-[min_addr]-to-[max_addr]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "pn-policy", "read-only"], [u'computeDomainQual', u'computeSystemQual'], [], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("ComputeSystemAddrQual", "computeSystemAddrQual", "ip-from-[min_addr]-to-[max_addr]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "pn-policy", "read-only"], ['computeDomainQual', 'computeSystemQual'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

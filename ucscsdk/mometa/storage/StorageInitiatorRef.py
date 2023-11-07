@@ -13,9 +13,9 @@ class StorageInitiatorRef(ManagedObject):
     """This is StorageInitiatorRef class."""
 
     consts = StorageInitiatorRefConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StorageInitiatorRef", "storageInitiatorRef", "lun-ref-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'storageScsiLun'], [], ["Get"])
+    mo_meta = MoMeta("StorageInitiatorRef", "storageInitiatorRef", "lun-ref-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['storageScsiLun'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

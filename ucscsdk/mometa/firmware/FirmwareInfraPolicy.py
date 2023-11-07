@@ -19,7 +19,7 @@ class FirmwareInfraPolicy(ManagedObject):
     consts = FirmwareInfraPolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FirmwareInfraPolicy", "firmwareInfraPolicy", "fw-infra-policy", VersionMeta.Version121a, "InputOutput", 0x3f, [], ["admin", "operations"], [u'orgDomainGroup', u'orgOrg'], [u'firmwareProductFamily'], ["Get", "Set"])
+    mo_meta = MoMeta("FirmwareInfraPolicy", "firmwareInfraPolicy", "fw-infra-policy", VersionMeta.Version121a, "InputOutput", 0x3f, [], ["admin", "operations"], ['orgDomainGroup', 'orgOrg'], ['firmwareProductFamily'], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version121a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -47,9 +47,9 @@ class GlBlockOp(ManagedObject):
     """This is GlBlockOp class."""
 
     consts = GlBlockOpConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("GlBlockOp", "glBlockOp", "block-[id]", VersionMeta.Version201b, "InputOutput", 0x1ff, [], ["read-only"], [u'glBlockEp'], [u'glConflictEp', u'glRequestorEp', u'messageEp'], [None])
+    mo_meta = MoMeta("GlBlockOp", "glBlockOp", "block-[id]", VersionMeta.Version201b, "InputOutput", 0x1ff, [], ["read-only"], ['glBlockEp'], ['glConflictEp', 'glRequestorEp', 'messageEp'], [None])
 
     prop_meta = {
         "category": MoPropertyMeta("category", "category", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["Vxan", "default"], []), 

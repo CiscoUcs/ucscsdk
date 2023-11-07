@@ -54,9 +54,9 @@ class FirmwareType(ManagedObject):
     """This is FirmwareType class."""
 
     consts = FirmwareTypeConsts()
-    naming_props = set([u'invTag'])
+    naming_props = set(['invTag'])
 
-    mo_meta = MoMeta("FirmwareType", "firmwareType", "fw-type-[inv_tag]", VersionMeta.Version101a, "InputOutput", 0x3f, [], [""], [u'capabilityCatalogue'], [u'firmwareDependency'], ["Get"])
+    mo_meta = MoMeta("FirmwareType", "firmwareType", "fw-type-[inv_tag]", VersionMeta.Version101a, "InputOutput", 0x3f, [], [""], ['capabilityCatalogue'], ['firmwareDependency'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

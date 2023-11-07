@@ -28,9 +28,9 @@ class DomainProfileFsmStage(ManagedObject):
     """This is DomainProfileFsmStage class."""
 
     consts = DomainProfileFsmStageConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("DomainProfileFsmStage", "domainProfileFsmStage", "stage-[name]", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], [u'domainProfileFsm'], [], [None])
+    mo_meta = MoMeta("DomainProfileFsmStage", "domainProfileFsmStage", "stage-[name]", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], ['domainProfileFsm'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -22,9 +22,9 @@ class IqnpoolAddr(ManagedObject):
     """This is IqnpoolAddr class."""
 
     consts = IqnpoolAddrConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("IqnpoolAddr", "iqnpoolAddr", "[id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [u'iqnpoolUniverse'], [u'faultInst', u'identpoolConsumed', u'identpoolPoolable'], ["Get"])
+    mo_meta = MoMeta("IqnpoolAddr", "iqnpoolAddr", "[id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], ['iqnpoolUniverse'], ['faultInst', 'identpoolConsumed', 'identpoolPoolable'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

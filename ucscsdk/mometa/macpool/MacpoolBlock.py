@@ -16,9 +16,9 @@ class MacpoolBlock(ManagedObject):
     """This is MacpoolBlock class."""
 
     consts = MacpoolBlockConsts()
-    naming_props = set([u'from', u'to'])
+    naming_props = set(['from', 'to'])
 
-    mo_meta = MoMeta("MacpoolBlock", "macpoolBlock", "block-[r_from]-[to]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "ls-network-policy"], [u'macpoolPool'], [], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("MacpoolBlock", "macpoolBlock", "block-[r_from]-[to]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "ls-network-policy"], ['macpoolPool'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "assigned": MoPropertyMeta("assigned", "assigned", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

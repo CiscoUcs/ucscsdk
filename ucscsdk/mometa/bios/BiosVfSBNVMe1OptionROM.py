@@ -22,7 +22,7 @@ class BiosVfSBNVMe1OptionROM(ManagedObject):
     consts = BiosVfSBNVMe1OptionROMConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("BiosVfSBNVMe1OptionROM", "biosVfSBNVMe1OptionROM", "SBNVMe1-OptionROM", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], [u'biosVProfile'], [], [None])
+    mo_meta = MoMeta("BiosVfSBNVMe1OptionROM", "biosVfSBNVMe1OptionROM", "SBNVMe1-OptionROM", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], ['biosVProfile'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

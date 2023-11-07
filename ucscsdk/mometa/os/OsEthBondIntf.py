@@ -16,9 +16,9 @@ class OsEthBondIntf(ManagedObject):
     """This is OsEthBondIntf class."""
 
     consts = OsEthBondIntfConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("OsEthBondIntf", "osEthBondIntf", "bond-intf-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'osInstance', u'storageEthLif'], [u'osEthIntf'], [None])
+    mo_meta = MoMeta("OsEthBondIntf", "osEthBondIntf", "bond-intf-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['osInstance', 'storageEthLif'], ['osEthIntf'], [None])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F]))|0""", [], []), 

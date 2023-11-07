@@ -15,9 +15,9 @@ class FabricFcMonSrcEp(ManagedObject):
     """This is FabricFcMonSrcEp class."""
 
     consts = FabricFcMonSrcEpConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricFcMonSrcEp", "fabricFcMonSrcEp", "mon-src-[name]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcEstcEp', u'fabricFcSanEp', u'fabricFcSanPc', u'fabricVsan', u'vmNic', u'vnicEther', u'vnicFc', u'vnicIScsi', u'vnicIScsiLCP', u'vnicIniGrpFc', u'vnicIniGrpFcB', u'vnicLstorageIScsi', u'vnicMgmt', u'vnicMonSesFc'], [], ["Get"])
+    mo_meta = MoMeta("FabricFcMonSrcEp", "fabricFcMonSrcEp", "mon-src-[name]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ext-san-config", "ext-san-policy"], ['fabricFcEstcEp', 'fabricFcSanEp', 'fabricFcSanPc', 'fabricVsan', 'vmNic', 'vnicEther', 'vnicFc', 'vnicIScsi', 'vnicIScsiLCP', 'vnicIniGrpFc', 'vnicIniGrpFcB', 'vnicLstorageIScsi', 'vnicMgmt', 'vnicMonSesFc'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

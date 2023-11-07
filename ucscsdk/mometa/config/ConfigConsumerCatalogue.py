@@ -134,9 +134,9 @@ class ConfigConsumerCatalogue(ManagedObject):
     """This is ConfigConsumerCatalogue class."""
 
     consts = ConfigConsumerCatalogueConsts()
-    naming_props = set([u'internalName'])
+    naming_props = set(['internalName'])
 
-    mo_meta = MoMeta("ConfigConsumerCatalogue", "configConsumerCatalogue", "consumer-catalogue-[internal_name]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], [u'configCatalogue', u'consumerInst'], [u'configBackup', u'configConsumerCatalogueFsm', u'configConsumerCatalogueFsmTask', u'eventInst', u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("ConfigConsumerCatalogue", "configConsumerCatalogue", "consumer-catalogue-[internal_name]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], ['configCatalogue', 'consumerInst'], ['configBackup', 'configConsumerCatalogueFsm', 'configConsumerCatalogueFsmTask', 'eventInst', 'faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["active", "delete"], []), 

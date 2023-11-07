@@ -13,7 +13,7 @@ class IpIpV4StaticAddr(ManagedObject):
     """This is IpIpV4StaticAddr class."""
 
     consts = IpIpV4StaticAddrConsts()
-    naming_props = set([u'addr'])
+    naming_props = set(['addr'])
 
     mo_meta = MoMeta("IpIpV4StaticAddr", "ipIpV4StaticAddr", "addr-[addr]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin"], [], [], ["Add", "Get", "Remove", "Set"])
 

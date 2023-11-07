@@ -29,9 +29,9 @@ class StatsThr32Value(ManagedObject):
     """This is StatsThr32Value class."""
 
     consts = StatsThr32ValueConsts()
-    naming_props = set([u'direction', u'severity'])
+    naming_props = set(['direction', 'severity'])
 
-    mo_meta = MoMeta("StatsThr32Value", "statsThr32Value", "[direction]-[severity]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "operations"], [u'statsThr32Definition', u'statsThr64Definition', u'statsThrFloatDefinition'], [], ["Add", "Get", "Set"])
+    mo_meta = MoMeta("StatsThr32Value", "statsThr32Value", "[direction]-[severity]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "operations"], ['statsThr32Definition', 'statsThr64Definition', 'statsThrFloatDefinition'], [], ["Add", "Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

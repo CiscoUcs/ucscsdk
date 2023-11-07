@@ -20,9 +20,9 @@ class AdaptorEthPortStatsHist(ManagedObject):
     """This is AdaptorEthPortStatsHist class."""
 
     consts = AdaptorEthPortStatsHistConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorEthPortStatsHist", "adaptorEthPortStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], [u'adaptorEthPortStats'], [], [None])
+    mo_meta = MoMeta("AdaptorEthPortStatsHist", "adaptorEthPortStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], ['adaptorEthPortStats'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

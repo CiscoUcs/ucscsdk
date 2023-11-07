@@ -51,9 +51,9 @@ class GlVxanOp(ManagedObject):
     """This is GlVxanOp class."""
 
     consts = GlVxanOpConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("GlVxanOp", "glVxanOp", "vxanop-[id]", VersionMeta.Version201b, "InputOutput", 0x3ff, [], ["admin"], [u'glVxanEp'], [u'glConflictEp', u'glRequestorEp', u'messageEp'], [None])
+    mo_meta = MoMeta("GlVxanOp", "glVxanOp", "vxanop-[id]", VersionMeta.Version201b, "InputOutput", 0x3ff, [], ["admin"], ['glVxanEp'], ['glConflictEp', 'glRequestorEp', 'messageEp'], [None])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["default", "evaluate"], []), 

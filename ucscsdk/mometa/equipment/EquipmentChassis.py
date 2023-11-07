@@ -180,9 +180,9 @@ class EquipmentChassis(ManagedObject):
     """This is EquipmentChassis class."""
 
     consts = EquipmentChassisConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("EquipmentChassis", "equipmentChassis", "chassis-[id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'computeSystem'], [u'computeBlade', u'computeBoardController', u'computeCartridge', u'computeChassisFeatMask', u'equipmentBeaconLed', u'equipmentChassisOperation', u'equipmentChassisStats', u'equipmentComputeConn', u'equipmentFanModule', u'equipmentHealthLed', u'equipmentIOCard', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'equipmentPsu', u'equipmentSharedIOModule', u'equipmentSwitchIOCard', u'equipmentSystemIOController', u'faultInst', u'mgmtController', u'sesEnclosure', u'storageBlade', u'storageController', u'storageEnclosure', u'storageSasExpander', u'storageVirtualDriveContainer'], ["Get"])
+    mo_meta = MoMeta("EquipmentChassis", "equipmentChassis", "chassis-[id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['computeSystem'], ['computeBlade', 'computeBoardController', 'computeCartridge', 'computeChassisFeatMask', 'equipmentBeaconLed', 'equipmentChassisOperation', 'equipmentChassisStats', 'equipmentComputeConn', 'equipmentCrossFabricModule', 'equipmentFanModule', 'equipmentHealthLed', 'equipmentIOCard', 'equipmentIndicatorLed', 'equipmentLocatorLed', 'equipmentPsu', 'equipmentSharedIOModule', 'equipmentSwitchIOCard', 'equipmentSystemIOController', 'faultInst', 'mgmtController', 'sesEnclosure', 'storageBlade', 'storageController', 'storageEnclosure', 'storageSasExpander', 'storageVirtualDriveContainer'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["acknowledged", "auto-acknowledge", "decommission", "disable-port-channel", "enable-port-channel", "re-acknowledge", "remove"], []), 

@@ -23,7 +23,7 @@ class FabricLastAckedSlot(ManagedObject):
     consts = FabricLastAckedSlotConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FabricLastAckedSlot", "fabricLastAckedSlot", "last-acked-slot", VersionMeta.Version131a, "InputOutput", 0xf, [], ["read-only"], [u'fabricEnclosurePhEp'], [], ["Get"])
+    mo_meta = MoMeta("FabricLastAckedSlot", "fabricLastAckedSlot", "last-acked-slot", VersionMeta.Version131a, "InputOutput", 0xf, [], ["read-only"], ['fabricEnclosurePhEp'], [], ["Get"])
 
     prop_meta = {
         "board_aggregation_role": MoPropertyMeta("board_aggregation_role", "boardAggregationRole", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["multi-master", "multi-slave", "none", "single"], []), 

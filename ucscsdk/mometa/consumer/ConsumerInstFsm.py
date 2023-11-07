@@ -119,7 +119,7 @@ class ConsumerInstFsm(ManagedObject):
     consts = ConsumerInstFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ConsumerInstFsm", "consumerInstFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], [u'consumerInst'], [u'consumerInstFsmStage'], [None])
+    mo_meta = MoMeta("ConsumerInstFsm", "consumerInstFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], ['consumerInst'], ['consumerInstFsmStage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

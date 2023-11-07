@@ -20,9 +20,9 @@ class EtherErrStatsHist(ManagedObject):
     """This is EtherErrStatsHist class."""
 
     consts = EtherErrStatsHistConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("EtherErrStatsHist", "etherErrStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], [u'etherErrStats'], [], [None])
+    mo_meta = MoMeta("EtherErrStatsHist", "etherErrStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], ['etherErrStats'], [], [None])
 
     prop_meta = {
         "align": MoPropertyMeta("align", "align", "ulong", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

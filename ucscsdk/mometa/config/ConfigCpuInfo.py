@@ -21,9 +21,9 @@ class ConfigCpuInfo(ManagedObject):
     """This is ConfigCpuInfo class."""
 
     consts = ConfigCpuInfoConsts()
-    naming_props = set([u'arch'])
+    naming_props = set(['arch'])
 
-    mo_meta = MoMeta("ConfigCpuInfo", "configCpuInfo", "cpu-info-[arch]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'configServerItem'], [], [None])
+    mo_meta = MoMeta("ConfigCpuInfo", "configCpuInfo", "cpu-info-[arch]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['configServerItem'], [], [None])
 
     prop_meta = {
         "arch": MoPropertyMeta("arch", "arch", "string", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x2, None, None, None, ["Dual-Core_Opteron", "Intel_P4_C", "Opteron", "Pentium_4", "Turion_64", "Xeon", "Xeon_MP", "any"], []), 

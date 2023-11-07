@@ -13,9 +13,9 @@ class GlByMo(ManagedObject):
     """This is GlByMo class."""
 
     consts = GlByMoConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("GlByMo", "glByMo", "by-[id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], [u'glPolicyOp', u'glPolicyResOp', u'glRefsEp'], [], [None])
+    mo_meta = MoMeta("GlByMo", "glByMo", "by-[id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], ['glPolicyOp', 'glPolicyResOp', 'glRefsEp'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

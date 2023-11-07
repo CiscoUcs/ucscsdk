@@ -37,7 +37,7 @@ class VnicIPv6If(ManagedObject):
     consts = VnicIPv6IfConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicIPv6If", "vnicIPv6If", "", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server", "ls-storage"], [], [u'vnicFault'], [None])
+    mo_meta = MoMeta("VnicIPv6If", "vnicIPv6If", "", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server", "ls-storage"], [], ['vnicFault'], [None])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

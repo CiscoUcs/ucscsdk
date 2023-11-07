@@ -24,9 +24,9 @@ class SolPolicy(ManagedObject):
     """This is SolPolicy class."""
 
     consts = SolPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("SolPolicy", "solPolicy", "sol-[name]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "read-only"], [u'orgOrg', u'policySystemEp'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("SolPolicy", "solPolicy", "sol-[name]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "read-only"], ['orgOrg', 'policySystemEp'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disable", "enable"], []), 

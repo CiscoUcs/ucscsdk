@@ -14,9 +14,9 @@ class IdentpoolPoolable(ManagedObject):
     """This is IdentpoolPoolable class."""
 
     consts = IdentpoolPoolableConsts()
-    naming_props = set([u'sysId', u'id'])
+    naming_props = set(['sysId', 'id'])
 
-    mo_meta = MoMeta("IdentpoolPoolable", "identpoolPoolable", "pool-[sys_id]-[id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [u'fcpoolAddr', u'ippoolAddr', u'ippoolIpV6Addr', u'iqnpoolAddr', u'macpoolAddr', u'uuidpoolAddr'], [], [None])
+    mo_meta = MoMeta("IdentpoolPoolable", "identpoolPoolable", "pool-[sys_id]-[id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], ['fcpoolAddr', 'ippoolAddr', 'ippoolIpV6Addr', 'iqnpoolAddr', 'macpoolAddr', 'uuidpoolAddr'], [], [None])
 
     prop_meta = {
         "assigned_to_dn": MoPropertyMeta("assigned_to_dn", "assignedToDn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

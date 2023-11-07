@@ -141,7 +141,7 @@ class SmartlicenseTest(ManagedObject):
     consts = SmartlicenseTestConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SmartlicenseTest", "smartlicenseTest", "Test", VersionMeta.Version141a, "InputOutput", 0x3ff, [], ["admin"], [u'smartlicenseAgent'], [u'eventInst', u'faultInst', u'smartlicenseTestFsm', u'smartlicenseTestFsmTask'], [None])
+    mo_meta = MoMeta("SmartlicenseTest", "smartlicenseTest", "Test", VersionMeta.Version141a, "InputOutput", 0x3ff, [], ["admin"], ['smartlicenseAgent'], ['eventInst', 'faultInst', 'smartlicenseTestFsm', 'smartlicenseTestFsmTask'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

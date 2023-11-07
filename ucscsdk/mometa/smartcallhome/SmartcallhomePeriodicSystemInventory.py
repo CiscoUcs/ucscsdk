@@ -20,7 +20,7 @@ class SmartcallhomePeriodicSystemInventory(ManagedObject):
     consts = SmartcallhomePeriodicSystemInventoryConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SmartcallhomePeriodicSystemInventory", "smartcallhomePeriodicSystemInventory", "smart-periodic-inventory", VersionMeta.Version141a, "InputOutput", 0x1fff, [], ["admin", "operations"], [u'callhomeEp'], [], ["Get", "Set"])
+    mo_meta = MoMeta("SmartcallhomePeriodicSystemInventory", "smartcallhomePeriodicSystemInventory", "smart-periodic-inventory", VersionMeta.Version141a, "InputOutput", 0x1fff, [], ["admin", "operations"], ['callhomeEp'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["off", "on"], []), 

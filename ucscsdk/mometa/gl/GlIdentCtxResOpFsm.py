@@ -119,7 +119,7 @@ class GlIdentCtxResOpFsm(ManagedObject):
     consts = GlIdentCtxResOpFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("GlIdentCtxResOpFsm", "glIdentCtxResOpFsm", "fsm", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], [u'glIdentCtxResOp'], [u'glIdentCtxResOpFsmStage'], [None])
+    mo_meta = MoMeta("GlIdentCtxResOpFsm", "glIdentCtxResOpFsm", "fsm", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], ['glIdentCtxResOp'], ['glIdentCtxResOpFsmStage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

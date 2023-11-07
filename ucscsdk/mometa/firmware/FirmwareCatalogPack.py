@@ -21,9 +21,9 @@ class FirmwareCatalogPack(ManagedObject):
     """This is FirmwareCatalogPack class."""
 
     consts = FirmwareCatalogPackConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FirmwareCatalogPack", "firmwareCatalogPack", "fw-catalog-pack-[name]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "operations"], [u'computeSystem', u'firmwareDomainInfraProfile', u'orgDomainGroup', u'orgOrg'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FirmwareCatalogPack", "firmwareCatalogPack", "fw-catalog-pack-[name]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "operations"], ['computeSystem', 'firmwareDomainInfraProfile', 'orgDomainGroup', 'orgOrg'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "catalog_name": MoPropertyMeta("catalog_name", "catalogName", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

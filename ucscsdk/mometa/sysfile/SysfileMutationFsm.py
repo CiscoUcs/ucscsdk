@@ -120,7 +120,7 @@ class SysfileMutationFsm(ManagedObject):
     consts = SysfileMutationFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SysfileMutationFsm", "sysfileMutationFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], [u'sysfileMutation'], [u'sysfileMutationFsmStage'], [None])
+    mo_meta = MoMeta("SysfileMutationFsm", "sysfileMutationFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], ['sysfileMutation'], ['sysfileMutationFsmStage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -27,9 +27,9 @@ class StorageOperation(ManagedObject):
     """This is StorageOperation class."""
 
     consts = StorageOperationConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StorageOperation", "storageOperation", "op-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'storageController', u'storageLocalDisk', u'storageRaidBattery', u'storageVirtualDrive'], [], ["Get"])
+    mo_meta = MoMeta("StorageOperation", "storageOperation", "op-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['storageController', 'storageLocalDisk', 'storageRaidBattery', 'storageVirtualDrive'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

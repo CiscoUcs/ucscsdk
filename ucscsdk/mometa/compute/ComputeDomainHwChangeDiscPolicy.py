@@ -17,9 +17,9 @@ class ComputeDomainHwChangeDiscPolicy(ManagedObject):
     """This is ComputeDomainHwChangeDiscPolicy class."""
 
     consts = ComputeDomainHwChangeDiscPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("ComputeDomainHwChangeDiscPolicy", "computeDomainHwChangeDiscPolicy", "hw-change-disc-policy-[name]", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin", "domain-group-management", "pn-policy", "read-only"], [u'orgDomainGroup', u'orgOrg'], [], ["add", "get", "remove", "set"])
+    mo_meta = MoMeta("ComputeDomainHwChangeDiscPolicy", "computeDomainHwChangeDiscPolicy", "hw-change-disc-policy-[name]", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin", "domain-group-management", "pn-policy", "read-only"], ['orgDomainGroup', 'orgOrg'], [], ["add", "get", "remove", "set"])
 
     prop_meta = {
         "action": MoPropertyMeta("action", "action", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

@@ -20,7 +20,7 @@ class BiosVfFRB2Timer(ManagedObject):
     consts = BiosVfFRB2TimerConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("BiosVfFRB2Timer", "biosVfFRB2Timer", "FRB-2-Timer", VersionMeta.Version121a, "InputOutput", 0x1f, [], ["read-only"], [u'biosVProfile'], [], ["Get", "Set"])
+    mo_meta = MoMeta("BiosVfFRB2Timer", "biosVfFRB2Timer", "FRB-2-Timer", VersionMeta.Version121a, "InputOutput", 0x1f, [], ["read-only"], ['biosVProfile'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version121a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -42,7 +42,7 @@ class FirmwareUpdatable(ManagedObject):
     consts = FirmwareUpdatableConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FirmwareUpdatable", "firmwareUpdatable", "fw-updatable", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], [u'equipmentPsu', u'storageOnboardDevice'], [], ["Get", "Set"])
+    mo_meta = MoMeta("FirmwareUpdatable", "firmwareUpdatable", "fw-updatable", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], ['equipmentPsu', 'storageOnboardDevice'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["force-trigger", "trigger", "triggered"], []), 

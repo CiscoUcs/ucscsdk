@@ -15,7 +15,7 @@ class StatsCustomEp(ManagedObject):
     consts = StatsCustomEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StatsCustomEp", "statsCustomEp", "customcharts", VersionMeta.Version111b, "InputOutput", 0xf, [], ["read-only"], [u'topSystem'], [u'statsChartContainer', u'statsCustomChart'], ["Get"])
+    mo_meta = MoMeta("StatsCustomEp", "statsCustomEp", "customcharts", VersionMeta.Version111b, "InputOutput", 0xf, [], ["read-only"], ['topSystem'], ['statsChartContainer', 'statsCustomChart'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

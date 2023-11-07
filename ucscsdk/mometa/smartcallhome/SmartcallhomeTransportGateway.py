@@ -18,7 +18,7 @@ class SmartcallhomeTransportGateway(ManagedObject):
     consts = SmartcallhomeTransportGatewayConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SmartcallhomeTransportGateway", "smartcallhomeTransportGateway", "transport-gateway", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "operations"], [u'callhomeEp'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("SmartcallhomeTransportGateway", "smartcallhomeTransportGateway", "transport-gateway", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "operations"], ['callhomeEp'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "cert_chain": MoPropertyMeta("cert_chain", "certChain", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

@@ -67,9 +67,9 @@ class VnicFc(ManagedObject):
     """This is VnicFc class."""
 
     consts = VnicFcConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("VnicFc", "vnicFc", "fc-[name]", VersionMeta.Version111a, "InputOutput", 0x1fffff, [], ["admin", "ls-config", "ls-network", "ls-server", "ls-storage"], [u'computeInstance', u'computeLocalTemplDef', u'fabricFcEstcEpOperation', u'fabricFcMonOperation', u'fabricFcSanEpOperation', u'fabricFcSanPcOperation', u'fabricFcoeEstcEpOperation', u'fabricFcoeSanEpOperation', u'fabricFcoeSanPcOperation', u'lsServer', u'storageVsanRef', u'vnicSanConnPolicy'], [u'fabricEthMonSrcEp', u'fabricFcMonSrcEp', u'fabricFcMonSrcEpOperation', u'faultInst', u'vnicBootTarget', u'vnicFcIf'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicFc", "vnicFc", "fc-[name]", VersionMeta.Version111a, "InputOutput", 0x1fffff, [], ["admin", "ls-config", "ls-network", "ls-server", "ls-storage"], ['computeInstance', 'computeLocalTemplDef', 'fabricFcEstcEpOperation', 'fabricFcMonOperation', 'fabricFcSanEpOperation', 'fabricFcSanPcOperation', 'fabricFcoeEstcEpOperation', 'fabricFcoeSanEpOperation', 'fabricFcoeSanPcOperation', 'lsServer', 'storageVsanRef', 'vnicSanConnPolicy'], ['fabricEthMonSrcEp', 'fabricFcMonSrcEp', 'fabricFcMonSrcEpOperation', 'faultInst', 'vnicBootTarget', 'vnicFcIf'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "adaptor_profile_name": MoPropertyMeta("adaptor_profile_name", "adaptorProfileName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

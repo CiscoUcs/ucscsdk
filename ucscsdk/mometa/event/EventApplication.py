@@ -13,7 +13,7 @@ class EventApplication(ManagedObject):
     """This is EventApplication class."""
 
     consts = EventApplicationConsts()
-    naming_props = set([u'type', u'ip'])
+    naming_props = set(['type', 'ip'])
 
     mo_meta = MoMeta("EventApplication", "eventApplication", "type-[type]ip-[ip]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [], [], [None])
 

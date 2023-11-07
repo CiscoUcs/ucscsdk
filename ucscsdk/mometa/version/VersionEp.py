@@ -15,7 +15,7 @@ class VersionEp(ManagedObject):
     consts = VersionEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VersionEp", "versionEp", "version", VersionMeta.Version101a, "InputOutput", 0xf, [], ["read-only"], [u'topSystem'], [u'versionApplication', u'versionMatrix', u'versionProduct'], [None])
+    mo_meta = MoMeta("VersionEp", "versionEp", "version", VersionMeta.Version101a, "InputOutput", 0xf, [], ["read-only"], ['topSystem'], ['versionApplication', 'versionMatrix', 'versionProduct'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

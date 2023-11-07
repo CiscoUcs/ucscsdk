@@ -13,9 +13,9 @@ class OrgOrgSource(ManagedObject):
     """This is OrgOrgSource class."""
 
     consts = OrgOrgSourceConsts()
-    naming_props = set([u'clientId'])
+    naming_props = set(['clientId'])
 
-    mo_meta = MoMeta("OrgOrgSource", "orgOrgSource", "org-source-[client_id]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], [u'orgOrg'], [], ["Get"])
+    mo_meta = MoMeta("OrgOrgSource", "orgOrgSource", "org-source-[client_id]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], ['orgOrg'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

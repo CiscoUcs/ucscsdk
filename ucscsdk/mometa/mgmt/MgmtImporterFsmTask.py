@@ -18,9 +18,9 @@ class MgmtImporterFsmTask(ManagedObject):
     """This is MgmtImporterFsmTask class."""
 
     consts = MgmtImporterFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("MgmtImporterFsmTask", "mgmtImporterFsmTask", "task-[item]", VersionMeta.Version101a, "OutputOnly", 0xf, [], [""], [u'mgmtImporter'], [], ["Get"])
+    mo_meta = MoMeta("MgmtImporterFsmTask", "mgmtImporterFsmTask", "task-[item]", VersionMeta.Version101a, "OutputOnly", 0xf, [], [""], ['mgmtImporter'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

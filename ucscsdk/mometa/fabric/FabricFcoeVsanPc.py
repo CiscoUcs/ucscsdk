@@ -48,9 +48,9 @@ class FabricFcoeVsanPc(ManagedObject):
     """This is FabricFcoeVsanPc class."""
 
     consts = FabricFcoeVsanPcConsts()
-    naming_props = set([u'switchId', u'portId'])
+    naming_props = set(['switchId', 'portId'])
 
-    mo_meta = MoMeta("FabricFcoeVsanPc", "fabricFcoeVsanPc", "fcoepc-switch-[switch_id]-fcoepc-[port_id]", VersionMeta.Version141a, "InputOutput", 0x1ff, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricVsan'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricFcoeVsanPc", "fabricFcoeVsanPc", "fcoepc-switch-[switch_id]-fcoepc-[port_id]", VersionMeta.Version141a, "InputOutput", 0x1ff, [], ["admin", "ext-san-config", "ext-san-policy"], ['fabricVsan'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

@@ -128,9 +128,9 @@ class SecurityUnit(ManagedObject):
     """This is SecurityUnit class."""
 
     consts = SecurityUnitConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("SecurityUnit", "securityUnit", "security-unit-[id]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["read-only"], [u'computeBoard'], [], ["Get"])
+    mo_meta = MoMeta("SecurityUnit", "securityUnit", "security-unit-[id]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["read-only"], ['computeBoard'], [], ["Get"])
 
     prop_meta = {
         "asset_tag": MoPropertyMeta("asset_tag", "assetTag", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 

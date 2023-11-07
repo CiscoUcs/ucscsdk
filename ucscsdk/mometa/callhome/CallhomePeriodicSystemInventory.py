@@ -22,7 +22,7 @@ class CallhomePeriodicSystemInventory(ManagedObject):
     consts = CallhomePeriodicSystemInventoryConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CallhomePeriodicSystemInventory", "callhomePeriodicSystemInventory", "periodicsysteminventory", VersionMeta.Version101a, "InputOutput", 0x1fff, [], ["admin", "operations"], [u'callhomeEp'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("CallhomePeriodicSystemInventory", "callhomePeriodicSystemInventory", "periodicsysteminventory", VersionMeta.Version101a, "InputOutput", 0x1fff, [], ["admin", "operations"], ['callhomeEp'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["off", "on"], []), 

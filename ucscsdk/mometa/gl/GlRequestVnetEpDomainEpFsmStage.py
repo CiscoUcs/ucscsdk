@@ -26,9 +26,9 @@ class GlRequestVnetEpDomainEpFsmStage(ManagedObject):
     """This is GlRequestVnetEpDomainEpFsmStage class."""
 
     consts = GlRequestVnetEpDomainEpFsmStageConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("GlRequestVnetEpDomainEpFsmStage", "glRequestVnetEpDomainEpFsmStage", "stage-[name]", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], [u'glRequestVnetEpDomainEpFsm'], [], [None])
+    mo_meta = MoMeta("GlRequestVnetEpDomainEpFsmStage", "glRequestVnetEpDomainEpFsmStage", "stage-[name]", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], ['glRequestVnetEpDomainEpFsm'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

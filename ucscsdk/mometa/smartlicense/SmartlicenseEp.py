@@ -21,7 +21,7 @@ class SmartlicenseEp(ManagedObject):
     consts = SmartlicenseEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SmartlicenseEp", "smartlicenseEp", "smart-license", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin"], [u'orgOrg', u'policyDeviceProfile', u'smartlicenseHolder'], [], ["Get"])
+    mo_meta = MoMeta("SmartlicenseEp", "smartlicenseEp", "smart-license", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin"], ['orgOrg', 'policyDeviceProfile', 'smartlicenseHolder'], [], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disable", "enable"], []), 

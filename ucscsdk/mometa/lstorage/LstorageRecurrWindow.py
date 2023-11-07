@@ -26,9 +26,9 @@ class LstorageRecurrWindow(ManagedObject):
     """This is LstorageRecurrWindow class."""
 
     consts = LstorageRecurrWindowConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("LstorageRecurrWindow", "lstorageRecurrWindow", "recurr-window-[name]", VersionMeta.Version131a, "InputOutput", 0x1fff, [], ["admin", "ls-storage", "ls-storage-policy"], [u'trigSched'], [], [None])
+    mo_meta = MoMeta("LstorageRecurrWindow", "lstorageRecurrWindow", "recurr-window-[name]", VersionMeta.Version131a, "InputOutput", 0x1fff, [], ["admin", "ls-storage", "ls-storage-policy"], ['trigSched'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

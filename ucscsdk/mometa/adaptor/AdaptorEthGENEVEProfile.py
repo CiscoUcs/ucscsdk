@@ -15,7 +15,7 @@ class AdaptorEthGENEVEProfile(ManagedObject):
     consts = AdaptorEthGENEVEProfileConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorEthGENEVEProfile", "adaptorEthGENEVEProfile", "eth-geneve", VersionMeta.Version201m, "InputOutput", 0x1f, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], [u'adaptorHostEthIfProfile'], [], [None])
+    mo_meta = MoMeta("AdaptorEthGENEVEProfile", "adaptorEthGENEVEProfile", "eth-geneve", VersionMeta.Version201m, "InputOutput", 0x1f, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], ['adaptorHostEthIfProfile'], [], [None])
 
     prop_meta = {
         "offload": MoPropertyMeta("offload", "Offload", "string", VersionMeta.Version201m, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

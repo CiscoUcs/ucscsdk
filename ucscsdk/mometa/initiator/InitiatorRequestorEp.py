@@ -16,9 +16,9 @@ class InitiatorRequestorEp(ManagedObject):
     """This is InitiatorRequestorEp class."""
 
     consts = InitiatorRequestorEpConsts()
-    naming_props = set([u'sysId', u'id'])
+    naming_props = set(['sysId', 'id'])
 
-    mo_meta = MoMeta("InitiatorRequestorEp", "initiatorRequestorEp", "req-sysid-[sys_id]-id-[id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], [u'topSystem'], [u'initiatorGroupEp'], [None])
+    mo_meta = MoMeta("InitiatorRequestorEp", "initiatorRequestorEp", "req-sysid-[sys_id]-id-[id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], ['topSystem'], ['initiatorGroupEp'], [None])
 
     prop_meta = {
         "alloc_state": MoPropertyMeta("alloc_state", "allocState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["allocated", "allocating", "failed", "none"], []), 

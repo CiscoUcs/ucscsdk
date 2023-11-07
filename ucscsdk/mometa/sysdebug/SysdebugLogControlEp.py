@@ -142,7 +142,7 @@ class SysdebugLogControlEp(ManagedObject):
     consts = SysdebugLogControlEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SysdebugLogControlEp", "sysdebugLogControlEp", "logcontrol", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin", "operations"], [u'sysdebugEp'], [u'eventInst', u'faultInst', u'sysdebugLogControlDomain', u'sysdebugLogControlEpFsm', u'sysdebugLogControlEpFsmTask'], ["Get", "Set"])
+    mo_meta = MoMeta("SysdebugLogControlEp", "sysdebugLogControlEp", "logcontrol", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin", "operations"], ['sysdebugEp'], ['eventInst', 'faultInst', 'sysdebugLogControlDomain', 'sysdebugLogControlEpFsm', 'sysdebugLogControlEpFsmTask'], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -144,9 +144,9 @@ class StorageEnclosure(ManagedObject):
     """This is StorageEnclosure class."""
 
     consts = StorageEnclosureConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("StorageEnclosure", "storageEnclosure", "enc-[id]", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin", "ls-storage"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit', u'equipmentChassis', u'storageBlade', u'storageController'], [u'storageEnclosureDiskSlotEp', u'storageLocalDisk'], ["Get"])
+    mo_meta = MoMeta("StorageEnclosure", "storageEnclosure", "enc-[id]", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin", "ls-storage"], ['computeBlade', 'computeRackUnit', 'computeServerUnit', 'equipmentChassis', 'storageBlade', 'storageController'], ['storageEnclosureDiskSlotEp', 'storageLocalDisk'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["acknowledged", "remove", "remove-failed", "removing"], []), 

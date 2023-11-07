@@ -37,7 +37,7 @@ class VnicVlan(ManagedObject):
     consts = VnicVlanConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicVlan", "vnicVlan", "vlan", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "ls-config", "ls-network", "ls-server"], [u'vnicIScsi', u'vnicIScsiLCP', u'vnicLstorageIScsi'], [u'vnicFault', u'vnicIPv4If', u'vnicIScsiAutoTargetIf', u'vnicIScsiStaticTargetIf'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicVlan", "vnicVlan", "vlan", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "ls-config", "ls-network", "ls-server"], ['vnicIScsi', 'vnicIScsiLCP', 'vnicLstorageIScsi'], ['vnicFault', 'vnicIPv4If', 'vnicIScsiAutoTargetIf', 'vnicIScsiStaticTargetIf'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -13,9 +13,9 @@ class GlDomainEp(ManagedObject):
     """This is GlDomainEp class."""
 
     consts = GlDomainEpConsts()
-    naming_props = set([u'domainId'])
+    naming_props = set(['domainId'])
 
-    mo_meta = MoMeta("GlDomainEp", "glDomainEp", "domain-[domain_id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], [u'glEp'], [u'glConflictResolutionRuleEp', u'glRequest'], [None])
+    mo_meta = MoMeta("GlDomainEp", "glDomainEp", "domain-[domain_id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], ['glEp'], ['glConflictResolutionRuleEp', 'glRequest'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

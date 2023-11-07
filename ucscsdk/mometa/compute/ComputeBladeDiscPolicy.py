@@ -20,9 +20,9 @@ class ComputeBladeDiscPolicy(ManagedObject):
     """This is ComputeBladeDiscPolicy class."""
 
     consts = ComputeBladeDiscPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("ComputeBladeDiscPolicy", "computeBladeDiscPolicy", "blade-discovery[name]", VersionMeta.Version141a, "InputOutput", 0x1ff, [], ["admin", "domain-group-management", "pn-policy", "read-only"], [u'orgDomainGroup', u'orgOrg'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("ComputeBladeDiscPolicy", "computeBladeDiscPolicy", "blade-discovery[name]", VersionMeta.Version141a, "InputOutput", 0x1ff, [], ["admin", "domain-group-management", "pn-policy", "read-only"], ['orgDomainGroup', 'orgOrg'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "action": MoPropertyMeta("action", "action", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["diag", "immediate", "user-acknowledged"], []), 

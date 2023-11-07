@@ -18,9 +18,9 @@ class VnicDynamicConPolicy(ManagedObject):
     """This is VnicDynamicConPolicy class."""
 
     consts = VnicDynamicConPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("VnicDynamicConPolicy", "vnicDynamicConPolicy", "dynamic-con-[name]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], [u'orgOrg'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicDynamicConPolicy", "vnicDynamicConPolicy", "dynamic-con-[name]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], ['orgOrg'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "adaptor_profile_name": MoPropertyMeta("adaptor_profile_name", "adaptorProfileName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

@@ -15,7 +15,7 @@ class IppoolUniverse(ManagedObject):
     consts = IppoolUniverseConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("IppoolUniverse", "ippoolUniverse", "ip", VersionMeta.Version101a, "InputOutput", 0xf, [], ["read-only"], [u'topRoot'], [u'ippoolAddr', u'ippoolIpV6Addr'], ["Get"])
+    mo_meta = MoMeta("IppoolUniverse", "ippoolUniverse", "ip", VersionMeta.Version101a, "InputOutput", 0xf, [], ["read-only"], ['topRoot'], ['ippoolAddr', 'ippoolIpV6Addr'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

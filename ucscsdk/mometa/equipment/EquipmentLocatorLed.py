@@ -28,7 +28,7 @@ class EquipmentLocatorLed(ManagedObject):
     consts = EquipmentLocatorLedConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentLocatorLed", "equipmentLocatorLed", "locator-led", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy", "read-only"], [u'computeBlade', u'computeExtBoard', u'computeRackUnit', u'computeServerUnit', u'equipmentChassis', u'equipmentFanModule', u'equipmentFex', u'equipmentIOCard', u'equipmentPsu', u'networkElement', u'storageLocalDisk'], [u'equipmentLocatorLedOperation'], ["Get", "Set"])
+    mo_meta = MoMeta("EquipmentLocatorLed", "equipmentLocatorLed", "locator-led", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy", "read-only"], ['computeBlade', 'computeExtBoard', 'computeRackUnit', 'computeServerUnit', 'equipmentChassis', 'equipmentFanModule', 'equipmentFex', 'equipmentIOCard', 'equipmentPsu', 'networkElement', 'storageLocalDisk'], ['equipmentLocatorLedOperation'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["inactive", "off", "on"], []), 

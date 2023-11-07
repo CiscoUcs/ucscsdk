@@ -13,9 +13,9 @@ class BiosTokenParam(ManagedObject):
     """This is BiosTokenParam class."""
 
     consts = BiosTokenParamConsts()
-    naming_props = set([u'targetTokenName'])
+    naming_props = set(['targetTokenName'])
 
-    mo_meta = MoMeta("BiosTokenParam", "biosTokenParam", "tokn-param-[target_token_name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-policy", "pn-policy"], [u'biosTokenFeatureGroup'], [u'biosTokenSettings'], [None])
+    mo_meta = MoMeta("BiosTokenParam", "biosTokenParam", "tokn-param-[target_token_name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-policy", "pn-policy"], ['biosTokenFeatureGroup'], ['biosTokenSettings'], [None])
 
     prop_meta = {
         "type": MoPropertyMeta("type", "Type", "string", VersionMeta.Version201k, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

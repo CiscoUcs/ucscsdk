@@ -142,9 +142,9 @@ class NfsExportDef(ManagedObject):
     """This is NfsExportDef class."""
 
     consts = NfsExportDefConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("NfsExportDef", "nfsExportDef", "nfs-export-def-[name]", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["admin"], [u'nfsEp'], [u'eventInst', u'faultInst', u'nfsClientDef', u'nfsExportDefFsm', u'nfsExportDefFsmTask', u'storageItem'], [None])
+    mo_meta = MoMeta("NfsExportDef", "nfsExportDef", "nfs-export-def-[name]", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["admin"], ['nfsEp'], ['eventInst', 'faultInst', 'nfsClientDef', 'nfsExportDefFsm', 'nfsExportDefFsmTask', 'storageItem'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

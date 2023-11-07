@@ -15,7 +15,7 @@ class VnicFault(ManagedObject):
     consts = VnicFaultConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicFault", "vnicFault", "fault-if", VersionMeta.Version112a, "InputOutput", 0xf, [], ["read-only"], [u'storageEthLif', u'vnicEtherIf', u'vnicFcIf', u'vnicFcOEIf', u'vnicIPv4If', u'vnicIPv6If', u'vnicIniGrpFcBIf', u'vnicIniGrpFcIf', u'vnicLifVlan', u'vnicLifVsan', u'vnicMgmtIf', u'vnicMonSesFcIf', u'vnicStorageEthLif', u'vnicVlan'], [u'faultInst'], ["Get"])
+    mo_meta = MoMeta("VnicFault", "vnicFault", "fault-if", VersionMeta.Version112a, "InputOutput", 0xf, [], ["read-only"], ['storageEthLif', 'vnicEtherIf', 'vnicFcIf', 'vnicFcOEIf', 'vnicIPv4If', 'vnicIPv6If', 'vnicIniGrpFcBIf', 'vnicIniGrpFcIf', 'vnicLifVlan', 'vnicLifVsan', 'vnicMgmtIf', 'vnicMonSesFcIf', 'vnicStorageEthLif', 'vnicVlan'], ['faultInst'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
