@@ -35,7 +35,7 @@ class LsServerOperation(ManagedObject):
     consts = LsServerOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("LsServerOperation", "lsServerOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-oper", "ls-server-policy"], [u'computeInstance', u'lsServer'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("LsServerOperation", "lsServerOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-oper", "ls-server-policy"], ['computeInstance', 'lsServer'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

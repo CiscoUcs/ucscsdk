@@ -39,9 +39,9 @@ class FabricFcMon(ManagedObject):
     """This is FabricFcMon class."""
 
     consts = FabricFcMonConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricFcMon", "fabricFcMon", "fc-mon-[name]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcMonSan'], [u'fabricEthMonDestEp', u'fabricFcMonDestEp', u'fabricFcMonSrcRef', u'fabricSubGroup'], ["Get"])
+    mo_meta = MoMeta("FabricFcMon", "fabricFcMon", "fc-mon-[name]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ext-san-config", "ext-san-policy"], ['fabricFcMonSan'], ['fabricEthMonDestEp', 'fabricFcMonDestEp', 'fabricFcMonSrcRef', 'fabricSubGroup'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

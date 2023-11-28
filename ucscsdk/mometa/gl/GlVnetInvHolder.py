@@ -15,7 +15,7 @@ class GlVnetInvHolder(ManagedObject):
     consts = GlVnetInvHolderConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("GlVnetInvHolder", "glVnetInvHolder", "vnet", VersionMeta.Version201b, "InputOutput", 0xf, [], ["read-only"], [u'glRequestVnetEpDomainEp'], [u'glMcastPolicy', u'glVlan', u'glVsan'], [None])
+    mo_meta = MoMeta("GlVnetInvHolder", "glVnetInvHolder", "vnet", VersionMeta.Version201b, "InputOutput", 0xf, [], ["read-only"], ['glRequestVnetEpDomainEp'], ['glMcastPolicy', 'glVlan', 'glVsan'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

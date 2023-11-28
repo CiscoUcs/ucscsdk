@@ -18,7 +18,7 @@ class ClitestTypeTest(ManagedObject):
     consts = ClitestTypeTestConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ClitestTypeTest", "clitestTypeTest", "tt-", VersionMeta.Version101a, "InputOutput", 0x7ffffff, [], ["admin"], [u'topRoot'], [], ["Get"])
+    mo_meta = MoMeta("ClitestTypeTest", "clitestTypeTest", "tt-", VersionMeta.Version101a, "InputOutput", 0x7ffffff, [], ["admin"], ['topRoot'], [], ["Get"])
 
     prop_meta = {
         "achar": MoPropertyMeta("achar", "achar", "byte", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

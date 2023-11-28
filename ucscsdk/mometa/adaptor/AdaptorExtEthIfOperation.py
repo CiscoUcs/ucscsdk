@@ -21,7 +21,7 @@ class AdaptorExtEthIfOperation(ManagedObject):
     consts = AdaptorExtEthIfOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorExtEthIfOperation", "adaptorExtEthIfOperation", "remote-oper", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance"], [u'adaptorExtEthIf'], [u'faultInst'], ["get", "set"])
+    mo_meta = MoMeta("AdaptorExtEthIfOperation", "adaptorExtEthIfOperation", "remote-oper", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance"], ['adaptorExtEthIf'], ['faultInst'], ["get", "set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["enabled", "remoteTrigger", "reset-connectivity"], []), 

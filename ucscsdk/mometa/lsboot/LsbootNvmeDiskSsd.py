@@ -16,7 +16,7 @@ class LsbootNvmeDiskSsd(ManagedObject):
     consts = LsbootNvmeDiskSsdConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("LsbootNvmeDiskSsd", "lsbootNvmeDiskSsd", "nvme-disk-ssd", VersionMeta.Version201f, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], [u'lsbootNvme'], [], [None])
+    mo_meta = MoMeta("LsbootNvmeDiskSsd", "lsbootNvmeDiskSsd", "nvme-disk-ssd", VersionMeta.Version201f, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], ['lsbootNvme'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201f, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

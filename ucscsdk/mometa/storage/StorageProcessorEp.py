@@ -13,7 +13,7 @@ class StorageProcessorEp(ManagedObject):
     """This is StorageProcessorEp class."""
 
     consts = StorageProcessorEpConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
     mo_meta = MoMeta("StorageProcessorEp", "storageProcessorEp", "proc-ep-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [], [], ["Get"])
 

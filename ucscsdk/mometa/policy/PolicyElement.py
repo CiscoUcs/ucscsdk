@@ -16,9 +16,9 @@ class PolicyElement(ManagedObject):
     """This is PolicyElement class."""
 
     consts = PolicyElementConsts()
-    naming_props = set([u'convertedDn'])
+    naming_props = set(['convertedDn'])
 
-    mo_meta = MoMeta("PolicyElement", "policyElement", "element-[converted_dn]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin"], [u'policyLocalMap'], [], ["Get"])
+    mo_meta = MoMeta("PolicyElement", "policyElement", "element-[converted_dn]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin"], ['policyLocalMap'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -18,9 +18,9 @@ class FlowctrlItem(ManagedObject):
     """This is FlowctrlItem class."""
 
     consts = FlowctrlItemConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FlowctrlItem", "flowctrlItem", "policy-[name]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ls-network", "ls-network-policy", "ls-qos-policy"], [u'flowctrlDefinition'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FlowctrlItem", "flowctrlItem", "policy-[name]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ls-network", "ls-network-policy", "ls-qos-policy"], ['flowctrlDefinition'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

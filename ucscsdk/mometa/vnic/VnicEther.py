@@ -76,9 +76,9 @@ class VnicEther(ManagedObject):
     """This is VnicEther class."""
 
     consts = VnicEtherConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("VnicEther", "vnicEther", "ether-[name]", VersionMeta.Version111a, "InputOutput", 0xfffff, [], ["admin", "ls-config", "ls-network", "ls-server"], [u'computeInstance', u'computeLocalTemplDef', u'fabricDceSwSrvPcOperation', u'fabricEthEstcEpOperation', u'fabricEthEstcPcOperation', u'fabricEthLanEpOperation', u'fabricEthLanPcOperation', u'fabricEthMonOperation', u'lsServer', u'vnicLanConnPolicy', u'vnicNetGroup', u'vnicNetGroupRef'], [u'fabricEthMonSrcEp', u'fabricEthMonSrcEpOperation', u'fabricFcMonSrcEp', u'fabricNetGroupRef', u'faultInst', u'vnicDynamicConPolicyRef', u'vnicEtherIf', u'vnicFcOEIf', u'vnicLifVlan', u'vnicUsnicConPolicyRef', u'vnicVmqConPolicyRef'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicEther", "vnicEther", "ether-[name]", VersionMeta.Version111a, "InputOutput", 0xfffff, [], ["admin", "ls-config", "ls-network", "ls-server"], ['computeInstance', 'computeLocalTemplDef', 'fabricDceSwSrvPcOperation', 'fabricEthEstcEpOperation', 'fabricEthEstcPcOperation', 'fabricEthLanEpOperation', 'fabricEthLanPcOperation', 'fabricEthMonOperation', 'lsServer', 'vnicLanConnPolicy', 'vnicNetGroup', 'vnicNetGroupRef'], ['fabricEthMonSrcEp', 'fabricEthMonSrcEpOperation', 'fabricFcMonSrcEp', 'fabricNetGroupRef', 'faultInst', 'vnicDynamicConPolicyRef', 'vnicEtherIf', 'vnicFcOEIf', 'vnicLifVlan', 'vnicUsnicConPolicyRef', 'vnicVmqConPolicyRef'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "adaptor_profile_name": MoPropertyMeta("adaptor_profile_name", "adaptorProfileName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

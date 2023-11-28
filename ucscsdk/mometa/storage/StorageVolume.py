@@ -111,9 +111,9 @@ class StorageVolume(ManagedObject):
     """This is StorageVolume class."""
 
     consts = StorageVolumeConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StorageVolume", "storageVolume", "vol-[name]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["read-only"], [u'storagePartition'], [], ["Get"])
+    mo_meta = MoMeta("StorageVolume", "storageVolume", "vol-[name]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["read-only"], ['storagePartition'], [], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["clear-transport-ready", "degraded", "delete", "hide", "offline", "online", "restore", "secure-drive-group", "transport-ready", "undefined", "unhide"], []), 

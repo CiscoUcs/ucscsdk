@@ -15,9 +15,9 @@ class FabricNetGroupRef(ManagedObject):
     """This is FabricNetGroupRef class."""
 
     consts = FabricNetGroupRefConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricNetGroupRef", "fabricNetGroupRef", "net-group-ref-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin", "ext-lan-config", "ext-lan-policy", "ls-config", "ls-network", "ls-server"], [u'dcxVc', u'vnicEther', u'vnicLanConnTempl', u'vnicSanConnTempl'], [u'faultInst'], [None])
+    mo_meta = MoMeta("FabricNetGroupRef", "fabricNetGroupRef", "net-group-ref-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin", "ext-lan-config", "ext-lan-policy", "ls-config", "ls-network", "ls-server"], ['dcxVc', 'vnicEther', 'vnicLanConnTempl', 'vnicSanConnTempl'], ['faultInst'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

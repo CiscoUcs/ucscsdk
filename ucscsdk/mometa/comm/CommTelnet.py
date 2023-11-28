@@ -25,7 +25,7 @@ class CommTelnet(ManagedObject):
     consts = CommTelnetConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CommTelnet", "commTelnet", "telnet-svc", VersionMeta.Version101a, "InputOutput", 0xff, [], ["aaa", "admin"], [u'orgDomainGroup', u'orgOrg', u'policyDeviceProfile'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("CommTelnet", "commTelnet", "telnet-svc", VersionMeta.Version101a, "InputOutput", 0xff, [], ["aaa", "admin"], ['orgDomainGroup', 'orgOrg', 'policyDeviceProfile'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

@@ -30,9 +30,9 @@ class HcDownloader(ManagedObject):
     """This is HcDownloader class."""
 
     consts = HcDownloaderConsts()
-    naming_props = set([u'fileName'])
+    naming_props = set(['fileName'])
 
-    mo_meta = MoMeta("HcDownloader", "hcDownloader", "dnld-[file_name]", VersionMeta.Version151a, "InputOutput", 0xfff, [], ["admin"], [u'hcHolder'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("HcDownloader", "hcDownloader", "dnld-[file_name]", VersionMeta.Version151a, "InputOutput", 0xfff, [], ["admin"], ['hcHolder'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["idle", "restart"], []), 

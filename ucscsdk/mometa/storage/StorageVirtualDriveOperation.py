@@ -29,7 +29,7 @@ class StorageVirtualDriveOperation(ManagedObject):
     consts = StorageVirtualDriveOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageVirtualDriveOperation", "storageVirtualDriveOperation", "remote-oper", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'storageVirtualDrive'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("StorageVirtualDriveOperation", "storageVirtualDriveOperation", "remote-oper", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['storageVirtualDrive'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_name": MoPropertyMeta("admin_name", "adminName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, 0, 510, None, [], []), 

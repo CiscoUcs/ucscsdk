@@ -119,7 +119,7 @@ class MgmtDataImporterFsm(ManagedObject):
     consts = MgmtDataImporterFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("MgmtDataImporterFsm", "mgmtDataImporterFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], [u'mgmtDataImporter'], [u'mgmtDataImporterFsmStage'], [None])
+    mo_meta = MoMeta("MgmtDataImporterFsm", "mgmtDataImporterFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], ['mgmtDataImporter'], ['mgmtDataImporterFsmStage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

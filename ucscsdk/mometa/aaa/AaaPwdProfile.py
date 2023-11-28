@@ -25,7 +25,7 @@ class AaaPwdProfile(ManagedObject):
     consts = AaaPwdProfileConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AaaPwdProfile", "aaaPwdProfile", "pwd-profile", VersionMeta.Version101a, "InputOutput", 0x1fff, [], ["aaa", "admin"], [u'aaaUserEp', u'orgDomainGroup', u'policyDeviceProfile'], [], ["Get", "Set"])
+    mo_meta = MoMeta("AaaPwdProfile", "aaaPwdProfile", "pwd-profile", VersionMeta.Version101a, "InputOutput", 0x1fff, [], ["aaa", "admin"], ['aaaUserEp', 'orgDomainGroup', 'policyDeviceProfile'], [], ["Get", "Set"])
 
     prop_meta = {
         "change_count": MoPropertyMeta("change_count", "changeCount", "byte", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], ["0-10"]), 

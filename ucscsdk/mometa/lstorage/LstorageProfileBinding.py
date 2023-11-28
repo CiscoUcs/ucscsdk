@@ -15,7 +15,7 @@ class LstorageProfileBinding(ManagedObject):
     consts = LstorageProfileBindingConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("LstorageProfileBinding", "lstorageProfileBinding", "profile-binding", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server"], [u'lsServer'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LstorageProfileBinding", "lstorageProfileBinding", "profile-binding", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server"], ['lsServer'], ['faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "assigned_to_dn": MoPropertyMeta("assigned_to_dn", "assignedToDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

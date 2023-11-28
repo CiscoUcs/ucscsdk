@@ -25,7 +25,7 @@ class FirmwareStatus(ManagedObject):
     consts = FirmwareStatusConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FirmwareStatus", "firmwareStatus", "fw-status", VersionMeta.Version101a, "InputOutput", 0xf, [], ["admin"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit', u'equipmentFex', u'equipmentIOCard', u'equipmentPsu', u'networkElement', u'topSystem'], [], ["Get"])
+    mo_meta = MoMeta("FirmwareStatus", "firmwareStatus", "fw-status", VersionMeta.Version101a, "InputOutput", 0xf, [], ["admin"], ['computeBlade', 'computeRackUnit', 'computeServerUnit', 'equipmentFex', 'equipmentIOCard', 'equipmentPsu', 'networkElement', 'topSystem'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

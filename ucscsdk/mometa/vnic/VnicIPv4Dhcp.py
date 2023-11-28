@@ -15,7 +15,7 @@ class VnicIPv4Dhcp(ManagedObject):
     consts = VnicIPv4DhcpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicIPv4Dhcp", "vnicIPv4Dhcp", "ipv4-dhcp", VersionMeta.Version111a, "InputOutput", 0xf, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server", "ls-storage"], [u'vnicIPv4If'], [], ["Get", "Remove"])
+    mo_meta = MoMeta("VnicIPv4Dhcp", "vnicIPv4Dhcp", "ipv4-dhcp", VersionMeta.Version111a, "InputOutput", 0xf, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server", "ls-storage"], ['vnicIPv4If'], [], ["Get", "Remove"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 

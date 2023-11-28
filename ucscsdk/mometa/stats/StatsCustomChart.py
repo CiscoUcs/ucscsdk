@@ -35,9 +35,9 @@ class StatsCustomChart(ManagedObject):
     """This is StatsCustomChart class."""
 
     consts = StatsCustomChartConsts()
-    naming_props = set([u'name', u'chartDomain'])
+    naming_props = set(['name', 'chartDomain'])
 
-    mo_meta = MoMeta("StatsCustomChart", "statsCustomChart", "custom-chart-[name]domain-[chart_domain]", VersionMeta.Version111b, "InputOutput", 0x1fffff, [], ["admin", "stats-management"], [u'statsChartContainer', u'statsCustomEp'], [], ["Get"])
+    mo_meta = MoMeta("StatsCustomChart", "statsCustomChart", "custom-chart-[name]domain-[chart_domain]", VersionMeta.Version111b, "InputOutput", 0x1fffff, [], ["admin", "stats-management"], ['statsChartContainer', 'statsCustomEp'], [], ["Get"])
 
     prop_meta = {
         "chart_domain": MoPropertyMeta("chart_domain", "chartDomain", "string", VersionMeta.Version111b, MoPropertyMeta.NAMING, 0x2, None, None, None, ["cooling", "network", "power", "temp"], []), 

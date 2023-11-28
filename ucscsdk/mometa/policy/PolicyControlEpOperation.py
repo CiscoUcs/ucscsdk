@@ -24,7 +24,7 @@ class PolicyControlEpOperation(ManagedObject):
     consts = PolicyControlEpOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("PolicyControlEpOperation", "policyControlEpOperation", "remote-oper", VersionMeta.Version121a, "InputOutput", 0x7f, [], ["admin"], [u'policyControlEp'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("PolicyControlEpOperation", "policyControlEpOperation", "remote-oper", VersionMeta.Version121a, "InputOutput", 0x7f, [], ["admin"], ['policyControlEp'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "ack_state": MoPropertyMeta("ack_state", "ackState", "string", VersionMeta.Version121a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["acked", "no-ack", "remoteTrigger"], []), 

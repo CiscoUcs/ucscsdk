@@ -20,9 +20,9 @@ class ComputePCIeFatalReceiveStatsHist(ManagedObject):
     """This is ComputePCIeFatalReceiveStatsHist class."""
 
     consts = ComputePCIeFatalReceiveStatsHistConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("ComputePCIeFatalReceiveStatsHist", "computePCIeFatalReceiveStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], [u'computePCIeFatalReceiveStats'], [], [None])
+    mo_meta = MoMeta("ComputePCIeFatalReceiveStatsHist", "computePCIeFatalReceiveStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], ['computePCIeFatalReceiveStats'], [], [None])
 
     prop_meta = {
         "buffer_overflow_errors": MoPropertyMeta("buffer_overflow_errors", "bufferOverflowErrors", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

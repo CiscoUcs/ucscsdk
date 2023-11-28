@@ -26,9 +26,9 @@ class FirmwareDomainInfraProfile(ManagedObject):
     """This is FirmwareDomainInfraProfile class."""
 
     consts = FirmwareDomainInfraProfileConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FirmwareDomainInfraProfile", "firmwareDomainInfraProfile", "domain-infra-profile-[name]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "operations"], [u'orgOrg'], [u'firmwareCatalogPack', u'firmwareCatalogPackConfig', u'firmwareDomainInfo', u'firmwareProductFamily', u'trigMeta', u'trigSched'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FirmwareDomainInfraProfile", "firmwareDomainInfraProfile", "domain-infra-profile-[name]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "operations"], ['orgOrg'], ['firmwareCatalogPack', 'firmwareCatalogPackConfig', 'firmwareDomainInfo', 'firmwareProductFamily', 'trigMeta', 'trigSched'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["trigger", "trigger-immediate", "triggered", "untriggered", "user-ack"], []), 

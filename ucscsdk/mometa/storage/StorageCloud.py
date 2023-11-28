@@ -15,7 +15,7 @@ class StorageCloud(ManagedObject):
     consts = StorageCloudConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageCloud", "storageCloud", "storage", VersionMeta.Version131a, "InputOutput", 0xf, [], ["admin"], [u'computeSystem', u'topRoot'], [u'storageArray', u'storageClusterIdUniverse', u'trigMeta', u'trigSched'], [None])
+    mo_meta = MoMeta("StorageCloud", "storageCloud", "storage", VersionMeta.Version131a, "InputOutput", 0xf, [], ["admin"], ['computeSystem', 'topRoot'], ['storageArray', 'storageClusterIdUniverse', 'trigMeta', 'trigSched'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

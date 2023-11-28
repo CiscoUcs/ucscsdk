@@ -31,9 +31,9 @@ class PowerPolicy(ManagedObject):
     """This is PowerPolicy class."""
 
     consts = PowerPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("PowerPolicy", "powerPolicy", "power-policy-[name]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["read-only"], [u'orgOrg', u'policySystemEp'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("PowerPolicy", "powerPolicy", "power-policy-[name]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["read-only"], ['orgOrg', 'policySystemEp'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

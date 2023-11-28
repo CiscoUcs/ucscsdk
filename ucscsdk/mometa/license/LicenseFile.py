@@ -152,9 +152,9 @@ class LicenseFile(ManagedObject):
     """This is LicenseFile class."""
 
     consts = LicenseFileConsts()
-    naming_props = set([u'scope', u'id'])
+    naming_props = set(['scope', 'id'])
 
-    mo_meta = MoMeta("LicenseFile", "licenseFile", "file-[scope]:[id]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin"], [u'licenseEp'], [u'eventInst', u'faultInst', u'licenseContents', u'licenseFileFsm', u'licenseFileFsmTask', u'licenseSource'], ["Get"])
+    mo_meta = MoMeta("LicenseFile", "licenseFile", "file-[scope]:[id]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin"], ['licenseEp'], ['eventInst', 'faultInst', 'licenseContents', 'licenseFileFsm', 'licenseFileFsmTask', 'licenseSource'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["delete-failed", "delete-pending", "deleted", "deleting", "install-failed", "install-pending", "installed", "installing", "stale", "unknown", "validated"], []), 

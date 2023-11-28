@@ -18,7 +18,7 @@ class PolicyDiscovery(ManagedObject):
     consts = PolicyDiscoveryConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("PolicyDiscovery", "policyDiscovery", "discovery-ctrl", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "pn-policy"], [u'policyControlEp'], [u'policyControlledInstance', u'policyControlledType'], [None])
+    mo_meta = MoMeta("PolicyDiscovery", "policyDiscovery", "discovery-ctrl", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "pn-policy"], ['policyControlEp'], ['policyControlledInstance', 'policyControlledType'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

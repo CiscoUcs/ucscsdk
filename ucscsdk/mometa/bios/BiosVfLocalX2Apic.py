@@ -21,7 +21,7 @@ class BiosVfLocalX2Apic(ManagedObject):
     consts = BiosVfLocalX2ApicConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("BiosVfLocalX2Apic", "biosVfLocalX2Apic", "Local-X2-Apic", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["read-only"], [u'biosVProfile'], [], ["Get", "Set"])
+    mo_meta = MoMeta("BiosVfLocalX2Apic", "biosVfLocalX2Apic", "Local-X2-Apic", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["read-only"], ['biosVProfile'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -67,9 +67,9 @@ class FabricVlan(ManagedObject):
     """This is FabricVlan class."""
 
     consts = FabricVlanConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricVlan", "fabricVlan", "net-[name]", VersionMeta.Version111a, "InputOutput", 0xfff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthEstcCloud', u'fabricLanCloud'], [u'fabricConsumer', u'fabricEthMonSrcEp', u'fabricEthMonSrcEpOperation', u'fabricEthVlanPc', u'fabricEthVlanPortEp', u'fabricEtherRef', u'fabricExtension', u'fabricSwSubGroup', u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricVlan", "fabricVlan", "net-[name]", VersionMeta.Version111a, "InputOutput", 0xfff, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['fabricEthEstcCloud', 'fabricLanCloud'], ['fabricConsumer', 'fabricEthMonSrcEp', 'fabricEthMonSrcEpOperation', 'fabricEthVlanPc', 'fabricEthVlanPortEp', 'fabricEtherRef', 'fabricExtension', 'fabricSwSubGroup', 'faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "assoc_primary_vlan_state": MoPropertyMeta("assoc_primary_vlan_state", "assocPrimaryVlanState", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["does-not-exists", "is-empty", "is-in-error-state", "is-not-primary-type", "ok"], []), 

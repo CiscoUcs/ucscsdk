@@ -83,9 +83,9 @@ class StorageVDMemberEp(ManagedObject):
     """This is StorageVDMemberEp class."""
 
     consts = StorageVDMemberEpConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("StorageVDMemberEp", "storageVDMemberEp", "member-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'storageVirtualDrive'], [], ["Get"])
+    mo_meta = MoMeta("StorageVDMemberEp", "storageVDMemberEp", "member-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['storageVirtualDrive'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

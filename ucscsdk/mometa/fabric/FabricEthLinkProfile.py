@@ -17,9 +17,9 @@ class FabricEthLinkProfile(ManagedObject):
     """This is FabricEthLinkProfile class."""
 
     consts = FabricEthLinkProfileConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricEthLinkProfile", "fabricEthLinkProfile", "eth-link-prof-[name]", VersionMeta.Version112a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricLanCloud', u'orgDomainGroup'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricEthLinkProfile", "fabricEthLinkProfile", "eth-link-prof-[name]", VersionMeta.Version112a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['fabricLanCloud', 'orgDomainGroup'], ['faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "cdp_link_policy_name": MoPropertyMeta("cdp_link_policy_name", "cdpLinkPolicyName", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

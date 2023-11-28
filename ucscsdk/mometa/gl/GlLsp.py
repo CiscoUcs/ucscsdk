@@ -15,9 +15,9 @@ class GlLsp(ManagedObject):
     """This is GlLsp class."""
 
     consts = GlLspConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("GlLsp", "glLsp", "lsp-[id]", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin"], [u'glRequest'], [u'glOperationEp'], [None])
+    mo_meta = MoMeta("GlLsp", "glLsp", "lsp-[id]", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin"], ['glRequest'], ['glOperationEp'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

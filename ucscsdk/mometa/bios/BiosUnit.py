@@ -15,7 +15,7 @@ class BiosUnit(ManagedObject):
     consts = BiosUnitConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("BiosUnit", "biosUnit", "bios", VersionMeta.Version111a, "InputOutput", 0xf, [], ["read-only"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'biosBOT', u'firmwareRunning'], ["Get"])
+    mo_meta = MoMeta("BiosUnit", "biosUnit", "bios", VersionMeta.Version111a, "InputOutput", 0xf, [], ["read-only"], ['computeBlade', 'computeRackUnit', 'computeServerUnit'], ['biosBOT', 'firmwareRunning'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

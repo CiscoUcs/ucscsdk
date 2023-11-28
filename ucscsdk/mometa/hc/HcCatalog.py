@@ -13,9 +13,9 @@ class HcCatalog(ManagedObject):
     """This is HcCatalog class."""
 
     consts = HcCatalogConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("HcCatalog", "hcCatalog", "hc-catalog-[id]", VersionMeta.Version151a, "InputOutput", 0xfffff, [], ["admin"], [u'hcHolder'], [], [None])
+    mo_meta = MoMeta("HcCatalog", "hcCatalog", "hc-catalog-[id]", VersionMeta.Version151a, "InputOutput", 0xfffff, [], ["admin"], ['hcHolder'], [], [None])
 
     prop_meta = {
         "adapter_model": MoPropertyMeta("adapter_model", "adapterModel", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, 0, 510, None, [], []), 

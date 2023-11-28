@@ -15,7 +15,7 @@ class ComputeStorageFeatMask(ManagedObject):
     consts = ComputeStorageFeatMaskConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ComputeStorageFeatMask", "computeStorageFeatMask", "storage-feat-mask", VersionMeta.Version112a, "InputOutput", 0xf, [], ["read-only"], [u'computeSystem', u'extpolDomain', u'lsServer'], [], ["Get"])
+    mo_meta = MoMeta("ComputeStorageFeatMask", "computeStorageFeatMask", "storage-feat-mask", VersionMeta.Version112a, "InputOutput", 0xf, [], ["read-only"], ['computeSystem', 'extpolDomain', 'lsServer'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

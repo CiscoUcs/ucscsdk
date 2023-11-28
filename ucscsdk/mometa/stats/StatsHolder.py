@@ -15,7 +15,7 @@ class StatsHolder(ManagedObject):
     consts = StatsHolderConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StatsHolder", "statsHolder", "stats", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin", "operations"], [u'topRoot'], [u'statsCollectionPolicy', u'statsDbMigrationStatus', u'statsPasadenaCollectionPolicy'], ["Get"])
+    mo_meta = MoMeta("StatsHolder", "statsHolder", "stats", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin", "operations"], ['topRoot'], ['statsCollectionPolicy', 'statsDbMigrationStatus', 'statsPasadenaCollectionPolicy'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

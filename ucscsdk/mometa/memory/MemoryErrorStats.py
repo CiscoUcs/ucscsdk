@@ -18,7 +18,7 @@ class MemoryErrorStats(ManagedObject):
     consts = MemoryErrorStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("MemoryErrorStats", "memoryErrorStats", "error-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'memoryUnit'], [u'memoryErrorStatsHist'], [None])
+    mo_meta = MoMeta("MemoryErrorStats", "memoryErrorStats", "error-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], ['memoryUnit'], ['memoryErrorStatsHist'], [None])
 
     prop_meta = {
         "address_parity_errors": MoPropertyMeta("address_parity_errors", "addressParityErrors", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

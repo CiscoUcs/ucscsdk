@@ -13,9 +13,9 @@ class FeatureChassisDef(ManagedObject):
     """This is FeatureChassisDef class."""
 
     consts = FeatureChassisDefConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FeatureChassisDef", "featureChassisDef", "chassis-feature-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin"], [u'featureCatalogEp'], [u'domainChassisParam', u'domainEnvironmentParam', u'domainNetworkParam', u'domainServerParam', u'domainStorageParam'], ["get"])
+    mo_meta = MoMeta("FeatureChassisDef", "featureChassisDef", "chassis-feature-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin"], ['featureCatalogEp'], ['domainChassisParam', 'domainEnvironmentParam', 'domainNetworkParam', 'domainServerParam', 'domainStorageParam'], ["get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

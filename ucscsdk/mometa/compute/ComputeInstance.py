@@ -62,9 +62,9 @@ class ComputeInstance(ManagedObject):
     """This is ComputeInstance class."""
 
     consts = ComputeInstanceConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("ComputeInstance", "computeInstance", "inst-[id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-server"], [u'computeRequirement'], [u'faultInst', u'lsFcLocale', u'lsIssues', u'lsPower', u'lsServerOperation', u'lsmaintAck', u'mgmtInterface', u'storageIpV4PooledAddr', u'storageIpV4StaticAddr', u'storageVirtualDriveRef', u'vnicEther', u'vnicFc', u'vnicIScsi', u'vnicIpV4MgmtPooledAddr', u'vnicIpV4PooledAddr', u'vnicIpV4StaticAddr'], ["Get"])
+    mo_meta = MoMeta("ComputeInstance", "computeInstance", "inst-[id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-server"], ['computeRequirement'], ['faultInst', 'lsFcLocale', 'lsIssues', 'lsPower', 'lsServerOperation', 'lsmaintAck', 'mgmtInterface', 'storageIpV4PooledAddr', 'storageIpV4StaticAddr', 'storageVirtualDriveRef', 'vnicEther', 'vnicFc', 'vnicIScsi', 'vnicIpV4MgmtPooledAddr', 'vnicIpV4PooledAddr', 'vnicIpV4StaticAddr'], ["Get"])
 
     prop_meta = {
         "assign_state": MoPropertyMeta("assign_state", "assignState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["assigned", "failed", "unassigned"], []), 

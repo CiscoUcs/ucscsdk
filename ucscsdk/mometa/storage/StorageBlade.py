@@ -100,9 +100,9 @@ class StorageBlade(ManagedObject):
     """This is StorageBlade class."""
 
     consts = StorageBladeConsts()
-    naming_props = set([u'slotId'])
+    naming_props = set(['slotId'])
 
-    mo_meta = MoMeta("StorageBlade", "storageBlade", "storage-blade-[slot_id]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'equipmentChassis'], [u'computeBladeEp', u'powerBudget', u'storageComputeBladeOperation', u'storageEnclosure', u'storageMeta'], ["Get"])
+    mo_meta = MoMeta("StorageBlade", "storageBlade", "storage-blade-[slot_id]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['equipmentChassis'], ['computeBladeEp', 'powerBudget', 'storageComputeBladeOperation', 'storageEnclosure', 'storageMeta'], ["Get"])
 
     prop_meta = {
         "availability": MoPropertyMeta("availability", "availability", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["available", "unavailable"], []), 

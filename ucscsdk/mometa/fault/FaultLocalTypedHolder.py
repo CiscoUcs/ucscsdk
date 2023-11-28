@@ -13,9 +13,9 @@ class FaultLocalTypedHolder(ManagedObject):
     """This is FaultLocalTypedHolder class."""
 
     consts = FaultLocalTypedHolderConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("FaultLocalTypedHolder", "faultLocalTypedHolder", "type-[type]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "fault"], [u'computeSystem'], [], ["Get"])
+    mo_meta = MoMeta("FaultLocalTypedHolder", "faultLocalTypedHolder", "type-[type]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "fault"], ['computeSystem'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

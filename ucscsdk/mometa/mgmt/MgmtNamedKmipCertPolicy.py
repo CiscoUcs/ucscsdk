@@ -17,9 +17,9 @@ class MgmtNamedKmipCertPolicy(ManagedObject):
     """This is MgmtNamedKmipCertPolicy class."""
 
     consts = MgmtNamedKmipCertPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("MgmtNamedKmipCertPolicy", "mgmtNamedKmipCertPolicy", "kmip-cert-[name]", VersionMeta.Version201b, "InputOutput", 0x1fff, [], ["aaa", "admin", "domain-group-management", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-oper", "ls-server-policy", "read-only"], [u'orgDomainGroup'], [], ["add", "get", "remove", "set"])
+    mo_meta = MoMeta("MgmtNamedKmipCertPolicy", "mgmtNamedKmipCertPolicy", "kmip-cert-[name]", VersionMeta.Version201b, "InputOutput", 0x1fff, [], ["aaa", "admin", "domain-group-management", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-oper", "ls-server-policy", "read-only"], ['orgDomainGroup'], [], ["add", "get", "remove", "set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

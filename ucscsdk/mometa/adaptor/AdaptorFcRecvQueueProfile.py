@@ -15,7 +15,7 @@ class AdaptorFcRecvQueueProfile(ManagedObject):
     consts = AdaptorFcRecvQueueProfileConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorFcRecvQueueProfile", "adaptorFcRecvQueueProfile", "fc-rcv-q", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-config-policy", "ls-server-policy", "ls-storage"], [u'adaptorHostFcIfProfile'], [], ["Get", "Set"])
+    mo_meta = MoMeta("AdaptorFcRecvQueueProfile", "adaptorFcRecvQueueProfile", "fc-rcv-q", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-config-policy", "ls-server-policy", "ls-storage"], ['adaptorHostFcIfProfile'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

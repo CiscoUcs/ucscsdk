@@ -117,7 +117,7 @@ class ConfigFsm(ManagedObject):
     consts = ConfigFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ConfigFsm", "configFsm", "fsm", VersionMeta.Version141a, "InputOutput", 0xf, [], ["read-only"], [], [u'configFsmStage'], [None])
+    mo_meta = MoMeta("ConfigFsm", "configFsm", "fsm", VersionMeta.Version141a, "InputOutput", 0xf, [], ["read-only"], [], ['configFsmStage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

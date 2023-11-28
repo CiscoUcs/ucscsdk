@@ -43,9 +43,9 @@ class VnicEtherIf(ManagedObject):
     """This is VnicEtherIf class."""
 
     consts = VnicEtherIfConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("VnicEtherIf", "vnicEtherIf", "if-[name]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "ls-config", "ls-network", "ls-server"], [u'vnicEther', u'vnicLanConnTempl'], [u'faultInst', u'vnicFault', u'vnicIPv4If'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicEtherIf", "vnicEtherIf", "if-[name]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "ls-config", "ls-network", "ls-server"], ['vnicEther', 'vnicLanConnTempl'], ['faultInst', 'vnicFault', 'vnicIPv4If'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F]))|0""", ["derived"], []), 

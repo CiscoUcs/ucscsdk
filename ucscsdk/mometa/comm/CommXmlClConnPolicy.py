@@ -26,9 +26,9 @@ class CommXmlClConnPolicy(ManagedObject):
     """This is CommXmlClConnPolicy class."""
 
     consts = CommXmlClConnPolicyConsts()
-    naming_props = set([u'clientType'])
+    naming_props = set(['clientType'])
 
-    mo_meta = MoMeta("CommXmlClConnPolicy", "commXmlClConnPolicy", "xmlclconnpolicy-[client_type]", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["aaa", "admin", "domain-group-management"], [u'orgDomainGroup'], [], ["Get"])
+    mo_meta = MoMeta("CommXmlClConnPolicy", "commXmlClConnPolicy", "xmlclconnpolicy-[client_type]", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["aaa", "admin", "domain-group-management"], ['orgDomainGroup'], [], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

@@ -21,7 +21,7 @@ class PolicyPolicyDestClass(ManagedObject):
     consts = PolicyPolicyDestClassConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("PolicyPolicyDestClass", "policyPolicyDestClass", "destclass", VersionMeta.Version201b, "InputOutput", 0xf, [], ["read-only"], [u'policyScope'], [u'policyDestClass'], ["get"])
+    mo_meta = MoMeta("PolicyPolicyDestClass", "policyPolicyDestClass", "destclass", VersionMeta.Version201b, "InputOutput", 0xf, [], ["read-only"], ['policyScope'], ['policyDestClass'], ["get"])
 
     prop_meta = {
         "action": MoPropertyMeta("action", "action", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["delete", "localize", "no-action"], []), 

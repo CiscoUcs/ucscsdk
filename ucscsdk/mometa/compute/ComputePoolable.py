@@ -14,9 +14,9 @@ class ComputePoolable(ManagedObject):
     """This is ComputePoolable class."""
 
     consts = ComputePoolableConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("ComputePoolable", "computePoolable", "pool-[id]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'computePoolPolicyRef'], ["Get"])
+    mo_meta = MoMeta("ComputePoolable", "computePoolable", "pool-[id]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], ['computeBlade', 'computeRackUnit', 'computeServerUnit'], ['computePoolPolicyRef'], ["Get"])
 
     prop_meta = {
         "assigned_to_dn": MoPropertyMeta("assigned_to_dn", "assignedToDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

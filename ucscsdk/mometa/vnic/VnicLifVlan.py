@@ -43,9 +43,9 @@ class VnicLifVlan(ManagedObject):
     """This is VnicLifVlan class."""
 
     consts = VnicLifVlanConsts()
-    naming_props = set([u'vnet'])
+    naming_props = set(['vnet'])
 
-    mo_meta = MoMeta("VnicLifVlan", "vnicLifVlan", "vlan-[vnet]", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin", "ls-config", "ls-network", "ls-server", "read-only"], [u'vnicEther'], [u'vnicFault'], ["Get"])
+    mo_meta = MoMeta("VnicLifVlan", "vnicLifVlan", "vlan-[vnet]", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin", "ls-config", "ls-network", "ls-server", "read-only"], ['vnicEther'], ['vnicFault'], ["Get"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F]))|0""", ["derived"], []), 

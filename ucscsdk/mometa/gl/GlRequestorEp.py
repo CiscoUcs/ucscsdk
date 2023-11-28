@@ -15,7 +15,7 @@ class GlRequestorEp(ManagedObject):
     consts = GlRequestorEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("GlRequestorEp", "glRequestorEp", "reqep", VersionMeta.Version201b, "InputOutput", 0xf, [], ["read-only"], [u'glBlockOp', u'glIdentCtxOp', u'glIdentCtxResOp', u'glPolicyAlgorithmedOp', u'glPolicyOp', u'glPolicyResOp', u'glPoolOp', u'glServerPoolResOp', u'glTemplateOp', u'glTemplateResOp', u'glVxanOp', u'glVxanResOp'], [u'glRequestor'], [None])
+    mo_meta = MoMeta("GlRequestorEp", "glRequestorEp", "reqep", VersionMeta.Version201b, "InputOutput", 0xf, [], ["read-only"], ['glBlockOp', 'glIdentCtxOp', 'glIdentCtxResOp', 'glPolicyAlgorithmedOp', 'glPolicyOp', 'glPolicyResOp', 'glPoolOp', 'glServerPoolResOp', 'glTemplateOp', 'glTemplateResOp', 'glVxanOp', 'glVxanResOp'], ['glRequestor'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

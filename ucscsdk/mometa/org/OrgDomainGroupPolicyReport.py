@@ -13,7 +13,7 @@ class OrgDomainGroupPolicyReport(ManagedObject):
     """This is OrgDomainGroupPolicyReport class."""
 
     consts = OrgDomainGroupPolicyReportConsts()
-    naming_props = set([u'domainGroupDn'])
+    naming_props = set(['domainGroupDn'])
 
     mo_meta = MoMeta("OrgDomainGroupPolicyReport", "orgDomainGroupPolicyReport", "policy-report-[domain_group_dn]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [], [], [None])
 

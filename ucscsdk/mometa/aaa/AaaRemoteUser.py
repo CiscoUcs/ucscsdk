@@ -21,9 +21,9 @@ class AaaRemoteUser(ManagedObject):
     """This is AaaRemoteUser class."""
 
     consts = AaaRemoteUserConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("AaaRemoteUser", "aaaRemoteUser", "remoteuser-[name]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["aaa", "admin", "domain-group-management"], [u'aaaUserEp'], [u'aaaSession', u'aaaUserLocale', u'aaaUserRole'], ["Get", "Remove"])
+    mo_meta = MoMeta("AaaRemoteUser", "aaaRemoteUser", "remoteuser-[name]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["aaa", "admin", "domain-group-management"], ['aaaUserEp'], ['aaaSession', 'aaaUserLocale', 'aaaUserRole'], ["Get", "Remove"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

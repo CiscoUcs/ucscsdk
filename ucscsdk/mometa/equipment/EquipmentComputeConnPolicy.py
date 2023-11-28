@@ -19,9 +19,9 @@ class EquipmentComputeConnPolicy(ManagedObject):
     """This is EquipmentComputeConnPolicy class."""
 
     consts = EquipmentComputeConnPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("EquipmentComputeConnPolicy", "equipmentComputeConnPolicy", "compute-conn-policy-[name]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["read-only"], [u'orgOrg'], [], ["add", "get", "remove", "set"])
+    mo_meta = MoMeta("EquipmentComputeConnPolicy", "equipmentComputeConnPolicy", "compute-conn-policy-[name]", VersionMeta.Version201b, "InputOutput", 0x7f, [], ["read-only"], ['orgOrg'], [], ["add", "get", "remove", "set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -13,9 +13,9 @@ class CommSnmpCommunity(ManagedObject):
     """This is CommSnmpCommunity class."""
 
     consts = CommSnmpCommunityConsts()
-    naming_props = set([u'community'])
+    naming_props = set(['community'])
 
-    mo_meta = MoMeta("CommSnmpCommunity", "commSnmpCommunity", "snmp-community-[community]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["aaa", "admin"], [u'commSnmp'], [], [None])
+    mo_meta = MoMeta("CommSnmpCommunity", "commSnmpCommunity", "snmp-community-[community]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["aaa", "admin"], ['commSnmp'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

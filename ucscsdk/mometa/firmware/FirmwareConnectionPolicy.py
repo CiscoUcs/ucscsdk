@@ -35,9 +35,9 @@ class FirmwareConnectionPolicy(ManagedObject):
     """This is FirmwareConnectionPolicy class."""
 
     consts = FirmwareConnectionPolicyConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("FirmwareConnectionPolicy", "firmwareConnectionPolicy", "conn-policy-[type]", VersionMeta.Version151a, "InputOutput", 0xffff, [], ["admin"], [u'orgDomainGroup'], [], ["Get", "Set"])
+    mo_meta = MoMeta("FirmwareConnectionPolicy", "firmwareConnectionPolicy", "conn-policy-[type]", VersionMeta.Version151a, "InputOutput", 0xffff, [], ["admin"], ['orgDomainGroup'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

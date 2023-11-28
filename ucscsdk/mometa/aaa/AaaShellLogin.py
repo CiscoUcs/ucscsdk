@@ -19,9 +19,9 @@ class AaaShellLogin(ManagedObject):
     """This is AaaShellLogin class."""
 
     consts = AaaShellLoginConsts()
-    naming_props = set([u'name', u'id'])
+    naming_props = set(['name', 'id'])
 
-    mo_meta = MoMeta("AaaShellLogin", "aaaShellLogin", "sh-login-[name]-[id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["read-only"], [u'aaaUserEp'], [], ["Get"])
+    mo_meta = MoMeta("AaaShellLogin", "aaaShellLogin", "sh-login-[name]-[id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["read-only"], ['aaaUserEp'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

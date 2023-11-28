@@ -16,9 +16,9 @@ class InitiatorLunEp(ManagedObject):
     """This is InitiatorLunEp class."""
 
     consts = InitiatorLunEpConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("InitiatorLunEp", "initiatorLunEp", "lun-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'storageIScsiTargetIf'], [], [None])
+    mo_meta = MoMeta("InitiatorLunEp", "initiatorLunEp", "lun-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['storageIScsiTargetIf'], [], [None])
 
     prop_meta = {
         "bootable": MoPropertyMeta("bootable", "bootable", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 

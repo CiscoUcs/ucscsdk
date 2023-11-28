@@ -17,7 +17,7 @@ class PolicyTracker(ManagedObject):
     """This is PolicyTracker class."""
 
     consts = PolicyTrackerConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
     mo_meta = MoMeta("PolicyTracker", "policyTracker", "policytracker-[name]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [], [], [None])
 

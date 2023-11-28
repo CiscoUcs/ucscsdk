@@ -20,9 +20,9 @@ class StorageStorageStatsHist(ManagedObject):
     """This is StorageStorageStatsHist class."""
 
     consts = StorageStorageStatsHistConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("StorageStorageStatsHist", "storageStorageStatsHist", "[id]", VersionMeta.Version131a, "OutputOnly", 0xf, [], ["read-only"], [u'storageStorageStats'], [], [None])
+    mo_meta = MoMeta("StorageStorageStatsHist", "storageStorageStatsHist", "[id]", VersionMeta.Version131a, "OutputOnly", 0xf, [], ["read-only"], ['storageStorageStats'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

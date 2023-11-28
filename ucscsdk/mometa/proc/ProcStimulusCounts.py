@@ -15,7 +15,7 @@ class ProcStimulusCounts(ManagedObject):
     consts = ProcStimulusCountsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ProcStimulusCounts", "procStimulusCounts", "stim", VersionMeta.Version101a, "InputOutput", 0xf, [], ["read-only"], [u'procManager', u'procSvc'], [], ["Get"])
+    mo_meta = MoMeta("ProcStimulusCounts", "procStimulusCounts", "stim", VersionMeta.Version101a, "InputOutput", 0xf, [], ["read-only"], ['procManager', 'procSvc'], [], ["Get"])
 
     prop_meta = {
         "bulked": MoPropertyMeta("bulked", "bulked", "uint", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

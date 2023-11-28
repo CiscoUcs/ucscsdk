@@ -178,9 +178,9 @@ class AdaptorHostScsiIf(ManagedObject):
     """This is AdaptorHostScsiIf class."""
 
     consts = AdaptorHostScsiIfConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorHostScsiIf", "adaptorHostScsiIf", "host-scsi-[id]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], [u'adaptorUnit'], [u'adaptorHostScsiLunRef', u'adaptorVnicStats', u'faultInst'], ["Get"])
+    mo_meta = MoMeta("AdaptorHostScsiIf", "adaptorHostScsiIf", "host-scsi-[id]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], ['adaptorUnit'], ['adaptorHostScsiLunRef', 'adaptorVnicStats', 'faultInst'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

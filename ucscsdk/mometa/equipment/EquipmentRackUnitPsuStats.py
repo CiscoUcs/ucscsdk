@@ -24,7 +24,7 @@ class EquipmentRackUnitPsuStats(ManagedObject):
     consts = EquipmentRackUnitPsuStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentRackUnitPsuStats", "equipmentRackUnitPsuStats", "rackunit-power-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'equipmentPsu'], [u'equipmentRackUnitPsuStatsHist'], [None])
+    mo_meta = MoMeta("EquipmentRackUnitPsuStats", "equipmentRackUnitPsuStats", "rackunit-power-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], ['equipmentPsu'], ['equipmentRackUnitPsuStatsHist'], [None])
 
     prop_meta = {
         "ambient_temp": MoPropertyMeta("ambient_temp", "ambientTemp", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-applicable"], ["0-4294967295"]), 

@@ -13,9 +13,9 @@ class FabricConsumer(ManagedObject):
     """This is FabricConsumer class."""
 
     consts = FabricConsumerConsts()
-    naming_props = set([u'clientId'])
+    naming_props = set(['clientId'])
 
-    mo_meta = MoMeta("FabricConsumer", "fabricConsumer", "ucsm-[client_id]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'adaptorVlan', u'fabricVlan', u'fabricVlanEp', u'fabricVsan', u'fabricVsanEp'], [], ["Get", "Remove"])
+    mo_meta = MoMeta("FabricConsumer", "fabricConsumer", "ucsm-[client_id]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['adaptorVlan', 'fabricVlan', 'fabricVlanEp', 'fabricVsan', 'fabricVsanEp'], [], ["Get", "Remove"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

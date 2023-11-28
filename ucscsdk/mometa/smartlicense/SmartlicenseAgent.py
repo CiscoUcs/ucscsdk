@@ -173,7 +173,7 @@ class SmartlicenseAgent(ManagedObject):
     consts = SmartlicenseAgentConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SmartlicenseAgent", "smartlicenseAgent", "Agent", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin"], [u'smartlicenseHolder'], [u'eventInst', u'faultInst', u'smartlicenseAgentFsm', u'smartlicenseAgentFsmTask', u'smartlicenseTest'], ["Get"])
+    mo_meta = MoMeta("SmartlicenseAgent", "smartlicenseAgent", "Agent", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin"], ['smartlicenseHolder'], ['eventInst', 'faultInst', 'smartlicenseAgentFsm', 'smartlicenseAgentFsmTask', 'smartlicenseTest'], ["Get"])
 
     prop_meta = {
         "agent_component_version": MoPropertyMeta("agent_component_version", "agentComponentVersion", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

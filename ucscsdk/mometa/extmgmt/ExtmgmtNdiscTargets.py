@@ -16,7 +16,7 @@ class ExtmgmtNdiscTargets(ManagedObject):
     consts = ExtmgmtNdiscTargetsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ExtmgmtNdiscTargets", "extmgmtNdiscTargets", "ndisc-target-policy", VersionMeta.Version112a, "InputOutput", 0x1ff, [], ["admin", "domain-group-management", "ext-lan-config"], [u'extmgmtIfMonPolicy'], [], ["Get", "Set"])
+    mo_meta = MoMeta("ExtmgmtNdiscTargets", "extmgmtNdiscTargets", "ndisc-target-policy", VersionMeta.Version112a, "InputOutput", 0x1ff, [], ["admin", "domain-group-management", "ext-lan-config"], ['extmgmtIfMonPolicy'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

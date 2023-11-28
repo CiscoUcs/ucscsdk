@@ -26,9 +26,9 @@ class SmartcallhomePolicy(ManagedObject):
     """This is SmartcallhomePolicy class."""
 
     consts = SmartcallhomePolicyConsts()
-    naming_props = set([u'cause'])
+    naming_props = set(['cause'])
 
-    mo_meta = MoMeta("SmartcallhomePolicy", "smartcallhomePolicy", "smart-policy-[cause]", VersionMeta.Version141a, "InputOutput", 0xff, [], ["admin", "fault"], [u'callhomeEp'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("SmartcallhomePolicy", "smartcallhomePolicy", "smart-policy-[cause]", VersionMeta.Version141a, "InputOutput", 0xff, [], ["admin", "fault"], ['callhomeEp'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

@@ -33,9 +33,9 @@ class StorageLunResourceSelectionLog(ManagedObject):
     """This is StorageLunResourceSelectionLog class."""
 
     consts = StorageLunResourceSelectionLogConsts()
-    naming_props = set([u'order'])
+    naming_props = set(['order'])
 
-    mo_meta = MoMeta("StorageLunResourceSelectionLog", "storageLunResourceSelectionLog", "selection-log-[order]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storageVirtualDriveRef'], [], [None])
+    mo_meta = MoMeta("StorageLunResourceSelectionLog", "storageLunResourceSelectionLog", "selection-log-[order]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], ['storageVirtualDriveRef'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

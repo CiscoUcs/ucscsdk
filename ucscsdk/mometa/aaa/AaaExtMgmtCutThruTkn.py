@@ -22,9 +22,9 @@ class AaaExtMgmtCutThruTkn(ManagedObject):
     """This is AaaExtMgmtCutThruTkn class."""
 
     consts = AaaExtMgmtCutThruTknConsts()
-    naming_props = set([u'token'])
+    naming_props = set(['token'])
 
-    mo_meta = MoMeta("AaaExtMgmtCutThruTkn", "aaaExtMgmtCutThruTkn", "cutthrutkn-[token]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["aaa", "admin"], [u'aaaUserEp'], [], ["Get"])
+    mo_meta = MoMeta("AaaExtMgmtCutThruTkn", "aaaExtMgmtCutThruTkn", "cutthrutkn-[token]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["aaa", "admin"], ['aaaUserEp'], [], ["Get"])
 
     prop_meta = {
         "auth_user": MoPropertyMeta("auth_user", "authUser", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

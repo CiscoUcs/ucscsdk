@@ -23,7 +23,7 @@ class SysdebugTechSupportOperation(ManagedObject):
     consts = SysdebugTechSupportOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SysdebugTechSupportOperation", "sysdebugTechSupportOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin", "operations"], [u'sysdebugTechSupFileRepository'], [u'faultInst', u'sysdebugTechSupportCmdOpt'], ["Get", "Set"])
+    mo_meta = MoMeta("SysdebugTechSupportOperation", "sysdebugTechSupportOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin", "operations"], ['sysdebugTechSupFileRepository'], ['faultInst', 'sysdebugTechSupportCmdOpt'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["created", "delete", "init", "prepare-download", "start"], []), 

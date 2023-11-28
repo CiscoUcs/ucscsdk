@@ -16,7 +16,7 @@ class FabricOrgVlanPolicy(ManagedObject):
     consts = FabricOrgVlanPolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FabricOrgVlanPolicy", "fabricOrgVlanPolicy", "org-vlan-policy", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-network"], [u'orgOrg'], [], ["Get", "Set"])
+    mo_meta = MoMeta("FabricOrgVlanPolicy", "fabricOrgVlanPolicy", "org-vlan-policy", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-network"], ['orgOrg'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

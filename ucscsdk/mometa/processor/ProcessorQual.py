@@ -30,7 +30,7 @@ class ProcessorQual(ManagedObject):
     consts = ProcessorQualConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ProcessorQual", "processorQual", "cpu", VersionMeta.Version111a, "InputOutput", 0x3fff, [], ["admin", "pn-policy", "read-only"], [u'computeQual'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("ProcessorQual", "processorQual", "cpu", VersionMeta.Version111a, "InputOutput", 0x3fff, [], ["admin", "pn-policy", "read-only"], ['computeQual'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "arch": MoPropertyMeta("arch", "arch", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["Dual-Core_Opteron", "Intel_P4_C", "Opteron", "Pentium_4", "Turion_64", "Xeon", "Xeon_MP", "any"], []), 

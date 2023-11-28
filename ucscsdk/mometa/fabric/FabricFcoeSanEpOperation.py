@@ -138,9 +138,9 @@ class FabricFcoeSanEpOperation(ManagedObject):
     """This is FabricFcoeSanEpOperation class."""
 
     consts = FabricFcoeSanEpOperationConsts()
-    naming_props = set([u'slotId', u'portId'])
+    naming_props = set(['slotId', 'portId'])
 
-    mo_meta = MoMeta("FabricFcoeSanEpOperation", "fabricFcoeSanEpOperation", "remoper-phys-fcoesanep-slot-[slot_id]-port-[port_id]", VersionMeta.Version141a, "InputOutput", 0x7ff, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcSan', u'fabricSubGroup'], [u'eventInst', u'fabricEthMonSrcEpOperation', u'fabricFIPortOperationFsm', u'fabricFIPortOperationFsmTask', u'fabricFcPortOperationFsm', u'fabricFcoeSanEpOperationFsm', u'faultInst', u'messageEp', u'vnicFc', u'vnicMonSesFc'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricFcoeSanEpOperation", "fabricFcoeSanEpOperation", "remoper-phys-fcoesanep-slot-[slot_id]-port-[port_id]", VersionMeta.Version141a, "InputOutput", 0x7ff, [], ["admin", "ext-san-config", "ext-san-policy"], ['fabricFcSan', 'fabricSubGroup'], ['eventInst', 'fabricEthMonSrcEpOperation', 'fabricFIPortOperationFsm', 'fabricFIPortOperationFsmTask', 'fabricFcPortOperationFsm', 'fabricFcoeSanEpOperationFsm', 'faultInst', 'messageEp', 'vnicFc', 'vnicMonSesFc'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remoteTrigger", "remove"], []), 

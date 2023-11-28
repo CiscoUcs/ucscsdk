@@ -157,9 +157,9 @@ class FabricEthMonOperation(ManagedObject):
     """This is FabricEthMonOperation class."""
 
     consts = FabricEthMonOperationConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricEthMonOperation", "fabricEthMonOperation", "remoper-eth-mon-[name]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthMonLan'], [u'eventInst', u'fabricEthMonDestEp', u'fabricEthMonDestEpOperation', u'fabricEthMonOperationFsm', u'fabricEthPortOperationFsm', u'fabricFIPortOperationFsm', u'fabricFIPortOperationFsmTask', u'fabricSubGroup', u'faultInst', u'messageEp', u'vnicEther'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricEthMonOperation", "fabricEthMonOperation", "remoper-eth-mon-[name]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['fabricEthMonLan'], ['eventInst', 'fabricEthMonDestEp', 'fabricEthMonDestEpOperation', 'fabricEthMonOperationFsm', 'fabricEthPortOperationFsm', 'fabricFIPortOperationFsm', 'fabricFIPortOperationFsmTask', 'fabricSubGroup', 'faultInst', 'messageEp', 'vnicEther'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

@@ -23,7 +23,7 @@ class ClitestTypeTest2(ManagedObject):
     consts = ClitestTypeTest2Consts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ClitestTypeTest2", "clitestTypeTest2", "tt2-", VersionMeta.Version101a, "InputOutput", 0x7fff, [], ["admin"], [u'topRoot'], [], ["Get"])
+    mo_meta = MoMeta("ClitestTypeTest2", "clitestTypeTest2", "tt2-", VersionMeta.Version101a, "InputOutput", 0x7fff, [], ["admin"], ['topRoot'], [], ["Get"])
 
     prop_meta = {
         "a_partial_enum": MoPropertyMeta("a_partial_enum", "aPartialEnum", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["default", "untagged"], ["0-4096"]), 

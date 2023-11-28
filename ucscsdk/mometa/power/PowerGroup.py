@@ -26,9 +26,9 @@ class PowerGroup(ManagedObject):
     """This is PowerGroup class."""
 
     consts = PowerGroupConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("PowerGroup", "powerGroup", "group-[name]", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["admin", "ls-config", "ls-config-policy", "read-only"], [u'powerEp'], [u'powerChassisMember'], ["Get"])
+    mo_meta = MoMeta("PowerGroup", "powerGroup", "group-[name]", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["admin", "ls-config", "ls-config-policy", "read-only"], ['powerEp'], ['powerChassisMember'], ["Get"])
 
     prop_meta = {
         "admin_committed": MoPropertyMeta("admin_committed", "adminCommitted", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["unbounded"], ["0-10000000", "4294967295-4294967295"]), 

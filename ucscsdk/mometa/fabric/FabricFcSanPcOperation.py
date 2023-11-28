@@ -144,9 +144,9 @@ class FabricFcSanPcOperation(ManagedObject):
     """This is FabricFcSanPcOperation class."""
 
     consts = FabricFcSanPcOperationConsts()
-    naming_props = set([u'portId'])
+    naming_props = set(['portId'])
 
-    mo_meta = MoMeta("FabricFcSanPcOperation", "fabricFcSanPcOperation", "remoper-pc-[port_id]", VersionMeta.Version141a, "InputOutput", 0x7ff, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcSan'], [u'eventInst', u'fabricFIPortOperationFsm', u'fabricFIPortOperationFsmTask', u'fabricFcMonSrcEpOperation', u'fabricFcPortOperationFsm', u'fabricFcSanPcEpOperation', u'fabricFcSanPcOperationFsm', u'faultInst', u'messageEp', u'vnicFc', u'vnicMonSesFc'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricFcSanPcOperation", "fabricFcSanPcOperation", "remoper-pc-[port_id]", VersionMeta.Version141a, "InputOutput", 0x7ff, [], ["admin", "ext-san-config", "ext-san-policy"], ['fabricFcSan'], ['eventInst', 'fabricFIPortOperationFsm', 'fabricFIPortOperationFsmTask', 'fabricFcMonSrcEpOperation', 'fabricFcPortOperationFsm', 'fabricFcSanPcEpOperation', 'fabricFcSanPcOperationFsm', 'faultInst', 'messageEp', 'vnicFc', 'vnicMonSesFc'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["16gbps", "1gbps", "2gbps", "32gbps", "4gbps", "8gbps", "auto", "indeterminate"], []), 

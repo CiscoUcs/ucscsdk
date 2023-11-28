@@ -24,9 +24,9 @@ class ConfigManagedEpImpactResponse(ManagedObject):
     """This is ConfigManagedEpImpactResponse class."""
 
     consts = ConfigManagedEpImpactResponseConsts()
-    naming_props = set([u'appConnectorId', u'sourceConnectorId'])
+    naming_props = set(['appConnectorId', 'sourceConnectorId'])
 
-    mo_meta = MoMeta("ConfigManagedEpImpactResponse", "configManagedEpImpactResponse", "ManagedEpapp-id-[app_connector_id]src-id-[source_connector_id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], [u'configImpactAnalyzer'], [u'configImpact'], [None])
+    mo_meta = MoMeta("ConfigManagedEpImpactResponse", "configManagedEpImpactResponse", "ManagedEpapp-id-[app_connector_id]src-id-[source_connector_id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["read-only"], ['configImpactAnalyzer'], ['configImpact'], [None])
 
     prop_meta = {
         "affected_chassis_cnt": MoPropertyMeta("affected_chassis_cnt", "affectedChassisCnt", "ushort", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

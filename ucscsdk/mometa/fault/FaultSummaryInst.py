@@ -19,9 +19,9 @@ class FaultSummaryInst(ManagedObject):
     """This is FaultSummaryInst class."""
 
     consts = FaultSummaryInstConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FaultSummaryInst", "faultSummaryInst", "fault-summary-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "fault", "operations"], [u'faultDomainEp', u'faultSummaryInst'], [u'faultSummaryInst'], ["Get"])
+    mo_meta = MoMeta("FaultSummaryInst", "faultSummaryInst", "fault-summary-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "fault", "operations"], ['faultDomainEp', 'faultSummaryInst'], ['faultSummaryInst'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -19,9 +19,9 @@ class FirmwareImage(ManagedObject):
     """This is FirmwareImage class."""
 
     consts = FirmwareImageConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FirmwareImage", "firmwareImage", "image-[name]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin"], [u'firmwareCatalogue', u'firmwareRemoteCatalogue'], [], ["Get", "Set"])
+    mo_meta = MoMeta("FirmwareImage", "firmwareImage", "image-[name]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin"], ['firmwareCatalogue', 'firmwareRemoteCatalogue'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["active", "deleted"], []), 

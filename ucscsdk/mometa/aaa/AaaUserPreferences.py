@@ -19,9 +19,9 @@ class AaaUserPreferences(ManagedObject):
     """This is AaaUserPreferences class."""
 
     consts = AaaUserPreferencesConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("AaaUserPreferences", "aaaUserPreferences", "pref-[name]", VersionMeta.Version131a, "InputOutput", 0x3ffff, [], ["aaa", "admin", "read-only"], [u'aaaUserEp'], [], ["Get", "Set"])
+    mo_meta = MoMeta("AaaUserPreferences", "aaaUserPreferences", "pref-[name]", VersionMeta.Version131a, "InputOutput", 0x3ffff, [], ["aaa", "admin", "read-only"], ['aaaUserEp'], [], ["Get", "Set"])
 
     prop_meta = {
         "basic_widget_disabled": MoPropertyMeta("basic_widget_disabled", "basicWidgetDisabled", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, 0, 510, None, [], []), 

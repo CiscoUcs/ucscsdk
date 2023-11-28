@@ -33,7 +33,7 @@ class EquipmentCPMeta(ManagedObject):
     consts = EquipmentCPMetaConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentCPMeta", "equipmentCPMeta", "cpmeta", VersionMeta.Version151a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'equipmentChassisProfile'], [u'messageEp'], ["Get"])
+    mo_meta = MoMeta("EquipmentCPMeta", "equipmentCPMeta", "cpmeta", VersionMeta.Version151a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['equipmentChassisProfile'], ['messageEp'], ["Get"])
 
     prop_meta = {
         "chassis_dn": MoPropertyMeta("chassis_dn", "chassisDn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

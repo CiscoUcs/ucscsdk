@@ -38,7 +38,7 @@ class EquipmentSiocTempStats(ManagedObject):
     consts = EquipmentSiocTempStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentSiocTempStats", "equipmentSiocTempStats", "temp-stats", VersionMeta.Version151a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [], [u'equipmentSiocTempStatsHist'], ["Get"])
+    mo_meta = MoMeta("EquipmentSiocTempStats", "equipmentSiocTempStats", "temp-stats", VersionMeta.Version151a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [], ['equipmentSiocTempStatsHist'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

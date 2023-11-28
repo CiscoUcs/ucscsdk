@@ -22,7 +22,7 @@ class CommEvtChannel(ManagedObject):
     consts = CommEvtChannelConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CommEvtChannel", "commEvtChannel", "svc-evt-channel", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["aaa", "admin"], [u'orgDomainGroup', u'orgOrg'], [], ["Get"])
+    mo_meta = MoMeta("CommEvtChannel", "commEvtChannel", "svc-evt-channel", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["aaa", "admin"], ['orgDomainGroup', 'orgOrg'], [], ["Get"])
 
     prop_meta = {
         "channel_state": MoPropertyMeta("channel_state", "channelState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["fullssl", "noencssl", "plain"], []), 

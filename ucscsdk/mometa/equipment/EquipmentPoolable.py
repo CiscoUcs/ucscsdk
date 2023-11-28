@@ -14,7 +14,7 @@ class EquipmentPoolable(ManagedObject):
     """This is EquipmentPoolable class."""
 
     consts = EquipmentPoolableConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
     mo_meta = MoMeta("EquipmentPoolable", "equipmentPoolable", "chassis-pool-[id]", VersionMeta.Version151a, "InputOutput", 0x1f, [], ["read-only"], [], [], [None])
 

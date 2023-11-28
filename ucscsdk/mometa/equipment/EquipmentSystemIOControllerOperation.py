@@ -30,7 +30,7 @@ class EquipmentSystemIOControllerOperation(ManagedObject):
     consts = EquipmentSystemIOControllerOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentSystemIOControllerOperation", "equipmentSystemIOControllerOperation", "remote-oper", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ls-network", "ls-network-policy", "pn-equipment", "pn-maintenance", "pn-policy"], [u'equipmentSystemIOController'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("EquipmentSystemIOControllerOperation", "equipmentSystemIOControllerOperation", "remote-oper", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "ls-network", "ls-network-policy", "pn-equipment", "pn-maintenance", "pn-policy"], ['equipmentSystemIOController'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_power_state": MoPropertyMeta("admin_power_state", "adminPowerState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["cycle-immediate", "cycle-wait", "policy", "remoteAdminPowerTrigger"], []), 

@@ -14,9 +14,9 @@ class HcCatalogVersion(ManagedObject):
     """This is HcCatalogVersion class."""
 
     consts = HcCatalogVersionConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("HcCatalogVersion", "hcCatalogVersion", "hc-catalog-version-[id]", VersionMeta.Version151a, "InputOutput", 0x3ff, [], ["admin"], [u'hcHolder'], [], ["Get"])
+    mo_meta = MoMeta("HcCatalogVersion", "hcCatalogVersion", "hc-catalog-version-[id]", VersionMeta.Version151a, "InputOutput", 0x3ff, [], ["admin"], ['hcHolder'], [], ["Get"])
 
     prop_meta = {
         "catalog_name": MoPropertyMeta("catalog_name", "catalogName", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, 0, 510, None, [], []), 

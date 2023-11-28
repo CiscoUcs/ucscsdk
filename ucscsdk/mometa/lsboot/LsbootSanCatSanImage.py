@@ -13,9 +13,9 @@ class LsbootSanCatSanImage(ManagedObject):
     """This is LsbootSanCatSanImage class."""
 
     consts = LsbootSanCatSanImageConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("LsbootSanCatSanImage", "lsbootSanCatSanImage", "sanimg-[type]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], [u'lsbootSan'], [u'lsbootSanCatSanImagePath'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LsbootSanCatSanImage", "lsbootSanCatSanImage", "sanimg-[type]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], ['lsbootSan'], ['lsbootSanCatSanImagePath'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

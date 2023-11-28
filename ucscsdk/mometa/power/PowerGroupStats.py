@@ -18,7 +18,7 @@ class PowerGroupStats(ManagedObject):
     consts = PowerGroupStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("PowerGroupStats", "powerGroupStats", "stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [], [u'powerGroupStatsHist'], [None])
+    mo_meta = MoMeta("PowerGroupStats", "powerGroupStats", "stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [], ['powerGroupStatsHist'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

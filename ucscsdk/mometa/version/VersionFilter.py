@@ -13,9 +13,9 @@ class VersionFilter(ManagedObject):
     """This is VersionFilter class."""
 
     consts = VersionFilterConsts()
-    naming_props = set([u'capability'])
+    naming_props = set(['capability'])
 
-    mo_meta = MoMeta("VersionFilter", "versionFilter", "filter-[capability]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], [u'versionMatrix'], [], [None])
+    mo_meta = MoMeta("VersionFilter", "versionFilter", "filter-[capability]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], ['versionMatrix'], [], [None])
 
     prop_meta = {
         "capability": MoPropertyMeta("capability", "capability", "string", VersionMeta.Version101a, MoPropertyMeta.NAMING, 0x2, None, None, None, [], ["0-4294967295"]), 

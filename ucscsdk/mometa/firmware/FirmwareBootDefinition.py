@@ -56,7 +56,7 @@ class FirmwareBootDefinition(ManagedObject):
     consts = FirmwareBootDefinitionConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FirmwareBootDefinition", "firmwareBootDefinition", "fw-boot-def", VersionMeta.Version101a, "InputOutput", 0xf, [], ["admin"], [u'equipmentPsu', u'osController', u'storageController', u'storageLocalDisk', u'storageOnboardDevice', u'storageSasExpander'], [u'firmwareBootUnit'], ["Get"])
+    mo_meta = MoMeta("FirmwareBootDefinition", "firmwareBootDefinition", "fw-boot-def", VersionMeta.Version101a, "InputOutput", 0xf, [], ["admin"], ['equipmentPsu', 'osController', 'storageController', 'storageLocalDisk', 'storageOnboardDevice', 'storageSasExpander'], ['firmwareBootUnit'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

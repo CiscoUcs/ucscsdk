@@ -22,7 +22,7 @@ class FabricComputePhEpOperation(ManagedObject):
     consts = FabricComputePhEpOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FabricComputePhEpOperation", "fabricComputePhEpOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'fabricComputePhEp'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("FabricComputePhEpOperation", "fabricComputePhEpOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['fabricComputePhEp'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled", "remoteTrigger", "remove"], []), 

@@ -167,9 +167,9 @@ class ComputeExtBoard(ManagedObject):
     """This is ComputeExtBoard class."""
 
     consts = ComputeExtBoardConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("ComputeExtBoard", "computeExtBoard", "ext-board-[id]", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["read-only"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'computeBoardController', u'equipmentHealthLed', u'equipmentLocatorLed', u'powerBudget'], ["Get"])
+    mo_meta = MoMeta("ComputeExtBoard", "computeExtBoard", "ext-board-[id]", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["read-only"], ['computeBlade', 'computeRackUnit', 'computeServerUnit'], ['computeBoardController', 'equipmentHealthLed', 'equipmentLocatorLed', 'powerBudget'], ["Get"])
 
     prop_meta = {
         "board_aggregation_role": MoPropertyMeta("board_aggregation_role", "boardAggregationRole", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["multi-master", "multi-slave", "none", "single"], []), 

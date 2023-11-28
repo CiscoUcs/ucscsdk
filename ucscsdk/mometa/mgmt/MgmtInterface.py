@@ -35,9 +35,9 @@ class MgmtInterface(ManagedObject):
     """This is MgmtInterface class."""
 
     consts = MgmtInterfaceConsts()
-    naming_props = set([u'mode'])
+    naming_props = set(['mode'])
 
-    mo_meta = MoMeta("MgmtInterface", "mgmtInterface", "iface-[mode]", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server"], [u'computeInstance', u'lsServer', u'mgmtController'], [u'mgmtVnet'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("MgmtInterface", "mgmtInterface", "iface-[mode]", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server"], ['computeInstance', 'lsServer', 'mgmtController'], ['mgmtVnet'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

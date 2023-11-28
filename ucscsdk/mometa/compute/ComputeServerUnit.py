@@ -179,9 +179,9 @@ class ComputeServerUnit(ManagedObject):
     """This is ComputeServerUnit class."""
 
     consts = ComputeServerUnitConsts()
-    naming_props = set([u'serverInstanceId'])
+    naming_props = set(['serverInstanceId'])
 
-    mo_meta = MoMeta("ComputeServerUnit", "computeServerUnit", "server-[server_instance_id]", VersionMeta.Version131a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'computeCartridge'], [u'adaptorHostIfConfig', u'adaptorUnit', u'biosUnit', u'computeBoard', u'computeBoardController', u'computeExtBoard', u'computeFactoryResetOp', u'computeFactoryResetOperation', u'computePhysicalExtension', u'computePhysicalOperation', u'computePoolable', u'computeRebootLog', u'diagSrvCtrl', u'equipmentBeaconLed', u'equipmentHealthLed', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'firmwareStatus', u'lsIdentityInfo', u'lsbootDef', u'mgmtController', u'mgmtSecurity', u'storageEnclosure', u'storageVirtualDriveContainer', u'sysdebugDiagnosticLog'], ["Get", "Set"])
+    mo_meta = MoMeta("ComputeServerUnit", "computeServerUnit", "server-[server_instance_id]", VersionMeta.Version131a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['computeCartridge'], ['adaptorHostIfConfig', 'adaptorUnit', 'biosUnit', 'computeBoard', 'computeBoardController', 'computeExtBoard', 'computeFactoryResetOp', 'computeFactoryResetOperation', 'computePhysicalExtension', 'computePhysicalOperation', 'computePoolable', 'computeRebootLog', 'diagSrvCtrl', 'equipmentBeaconLed', 'equipmentHealthLed', 'equipmentIndicatorLed', 'equipmentLocatorLed', 'firmwareStatus', 'lsIdentityInfo', 'lsbootDef', 'mgmtController', 'mgmtSecurity', 'storageEnclosure', 'storageVirtualDriveContainer', 'sysdebugDiagnosticLog'], ["Get", "Set"])
 
     prop_meta = {
         "admin_power": MoPropertyMeta("admin_power", "adminPower", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["admin-down", "admin-up", "bmc-reset-immediate", "bmc-reset-wait", "cmos-reset-immediate", "cycle-immediate", "cycle-wait", "diagnostic-interrupt", "hard-reset-immediate", "hard-reset-wait", "ipmi-reset", "kvm-reset", "policy"], []), 

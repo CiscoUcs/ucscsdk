@@ -18,7 +18,7 @@ class StorageStorageStats(ManagedObject):
     consts = StorageStorageStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageStorageStats", "storageStorageStats", "storage-stats", VersionMeta.Version131a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [], [u'storageStorageStatsHist'], [None])
+    mo_meta = MoMeta("StorageStorageStats", "storageStorageStats", "storage-stats", VersionMeta.Version131a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [], ['storageStorageStatsHist'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -13,9 +13,9 @@ class CommLocale(ManagedObject):
     """This is CommLocale class."""
 
     consts = CommLocaleConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("CommLocale", "commLocale", "locale-[name]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], [u'storageProcessor'], [u'commDateTime', u'commDns', u'commSyslog'], [None])
+    mo_meta = MoMeta("CommLocale", "commLocale", "locale-[name]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], ['storageProcessor'], ['commDateTime', 'commDns', 'commSyslog'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

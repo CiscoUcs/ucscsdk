@@ -18,7 +18,7 @@ class MemoryUnitEnvStats(ManagedObject):
     consts = MemoryUnitEnvStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("MemoryUnitEnvStats", "memoryUnitEnvStats", "dimm-env-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'memoryUnit'], [u'memoryUnitEnvStatsHist'], [None])
+    mo_meta = MoMeta("MemoryUnitEnvStats", "memoryUnitEnvStats", "dimm-env-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], ['memoryUnit'], ['memoryUnitEnvStatsHist'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

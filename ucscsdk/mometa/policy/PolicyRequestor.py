@@ -13,9 +13,9 @@ class PolicyRequestor(ManagedObject):
     """This is PolicyRequestor class."""
 
     consts = PolicyRequestorConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("PolicyRequestor", "policyRequestor", "requestor-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], [u'policyScope'], [], ["get"])
+    mo_meta = MoMeta("PolicyRequestor", "policyRequestor", "requestor-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], ['policyScope'], [], ["get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

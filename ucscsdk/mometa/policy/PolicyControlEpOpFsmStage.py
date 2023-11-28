@@ -31,9 +31,9 @@ class PolicyControlEpOpFsmStage(ManagedObject):
     """This is PolicyControlEpOpFsmStage class."""
 
     consts = PolicyControlEpOpFsmStageConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("PolicyControlEpOpFsmStage", "policyControlEpOpFsmStage", "stage-[name]", VersionMeta.Version151a, "OutputOnly", 0xf, [], [""], [u'policyControlEpOpFsm'], [], [None])
+    mo_meta = MoMeta("PolicyControlEpOpFsmStage", "policyControlEpOpFsmStage", "stage-[name]", VersionMeta.Version151a, "OutputOnly", 0xf, [], [""], ['policyControlEpOpFsm'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

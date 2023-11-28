@@ -13,9 +13,9 @@ class LicenseDomain(ManagedObject):
     """This is LicenseDomain class."""
 
     consts = LicenseDomainConsts()
-    naming_props = set([u'guid'])
+    naming_props = set(['guid'])
 
-    mo_meta = MoMeta("LicenseDomain", "licenseDomain", "Domain-[guid]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin"], [u'licenseEp'], [], [None])
+    mo_meta = MoMeta("LicenseDomain", "licenseDomain", "Domain-[guid]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin"], ['licenseEp'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

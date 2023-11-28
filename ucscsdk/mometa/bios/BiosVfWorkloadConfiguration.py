@@ -20,7 +20,7 @@ class BiosVfWorkloadConfiguration(ManagedObject):
     consts = BiosVfWorkloadConfigurationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("BiosVfWorkloadConfiguration", "biosVfWorkloadConfiguration", "Workload-Configuration", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], [u'biosVProfile'], [], [None])
+    mo_meta = MoMeta("BiosVfWorkloadConfiguration", "biosVfWorkloadConfiguration", "Workload-Configuration", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], ['biosVProfile'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

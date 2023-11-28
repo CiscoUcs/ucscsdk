@@ -14,9 +14,9 @@ class DupeChangeTracker(ManagedObject):
     """This is DupeChangeTracker class."""
 
     consts = DupeChangeTrackerConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("DupeChangeTracker", "dupeChangeTracker", "changetracker-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'dupeChangeTrackerEp'], [], [None])
+    mo_meta = MoMeta("DupeChangeTracker", "dupeChangeTracker", "changetracker-[id]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['dupeChangeTrackerEp'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

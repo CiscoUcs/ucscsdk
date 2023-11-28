@@ -18,9 +18,9 @@ class MgmtBackupTriggerFsmTask(ManagedObject):
     """This is MgmtBackupTriggerFsmTask class."""
 
     consts = MgmtBackupTriggerFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("MgmtBackupTriggerFsmTask", "mgmtBackupTriggerFsmTask", "task-[item]", VersionMeta.Version131a, "OutputOnly", 0xf, [], [""], [u'mgmtBackupTrigger'], [], [None])
+    mo_meta = MoMeta("MgmtBackupTriggerFsmTask", "mgmtBackupTriggerFsmTask", "task-[item]", VersionMeta.Version131a, "OutputOnly", 0xf, [], [""], ['mgmtBackupTrigger'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

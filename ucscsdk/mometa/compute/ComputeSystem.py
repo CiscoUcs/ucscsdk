@@ -124,6 +124,7 @@ class ComputeSystemConsts():
     PRODUCT_FAMILY_UCS_CLASSIC = "ucs-classic"
     PRODUCT_FAMILY_UCS_CLASSIC_3GEN = "ucs-classic-3gen"
     PRODUCT_FAMILY_UCS_CLASSIC_4GEN = "ucs-classic-4gen"
+    PRODUCT_FAMILY_UCS_CLASSIC_5GEN = "ucs-classic-5gen"
     PRODUCT_FAMILY_UCS_MINI = "ucs-mini"
     REFRESH_IMMEDIATE_FLAG_FALSE = "false"
     REFRESH_IMMEDIATE_FLAG_NO = "no"
@@ -141,9 +142,9 @@ class ComputeSystem(ManagedObject):
     """This is ComputeSystem class."""
 
     consts = ComputeSystemConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("ComputeSystem", "computeSystem", "sys-[id]", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["admin"], [u'computeResourceAggrEp'], [u'commSvcEp', u'computeChassisConnPolicy', u'computeChassisFeatMask', u'computeEnvFeatMask', u'computeFabricEthMonSrcEpCont', u'computeFabricFcMonSrcEpCont', u'computeInstanceMapping', u'computeNetworkFeatMask', u'computeRackUnit', u'computeServerFeatMask', u'computeStorageFeatMask', u'computeSystemFsm', u'computeSystemFsmTask', u'computeTemplateMapping', u'computeUserEp', u'domainChassisFeature', u'domainEnvironmentFeature', u'domainNetworkFeature', u'domainServerFeature', u'domainStorageFeature', u'equipmentChassis', u'equipmentFex', u'equipmentInstanceMapping', u'equipmentTemplateMapping', u'eventInst', u'fabricEp', u'faultDomainEp', u'faultInst', u'faultLocalTypedHolder', u'firmwareCatalogPack', u'firmwareSystem', u'firmwareUpgradeInfo', u'fsmStatus', u'mgmtBackup', u'mgmtBackupOperation', u'mgmtController', u'mgmtEntity', u'networkElement', u'policyControlEp', u'storageCloud', u'sysdebugTechSupFileRepository'], ["Get", "Set"])
+    mo_meta = MoMeta("ComputeSystem", "computeSystem", "sys-[id]", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["admin"], ['computeResourceAggrEp'], ['commSvcEp', 'computeChassisConnPolicy', 'computeChassisFeatMask', 'computeEnvFeatMask', 'computeFabricEthMonSrcEpCont', 'computeFabricFcMonSrcEpCont', 'computeInstanceMapping', 'computeNetworkFeatMask', 'computeRackUnit', 'computeServerFeatMask', 'computeStorageFeatMask', 'computeSystemFsm', 'computeSystemFsmTask', 'computeTemplateMapping', 'computeUserEp', 'domainChassisFeature', 'domainEnvironmentFeature', 'domainNetworkFeature', 'domainServerFeature', 'domainStorageFeature', 'equipmentChassis', 'equipmentFex', 'equipmentInstanceMapping', 'equipmentTemplateMapping', 'eventInst', 'fabricEp', 'faultDomainEp', 'faultInst', 'faultLocalTypedHolder', 'firmwareCatalogPack', 'firmwareSystem', 'firmwareUpgradeInfo', 'fsmStatus', 'mgmtBackup', 'mgmtBackupOperation', 'mgmtController', 'mgmtEntity', 'networkElement', 'policyControlEp', 'storageCloud', 'sysdebugTechSupFileRepository'], ["Get", "Set"])
 
     prop_meta = {
         "address": MoPropertyMeta("address", "address", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
@@ -173,7 +174,7 @@ class ComputeSystem(ManagedObject):
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "oper_group_dn": MoPropertyMeta("oper_group_dn", "operGroupDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-classic-4gen", "ucs-mini"], []), 
+        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-classic-4gen", "ucs-classic-5gen", "ucs-mini"], []), 
         "refresh_immediate_flag": MoPropertyMeta("refresh_immediate_flag", "refreshImmediateFlag", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["false", "no", "true", "yes"], []), 
         "remote_flt_aggr": MoPropertyMeta("remote_flt_aggr", "remoteFltAggr", "ulong", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x40, 0, 256, None, [], []), 

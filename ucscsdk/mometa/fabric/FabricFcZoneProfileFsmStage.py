@@ -28,9 +28,9 @@ class FabricFcZoneProfileFsmStage(ManagedObject):
     """This is FabricFcZoneProfileFsmStage class."""
 
     consts = FabricFcZoneProfileFsmStageConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricFcZoneProfileFsmStage", "fabricFcZoneProfileFsmStage", "stage-[name]", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], [u'fabricFcZoneProfileFsm'], [], [None])
+    mo_meta = MoMeta("FabricFcZoneProfileFsmStage", "fabricFcZoneProfileFsmStage", "stage-[name]", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], ['fabricFcZoneProfileFsm'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

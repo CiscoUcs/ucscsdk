@@ -21,9 +21,9 @@ class PortGroup(ManagedObject):
     """This is PortGroup class."""
 
     consts = PortGroupConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("PortGroup", "portGroup", "[type]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], [u'equipmentIOCard', u'equipmentSharedIOModule', u'equipmentSwitchCard', u'equipmentSwitchIOCard'], [u'etherPIo', u'etherServerIntFIo', u'etherSwitchIntFIo', u'fcPIo', u'portSubGroup'], ["Get"])
+    mo_meta = MoMeta("PortGroup", "portGroup", "[type]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], ['equipmentIOCard', 'equipmentSharedIOModule', 'equipmentSwitchCard', 'equipmentSwitchIOCard'], ['etherPIo', 'etherServerIntFIo', 'etherSwitchIntFIo', 'fcPIo', 'portSubGroup'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

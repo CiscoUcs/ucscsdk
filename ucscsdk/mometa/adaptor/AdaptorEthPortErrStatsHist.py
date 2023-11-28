@@ -20,9 +20,9 @@ class AdaptorEthPortErrStatsHist(ManagedObject):
     """This is AdaptorEthPortErrStatsHist class."""
 
     consts = AdaptorEthPortErrStatsHistConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorEthPortErrStatsHist", "adaptorEthPortErrStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], [u'adaptorEthPortErrStats'], [], [None])
+    mo_meta = MoMeta("AdaptorEthPortErrStatsHist", "adaptorEthPortErrStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], ['adaptorEthPortErrStats'], [], [None])
 
     prop_meta = {
         "bad_crc_packets": MoPropertyMeta("bad_crc_packets", "badCrcPackets", "ulong", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

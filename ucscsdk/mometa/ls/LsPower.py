@@ -34,7 +34,7 @@ class LsPower(ManagedObject):
     consts = LsPowerConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("LsPower", "lsPower", "power", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-oper", "ls-server-policy"], [u'computeInstance', u'lsServer'], [], ["Get", "Set"])
+    mo_meta = MoMeta("LsPower", "lsPower", "power", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-oper", "ls-server-policy"], ['computeInstance', 'lsServer'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

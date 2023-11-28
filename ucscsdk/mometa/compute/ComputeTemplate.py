@@ -51,9 +51,9 @@ class ComputeTemplate(ManagedObject):
     """This is ComputeTemplate class."""
 
     consts = ComputeTemplateConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("ComputeTemplate", "computeTemplate", "templ-[name]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [u'orgOrg'], [u'computeLocalTemplDef', u'lsServer'], ["Get"])
+    mo_meta = MoMeta("ComputeTemplate", "computeTemplate", "templ-[name]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], ['orgOrg'], ['computeLocalTemplDef', 'lsServer'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

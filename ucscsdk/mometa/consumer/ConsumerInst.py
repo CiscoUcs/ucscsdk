@@ -128,9 +128,9 @@ class ConsumerInst(ManagedObject):
     """This is ConsumerInst class."""
 
     consts = ConsumerInstConsts()
-    naming_props = set([u'connectorId'])
+    naming_props = set(['connectorId'])
 
-    mo_meta = MoMeta("ConsumerInst", "consumerInst", "inst-[connector_id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin"], [u'consumerUniverse'], [u'configConsumerCatalogue', u'consumerInstFsm', u'consumerInstFsmTask', u'eventInst', u'faultInst', u'mgmtImporter', u'nfsMountDef'], [None])
+    mo_meta = MoMeta("ConsumerInst", "consumerInst", "inst-[connector_id]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin"], ['consumerUniverse'], ['configConsumerCatalogue', 'consumerInstFsm', 'consumerInstFsmTask', 'eventInst', 'faultInst', 'mgmtImporter', 'nfsMountDef'], [None])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["managed", "unmanaged"], []), 

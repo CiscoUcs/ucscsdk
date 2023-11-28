@@ -18,7 +18,7 @@ class ComputePCIeFatalStats(ManagedObject):
     consts = ComputePCIeFatalStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ComputePCIeFatalStats", "computePCIeFatalStats", "pciefat-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'computeBoard'], [u'computePCIeFatalStatsHist'], [None])
+    mo_meta = MoMeta("ComputePCIeFatalStats", "computePCIeFatalStats", "pciefat-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], ['computeBoard'], ['computePCIeFatalStatsHist'], [None])
 
     prop_meta = {
         "acs_violation_errors": MoPropertyMeta("acs_violation_errors", "acsViolationErrors", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

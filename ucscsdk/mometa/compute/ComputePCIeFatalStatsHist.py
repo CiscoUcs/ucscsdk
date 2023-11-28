@@ -20,9 +20,9 @@ class ComputePCIeFatalStatsHist(ManagedObject):
     """This is ComputePCIeFatalStatsHist class."""
 
     consts = ComputePCIeFatalStatsHistConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("ComputePCIeFatalStatsHist", "computePCIeFatalStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], [u'computePCIeFatalStats'], [], [None])
+    mo_meta = MoMeta("ComputePCIeFatalStatsHist", "computePCIeFatalStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], ['computePCIeFatalStats'], [], [None])
 
     prop_meta = {
         "acs_violation_errors": MoPropertyMeta("acs_violation_errors", "acsViolationErrors", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

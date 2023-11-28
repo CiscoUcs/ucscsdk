@@ -22,9 +22,9 @@ class FcpoolAddr(ManagedObject):
     """This is FcpoolAddr class."""
 
     consts = FcpoolAddrConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("FcpoolAddr", "fcpoolAddr", "[id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], [u'fcpoolUniverse'], [u'faultInst', u'identpoolConsumed', u'identpoolPoolable'], ["Get"])
+    mo_meta = MoMeta("FcpoolAddr", "fcpoolAddr", "[id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["read-only"], ['fcpoolUniverse'], ['faultInst', 'identpoolConsumed', 'identpoolPoolable'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

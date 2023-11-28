@@ -26,7 +26,7 @@ class ComputeChassisConnPolicyOperation(ManagedObject):
     consts = ComputeChassisConnPolicyOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ComputeChassisConnPolicyOperation", "computeChassisConnPolicyOperation", "remote-oper", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "pn-policy"], [u'computeChassisConnPolicy'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("ComputeChassisConnPolicyOperation", "computeChassisConnPolicyOperation", "remote-oper", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["admin", "pn-policy"], ['computeChassisConnPolicy'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["global", "none", "port-channel", "unspecified"], []), 

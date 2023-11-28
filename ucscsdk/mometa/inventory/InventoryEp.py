@@ -15,7 +15,7 @@ class InventoryEp(ManagedObject):
     consts = InventoryEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("InventoryEp", "inventoryEp", "inventory", VersionMeta.Version201b, "InputOutput", 0xf, [], ["admin", "operations"], [u'topRoot'], [u'inventoryHolder'], ["get"])
+    mo_meta = MoMeta("InventoryEp", "inventoryEp", "inventory", VersionMeta.Version201b, "InputOutput", 0xf, [], ["admin", "operations"], ['topRoot'], ['inventoryHolder'], ["get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

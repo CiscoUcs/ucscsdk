@@ -15,7 +15,7 @@ class FabricDomainEp(ManagedObject):
     consts = FabricDomainEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FabricDomainEp", "fabricDomainEp", "domain-ep", VersionMeta.Version151a, "InputOutput", 0xf, [], ["admin"], [u'fabricHolder'], [u'fabricSystem', u'policyControlEpOp'], ["Get"])
+    mo_meta = MoMeta("FabricDomainEp", "fabricDomainEp", "domain-ep", VersionMeta.Version151a, "InputOutput", 0xf, [], ["admin"], ['fabricHolder'], ['fabricSystem', 'policyControlEpOp'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -18,7 +18,7 @@ class EquipmentFanStats(ManagedObject):
     consts = EquipmentFanStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentFanStats", "equipmentFanStats", "stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'equipmentFan'], [u'equipmentFanStatsHist'], [None])
+    mo_meta = MoMeta("EquipmentFanStats", "equipmentFanStats", "stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], ['equipmentFan'], ['equipmentFanStatsHist'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

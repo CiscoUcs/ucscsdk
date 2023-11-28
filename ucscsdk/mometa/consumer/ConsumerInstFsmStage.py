@@ -26,9 +26,9 @@ class ConsumerInstFsmStage(ManagedObject):
     """This is ConsumerInstFsmStage class."""
 
     consts = ConsumerInstFsmStageConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("ConsumerInstFsmStage", "consumerInstFsmStage", "stage-[name]", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], [u'consumerInstFsm'], [], [None])
+    mo_meta = MoMeta("ConsumerInstFsmStage", "consumerInstFsmStage", "stage-[name]", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], ['consumerInstFsm'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

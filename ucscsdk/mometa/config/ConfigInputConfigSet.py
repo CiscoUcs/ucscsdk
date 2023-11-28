@@ -15,7 +15,7 @@ class ConfigInputConfigSet(ManagedObject):
     consts = ConfigInputConfigSetConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ConfigInputConfigSet", "configInputConfigSet", "InputConfigSet", VersionMeta.Version111a, "InputOutput", 0xf, [], ["read-only"], [u'configImpactAnalyzer'], [u'configInputConfig'], [None])
+    mo_meta = MoMeta("ConfigInputConfigSet", "configInputConfigSet", "InputConfigSet", VersionMeta.Version111a, "InputOutput", 0xf, [], ["read-only"], ['configImpactAnalyzer'], ['configInputConfig'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

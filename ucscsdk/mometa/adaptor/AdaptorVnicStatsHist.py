@@ -20,9 +20,9 @@ class AdaptorVnicStatsHist(ManagedObject):
     """This is AdaptorVnicStatsHist class."""
 
     consts = AdaptorVnicStatsHistConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorVnicStatsHist", "adaptorVnicStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], [u'adaptorVnicStats'], [], [None])
+    mo_meta = MoMeta("AdaptorVnicStatsHist", "adaptorVnicStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], ['adaptorVnicStats'], [], [None])
 
     prop_meta = {
         "bytes_rx": MoPropertyMeta("bytes_rx", "bytesRx", "ulong", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

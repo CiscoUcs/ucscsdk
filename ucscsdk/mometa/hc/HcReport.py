@@ -39,9 +39,9 @@ class HcReport(ManagedObject):
     """This is HcReport class."""
 
     consts = HcReportConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("HcReport", "hcReport", "report-[name]", VersionMeta.Version151a, "InputOutput", 0x7fffff, [], ["admin"], [u'hcHolder'], [u'hcScopeDn', u'hcServerComponent'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("HcReport", "hcReport", "report-[name]", VersionMeta.Version151a, "InputOutput", 0x7fffff, [], ["admin"], ['hcHolder'], ['hcScopeDn', 'hcServerComponent'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disable", "enable"], []), 

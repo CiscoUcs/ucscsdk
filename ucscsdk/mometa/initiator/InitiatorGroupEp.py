@@ -16,9 +16,9 @@ class InitiatorGroupEp(ManagedObject):
     """This is InitiatorGroupEp class."""
 
     consts = InitiatorGroupEpConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("InitiatorGroupEp", "initiatorGroupEp", "grp-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'initiatorRequestorEp'], [u'initiatorFcInitiatorEp', u'initiatorIScsiInitiatorEp', u'initiatorStoreEp', u'storageIScsiInitiatorEp', u'storageNodeEp'], [None])
+    mo_meta = MoMeta("InitiatorGroupEp", "initiatorGroupEp", "grp-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['initiatorRequestorEp'], ['initiatorFcInitiatorEp', 'initiatorIScsiInitiatorEp', 'initiatorStoreEp', 'storageIScsiInitiatorEp', 'storageNodeEp'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

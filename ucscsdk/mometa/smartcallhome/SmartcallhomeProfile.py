@@ -24,9 +24,9 @@ class SmartcallhomeProfile(ManagedObject):
     """This is SmartcallhomeProfile class."""
 
     consts = SmartcallhomeProfileConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("SmartcallhomeProfile", "smartcallhomeProfile", "smart-profile-[name]", VersionMeta.Version141a, "InputOutput", 0x3ff, [], ["admin", "operations"], [u'callhomeEp'], [], ["Get"])
+    mo_meta = MoMeta("SmartcallhomeProfile", "smartcallhomeProfile", "smart-profile-[name]", VersionMeta.Version141a, "InputOutput", 0x3ff, [], ["admin", "operations"], ['callhomeEp'], [], ["Get"])
 
     prop_meta = {
         "alert_groups": MoPropertyMeta("alert_groups", "alertGroups", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""((defaultValue|unknown|diagnostic|environmental|inventory|all),){0,5}(defaultValue|unknown|diagnostic|environmental|inventory|all){0,1}""", [], []), 

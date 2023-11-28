@@ -201,9 +201,9 @@ class StorageFlexFlashController(ManagedObject):
     """This is StorageFlexFlashController class."""
 
     consts = StorageFlexFlashControllerConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("StorageFlexFlashController", "storageFlexFlashController", "storage-flexflash-[id]", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin"], [u'computeBoard'], [u'firmwareRunning', u'storageFlexFlashCard', u'storageFlexFlashControllerOperation', u'storageFlexFlashVirtualDrive', u'storageLocalDiskConfigDef'], ["Get"])
+    mo_meta = MoMeta("StorageFlexFlashController", "storageFlexFlashController", "storage-flexflash-[id]", VersionMeta.Version112a, "InputOutput", 0x7f, [], ["admin"], ['computeBoard'], ['firmwareRunning', 'storageFlexFlashCard', 'storageFlexFlashControllerOperation', 'storageFlexFlashVirtualDrive', 'storageLocalDiskConfigDef'], ["Get"])
 
     prop_meta = {
         "admin_slot_number": MoPropertyMeta("admin_slot_number", "adminSlotNumber", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["1", "2", "NA"], []), 

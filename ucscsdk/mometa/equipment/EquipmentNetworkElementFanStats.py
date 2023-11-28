@@ -21,7 +21,7 @@ class EquipmentNetworkElementFanStats(ManagedObject):
     consts = EquipmentNetworkElementFanStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentNetworkElementFanStats", "equipmentNetworkElementFanStats", "stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [u'equipmentFan'], [u'equipmentNetworkElementFanStatsHist'], [None])
+    mo_meta = MoMeta("EquipmentNetworkElementFanStats", "equipmentNetworkElementFanStats", "stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], ['equipmentFan'], ['equipmentNetworkElementFanStatsHist'], [None])
 
     prop_meta = {
         "airflow_direction": MoPropertyMeta("airflow_direction", "airflowDirection", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["BackToFront", "FrontToBack", "unknown"], []), 

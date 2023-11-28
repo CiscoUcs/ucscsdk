@@ -129,7 +129,7 @@ class ConfigServerItem(ManagedObject):
     consts = ConfigServerItemConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ConfigServerItem", "configServerItem", "server-item", VersionMeta.Version131a, "InputOutput", 0xf, [], ["read-only"], [], [u'configCpuInfo'], [None])
+    mo_meta = MoMeta("ConfigServerItem", "configServerItem", "server-item", VersionMeta.Version131a, "InputOutput", 0xf, [], ["read-only"], [], ['configCpuInfo'], [None])
 
     prop_meta = {
         "association": MoPropertyMeta("association", "association", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["associated", "establishing", "failed", "none", "removing", "throttled"], []), 

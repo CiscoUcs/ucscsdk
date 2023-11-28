@@ -25,7 +25,7 @@ class FirmwareSystem(ManagedObject):
     consts = FirmwareSystemConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FirmwareSystem", "firmwareSystem", "fw-system", VersionMeta.Version101a, "InputOutput", 0xf, [], ["admin", "ls-config-policy", "ls-server-policy"], [u'computeSystem', u'topSystem'], [u'firmwareAck', u'firmwareInfra'], ["Get"])
+    mo_meta = MoMeta("FirmwareSystem", "firmwareSystem", "fw-system", VersionMeta.Version101a, "InputOutput", 0xf, [], ["admin", "ls-config-policy", "ls-server-policy"], ['computeSystem', 'topSystem'], ['firmwareAck', 'firmwareInfra'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

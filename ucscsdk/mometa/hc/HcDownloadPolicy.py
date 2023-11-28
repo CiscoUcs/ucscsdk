@@ -33,9 +33,9 @@ class HcDownloadPolicy(ManagedObject):
     """This is HcDownloadPolicy class."""
 
     consts = HcDownloadPolicyConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("HcDownloadPolicy", "hcDownloadPolicy", "hc-dl-policy-[type]", VersionMeta.Version151a, "InputOutput", 0x3ff, [], ["admin"], [u'hcCatalogSource', u'orgDomainGroup'], [], ["Get"])
+    mo_meta = MoMeta("HcDownloadPolicy", "hcDownloadPolicy", "hc-dl-policy-[type]", VersionMeta.Version151a, "InputOutput", 0x3ff, [], ["admin"], ['hcCatalogSource', 'orgDomainGroup'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

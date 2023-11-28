@@ -18,9 +18,9 @@ class SmartlicenseEntitlementEpFsmTask(ManagedObject):
     """This is SmartlicenseEntitlementEpFsmTask class."""
 
     consts = SmartlicenseEntitlementEpFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("SmartlicenseEntitlementEpFsmTask", "smartlicenseEntitlementEpFsmTask", "task-[item]", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], [u'smartlicenseEntitlementEp'], [], [None])
+    mo_meta = MoMeta("SmartlicenseEntitlementEpFsmTask", "smartlicenseEntitlementEpFsmTask", "task-[item]", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], ['smartlicenseEntitlementEp'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

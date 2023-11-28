@@ -19,9 +19,9 @@ class SysdebugTechSupportFsmTask(ManagedObject):
     """This is SysdebugTechSupportFsmTask class."""
 
     consts = SysdebugTechSupportFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("SysdebugTechSupportFsmTask", "sysdebugTechSupportFsmTask", "task-[item]", VersionMeta.Version101a, "OutputOnly", 0xf, [], [""], [u'sysdebugTechSupport'], [], [None])
+    mo_meta = MoMeta("SysdebugTechSupportFsmTask", "sysdebugTechSupportFsmTask", "task-[item]", VersionMeta.Version101a, "OutputOnly", 0xf, [], [""], ['sysdebugTechSupport'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

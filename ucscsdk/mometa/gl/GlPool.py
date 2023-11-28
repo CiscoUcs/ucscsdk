@@ -24,9 +24,9 @@ class GlPool(ManagedObject):
     """This is GlPool class."""
 
     consts = GlPoolConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("GlPool", "glPool", "pool-[id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], [u'glPoolInvEp'], [u'glOperationEp', u'messageEp'], [None])
+    mo_meta = MoMeta("GlPool", "glPool", "pool-[id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], ['glPoolInvEp'], ['glOperationEp', 'messageEp'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

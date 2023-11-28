@@ -23,9 +23,9 @@ class MacpoolFormat(ManagedObject):
     """This is MacpoolFormat class."""
 
     consts = MacpoolFormatConsts()
-    naming_props = set([u'format', u'mask'])
+    naming_props = set(['format', 'mask'])
 
-    mo_meta = MoMeta("MacpoolFormat", "macpoolFormat", "format-[format]-[mask]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "ext-lan-config", "ext-lan-policy", "ls-network", "ls-network-policy"], [u'macpoolUniverse'], [], ["Get"])
+    mo_meta = MoMeta("MacpoolFormat", "macpoolFormat", "format-[format]-[mask]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "ext-lan-config", "ext-lan-policy", "ls-network", "ls-network-policy"], ['macpoolUniverse'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

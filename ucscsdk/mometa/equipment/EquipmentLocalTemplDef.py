@@ -20,9 +20,9 @@ class EquipmentLocalTemplDef(ManagedObject):
     """This is EquipmentLocalTemplDef class."""
 
     consts = EquipmentLocalTemplDefConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("EquipmentLocalTemplDef", "equipmentLocalTemplDef", "inst-[id]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["read-only"], [u'equipmentTemplate'], [], [None])
+    mo_meta = MoMeta("EquipmentLocalTemplDef", "equipmentLocalTemplDef", "inst-[id]", VersionMeta.Version151a, "InputOutput", 0x7f, [], ["read-only"], ['equipmentTemplate'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

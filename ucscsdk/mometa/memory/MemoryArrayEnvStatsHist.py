@@ -20,9 +20,9 @@ class MemoryArrayEnvStatsHist(ManagedObject):
     """This is MemoryArrayEnvStatsHist class."""
 
     consts = MemoryArrayEnvStatsHistConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("MemoryArrayEnvStatsHist", "memoryArrayEnvStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], [u'memoryArrayEnvStats'], [], [None])
+    mo_meta = MoMeta("MemoryArrayEnvStatsHist", "memoryArrayEnvStatsHist", "[id]", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["read-only"], ['memoryArrayEnvStats'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

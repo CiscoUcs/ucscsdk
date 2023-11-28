@@ -154,9 +154,9 @@ class FabricEthLanPcOperation(ManagedObject):
     """This is FabricEthLanPcOperation class."""
 
     consts = FabricEthLanPcOperationConsts()
-    naming_props = set([u'portId'])
+    naming_props = set(['portId'])
 
-    mo_meta = MoMeta("FabricEthLanPcOperation", "fabricEthLanPcOperation", "remoper-pc-[port_id]", VersionMeta.Version141a, "InputOutput", 0x7fff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'fabricEthLan'], [u'eventInst', u'fabricEthLanPcEpOperation', u'fabricEthLanPcOperationFsm', u'fabricEthMonSrcEpOperation', u'fabricEthPortOperationFsm', u'fabricFIPortOperationFsm', u'fabricFIPortOperationFsmTask', u'fabricSubGroup', u'faultInst', u'messageEp', u'vnicEther'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricEthLanPcOperation", "fabricEthLanPcOperation", "remoper-pc-[port_id]", VersionMeta.Version141a, "InputOutput", 0x7fff, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['fabricEthLan'], ['eventInst', 'fabricEthLanPcEpOperation', 'fabricEthLanPcOperationFsm', 'fabricEthMonSrcEpOperation', 'fabricEthPortOperationFsm', 'fabricFIPortOperationFsm', 'fabricFIPortOperationFsmTask', 'fabricSubGroup', 'faultInst', 'messageEp', 'vnicEther'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_speed": MoPropertyMeta("admin_speed", "adminSpeed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["100gbps", "10gbps", "1gbps", "20gbps", "25gbps", "40gbps", "auto", "indeterminate"], []), 

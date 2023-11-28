@@ -13,9 +13,9 @@ class LsbootEmbeddedLocalDiskImagePath(ManagedObject):
     """This is LsbootEmbeddedLocalDiskImagePath class."""
 
     consts = LsbootEmbeddedLocalDiskImagePathConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("LsbootEmbeddedLocalDiskImagePath", "lsbootEmbeddedLocalDiskImagePath", "diskimgpath-[type]", VersionMeta.Version141a, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], [u'lsbootEmbeddedLocalDiskImage'], [u'lsbootUEFIBootParam'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LsbootEmbeddedLocalDiskImagePath", "lsbootEmbeddedLocalDiskImagePath", "diskimgpath-[type]", VersionMeta.Version141a, "InputOutput", 0x3f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], ['lsbootEmbeddedLocalDiskImage'], ['lsbootUEFIBootParam'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

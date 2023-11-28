@@ -19,9 +19,9 @@ class FabricFcZoneProfileIvt(ManagedObject):
     """This is FabricFcZoneProfileIvt class."""
 
     consts = FabricFcZoneProfileIvtConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricFcZoneProfileIvt", "fabricFcZoneProfileIvt", "zone-profile-ivt-[name]", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin", "ext-san-config", "ext-san-policy"], [u'fabricFcEstcCloud'], [u'fabricFcUserZoneIvt'], [None])
+    mo_meta = MoMeta("FabricFcZoneProfileIvt", "fabricFcZoneProfileIvt", "zone-profile-ivt-[name]", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin", "ext-san-config", "ext-san-policy"], ['fabricFcEstcCloud'], ['fabricFcUserZoneIvt'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

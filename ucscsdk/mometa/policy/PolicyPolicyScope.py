@@ -243,9 +243,9 @@ class PolicyPolicyScope(ManagedObject):
     """This is PolicyPolicyScope class."""
 
     consts = PolicyPolicyScopeConsts()
-    naming_props = set([u'policyType', u'resolveType', u'policyName'])
+    naming_props = set(['policyType', 'resolveType', 'policyName'])
 
-    mo_meta = MoMeta("PolicyPolicyScope", "policyPolicyScope", "scope-[policy_type]-[resolve_type]-[policy_name]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin"], [u'policyPolicyScopeContext'], [u'eventInst', u'faultInst', u'policyPolicyRequestor', u'policyPolicyScopeFsm', u'policyPolicyScopeFsmTask'], [None])
+    mo_meta = MoMeta("PolicyPolicyScope", "policyPolicyScope", "scope-[policy_type]-[resolve_type]-[policy_name]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin"], ['policyPolicyScopeContext'], ['eventInst', 'faultInst', 'policyPolicyRequestor', 'policyPolicyScopeFsm', 'policyPolicyScopeFsmTask'], [None])
 
     prop_meta = {
         "app_type": MoPropertyMeta("app_type", "appType", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

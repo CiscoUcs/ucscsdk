@@ -21,7 +21,7 @@ class LsRequirement(ManagedObject):
     consts = LsRequirementConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("LsRequirement", "lsRequirement", "pn-req", VersionMeta.Version111a, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "read-only"], [u'lsServer'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LsRequirement", "lsRequirement", "pn-req", VersionMeta.Version111a, "InputOutput", 0x7f, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "read-only"], ['lsServer'], ['faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "assigned_to_dn": MoPropertyMeta("assigned_to_dn", "assignedToDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

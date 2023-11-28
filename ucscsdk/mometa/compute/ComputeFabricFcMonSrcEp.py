@@ -15,9 +15,9 @@ class ComputeFabricFcMonSrcEp(ManagedObject):
     """This is ComputeFabricFcMonSrcEp class."""
 
     consts = ComputeFabricFcMonSrcEpConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("ComputeFabricFcMonSrcEp", "computeFabricFcMonSrcEp", "src-[id]", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'computeFabricFcMonSrcEpCont'], [], [None])
+    mo_meta = MoMeta("ComputeFabricFcMonSrcEp", "computeFabricFcMonSrcEp", "src-[id]", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['computeFabricFcMonSrcEpCont'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

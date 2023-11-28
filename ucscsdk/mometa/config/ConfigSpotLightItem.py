@@ -13,7 +13,7 @@ class ConfigSpotLightItem(ManagedObject):
     """This is ConfigSpotLightItem class."""
 
     consts = ConfigSpotLightItemConsts()
-    naming_props = set([u'compositeId'])
+    naming_props = set(['compositeId'])
 
     mo_meta = MoMeta("ConfigSpotLightItem", "configSpotLightItem", "spotlight-[composite_id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin"], [], [], [None])
 

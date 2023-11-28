@@ -16,9 +16,9 @@ class IqnpoolBlock(ManagedObject):
     """This is IqnpoolBlock class."""
 
     consts = IqnpoolBlockConsts()
-    naming_props = set([u'suffix', u'from', u'to'])
+    naming_props = set(['suffix', 'from', 'to'])
 
-    mo_meta = MoMeta("IqnpoolBlock", "iqnpoolBlock", "iqn-suffix-[suffix]-from-[r_from]-to-[to]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin", "ls-storage-policy"], [u'iqnpoolPool'], [], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("IqnpoolBlock", "iqnpoolBlock", "iqn-suffix-[suffix]-from-[r_from]-to-[to]", VersionMeta.Version101a, "InputOutput", 0xff, [], ["admin", "ls-storage-policy"], ['iqnpoolPool'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "assigned": MoPropertyMeta("assigned", "assigned", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

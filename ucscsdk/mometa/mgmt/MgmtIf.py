@@ -156,9 +156,9 @@ class MgmtIf(ManagedObject):
     """This is MgmtIf class."""
 
     consts = MgmtIfConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("MgmtIf", "mgmtIf", "if-[id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], [u'mgmtController'], [u'eventInst', u'faultInst', u'mgmtIPv6IfConfig', u'mgmtIfFsm', u'mgmtIfFsmTask'], ["Get"])
+    mo_meta = MoMeta("MgmtIf", "mgmtIf", "if-[id]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], ['mgmtController'], ['eventInst', 'faultInst', 'mgmtIPv6IfConfig', 'mgmtIfFsm', 'mgmtIfFsmTask'], ["Get"])
 
     prop_meta = {
         "access": MoPropertyMeta("access", "access", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["in-band", "internal", "out-of-band", "unspecified", "virtual"], []), 

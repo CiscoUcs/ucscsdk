@@ -134,9 +134,9 @@ class DomainProfile(ManagedObject):
     """This is DomainProfile class."""
 
     consts = DomainProfileConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("DomainProfile", "domainProfile", "domain-profile-[name]", VersionMeta.Version201b, "InputOutput", 0x7fff, [], ["admin", "domain-group-management"], [u'fabricSystem', u'orgDomainGroup'], [u'domainProfileFsm', u'domainProfileFsmTask', u'eventInst', u'faultInst', u'messageEp'], ["get", "set"])
+    mo_meta = MoMeta("DomainProfile", "domainProfile", "domain-profile-[name]", VersionMeta.Version201b, "InputOutput", 0x7fff, [], ["admin", "domain-group-management"], ['fabricSystem', 'orgDomainGroup'], ['domainProfileFsm', 'domainProfileFsmTask', 'eventInst', 'faultInst', 'messageEp'], ["get", "set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

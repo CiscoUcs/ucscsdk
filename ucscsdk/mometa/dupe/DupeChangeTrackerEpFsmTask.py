@@ -18,9 +18,9 @@ class DupeChangeTrackerEpFsmTask(ManagedObject):
     """This is DupeChangeTrackerEpFsmTask class."""
 
     consts = DupeChangeTrackerEpFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("DupeChangeTrackerEpFsmTask", "dupeChangeTrackerEpFsmTask", "task-[item]", VersionMeta.Version131a, "OutputOnly", 0xf, [], [""], [u'dupeChangeTrackerEp'], [], [None])
+    mo_meta = MoMeta("DupeChangeTrackerEpFsmTask", "dupeChangeTrackerEpFsmTask", "task-[item]", VersionMeta.Version131a, "OutputOnly", 0xf, [], [""], ['dupeChangeTrackerEp'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

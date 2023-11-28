@@ -38,9 +38,9 @@ class StorageLocalDiskConfigPolicy(ManagedObject):
     """This is StorageLocalDiskConfigPolicy class."""
 
     consts = StorageLocalDiskConfigPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StorageLocalDiskConfigPolicy", "storageLocalDiskConfigPolicy", "local-disk-config-[name]", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["read-only"], [u'orgOrg'], [u'lstorageSecurity', u'storageLocalDiskPartition'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("StorageLocalDiskConfigPolicy", "storageLocalDiskConfigPolicy", "local-disk-config-[name]", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["read-only"], ['orgOrg'], ['lstorageSecurity', 'storageLocalDiskPartition'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -30,7 +30,7 @@ class EpqosEgress(ManagedObject):
     consts = EpqosEgressConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EpqosEgress", "epqosEgress", "egress", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ls-network", "ls-network-policy", "ls-qos-policy", "read-only"], [u'epqosDefinition'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("EpqosEgress", "epqosEgress", "egress", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ls-network", "ls-network-policy", "ls-qos-policy", "read-only"], ['epqosDefinition'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "burst": MoPropertyMeta("burst", "burst", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], ["0-65535"]), 

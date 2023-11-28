@@ -129,9 +129,9 @@ class StorageScsiLun(ManagedObject):
     """This is StorageScsiLun class."""
 
     consts = StorageScsiLunConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StorageScsiLun", "storageScsiLun", "lun-[name]", VersionMeta.Version131a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storagePartition'], [u'faultInst', u'storageInitiatorRef', u'storageReplicationCtx', u'storageScsiDeviceDescriptor', u'storageScsiLunCtx', u'storageScsiLunRef', u'storageSnapshotCtx'], [None])
+    mo_meta = MoMeta("StorageScsiLun", "storageScsiLun", "lun-[name]", VersionMeta.Version131a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], ['storagePartition'], ['faultInst', 'storageInitiatorRef', 'storageReplicationCtx', 'storageScsiDeviceDescriptor', 'storageScsiLunCtx', 'storageScsiLunRef', 'storageSnapshotCtx'], [None])
 
     prop_meta = {
         "actual_size": MoPropertyMeta("actual_size", "actualSize", "ulong", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

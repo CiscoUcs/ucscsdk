@@ -22,7 +22,7 @@ class PolicyMonitoringOp(ManagedObject):
     consts = PolicyMonitoringOpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("PolicyMonitoringOp", "policyMonitoringOp", "monitoring-ctrl", VersionMeta.Version151a, "InputOutput", 0x3f, [], ["admin", "operations"], [u'policyControlEpOp'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("PolicyMonitoringOp", "policyMonitoringOp", "monitoring-ctrl", VersionMeta.Version151a, "InputOutput", 0x3f, [], ["admin", "operations"], ['policyControlEpOp'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

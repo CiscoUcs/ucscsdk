@@ -15,7 +15,7 @@ class FabricHolder(ManagedObject):
     consts = FabricHolderConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FabricHolder", "fabricHolder", "holder", VersionMeta.Version151a, "InputOutput", 0xf, [], ["admin"], [u'topRoot'], [u'fabricDomainEp', u'tagDefEp', u'tagInstanceEp'], ["Get"])
+    mo_meta = MoMeta("FabricHolder", "fabricHolder", "holder", VersionMeta.Version151a, "InputOutput", 0xf, [], ["admin"], ['topRoot'], ['fabricDomainEp', 'tagDefEp', 'tagInstanceEp'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

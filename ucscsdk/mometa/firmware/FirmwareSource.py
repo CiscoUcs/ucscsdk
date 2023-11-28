@@ -21,9 +21,9 @@ class FirmwareSource(ManagedObject):
     """This is FirmwareSource class."""
 
     consts = FirmwareSourceConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("FirmwareSource", "firmwareSource", "source-[type]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], [u'firmwareCatalogue'], [u'faultInst', u'firmwareDownloadPolicy'], ["Get", "Set"])
+    mo_meta = MoMeta("FirmwareSource", "firmwareSource", "source-[type]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin"], ['firmwareCatalogue'], ['faultInst', 'firmwareDownloadPolicy'], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

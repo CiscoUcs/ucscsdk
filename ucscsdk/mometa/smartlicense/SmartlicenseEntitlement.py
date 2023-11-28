@@ -26,9 +26,9 @@ class SmartlicenseEntitlement(ManagedObject):
     """This is SmartlicenseEntitlement class."""
 
     consts = SmartlicenseEntitlementConsts()
-    naming_props = set([u'tag'])
+    naming_props = set(['tag'])
 
-    mo_meta = MoMeta("SmartlicenseEntitlement", "smartlicenseEntitlement", "entitlement[tag]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin"], [u'smartlicenseEntitlementEp', u'smartlicenseHolder'], [u'faultInst'], ["Get"])
+    mo_meta = MoMeta("SmartlicenseEntitlement", "smartlicenseEntitlement", "entitlement[tag]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin"], ['smartlicenseEntitlementEp', 'smartlicenseHolder'], ['faultInst'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

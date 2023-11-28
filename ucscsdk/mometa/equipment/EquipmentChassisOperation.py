@@ -26,7 +26,7 @@ class EquipmentChassisOperation(ManagedObject):
     consts = EquipmentChassisOperationConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("EquipmentChassisOperation", "equipmentChassisOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'equipmentChassis'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("EquipmentChassisOperation", "equipmentChassisOperation", "remote-oper", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['equipmentChassis'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["acknowledged", "auto-acknowledge", "decommission", "disable-port-channel", "enable-port-channel", "re-acknowledge", "remoteTrigger", "remove"], []), 

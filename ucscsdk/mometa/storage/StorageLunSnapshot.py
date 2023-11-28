@@ -121,9 +121,9 @@ class StorageLunSnapshot(ManagedObject):
     """This is StorageLunSnapshot class."""
 
     consts = StorageLunSnapshotConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StorageLunSnapshot", "storageLunSnapshot", "snapshot-[name]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storagePartition'], [u'faultInst', u'storageScsiLunRef'], ["Get"])
+    mo_meta = MoMeta("StorageLunSnapshot", "storageLunSnapshot", "snapshot-[name]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], ['storagePartition'], ['faultInst', 'storageScsiLunRef'], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["clear-transport-ready", "degraded", "delete", "hide", "offline", "online", "restore", "secure-drive-group", "transport-ready", "undefined", "unhide"], []), 

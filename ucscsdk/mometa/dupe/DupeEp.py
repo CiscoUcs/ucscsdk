@@ -15,7 +15,7 @@ class DupeEp(ManagedObject):
     consts = DupeEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("DupeEp", "dupeEp", "dup-ep", VersionMeta.Version131a, "InputOutput", 0xf, [], ["read-only"], [u'extpolClient', u'extpolController', u'extpolProvider', u'extpolRegistry'], [u'dupeChangeTrackerEp', u'dupeScopeEp'], [None])
+    mo_meta = MoMeta("DupeEp", "dupeEp", "dup-ep", VersionMeta.Version131a, "InputOutput", 0xf, [], ["read-only"], ['extpolClient', 'extpolController', 'extpolProvider', 'extpolRegistry'], ['dupeChangeTrackerEp', 'dupeScopeEp'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

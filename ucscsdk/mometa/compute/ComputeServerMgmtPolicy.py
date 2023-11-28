@@ -21,7 +21,7 @@ class ComputeServerMgmtPolicy(ManagedObject):
     consts = ComputeServerMgmtPolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ComputeServerMgmtPolicy", "computeServerMgmtPolicy", "server-mgmt-policy", VersionMeta.Version141a, "InputOutput", 0xff, [], ["admin", "domain-group-management", "pn-policy"], [u'orgDomainGroup', u'orgOrg'], [], ["Get", "Set"])
+    mo_meta = MoMeta("ComputeServerMgmtPolicy", "computeServerMgmtPolicy", "server-mgmt-policy", VersionMeta.Version141a, "InputOutput", 0xff, [], ["admin", "domain-group-management", "pn-policy"], ['orgDomainGroup', 'orgOrg'], [], ["Get", "Set"])
 
     prop_meta = {
         "action": MoPropertyMeta("action", "action", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["auto-acknowledged", "user-acknowledged"], []), 

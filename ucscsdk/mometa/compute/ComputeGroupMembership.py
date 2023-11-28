@@ -16,9 +16,9 @@ class ComputeGroupMembership(ManagedObject):
     """This is ComputeGroupMembership class."""
 
     consts = ComputeGroupMembershipConsts()
-    naming_props = set([u'ip'])
+    naming_props = set(['ip'])
 
-    mo_meta = MoMeta("ComputeGroupMembership", "computeGroupMembership", "membership-[ip]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "domain-group-management"], [u'computeResourceAggrEp'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("ComputeGroupMembership", "computeGroupMembership", "membership-[ip]", VersionMeta.Version101a, "InputOutput", 0x3f, [], ["admin", "domain-group-management"], ['computeResourceAggrEp'], ['faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

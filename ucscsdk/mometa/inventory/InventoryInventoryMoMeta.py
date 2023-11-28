@@ -13,9 +13,9 @@ class InventoryInventoryMoMeta(ManagedObject):
     """This is InventoryInventoryMoMeta class."""
 
     consts = InventoryInventoryMoMetaConsts()
-    naming_props = set([u'instId'])
+    naming_props = set(['instId'])
 
-    mo_meta = MoMeta("InventoryInventoryMoMeta", "inventoryInventoryMoMeta", "mo-[inst_id]", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin", "operations"], [u'inventoryDomainEp', u'inventoryGlobalEp'], [], [None])
+    mo_meta = MoMeta("InventoryInventoryMoMeta", "inventoryInventoryMoMeta", "mo-[inst_id]", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin", "operations"], ['inventoryDomainEp', 'inventoryGlobalEp'], [], [None])
 
     prop_meta = {
         "admin_prop_mod": MoPropertyMeta("admin_prop_mod", "adminPropMod", "ulong", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

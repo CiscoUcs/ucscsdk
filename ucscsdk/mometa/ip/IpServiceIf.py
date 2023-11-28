@@ -13,9 +13,9 @@ class IpServiceIf(ManagedObject):
     """This is IpServiceIf class."""
 
     consts = IpServiceIfConsts()
-    naming_props = set([u'addr', u'port'])
+    naming_props = set(['addr', 'port'])
 
-    mo_meta = MoMeta("IpServiceIf", "ipServiceIf", "serv-ip-[addr]-port-[port]", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin"], [u'storageEtherIf'], [], [None])
+    mo_meta = MoMeta("IpServiceIf", "ipServiceIf", "serv-ip-[addr]-port-[port]", VersionMeta.Version131a, "InputOutput", 0x7f, [], ["admin"], ['storageEtherIf'], [], [None])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x2, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 

@@ -26,7 +26,7 @@ class AdaptorEthRoCEProfile(ManagedObject):
     consts = AdaptorEthRoCEProfileConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorEthRoCEProfile", "adaptorEthRoCEProfile", "eth-roce", VersionMeta.Version131a, "InputOutput", 0xfff, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], [u'adaptorHostEthIfProfile', u'adaptorVmmqConnDef'], [], ["Get", "Set"])
+    mo_meta = MoMeta("AdaptorEthRoCEProfile", "adaptorEthRoCEProfile", "eth-roce", VersionMeta.Version131a, "InputOutput", 0xfff, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], ['adaptorHostEthIfProfile', 'adaptorVmmqConnDef'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

@@ -27,7 +27,7 @@ class DiagSrvCtrl(ManagedObject):
     consts = DiagSrvCtrlConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("DiagSrvCtrl", "diagSrvCtrl", "diag", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'diagRslt', u'diagRunPolicy', u'diagSrvCtrlOperation', u'etherServerIntFIo'], ["get"])
+    mo_meta = MoMeta("DiagSrvCtrl", "diagSrvCtrl", "diag", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-maintenance"], ['computeBlade', 'computeRackUnit', 'computeServerUnit'], ['diagRslt', 'diagRunPolicy', 'diagSrvCtrlOperation', 'etherServerIntFIo'], ["get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["cancel", "ready", "trigger"], []), 

@@ -28,9 +28,9 @@ class DiagMemoryTest(ManagedObject):
     """This is DiagMemoryTest class."""
 
     consts = DiagMemoryTestConsts()
-    naming_props = set([u'order'])
+    naming_props = set(['order'])
 
-    mo_meta = MoMeta("DiagMemoryTest", "diagMemoryTest", "test-[order]", VersionMeta.Version201b, "InputOutput", 0xfff, [], ["admin", "pn-policy"], [u'diagRunPolicy'], [], ["get"])
+    mo_meta = MoMeta("DiagMemoryTest", "diagMemoryTest", "test-[order]", VersionMeta.Version201b, "InputOutput", 0xfff, [], ["admin", "pn-policy"], ['diagRunPolicy'], [], ["get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

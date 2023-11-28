@@ -18,7 +18,7 @@ class PolicyDigest(ManagedObject):
     """This is PolicyDigest class."""
 
     consts = PolicyDigestConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
     mo_meta = MoMeta("PolicyDigest", "policyDigest", "policy-[name]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], [], [], [None])
 

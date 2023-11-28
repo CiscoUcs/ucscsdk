@@ -119,7 +119,7 @@ class CertRepairEpFsm(ManagedObject):
     consts = CertRepairEpFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CertRepairEpFsm", "certRepairEpFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], [u'certRepairEp'], [u'certRepairEpFsmStage'], [None])
+    mo_meta = MoMeta("CertRepairEpFsm", "certRepairEpFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], ['certRepairEp'], ['certRepairEpFsmStage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

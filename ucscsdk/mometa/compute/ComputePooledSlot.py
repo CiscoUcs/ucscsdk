@@ -21,9 +21,9 @@ class ComputePooledSlot(ManagedObject):
     """This is ComputePooledSlot class."""
 
     consts = ComputePooledSlotConsts()
-    naming_props = set([u'systemId', u'chassisId', u'slotId'])
+    naming_props = set(['systemId', 'chassisId', 'slotId'])
 
-    mo_meta = MoMeta("ComputePooledSlot", "computePooledSlot", "system-[system_id]-blade-[chassis_id]-[slot_id]", VersionMeta.Version111a, "InputOutput", 0x7f, [], ["admin", "pn-policy"], [u'computePool'], [], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("ComputePooledSlot", "computePooledSlot", "system-[system_id]-blade-[chassis_id]-[slot_id]", VersionMeta.Version111a, "InputOutput", 0x7f, [], ["admin", "pn-policy"], ['computePool'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "assigned": MoPropertyMeta("assigned", "assigned", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 

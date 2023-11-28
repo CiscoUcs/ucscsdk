@@ -14,7 +14,7 @@ class FabricPoolableVlan(ManagedObject):
     """This is FabricPoolableVlan class."""
 
     consts = FabricPoolableVlanConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
     mo_meta = MoMeta("FabricPoolableVlan", "fabricPoolableVlan", "pool-[id]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], [], [], [None])
 

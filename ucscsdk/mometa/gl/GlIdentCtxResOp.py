@@ -187,9 +187,9 @@ class GlIdentCtxResOp(ManagedObject):
     """This is GlIdentCtxResOp class."""
 
     consts = GlIdentCtxResOpConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("GlIdentCtxResOp", "glIdentCtxResOp", "icrop-[id]", VersionMeta.Version201b, "InputOutput", 0x7ff, [], ["admin"], [u'glIdentCtxEp'], [u'eventInst', u'faultInst', u'glConflictEp', u'glIdentCtxResOpFsm', u'glIdentCtxResOpFsmTask', u'glRefsEp', u'glRequestorEp', u'messageEp'], [None])
+    mo_meta = MoMeta("GlIdentCtxResOp", "glIdentCtxResOp", "icrop-[id]", VersionMeta.Version201b, "InputOutput", 0x7ff, [], ["admin"], ['glIdentCtxEp'], ['eventInst', 'faultInst', 'glConflictEp', 'glIdentCtxResOpFsm', 'glIdentCtxResOpFsmTask', 'glRefsEp', 'glRequestorEp', 'messageEp'], [None])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["default", "evaluate"], []), 

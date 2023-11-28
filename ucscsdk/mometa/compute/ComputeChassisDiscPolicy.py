@@ -32,7 +32,7 @@ class ComputeChassisDiscPolicy(ManagedObject):
     consts = ComputeChassisDiscPolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ComputeChassisDiscPolicy", "computeChassisDiscPolicy", "chassis-discovery", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["admin", "domain-group-management", "pn-policy"], [u'orgDomainGroup', u'orgOrg'], [], ["Get", "Set"])
+    mo_meta = MoMeta("ComputeChassisDiscPolicy", "computeChassisDiscPolicy", "chassis-discovery", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["admin", "domain-group-management", "pn-policy"], ['orgDomainGroup', 'orgOrg'], [], ["Get", "Set"])
 
     prop_meta = {
         "action": MoPropertyMeta("action", "action", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["1-link", "2-link", "4-link", "8-link", "immediate", "platform-max", "user-acknowledged"], []), 

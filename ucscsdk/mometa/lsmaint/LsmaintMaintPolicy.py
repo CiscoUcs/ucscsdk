@@ -26,9 +26,9 @@ class LsmaintMaintPolicy(ManagedObject):
     """This is LsmaintMaintPolicy class."""
 
     consts = LsmaintMaintPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("LsmaintMaintPolicy", "lsmaintMaintPolicy", "maint-[name]", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["read-only"], [u'orgDomainGroup', u'orgOrg'], [u'faultInst'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LsmaintMaintPolicy", "lsmaintMaintPolicy", "maint-[name]", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["read-only"], ['orgDomainGroup', 'orgOrg'], ['faultInst'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

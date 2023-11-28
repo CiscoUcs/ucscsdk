@@ -23,9 +23,9 @@ class FirmwareUpgradeDetail(ManagedObject):
     """This is FirmwareUpgradeDetail class."""
 
     consts = FirmwareUpgradeDetailConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("FirmwareUpgradeDetail", "firmwareUpgradeDetail", "id-[id]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin"], [u'firmwareUpgradeInfo'], [], ["Get"])
+    mo_meta = MoMeta("FirmwareUpgradeDetail", "firmwareUpgradeDetail", "id-[id]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin"], ['firmwareUpgradeInfo'], [], ["Get"])
 
     prop_meta = {
         "category": MoPropertyMeta("category", "category", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["catalog", "config", "data-load", "faults", "other", "server-reboot"], []), 

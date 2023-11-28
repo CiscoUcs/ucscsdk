@@ -15,9 +15,9 @@ class StorageIScsiInitiatorEp(ManagedObject):
     """This is StorageIScsiInitiatorEp class."""
 
     consts = StorageIScsiInitiatorEpConsts()
-    naming_props = set([u'iqn'])
+    naming_props = set(['iqn'])
 
-    mo_meta = MoMeta("StorageIScsiInitiatorEp", "storageIScsiInitiatorEp", "scsi-ini-[iqn]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], [u'initiatorGroupEp', u'storageLunMaskGroup'], [u'storageEpUser'], ["Get"])
+    mo_meta = MoMeta("StorageIScsiInitiatorEp", "storageIScsiInitiatorEp", "scsi-ini-[iqn]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], ['initiatorGroupEp', 'storageLunMaskGroup'], ['storageEpUser'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

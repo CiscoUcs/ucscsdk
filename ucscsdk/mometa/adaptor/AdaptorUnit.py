@@ -142,9 +142,9 @@ class AdaptorUnit(ManagedObject):
     """This is AdaptorUnit class."""
 
     consts = AdaptorUnitConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorUnit", "adaptorUnit", "adaptor-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-policy"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [u'adaptorExtEthIf', u'adaptorHostEthIf', u'adaptorHostFcIf', u'adaptorHostIscsiIf', u'adaptorHostScsiIf', u'adaptorMenloDcePortStats', u'adaptorMenloEthErrorStats', u'adaptorMenloEthStats', u'adaptorMenloFcErrorStats', u'adaptorMenloFcStats', u'adaptorMenloHostPortStats', u'adaptorMenloMcpuErrorStats', u'adaptorMenloMcpuStats', u'adaptorMenloNetEgStats', u'adaptorMenloNetInStats', u'adaptorMenloQErrorStats', u'adaptorMenloQStats', u'adaptorUnitExtn', u'faultInst', u'mgmtController'], ["Get"])
+    mo_meta = MoMeta("AdaptorUnit", "adaptorUnit", "adaptor-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-policy"], ['computeBlade', 'computeRackUnit', 'computeServerUnit'], ['adaptorExtEthIf', 'adaptorHostEthIf', 'adaptorHostFcIf', 'adaptorHostIscsiIf', 'adaptorHostScsiIf', 'adaptorMenloDcePortStats', 'adaptorMenloEthErrorStats', 'adaptorMenloEthStats', 'adaptorMenloFcErrorStats', 'adaptorMenloFcStats', 'adaptorMenloHostPortStats', 'adaptorMenloMcpuErrorStats', 'adaptorMenloMcpuStats', 'adaptorMenloNetEgStats', 'adaptorMenloNetInStats', 'adaptorMenloQErrorStats', 'adaptorMenloQStats', 'adaptorUnitExtn', 'faultInst', 'mgmtController'], ["Get"])
 
     prop_meta = {
         "admin_power_state": MoPropertyMeta("admin_power_state", "adminPowerState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["none", "reset-power"], []), 

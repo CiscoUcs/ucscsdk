@@ -18,7 +18,7 @@ class FcErrStats(ManagedObject):
     consts = FcErrStatsConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FcErrStats", "fcErrStats", "err-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [], [u'fcErrStatsHist'], [None])
+    mo_meta = MoMeta("FcErrStats", "fcErrStats", "err-stats", VersionMeta.Version111a, "OutputOnly", 0xf, [], ["admin", "operations", "read-only"], [], ['fcErrStatsHist'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

@@ -19,9 +19,9 @@ class EquipmentTier(ManagedObject):
     """This is EquipmentTier class."""
 
     consts = EquipmentTierConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("EquipmentTier", "equipmentTier", "cp-tier-[name]", VersionMeta.Version151a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy"], [u'orgOrg'], [u'equipmentChassisProfile'], [None])
+    mo_meta = MoMeta("EquipmentTier", "equipmentTier", "cp-tier-[name]", VersionMeta.Version151a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy"], ['orgOrg'], ['equipmentChassisProfile'], [None])
 
     prop_meta = {
         "apply": MoPropertyMeta("apply", "apply", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["onAssociation", "runTime"], []), 

@@ -30,9 +30,9 @@ class CommCoreFile(ManagedObject):
     """This is CommCoreFile class."""
 
     consts = CommCoreFileConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("CommCoreFile", "commCoreFile", "core-file-[name]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin"], [u'orgDomainGroup', u'orgOrg', u'policyDeviceProfile'], [], [None])
+    mo_meta = MoMeta("CommCoreFile", "commCoreFile", "core-file-[name]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin"], ['orgDomainGroup', 'orgOrg', 'policyDeviceProfile'], [], [None])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

@@ -18,9 +18,9 @@ class DomainProfileFsmTask(ManagedObject):
     """This is DomainProfileFsmTask class."""
 
     consts = DomainProfileFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("DomainProfileFsmTask", "domainProfileFsmTask", "task-[item]", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], [u'domainProfile'], [], [None])
+    mo_meta = MoMeta("DomainProfileFsmTask", "domainProfileFsmTask", "task-[item]", VersionMeta.Version201b, "OutputOnly", 0xf, [], [""], ['domainProfile'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

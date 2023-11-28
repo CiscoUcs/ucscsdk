@@ -21,9 +21,9 @@ class AdaptorHostIfConfig(ManagedObject):
     """This is AdaptorHostIfConfig class."""
 
     consts = AdaptorHostIfConfigConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorHostIfConfig", "adaptorHostIfConfig", "host-if-config-[id]", VersionMeta.Version151a, "InputOutput", 0x1f, [], ["read-only"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [], ["Get"])
+    mo_meta = MoMeta("AdaptorHostIfConfig", "adaptorHostIfConfig", "host-if-config-[id]", VersionMeta.Version151a, "InputOutput", 0x1f, [], ["read-only"], ['computeBlade', 'computeRackUnit', 'computeServerUnit'], [], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "disabled-active", "disabled-passive", "enabled", "enabled-active", "enabled-passive", "reset-connectivity", "reset-connectivity-active", "reset-connectivity-passive"], []), 

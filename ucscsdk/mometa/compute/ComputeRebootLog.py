@@ -43,9 +43,9 @@ class ComputeRebootLog(ManagedObject):
     """This is ComputeRebootLog class."""
 
     consts = ComputeRebootLogConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("ComputeRebootLog", "computeRebootLog", "reboot-log-[id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], [u'computeBlade', u'computeRackUnit', u'computeServerUnit'], [], ["get"])
+    mo_meta = MoMeta("ComputeRebootLog", "computeRebootLog", "reboot-log-[id]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["read-only"], ['computeBlade', 'computeRackUnit', 'computeServerUnit'], [], ["get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

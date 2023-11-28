@@ -19,9 +19,9 @@ class VnicDefBeh(ManagedObject):
     """This is VnicDefBeh class."""
 
     consts = VnicDefBehConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("VnicDefBeh", "vnicDefBeh", "def-beh-[type]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ls-config", "ls-server"], [u'lsServer'], [], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("VnicDefBeh", "vnicDefBeh", "def-beh-[type]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ls-config", "ls-server"], ['lsServer'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "action": MoPropertyMeta("action", "action", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["hw-inherit", "none"], []), 

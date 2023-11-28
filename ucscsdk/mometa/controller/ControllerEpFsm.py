@@ -119,7 +119,7 @@ class ControllerEpFsm(ManagedObject):
     consts = ControllerEpFsmConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ControllerEpFsm", "controllerEpFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], [u'controllerEp'], [u'controllerEpFsmStage'], [None])
+    mo_meta = MoMeta("ControllerEpFsm", "controllerEpFsm", "fsm", VersionMeta.Version141a, "OutputOnly", 0xf, [], [""], ['controllerEp'], ['controllerEpFsmStage'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

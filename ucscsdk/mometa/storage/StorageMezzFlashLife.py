@@ -70,7 +70,7 @@ class StorageMezzFlashLife(ManagedObject):
     consts = StorageMezzFlashLifeConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageMezzFlashLife", "storageMezzFlashLife", "flash-life-", VersionMeta.Version121a, "InputOutput", 0x1f, [], ["read-only"], [u'storageController'], [], ["Get"])
+    mo_meta = MoMeta("StorageMezzFlashLife", "storageMezzFlashLife", "flash-life-", VersionMeta.Version121a, "InputOutput", 0x1f, [], ["read-only"], ['storageController'], [], ["Get"])
 
     prop_meta = {
         "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 

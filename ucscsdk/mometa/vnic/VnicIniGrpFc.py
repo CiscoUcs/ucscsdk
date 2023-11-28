@@ -63,7 +63,7 @@ class VnicIniGrpFc(ManagedObject):
     consts = VnicIniGrpFcConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("VnicIniGrpFc", "vnicIniGrpFc", "inigrp-fc", VersionMeta.Version141a, "InputOutput", 0x1ffff, [], ["admin", "ls-config", "ls-network", "ls-server", "ls-storage"], [u'lsServer', u'vnicFcGroupDef'], [u'fabricEthMonSrcEp', u'fabricFcMonSrcEp', u'faultInst', u'vnicIniGrpFcIf'], ["Get"])
+    mo_meta = MoMeta("VnicIniGrpFc", "vnicIniGrpFc", "inigrp-fc", VersionMeta.Version141a, "InputOutput", 0x1ffff, [], ["admin", "ls-config", "ls-network", "ls-server", "ls-storage"], ['lsServer', 'vnicFcGroupDef'], ['fabricEthMonSrcEp', 'fabricFcMonSrcEp', 'faultInst', 'vnicIniGrpFcIf'], ["Get"])
 
     prop_meta = {
         "adaptor_profile_name": MoPropertyMeta("adaptor_profile_name", "adaptorProfileName", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 

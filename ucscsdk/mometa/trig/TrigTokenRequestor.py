@@ -21,9 +21,9 @@ class TrigTokenRequestor(ManagedObject):
     """This is TrigTokenRequestor class."""
 
     consts = TrigTokenRequestorConsts()
-    naming_props = set([u'id', u'name'])
+    naming_props = set(['id', 'name'])
 
-    mo_meta = MoMeta("TrigTokenRequestor", "trigTokenRequestor", "tokenreq-[id]-[name]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "domain-group-management", "ls-compute", "ls-config", "ls-server"], [u'trigMeta'], [], ["Get", "Set"])
+    mo_meta = MoMeta("TrigTokenRequestor", "trigTokenRequestor", "tokenreq-[id]-[name]", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["admin", "domain-group-management", "ls-compute", "ls-config", "ls-server"], ['trigMeta'], [], ["Get", "Set"])
 
     prop_meta = {
         "activity_ts": MoPropertyMeta("activity_ts", "activityTs", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 

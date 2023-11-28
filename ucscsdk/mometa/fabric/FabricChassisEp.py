@@ -13,9 +13,9 @@ class FabricChassisEp(ManagedObject):
     """This is FabricChassisEp class."""
 
     consts = FabricChassisEpConsts()
-    naming_props = set([u'chassisId'])
+    naming_props = set(['chassisId'])
 
-    mo_meta = MoMeta("FabricChassisEp", "fabricChassisEp", "chassis-[chassis_id]", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["read-only"], [u'fabricDceSrv'], [u'fabricCartridgeSlotEp', u'fabricComputeSlotEp', u'fabricEnclosureSlotEp'], ["Get"])
+    mo_meta = MoMeta("FabricChassisEp", "fabricChassisEp", "chassis-[chassis_id]", VersionMeta.Version112a, "InputOutput", 0x1f, [], ["read-only"], ['fabricDceSrv'], ['fabricCartridgeSlotEp', 'fabricComputeSlotEp', 'fabricEnclosureSlotEp'], ["Get"])
 
     prop_meta = {
         "chassis_dn": MoPropertyMeta("chassis_dn", "chassisDn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

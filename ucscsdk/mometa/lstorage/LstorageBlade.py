@@ -13,9 +13,9 @@ class LstorageBlade(ManagedObject):
     """This is LstorageBlade class."""
 
     consts = LstorageBladeConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("LstorageBlade", "lstorageBlade", "lstorage-blade-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [u'extpolDomain'], [], [None])
+    mo_meta = MoMeta("LstorageBlade", "lstorageBlade", "lstorage-blade-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['extpolDomain'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

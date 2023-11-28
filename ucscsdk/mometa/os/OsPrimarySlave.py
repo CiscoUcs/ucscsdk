@@ -15,7 +15,7 @@ class OsPrimarySlave(ManagedObject):
     """This is OsPrimarySlave class."""
 
     consts = OsPrimarySlaveConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
     mo_meta = MoMeta("OsPrimarySlave", "osPrimarySlave", "slave-intf-[name]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], [], [], [None])
 

@@ -118,9 +118,9 @@ class StorageFlexFlashDrive(ManagedObject):
     """This is StorageFlexFlashDrive class."""
 
     consts = StorageFlexFlashDriveConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StorageFlexFlashDrive", "storageFlexFlashDrive", "drive-[name]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["read-only"], [u'storageFlexFlashCard'], [], ["Get"])
+    mo_meta = MoMeta("StorageFlexFlashDrive", "storageFlexFlashDrive", "drive-[name]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["read-only"], ['storageFlexFlashCard'], [], ["Get"])
 
     prop_meta = {
         "rw_type": MoPropertyMeta("rw_type", "RWType", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["read_only", "read_write"], []), 

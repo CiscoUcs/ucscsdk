@@ -141,9 +141,9 @@ class NfsClientDef(ManagedObject):
     """This is NfsClientDef class."""
 
     consts = NfsClientDefConsts()
-    naming_props = set([u'ip'])
+    naming_props = set(['ip'])
 
-    mo_meta = MoMeta("NfsClientDef", "nfsClientDef", "nfs-client-def-[ip]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], [u'nfsExportDef'], [u'eventInst', u'faultInst', u'nfsClientDefFsm', u'nfsClientDefFsmTask'], [None])
+    mo_meta = MoMeta("NfsClientDef", "nfsClientDef", "nfs-client-def-[ip]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["read-only"], ['nfsExportDef'], ['eventInst', 'faultInst', 'nfsClientDefFsm', 'nfsClientDefFsmTask'], [None])
 
     prop_meta = {
         "cluster_state": MoPropertyMeta("cluster_state", "ClusterState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|A|B),){0,3}(defaultValue|unknown|A|B){0,1}""", [], []), 

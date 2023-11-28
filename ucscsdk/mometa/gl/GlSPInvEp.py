@@ -15,7 +15,7 @@ class GlSPInvEp(ManagedObject):
     consts = GlSPInvEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("GlSPInvEp", "glSPInvEp", "sp", VersionMeta.Version201b, "InputOutput", 0xf, [], ["read-only"], [u'glInventoryEp'], [u'glServiceProfile'], [None])
+    mo_meta = MoMeta("GlSPInvEp", "glSPInvEp", "sp", VersionMeta.Version201b, "InputOutput", 0xf, [], ["read-only"], ['glInventoryEp'], ['glServiceProfile'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

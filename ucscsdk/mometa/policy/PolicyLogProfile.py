@@ -29,9 +29,9 @@ class PolicyLogProfile(ManagedObject):
     """This is PolicyLogProfile class."""
 
     consts = PolicyLogProfileConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("PolicyLogProfile", "policyLogProfile", "logprof-[name]", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["admin"], [u'orgDomainGroup', u'orgOrg'], [], [None])
+    mo_meta = MoMeta("PolicyLogProfile", "policyLogProfile", "logprof-[name]", VersionMeta.Version101a, "InputOutput", 0x1ff, [], ["admin"], ['orgDomainGroup', 'orgOrg'], [], [None])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 

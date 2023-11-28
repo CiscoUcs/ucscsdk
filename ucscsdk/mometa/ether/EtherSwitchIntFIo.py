@@ -175,9 +175,9 @@ class EtherSwitchIntFIo(ManagedObject):
     """This is EtherSwitchIntFIo class."""
 
     consts = EtherSwitchIntFIoConsts()
-    naming_props = set([u'portId'])
+    naming_props = set(['portId'])
 
-    mo_meta = MoMeta("EtherSwitchIntFIo", "etherSwitchIntFIo", "pc-[port_id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], [u'portGroup'], [u'equipmentXcvr'], ["Get"])
+    mo_meta = MoMeta("EtherSwitchIntFIo", "etherSwitchIntFIo", "pc-[port_id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["read-only"], ['portGroup'], ['equipmentXcvr'], ["Get"])
 
     prop_meta = {
         "ack": MoPropertyMeta("ack", "ack", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ack-in-progress", "acknowledged", "auto-ack", "evaluation", "ok", "removing", "un-acknowledged", "un-initialized", "unsupported-connectivity"], []), 

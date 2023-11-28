@@ -25,7 +25,7 @@ class CommSmashCLP(ManagedObject):
     consts = CommSmashCLPConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CommSmashCLP", "commSmashCLP", "smashclp-svc", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["aaa", "admin"], [u'orgDomainGroup', u'orgOrg'], [], ["Get"])
+    mo_meta = MoMeta("CommSmashCLP", "commSmashCLP", "smashclp-svc", VersionMeta.Version101a, "InputOutput", 0x7f, [], ["aaa", "admin"], ['orgDomainGroup', 'orgOrg'], [], ["Get"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 

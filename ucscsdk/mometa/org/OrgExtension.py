@@ -15,7 +15,7 @@ class OrgExtension(ManagedObject):
     consts = OrgExtensionConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("OrgExtension", "orgExtension", "extension", VersionMeta.Version121a, "InputOutput", 0xf, [], ["read-only"], [u'orgOrg'], [], ["Get"])
+    mo_meta = MoMeta("OrgExtension", "orgExtension", "extension", VersionMeta.Version121a, "InputOutput", 0xf, [], ["read-only"], ['orgOrg'], [], ["Get"])
 
     prop_meta = {
         "cp_count": MoPropertyMeta("cp_count", "CPCount", "ulong", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

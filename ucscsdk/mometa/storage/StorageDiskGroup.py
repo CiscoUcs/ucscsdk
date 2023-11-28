@@ -102,9 +102,9 @@ class StorageDiskGroup(ManagedObject):
     """This is StorageDiskGroup class."""
 
     consts = StorageDiskGroupConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("StorageDiskGroup", "storageDiskGroup", "disk-group-[id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["admin", "ls-storage"], [u'storageArray'], [u'storageDiskEp'], ["Get", "Set"])
+    mo_meta = MoMeta("StorageDiskGroup", "storageDiskGroup", "disk-group-[id]", VersionMeta.Version131a, "InputOutput", 0x3f, [], ["admin", "ls-storage"], ['storageArray'], ['storageDiskEp'], ["Get", "Set"])
 
     prop_meta = {
         "assigned_owner_dn": MoPropertyMeta("assigned_owner_dn", "assignedOwnerDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 

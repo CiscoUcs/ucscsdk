@@ -19,9 +19,9 @@ class FabricNetGroupEp(ManagedObject):
     """This is FabricNetGroupEp class."""
 
     consts = FabricNetGroupEpConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("FabricNetGroupEp", "fabricNetGroupEp", "ng-ep-[name]", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["read-only"], [u'fabricEthLanEp', u'fabricEthLanPc'], [], [None])
+    mo_meta = MoMeta("FabricNetGroupEp", "fabricNetGroupEp", "ng-ep-[name]", VersionMeta.Version201b, "InputOutput", 0x3f, [], ["read-only"], ['fabricEthLanEp', 'fabricEthLanPc'], [], [None])
 
     prop_meta = {
         "assigned": MoPropertyMeta("assigned", "assigned", "uint", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

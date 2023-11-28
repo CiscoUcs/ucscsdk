@@ -15,7 +15,7 @@ class AdaptorEthNVGREProfile(ManagedObject):
     consts = AdaptorEthNVGREProfileConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorEthNVGREProfile", "adaptorEthNVGREProfile", "eth-nvgre", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], [u'adaptorHostEthIfProfile'], [], ["Get", "Set"])
+    mo_meta = MoMeta("AdaptorEthNVGREProfile", "adaptorEthNVGREProfile", "eth-nvgre", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], ['adaptorHostEthIfProfile'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

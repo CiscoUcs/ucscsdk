@@ -13,9 +13,9 @@ class StatsChartContainer(ManagedObject):
     """This is StatsChartContainer class."""
 
     consts = StatsChartContainerConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("StatsChartContainer", "statsChartContainer", "container-[name]", VersionMeta.Version111b, "InputOutput", 0x3f, [], ["admin", "stats-management"], [u'statsChartContainer', u'statsCustomEp'], [u'statsChartContainer', u'statsCustomChart'], ["Get"])
+    mo_meta = MoMeta("StatsChartContainer", "statsChartContainer", "container-[name]", VersionMeta.Version111b, "InputOutput", 0x3f, [], ["admin", "stats-management"], ['statsChartContainer', 'statsCustomEp'], ['statsChartContainer', 'statsCustomChart'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

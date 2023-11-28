@@ -18,9 +18,9 @@ class ComputeSystemFsmTask(ManagedObject):
     """This is ComputeSystemFsmTask class."""
 
     consts = ComputeSystemFsmTaskConsts()
-    naming_props = set([u'item'])
+    naming_props = set(['item'])
 
-    mo_meta = MoMeta("ComputeSystemFsmTask", "computeSystemFsmTask", "task-[item]", VersionMeta.Version111a, "OutputOnly", 0xf, [], [""], [u'computeSystem'], [], [None])
+    mo_meta = MoMeta("ComputeSystemFsmTask", "computeSystemFsmTask", "task-[item]", VersionMeta.Version111a, "OutputOnly", 0xf, [], [""], ['computeSystem'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

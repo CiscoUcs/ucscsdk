@@ -14,9 +14,9 @@ class BiosTokenFeatureGroup(ManagedObject):
     """This is BiosTokenFeatureGroup class."""
 
     consts = BiosTokenFeatureGroupConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("BiosTokenFeatureGroup", "biosTokenFeatureGroup", "tokn-featr-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-policy", "pn-policy"], [u'biosVProfile'], [u'biosTokenParam'], [None])
+    mo_meta = MoMeta("BiosTokenFeatureGroup", "biosTokenFeatureGroup", "tokn-featr-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-server-policy", "pn-policy"], ['biosVProfile'], ['biosTokenParam'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

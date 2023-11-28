@@ -186,9 +186,9 @@ class ComputeBlade(ManagedObject):
     """This is ComputeBlade class."""
 
     consts = ComputeBladeConsts()
-    naming_props = set([u'slotId'])
+    naming_props = set(['slotId'])
 
-    mo_meta = MoMeta("ComputeBlade", "computeBlade", "blade-[slot_id]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'equipmentChassis'], [u'adaptorHostIfConfig', u'adaptorUnit', u'biosUnit', u'computeBoard', u'computeBoardConnector', u'computeBoardController', u'computeExtBoard', u'computeFactoryResetOp', u'computeFactoryResetOperation', u'computePhysicalExtension', u'computePhysicalOperation', u'computePoolable', u'computeRebootLog', u'diagSrvCtrl', u'equipmentBeaconLed', u'equipmentHealthLed', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'faultInst', u'firmwareStatus', u'lsIdentityInfo', u'lsbootDef', u'memoryRuntime', u'mgmtController', u'mgmtSecurity', u'osInstance', u'processorRuntime', u'storageEnclosure', u'storageVirtualDriveContainer', u'sysdebugDiagnosticLog'], ["Get"])
+    mo_meta = MoMeta("ComputeBlade", "computeBlade", "blade-[slot_id]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['equipmentChassis'], ['adaptorHostIfConfig', 'adaptorUnit', 'biosUnit', 'computeBoard', 'computeBoardConnector', 'computeBoardController', 'computeExtBoard', 'computeFactoryResetOp', 'computeFactoryResetOperation', 'computePhysicalExtension', 'computePhysicalOperation', 'computePoolable', 'computeRebootLog', 'diagSrvCtrl', 'equipmentBeaconLed', 'equipmentHealthLed', 'equipmentIndicatorLed', 'equipmentLocatorLed', 'faultInst', 'firmwareStatus', 'lsIdentityInfo', 'lsbootDef', 'memoryRuntime', 'mgmtController', 'mgmtSecurity', 'osInstance', 'processorRuntime', 'storageEnclosure', 'storageVirtualDriveContainer', 'sysdebugDiagnosticLog'], ["Get"])
 
     prop_meta = {
         "admin_power": MoPropertyMeta("admin_power", "adminPower", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["admin-down", "admin-up", "bmc-reset-immediate", "bmc-reset-wait", "cmos-reset-immediate", "cycle-immediate", "cycle-wait", "diagnostic-interrupt", "hard-reset-immediate", "hard-reset-wait", "ipmi-reset", "kvm-reset", "policy"], []), 

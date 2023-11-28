@@ -21,9 +21,9 @@ class EquipmentLocalDiskControllerCapProvider(ManagedObject):
     """This is EquipmentLocalDiskControllerCapProvider class."""
 
     consts = EquipmentLocalDiskControllerCapProviderConsts()
-    naming_props = set([u'vendor', u'model', u'revision'])
+    naming_props = set(['vendor', 'model', 'revision'])
 
-    mo_meta = MoMeta("EquipmentLocalDiskControllerCapProvider", "equipmentLocalDiskControllerCapProvider", "manufacturer-[vendor]-model-[model]-revision-[revision]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin"], [u'capabilityCatalogue'], [u'equipmentDriveSecCap', u'equipmentFruVariant', u'equipmentManufacturingDef', u'equipmentPciDef', u'equipmentPicture'], ["Get"])
+    mo_meta = MoMeta("EquipmentLocalDiskControllerCapProvider", "equipmentLocalDiskControllerCapProvider", "manufacturer-[vendor]-model-[model]-revision-[revision]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin"], ['capabilityCatalogue'], ['equipmentDriveSecCap', 'equipmentFruVariant', 'equipmentManufacturingDef', 'equipmentPciDef', 'equipmentPicture'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

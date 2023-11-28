@@ -149,9 +149,9 @@ class EquipmentPsu(ManagedObject):
     """This is EquipmentPsu class."""
 
     consts = EquipmentPsuConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("EquipmentPsu", "equipmentPsu", "psu-[id]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], [u'computeRackUnit', u'equipmentChassis', u'equipmentFex', u'networkElement'], [u'equipmentBeaconLed', u'equipmentFexPsuInputStats', u'equipmentHealthLed', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'equipmentPsuInputStats', u'equipmentPsuOutputStats', u'equipmentPsuStats', u'equipmentRackUnitPsuStats', u'faultInst', u'firmwareBootDefinition', u'firmwareRunning', u'firmwareStatus', u'firmwareUpdatable'], ["Get"])
+    mo_meta = MoMeta("EquipmentPsu", "equipmentPsu", "psu-[id]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], ['computeRackUnit', 'equipmentChassis', 'equipmentFex', 'networkElement'], ['equipmentBeaconLed', 'equipmentFexPsuInputStats', 'equipmentHealthLed', 'equipmentIndicatorLed', 'equipmentLocatorLed', 'equipmentPsuInputStats', 'equipmentPsuOutputStats', 'equipmentPsuStats', 'equipmentRackUnitPsuStats', 'faultInst', 'firmwareBootDefinition', 'firmwareRunning', 'firmwareStatus', 'firmwareUpdatable'], ["Get"])
 
     prop_meta = {
         "type": MoPropertyMeta("type", "Type", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
@@ -159,7 +159,7 @@ class EquipmentPsu(ManagedObject):
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "flt_aggr": MoPropertyMeta("flt_aggr", "fltAggr", "ulong", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
-        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x4, None, None, None, [], ["1-4"]), 
+        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x4, None, None, None, [], ["1-6"]), 
         "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "oper_qualifier_reason": MoPropertyMeta("oper_qualifier_reason", "operQualifierReason", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 

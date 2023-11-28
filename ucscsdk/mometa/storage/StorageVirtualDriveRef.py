@@ -36,9 +36,9 @@ class StorageVirtualDriveRef(ManagedObject):
     """This is StorageVirtualDriveRef class."""
 
     consts = StorageVirtualDriveRefConsts()
-    naming_props = set([u'lunItemName'])
+    naming_props = set(['lunItemName'])
 
-    mo_meta = MoMeta("StorageVirtualDriveRef", "storageVirtualDriveRef", "vdrive-ref-[lun_item_name]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'computeInstance', u'lsServer'], [u'lstorageDiskGroupConfigDef', u'storageLunResourceSelectionLog', u'storageVirtualDriveRefOperation'], ["Get"])
+    mo_meta = MoMeta("StorageVirtualDriveRef", "storageVirtualDriveRef", "vdrive-ref-[lun_item_name]", VersionMeta.Version131a, "InputOutput", 0xff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], ['computeInstance', 'lsServer'], ['lstorageDiskGroupConfigDef', 'storageLunResourceSelectionLog', 'storageVirtualDriveRefOperation'], ["Get"])
 
     prop_meta = {
         "admin_name": MoPropertyMeta("admin_name", "adminName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, r"""[\-\.:_a-zA-Z0-9]{0,15}""", [], []), 

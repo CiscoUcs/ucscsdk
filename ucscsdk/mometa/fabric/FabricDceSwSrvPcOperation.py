@@ -158,9 +158,9 @@ class FabricDceSwSrvPcOperation(ManagedObject):
     """This is FabricDceSwSrvPcOperation class."""
 
     consts = FabricDceSwSrvPcOperationConsts()
-    naming_props = set([u'portId'])
+    naming_props = set(['portId'])
 
-    mo_meta = MoMeta("FabricDceSwSrvPcOperation", "fabricDceSwSrvPcOperation", "remoper-pc-[port_id]", VersionMeta.Version151a, "InputOutput", 0x1ff, [], ["admin", "ls-network", "ls-network-policy"], [u'fabricDceSwSrv'], [u'eventInst', u'fabricDceSwSrvPcEpOperation', u'fabricDceSwSrvPcOperationFsm', u'fabricEthPortOperationFsm', u'fabricFIPortOperationFsm', u'fabricFIPortOperationFsmTask', u'fabricSubGroup', u'faultInst', u'messageEp', u'vnicEther'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("FabricDceSwSrvPcOperation", "fabricDceSwSrvPcOperation", "remoper-pc-[port_id]", VersionMeta.Version151a, "InputOutput", 0x1ff, [], ["admin", "ls-network", "ls-network-policy"], ['fabricDceSwSrv'], ['eventInst', 'fabricDceSwSrvPcEpOperation', 'fabricDceSwSrvPcOperationFsm', 'fabricEthPortOperationFsm', 'fabricFIPortOperationFsm', 'fabricFIPortOperationFsmTask', 'fabricSubGroup', 'faultInst', 'messageEp', 'vnicEther'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["disabled", "enabled"], []), 

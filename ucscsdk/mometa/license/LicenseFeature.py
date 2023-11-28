@@ -19,9 +19,9 @@ class LicenseFeature(ManagedObject):
     """This is LicenseFeature class."""
 
     consts = LicenseFeatureConsts()
-    naming_props = set([u'name', u'vendor', u'version'])
+    naming_props = set(['name', 'vendor', 'version'])
 
-    mo_meta = MoMeta("LicenseFeature", "licenseFeature", "feature-[name]-[vendor]-[version]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin"], [u'licenseEp'], [u'licenseInstance'], ["Get"])
+    mo_meta = MoMeta("LicenseFeature", "licenseFeature", "feature-[name]-[vendor]-[version]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin"], ['licenseEp'], ['licenseInstance'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

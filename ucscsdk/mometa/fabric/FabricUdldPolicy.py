@@ -21,7 +21,7 @@ class FabricUdldPolicy(ManagedObject):
     consts = FabricUdldPolicyConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("FabricUdldPolicy", "fabricUdldPolicy", "udld-policy", VersionMeta.Version112a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'orgOrg'], [], ["Get", "Set"])
+    mo_meta = MoMeta("FabricUdldPolicy", "fabricUdldPolicy", "udld-policy", VersionMeta.Version112a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['orgOrg'], [], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version112a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

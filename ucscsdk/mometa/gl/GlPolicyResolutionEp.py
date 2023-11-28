@@ -15,7 +15,7 @@ class GlPolicyResolutionEp(ManagedObject):
     consts = GlPolicyResolutionEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("GlPolicyResolutionEp", "glPolicyResolutionEp", "prep", VersionMeta.Version201b, "InputOutput", 0xf, [], ["admin"], [u'glRequest'], [u'glBlockEp', u'glGlobalDefaultPolicyEp', u'glIdentCtxEp', u'glPolicyEp', u'glSpDefEp', u'glVxanEp'], [None])
+    mo_meta = MoMeta("GlPolicyResolutionEp", "glPolicyResolutionEp", "prep", VersionMeta.Version201b, "InputOutput", 0xf, [], ["admin"], ['glRequest'], ['glBlockEp', 'glGlobalDefaultPolicyEp', 'glIdentCtxEp', 'glPolicyEp', 'glSpDefEp', 'glVxanEp'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

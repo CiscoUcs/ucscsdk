@@ -13,9 +13,9 @@ class NetNetGroupPermit(ManagedObject):
     """This is NetNetGroupPermit class."""
 
     consts = NetNetGroupPermitConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("NetNetGroupPermit", "netNetGroupPermit", "ngperm-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], [""], [u'orgOrg'], [], [None])
+    mo_meta = MoMeta("NetNetGroupPermit", "netNetGroupPermit", "ngperm-[name]", VersionMeta.Version201b, "InputOutput", 0x1f, [], [""], ['orgOrg'], [], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

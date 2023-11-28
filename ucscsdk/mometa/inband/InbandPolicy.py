@@ -17,9 +17,9 @@ class InbandPolicy(ManagedObject):
     """This is InbandPolicy class."""
 
     consts = InbandPolicyConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("InbandPolicy", "inbandPolicy", "inband-[name]", VersionMeta.Version201b, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], [u'orgDomainGroup'], [], ["get", "set"])
+    mo_meta = MoMeta("InbandPolicy", "inbandPolicy", "inband-[name]", VersionMeta.Version201b, "InputOutput", 0x1ff, [], ["admin", "ext-lan-config", "ext-lan-policy"], ['orgDomainGroup'], [], ["get", "set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

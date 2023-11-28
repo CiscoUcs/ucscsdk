@@ -23,7 +23,7 @@ class ConfigSearchResult(ManagedObject):
     """This is ConfigSearchResult class."""
 
     consts = ConfigSearchResultConsts()
-    naming_props = set([u'convertedDn', u'domainId'])
+    naming_props = set(['convertedDn', 'domainId'])
 
     mo_meta = MoMeta("ConfigSearchResult", "configSearchResult", "policy-[converted_dn]-domain-[domain_id]", VersionMeta.Version112a, "InputOutput", 0x3f, [], ["read-only"], [], [], ["Get"])
 

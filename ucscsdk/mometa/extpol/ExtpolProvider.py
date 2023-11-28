@@ -38,9 +38,9 @@ class ExtpolProvider(ManagedObject):
     """This is ExtpolProvider class."""
 
     consts = ExtpolProviderConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("ExtpolProvider", "extpolProvider", "prov-[type]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin"], [u'extpolProviderCont'], [u'dupeEp', u'faultInst', u'observeObserved', u'policyPolicyScopeCont'], ["Get"])
+    mo_meta = MoMeta("ExtpolProvider", "extpolProvider", "prov-[type]", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin"], ['extpolProviderCont'], ['dupeEp', 'faultInst', 'observeObserved', 'policyPolicyScopeCont'], ["Get"])
 
     prop_meta = {
         "capability": MoPropertyMeta("capability", "capability", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unspecified|vmm|infra-waf|vm-mgr|pcm|server-mgr|infra-fw|org-mgr|virtual-switching-mgr|service-reg|vm-vasw|infra-pasw|vm-admin|infra-aggr|identifier-mgr|infra-slb|policy-mgr|stats-mgr|vm-fw|infra-pdsw|operation-mgr|infra-crypto-offloa|infra-was|boot-mgr|ipam|central-mgr|vm-slb|storage-broker|resource-mgr),){0,29}(defaultValue|unspecified|vmm|infra-waf|vm-mgr|pcm|server-mgr|infra-fw|org-mgr|virtual-switching-mgr|service-reg|vm-vasw|infra-pasw|vm-admin|infra-aggr|identifier-mgr|infra-slb|policy-mgr|stats-mgr|vm-fw|infra-pdsw|operation-mgr|infra-crypto-offloa|infra-was|boot-mgr|ipam|central-mgr|vm-slb|storage-broker|resource-mgr){0,1}""", [], []), 

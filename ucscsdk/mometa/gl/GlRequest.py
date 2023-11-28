@@ -203,9 +203,9 @@ class GlRequest(ManagedObject):
     """This is GlRequest class."""
 
     consts = GlRequestConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("GlRequest", "glRequest", "req-[id]", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin"], [u'glDomainEp'], [u'eventInst', u'faultInst', u'glInventoryEp', u'glLsp', u'glOperationEp', u'glPathEp', u'glPolicyResolutionEp', u'glRequestFsm', u'glRequestFsmTask', u'glVnicTemplateEp', u'messageEp'], [None])
+    mo_meta = MoMeta("GlRequest", "glRequest", "req-[id]", VersionMeta.Version201b, "InputOutput", 0xff, [], ["admin"], ['glDomainEp'], ['eventInst', 'faultInst', 'glInventoryEp', 'glLsp', 'glOperationEp', 'glPathEp', 'glPolicyResolutionEp', 'glRequestFsm', 'glRequestFsmTask', 'glVnicTemplateEp', 'messageEp'], [None])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["evaluate", "globalize", "reevaluate", "terminate"], []), 

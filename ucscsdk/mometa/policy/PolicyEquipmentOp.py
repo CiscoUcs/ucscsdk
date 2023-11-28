@@ -22,7 +22,7 @@ class PolicyEquipmentOp(ManagedObject):
     consts = PolicyEquipmentOpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("PolicyEquipmentOp", "policyEquipmentOp", "equipment-ctrl", VersionMeta.Version151a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-policy"], [u'policyControlEpOp'], [u'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("PolicyEquipmentOp", "policyEquipmentOp", "equipment-ctrl", VersionMeta.Version151a, "InputOutput", 0x3f, [], ["admin", "pn-equipment", "pn-policy"], ['policyControlEpOp'], ['faultInst'], ["Get", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version151a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

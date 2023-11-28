@@ -13,9 +13,9 @@ class LsbootLanImagePath(ManagedObject):
     """This is LsbootLanImagePath class."""
 
     consts = LsbootLanImagePathConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("LsbootLanImagePath", "lsbootLanImagePath", "path-[type]", VersionMeta.Version111a, "InputOutput", 0xfff, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], [u'lsbootLan'], [u'lsbootUEFIBootParam', u'vnicIpV4StaticAddr'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("LsbootLanImagePath", "lsbootLanImagePath", "path-[type]", VersionMeta.Version111a, "InputOutput", 0xfff, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-server-policy", "ls-storage", "ls-storage-policy"], ['lsbootLan'], ['lsbootUEFIBootParam', 'vnicIpV4StaticAddr'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "boot_ip_policy_name": MoPropertyMeta("boot_ip_policy_name", "bootIpPolicyName", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

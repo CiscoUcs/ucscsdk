@@ -40,7 +40,7 @@ class StorageLocalDiskConfigDef(ManagedObject):
     consts = StorageLocalDiskConfigDefConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageLocalDiskConfigDef", "storageLocalDiskConfigDef", "local-disk-config", VersionMeta.Version131a, "InputOutput", 0x3ff, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-storage", "ls-storage-policy"], [u'lsServer', u'lstorageDasScsiLun', u'storageController', u'storageFlexFlashController'], [u'lstorageSecurity', u'storageLocalDiskPartition'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("StorageLocalDiskConfigDef", "storageLocalDiskConfigDef", "local-disk-config", VersionMeta.Version131a, "InputOutput", 0x3ff, [], ["admin", "ls-compute", "ls-config", "ls-config-policy", "ls-server", "ls-storage", "ls-storage-policy"], ['lsServer', 'lstorageDasScsiLun', 'storageController', 'storageFlexFlashController'], ['lstorageSecurity', 'storageLocalDiskPartition'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

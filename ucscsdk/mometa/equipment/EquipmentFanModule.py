@@ -129,9 +129,9 @@ class EquipmentFanModule(ManagedObject):
     """This is EquipmentFanModule class."""
 
     consts = EquipmentFanModuleConsts()
-    naming_props = set([u'tray', u'id'])
+    naming_props = set(['tray', 'id'])
 
-    mo_meta = MoMeta("EquipmentFanModule", "equipmentFanModule", "fan-module-[tray]-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["read-only"], [u'computeRackUnit', u'equipmentChassis', u'networkElement'], [u'equipmentBeaconLed', u'equipmentFan', u'equipmentFanModuleStats', u'equipmentHealthLed', u'equipmentIndicatorLed', u'equipmentLocatorLed', u'faultInst'], ["Get"])
+    mo_meta = MoMeta("EquipmentFanModule", "equipmentFanModule", "fan-module-[tray]-[id]", VersionMeta.Version111a, "InputOutput", 0x3f, [], ["read-only"], ['computeRackUnit', 'equipmentChassis', 'equipmentCrossFabricModule', 'equipmentIOCard', 'networkElement'], ['equipmentBeaconLed', 'equipmentFan', 'equipmentFanModuleStats', 'equipmentHealthLed', 'equipmentIndicatorLed', 'equipmentLocatorLed', 'faultInst'], ["Get"])
 
     prop_meta = {
         "asset_tag": MoPropertyMeta("asset_tag", "assetTag", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,32}""", [], []), 

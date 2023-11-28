@@ -16,9 +16,9 @@ class StatsStatsQuery(ManagedObject):
     """This is StatsStatsQuery class."""
 
     consts = StatsStatsQueryConsts()
-    naming_props = set([u'queryId'])
+    naming_props = set(['queryId'])
 
-    mo_meta = MoMeta("StatsStatsQuery", "statsStatsQuery", "query-[query_id]", VersionMeta.Version111b, "InputOutput", 0x1f, [], ["read-only"], [u'statsStatsQueryHolder'], [], ["Get"])
+    mo_meta = MoMeta("StatsStatsQuery", "statsStatsQuery", "query-[query_id]", VersionMeta.Version111b, "InputOutput", 0x1f, [], ["read-only"], ['statsStatsQueryHolder'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

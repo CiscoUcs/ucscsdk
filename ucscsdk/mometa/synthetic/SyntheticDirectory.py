@@ -13,9 +13,9 @@ class SyntheticDirectory(ManagedObject):
     """This is SyntheticDirectory class."""
 
     consts = SyntheticDirectoryConsts()
-    naming_props = set([u'ino'])
+    naming_props = set(['ino'])
 
-    mo_meta = MoMeta("SyntheticDirectory", "syntheticDirectory", "dir-[ino]", VersionMeta.Version101a, "InputOutput", 0x7ffff, [], ["admin"], [u'syntheticDirectory', u'topSystem'], [u'syntheticDirectory', u'syntheticFile'], ["Get"])
+    mo_meta = MoMeta("SyntheticDirectory", "syntheticDirectory", "dir-[ino]", VersionMeta.Version101a, "InputOutput", 0x7ffff, [], ["admin"], ['syntheticDirectory', 'topSystem'], ['syntheticDirectory', 'syntheticFile'], ["Get"])
 
     prop_meta = {
         "atime": MoPropertyMeta("atime", "atime", "ulong", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 

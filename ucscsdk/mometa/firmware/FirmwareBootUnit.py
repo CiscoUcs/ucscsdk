@@ -38,9 +38,9 @@ class FirmwareBootUnit(ManagedObject):
     """This is FirmwareBootUnit class."""
 
     consts = FirmwareBootUnitConsts()
-    naming_props = set([u'type'])
+    naming_props = set(['type'])
 
-    mo_meta = MoMeta("FirmwareBootUnit", "firmwareBootUnit", "bootunit-[type]", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["admin"], [u'firmwareBootDefinition'], [], ["Get", "Set"])
+    mo_meta = MoMeta("FirmwareBootUnit", "firmwareBootUnit", "bootunit-[type]", VersionMeta.Version101a, "InputOutput", 0x7ff, [], ["admin"], ['firmwareBootDefinition'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["force-trigger", "trigger", "triggered"], []), 

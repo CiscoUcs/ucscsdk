@@ -157,9 +157,9 @@ class StorageLocalDisk(ManagedObject):
     """This is StorageLocalDisk class."""
 
     consts = StorageLocalDiskConsts()
-    naming_props = set([u'id'])
+    naming_props = set(['id'])
 
-    mo_meta = MoMeta("StorageLocalDisk", "storageLocalDisk", "disk-[id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], [u'storageController', u'storageEnclosure'], [u'equipmentLocatorLed', u'faultInst', u'firmwareBootDefinition', u'firmwareRunning', u'storageControllerEp', u'storageDiskEnvStats', u'storageLocalDiskOperation', u'storageLocalDiskPartition', u'storageOperation', u'storageSasPort'], ["Get"])
+    mo_meta = MoMeta("StorageLocalDisk", "storageLocalDisk", "disk-[id]", VersionMeta.Version111a, "InputOutput", 0x1ff, [], ["admin", "ls-compute", "ls-config", "ls-server", "ls-storage"], ['storageController', 'storageEnclosure'], ['equipmentLocatorLed', 'faultInst', 'firmwareBootDefinition', 'firmwareRunning', 'storageControllerEp', 'storageDiskEnvStats', 'storageLocalDiskOperation', 'storageLocalDiskPartition', 'storageOperation', 'storageSasPort'], ["Get"])
 
     prop_meta = {
         "admin_action": MoPropertyMeta("admin_action", "adminAction", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["clear-secure-drive", "clear-secure-foreign-config-drive", "dedicated-hot-spare", "enable-security", "global-hot-spare", "jbod", "led-off", "led-on", "prepare-for-removal", "remove-hot-spare", "unconfigured-good", "undo-prepare-for-removal", "unlock-foreign-drive", "unspecified"], []), 

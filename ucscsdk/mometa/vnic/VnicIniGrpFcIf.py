@@ -35,9 +35,9 @@ class VnicIniGrpFcIf(ManagedObject):
     """This is VnicIniGrpFcIf class."""
 
     consts = VnicIniGrpFcIfConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("VnicIniGrpFcIf", "vnicIniGrpFcIf", "inigrp-fc-if-[name]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin", "ls-config", "ls-network", "ls-server"], [u'vnicIniGrpFc'], [u'vnicFault'], ["Get"])
+    mo_meta = MoMeta("VnicIniGrpFcIf", "vnicIniGrpFcIf", "inigrp-fc-if-[name]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["admin", "ls-config", "ls-network", "ls-server"], ['vnicIniGrpFc'], ['vnicFault'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

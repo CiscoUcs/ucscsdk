@@ -26,7 +26,7 @@ class AdaptorProtocolProfile(ManagedObject):
     consts = AdaptorProtocolProfileConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("AdaptorProtocolProfile", "adaptorProtocolProfile", "iscsi-prot-profile", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], [u'adaptorHostIscsiIfProfile'], [], ["Add", "Get", "Set"])
+    mo_meta = MoMeta("AdaptorProtocolProfile", "adaptorProtocolProfile", "iscsi-prot-profile", VersionMeta.Version111a, "InputOutput", 0x3ff, [], ["admin", "ls-config-policy", "ls-network", "ls-server-policy"], ['adaptorHostIscsiIfProfile'], [], ["Add", "Get", "Set"])
 
     prop_meta = {
         "boot_to_target": MoPropertyMeta("boot_to_target", "bootToTarget", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["false", "no", "true", "yes"], []), 

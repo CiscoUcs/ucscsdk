@@ -15,7 +15,7 @@ class GlConflictResolutionRuleEp(ManagedObject):
     consts = GlConflictResolutionRuleEpConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("GlConflictResolutionRuleEp", "glConflictResolutionRuleEp", "ruleep", VersionMeta.Version201b, "InputOutput", 0xf, [], ["admin"], [u'glDomainEp'], [u'glPolicyNameRuleEp'], [None])
+    mo_meta = MoMeta("GlConflictResolutionRuleEp", "glConflictResolutionRuleEp", "ruleep", VersionMeta.Version201b, "InputOutput", 0xf, [], ["admin"], ['glDomainEp'], ['glPolicyNameRuleEp'], [None])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version201b, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

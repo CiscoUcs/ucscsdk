@@ -15,7 +15,7 @@ class StorageUsageCounters(ManagedObject):
     consts = StorageUsageCountersConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("StorageUsageCounters", "storageUsageCounters", "storage-usage", VersionMeta.Version131a, "InputOutput", 0xf, [], ["read-only"], [u'storagePartition'], [], ["Get"])
+    mo_meta = MoMeta("StorageUsageCounters", "storageUsageCounters", "storage-usage", VersionMeta.Version131a, "InputOutput", 0xf, [], ["read-only"], ['storagePartition'], [], ["Get"])
 
     prop_meta = {
         "available": MoPropertyMeta("available", "available", "ulong", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

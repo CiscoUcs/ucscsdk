@@ -13,9 +13,9 @@ class IdentpoolIPQual(ManagedObject):
     """This is IdentpoolIPQual class."""
 
     consts = IdentpoolIPQualConsts()
-    naming_props = set([u'addr'])
+    naming_props = set(['addr'])
 
-    mo_meta = MoMeta("IdentpoolIPQual", "identpoolIPQual", "ip-[addr]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin"], [u'identpoolBlockQual'], [], ["Add", "Get", "Remove"])
+    mo_meta = MoMeta("IdentpoolIPQual", "identpoolIPQual", "ip-[addr]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["admin"], ['identpoolBlockQual'], [], ["Add", "Get", "Remove"])
 
     prop_meta = {
         "addr": MoPropertyMeta("addr", "addr", "string", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x2, 0, 256, r"""((([0-9]){1,3}\.){3}[0-9]{1,3})""", [], []), 

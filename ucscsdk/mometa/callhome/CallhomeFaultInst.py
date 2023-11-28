@@ -21,7 +21,7 @@ class CallhomeFaultInst(ManagedObject):
     consts = CallhomeFaultInstConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("CallhomeFaultInst", "callhomeFaultInst", "call-home-fault", VersionMeta.Version141a, "InputOutput", 0xf, [], ["admin", "fault", "operations"], [u'callhomeEp'], [], ["Get"])
+    mo_meta = MoMeta("CallhomeFaultInst", "callhomeFaultInst", "call-home-fault", VersionMeta.Version141a, "InputOutput", 0xf, [], ["admin", "fault", "operations"], ['callhomeEp'], [], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

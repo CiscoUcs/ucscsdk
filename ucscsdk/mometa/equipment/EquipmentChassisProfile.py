@@ -185,9 +185,9 @@ class EquipmentChassisProfile(ManagedObject):
     """This is EquipmentChassisProfile class."""
 
     consts = EquipmentChassisProfileConsts()
-    naming_props = set([u'name'])
+    naming_props = set(['name'])
 
-    mo_meta = MoMeta("EquipmentChassisProfile", "equipmentChassisProfile", "cp-[name]", VersionMeta.Version151a, "InputOutput", 0x7fff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], [u'equipmentTemplate', u'equipmentTier', u'orgOrg'], [u'computeChassisFeatMask', u'cpmaintAck', u'equipmentBinding', u'equipmentCPMeta', u'equipmentChassisIssues', u'equipmentChassisProfileAssocCtx', u'equipmentChassisProfileFsm', u'equipmentChassisProfileFsmTask', u'equipmentRequirement', u'eventInst', u'faultInst', u'lstorageDiskZoningConfigDef'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("EquipmentChassisProfile", "equipmentChassisProfile", "cp-[name]", VersionMeta.Version151a, "InputOutput", 0x7fff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['equipmentTemplate', 'equipmentTier', 'orgOrg'], ['computeChassisFeatMask', 'cpmaintAck', 'equipmentBinding', 'equipmentCPMeta', 'equipmentChassisIssues', 'equipmentChassisProfileAssocCtx', 'equipmentChassisProfileFsm', 'equipmentChassisProfileFsmTask', 'equipmentRequirement', 'eventInst', 'faultInst', 'lstorageDiskZoningConfigDef'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "assign_state": MoPropertyMeta("assign_state", "assignState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["assigned", "failed", "unassigned"], []), 
