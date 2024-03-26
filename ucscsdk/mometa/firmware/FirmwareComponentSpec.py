@@ -14,6 +14,7 @@ class FirmwareComponentSpecConsts():
     TYPE_BLADE_BIOS = "blade-bios"
     TYPE_BLADE_CONTROLLER = "blade-controller"
     TYPE_BOARD_CONTROLLER = "board-controller"
+    TYPE_CPLD = "cpld"
     TYPE_FLEXFLASH_CONTROLLER = "flexflash-controller"
     TYPE_GRAPHICS_CARD = "graphics-card"
     TYPE_HOST_HBA = "host-hba"
@@ -21,13 +22,18 @@ class FirmwareComponentSpecConsts():
     TYPE_HOST_NIC = "host-nic"
     TYPE_HOST_NIC_OPTIONROM = "host-nic-optionrom"
     TYPE_LOCAL_DISK = "local-disk"
+    TYPE_NVME_MSWITCH = "nvme-mswitch"
+    TYPE_PERSISTENT_MEMORY_DIMM = "persistent-memory-dimm"
+    TYPE_PLX_SWITCH = "plx-switch"
     TYPE_PSU = "psu"
+    TYPE_RETIMER = "retimer"
     TYPE_SAS_EXP_REG_FW = "sas-exp-reg-fw"
     TYPE_SAS_EXPANDER = "sas-expander"
     TYPE_STORAGE_CONTROLLER = "storage-controller"
     TYPE_STORAGE_CONTROLLER_ONBOARD_DEVICE = "storage-controller-onboard-device"
     TYPE_STORAGE_CONTROLLER_ONBOARD_DEVICE_CPLD = "storage-controller-onboard-device-cpld"
     TYPE_STORAGE_DEV_BRIDGE = "storage-dev-bridge"
+    TYPE_UBM = "ubm"
     TYPE_UNSPECIFIED = "unspecified"
 
 
@@ -45,7 +51,7 @@ class FirmwareComponentSpec(ManagedObject):
         "exclude_by_default": MoPropertyMeta("exclude_by_default", "excludeByDefault", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x10, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "local-disk", "psu", "sas-exp-reg-fw", "sas-expander", "storage-controller", "storage-controller-onboard-device", "storage-controller-onboard-device-cpld", "storage-dev-bridge", "unspecified"], []), 
+        "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x10, None, None, None, ["adaptor", "blade-bios", "blade-controller", "board-controller", "cpld", "flexflash-controller", "graphics-card", "host-hba", "host-hba-optionrom", "host-nic", "host-nic-optionrom", "local-disk", "nvme-mswitch", "persistent-memory-dimm", "plx-switch", "psu", "retimer", "sas-exp-reg-fw", "sas-expander", "storage-controller", "storage-controller-onboard-device", "storage-controller-onboard-device-cpld", "storage-dev-bridge", "ubm", "unspecified"], []), 
     }
 
     prop_map = {
