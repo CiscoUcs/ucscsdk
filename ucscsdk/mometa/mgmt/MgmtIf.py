@@ -143,12 +143,15 @@ class MgmtIfConsts():
     SUBJECT_BOARD_CONTROLLER = "board-controller"
     SUBJECT_CHASSIS = "chassis"
     SUBJECT_CMC = "cmc"
+    SUBJECT_CPLD = "cpld"
     SUBJECT_IOCARD = "iocard"
     SUBJECT_LOCAL_DISK = "local-disk"
+    SUBJECT_RETIMER = "retimer"
     SUBJECT_SAS_EXPANDER = "sas-expander"
     SUBJECT_SERVER_UNIT = "server-unit"
     SUBJECT_SWITCH = "switch"
     SUBJECT_SYSTEM = "system"
+    SUBJECT_UBM = "ubm"
     SUBJECT_UNKNOWN = "unknown"
 
 
@@ -186,7 +189,7 @@ class MgmtIf(ManagedObject):
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
         "state_qual": MoPropertyMeta("state_qual", "stateQual", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["misconnected", "unspecified", "valid"], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "subject": MoPropertyMeta("subject", "subject", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["adaptor", "blade", "board-controller", "chassis", "cmc", "iocard", "local-disk", "sas-expander", "server-unit", "switch", "system", "unknown"], []), 
+        "subject": MoPropertyMeta("subject", "subject", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["adaptor", "blade", "board-controller", "chassis", "cmc", "cpld", "iocard", "local-disk", "retimer", "sas-expander", "server-unit", "switch", "system", "ubm", "unknown"], []), 
         "vnet": MoPropertyMeta("vnet", "vnet", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], ["0-4090"]), 
     }
 

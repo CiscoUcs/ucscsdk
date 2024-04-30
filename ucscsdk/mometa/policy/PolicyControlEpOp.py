@@ -160,7 +160,7 @@ class PolicyControlEpOp(ManagedObject):
     consts = PolicyControlEpOpConsts()
     naming_props = set(['hostNameOrIP'])
 
-    mo_meta = MoMeta("PolicyControlEpOp", "policyControlEpOp", "control-ep-[host_name_or_ip]", VersionMeta.Version151a, "InputOutput", 0x7ff, [], ["admin"], ['fabricDomainEp'], ['eventInst', 'faultInst', 'policyCommunicationOp', 'policyConfigBackupOp', 'policyControlEpOpFsm', 'policyControlEpOpFsmTask', 'policyDateTimeOp', 'policyDiscoveryOp', 'policyDnsOp', 'policyEquipmentOp', 'policyFaultOp', 'policyInfraFirmwareOp', 'policyMEpOp', 'policyMonitoringOp', 'policyPortConfigOp', 'policyPowerMgmtOp', 'policyPsuOp', 'policySecurityOp', 'policyStorageAutoConfigOp'], ["Add", "Get", "Remove", "Set"])
+    mo_meta = MoMeta("PolicyControlEpOp", "policyControlEpOp", "control-ep-[host_name_or_ip]", VersionMeta.Version151a, "InputOutput", 0x7ff, [], ["admin"], ['fabricDomainEp'], ['eventInst', 'faultInst', 'policyCommunicationOp', 'policyConfigBackupOp', 'policyControlEpOpFsm', 'policyControlEpOpFsmTask', 'policyDateTimeOp', 'policyDiscoveryOp', 'policyDnsOp', 'policyEquipmentOp', 'policyFaultOp', 'policyInfraFirmwareOp', 'policyMEpOp', 'policyModularChassisFanOp', 'policyMonitoringOp', 'policyPortConfigOp', 'policyPowerExtendedOp', 'policyPowerMgmtOp', 'policyPowerSaveOp', 'policyPsuOp', 'policySecurityOp', 'policyStorageAutoConfigOp'], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
         "action_event": MoPropertyMeta("action_event", "actionEvent", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["register", "unknown", "unregister"], []), 

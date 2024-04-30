@@ -11,12 +11,15 @@ class MgmtControllerConsts():
     SUBJECT_BOARD_CONTROLLER = "board-controller"
     SUBJECT_CHASSIS = "chassis"
     SUBJECT_CMC = "cmc"
+    SUBJECT_CPLD = "cpld"
     SUBJECT_IOCARD = "iocard"
     SUBJECT_LOCAL_DISK = "local-disk"
+    SUBJECT_RETIMER = "retimer"
     SUBJECT_SAS_EXPANDER = "sas-expander"
     SUBJECT_SERVER_UNIT = "server-unit"
     SUBJECT_SWITCH = "switch"
     SUBJECT_SYSTEM = "system"
+    SUBJECT_UBM = "ubm"
     SUBJECT_UNKNOWN = "unknown"
 
 
@@ -38,7 +41,7 @@ class MgmtController(ManagedObject):
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "serial": MoPropertyMeta("serial", "serial", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "subject": MoPropertyMeta("subject", "subject", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["adaptor", "blade", "board-controller", "chassis", "cmc", "iocard", "local-disk", "sas-expander", "server-unit", "switch", "system", "unknown"], []), 
+        "subject": MoPropertyMeta("subject", "subject", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["adaptor", "blade", "board-controller", "chassis", "cmc", "cpld", "iocard", "local-disk", "retimer", "sas-expander", "server-unit", "switch", "system", "ubm", "unknown"], []), 
         "supported_capability": MoPropertyMeta("supported_capability", "supportedCapability", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|none|modify-maintenance-mode|factory-reset|local-storage|usb-nic),){0,5}(defaultValue|none|modify-maintenance-mode|factory-reset|local-storage|usb-nic){0,1}""", [], []), 
         "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
     }

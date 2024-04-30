@@ -40,10 +40,12 @@ class StorageControllerConsts():
     LC_REPURPOSED = "repurposed"
     MODE_AHCI = "AHCI"
     MODE_HBA = "HBA"
+    MODE_M2_HWRAID = "M2HWRAID"
     MODE_NVME = "NVME"
     MODE_PHBA = "PHBA"
     MODE_PRAID = "PRAID"
     MODE_RAID = "RAID"
+    MODE_SAS4 = "SAS4"
     MODE_SWRAID = "SWRAID"
     MODE_XSDS = "XSDS"
     MODE_UNKNOWN = "unknown"
@@ -222,7 +224,7 @@ class StorageController(ManagedObject):
         "id_count": MoPropertyMeta("id_count", "idCount", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["min", "unknown"], ["0-4294967295"]), 
         "lc": MoPropertyMeta("lc", "lc", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["allocated", "available", "deallocated", "repurposed"], []), 
         "location_dn": MoPropertyMeta("location_dn", "locationDn", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "mode": MoPropertyMeta("mode", "mode", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["AHCI", "HBA", "NVME", "PHBA", "PRAID", "RAID", "SWRAID", "XSDS", "unknown"], []), 
+        "mode": MoPropertyMeta("mode", "mode", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["AHCI", "HBA", "M2HWRAID", "NVME", "PHBA", "PRAID", "RAID", "SAS4", "SWRAID", "XSDS", "unknown"], []), 
         "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "on_board_memory_present": MoPropertyMeta("on_board_memory_present", "onBoardMemoryPresent", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["no", "unknown", "yes"], []), 
         "on_board_memory_size": MoPropertyMeta("on_board_memory_size", "onBoardMemorySize", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
