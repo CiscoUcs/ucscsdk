@@ -100,7 +100,7 @@ class EquipmentXcvrConsts():
     TYPE_QSFP100GLR4S = "qsfp100glr4s"
     TYPE_QSFP100GSL4 = "qsfp100gsl4"
     TYPE_QSFP100GSMSR = "qsfp100gsmsr"
-    TYPE_QSFP100GSR1.2 = "qsfp100gsr1.2"
+    TYPE_QSFP100GSR1_2 = "qsfp100gsr1.2"
     TYPE_QSFP100GSR4 = "qsfp100gsr4"
     TYPE_QSFP100GSR4S = "qsfp100gsr4s"
     TYPE_QSFP40GCR4 = "qsfp40gcr4"
