@@ -171,7 +171,7 @@ class EtherSwitchIntFIoConsts():
     XCVR_TYPE_QSFP100GLR4S = "qsfp100glr4s"
     XCVR_TYPE_QSFP100GSL4 = "qsfp100gsl4"
     XCVR_TYPE_QSFP100GSMSR = "qsfp100gsmsr"
-    XCVR_TYPE_QSFP100GSR1.2 = "qsfp100gsr1.2"
+    XCVR_TYPE_QSFP100GSR1_2 = "qsfp100gsr1.2"
     XCVR_TYPE_QSFP100GSR4 = "qsfp100gsr4"
     XCVR_TYPE_QSFP100GSR4S = "qsfp100gsr4s"
     XCVR_TYPE_QSFP40GCR4 = "qsfp40gcr4"
