@@ -115,6 +115,7 @@ class GraphicsCardConsts():
     PRESENCE_NOT_SUPPORTED = "not-supported"
     PRESENCE_UNAUTHORIZED = "unauthorized"
     PRESENCE_UNKNOWN = "unknown"
+    TEMPERATURE_NOT_APPLICABLE = "not-applicable"
     THERMAL_LOWER_CRITICAL = "lower-critical"
     THERMAL_LOWER_NON_CRITICAL = "lower-non-critical"
     THERMAL_LOWER_NON_RECOVERABLE = "lower-non-recoverable"
@@ -141,12 +142,13 @@ class GraphicsCard(ManagedObject):
     consts = GraphicsCardConsts()
     naming_props = set(['id'])
 
-    mo_meta = MoMeta("GraphicsCard", "graphicsCard", "graphics-card-[id]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["read-only"], ['computeBoard'], ['firmwareRunning', 'graphicsController'], ["Get"])
+    mo_meta = MoMeta("GraphicsCard", "graphicsCard", "graphics-card-[id]", VersionMeta.Version141a, "InputOutput", 0x1f, [], ["read-only"], ['computeBoard'], ['firmwareBootDefinition', 'firmwareRunning', 'graphicsController'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "device_id": MoPropertyMeta("device_id", "deviceId", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
+        "enclosure_dn": MoPropertyMeta("enclosure_dn", "enclosureDn", "string", VersionMeta.Version201v, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "expander_slot": MoPropertyMeta("expander_slot", "expanderSlot", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "firmware_version": MoPropertyMeta("firmware_version", "firmwareVersion", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version141a, MoPropertyMeta.NAMING, 0x4, None, None, None, [], []), 
@@ -167,10 +169,12 @@ class GraphicsCard(ManagedObject):
         "revision": MoPropertyMeta("revision", "revision", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "serial": MoPropertyMeta("serial", "serial", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "slot_name": MoPropertyMeta("slot_name", "slotName", "string", VersionMeta.Version201v, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "stepping": MoPropertyMeta("stepping", "stepping", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "sub_device_id": MoPropertyMeta("sub_device_id", "subDeviceId", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "sub_vendor_id": MoPropertyMeta("sub_vendor_id", "subVendorId", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "temperature": MoPropertyMeta("temperature", "temperature", "string", VersionMeta.Version201v, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-applicable"], ["0-4294967295"]), 
         "thermal": MoPropertyMeta("thermal", "thermal", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
         "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "vendor_id": MoPropertyMeta("vendor_id", "vendorId", "uint", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
@@ -181,6 +185,7 @@ class GraphicsCard(ManagedObject):
         "childAction": "child_action", 
         "deviceId": "device_id", 
         "dn": "dn", 
+        "enclosureDn": "enclosure_dn", 
         "expanderSlot": "expander_slot", 
         "firmwareVersion": "firmware_version", 
         "id": "id", 
@@ -201,10 +206,12 @@ class GraphicsCard(ManagedObject):
         "revision": "revision", 
         "rn": "rn", 
         "serial": "serial", 
+        "slotName": "slot_name", 
         "status": "status", 
         "stepping": "stepping", 
         "subDeviceId": "sub_device_id", 
         "subVendorId": "sub_vendor_id", 
+        "temperature": "temperature", 
         "thermal": "thermal", 
         "vendor": "vendor", 
         "vendorId": "vendor_id", 
@@ -216,6 +223,7 @@ class GraphicsCard(ManagedObject):
         self.id = id
         self.child_action = None
         self.device_id = None
+        self.enclosure_dn = None
         self.expander_slot = None
         self.firmware_version = None
         self.is_supported = None
@@ -234,10 +242,12 @@ class GraphicsCard(ManagedObject):
         self.presence = None
         self.revision = None
         self.serial = None
+        self.slot_name = None
         self.status = None
         self.stepping = None
         self.sub_device_id = None
         self.sub_vendor_id = None
+        self.temperature = None
         self.thermal = None
         self.vendor = None
         self.vendor_id = None

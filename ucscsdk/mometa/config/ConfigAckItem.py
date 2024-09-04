@@ -20,10 +20,14 @@ class ConfigAckItemConsts():
     INSTANCE_TYPE_CP = "cp"
     INSTANCE_TYPE_SP = "sp"
     INSTANCE_TYPE_UNKNOW = "unknow"
+    OPER_STATE_ACK_ACTIVE = "active"
     OPER_STATE_ACK_APPLIED = "applied"
     OPER_STATE_ACK_APPLY_PENDING = "apply-pending"
     OPER_STATE_ACK_EVALUATED = "evaluated"
     OPER_STATE_ACK_EVALUATION_PENDING = "evaluation-pending"
+    OPER_STATE_ACK_EXPIRED = "expired"
+    OPER_STATE_ACK_NONE = "none"
+    OPER_STATE_ACK_PENDING = "pending"
     OPER_STATE_ACK_UNTRIGGERED = "untriggered"
     OPER_STATE_ACK_WAITING_FOR_DEPENDENCY = "waiting-for-dependency"
     OPER_STATE_ACK_WAITING_FOR_MAINT_WINDOW = "waiting-for-maint-window"
@@ -58,7 +62,7 @@ class ConfigAckItem(ManagedObject):
         "domain_name": MoPropertyMeta("domain_name", "domainName", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "instance_type": MoPropertyMeta("instance_type", "instanceType", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cp", "sp", "unknow"], []), 
         "oper_scheduler": MoPropertyMeta("oper_scheduler", "operScheduler", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "oper_state_ack": MoPropertyMeta("oper_state_ack", "operStateAck", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["applied", "apply-pending", "evaluated", "evaluation-pending", "untriggered", "waiting-for-dependency", "waiting-for-maint-window", "waiting-for-user"], []), 
+        "oper_state_ack": MoPropertyMeta("oper_state_ack", "operStateAck", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["active", "applied", "apply-pending", "evaluated", "evaluation-pending", "expired", "none", "pending", "untriggered", "waiting-for-dependency", "waiting-for-maint-window", "waiting-for-user"], []), 
         "oper_state_requestor": MoPropertyMeta("oper_state_requestor", "operStateRequestor", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cap-reached", "failed", "in-progress", "pending", "pending-ack", "triggered"], []), 
         "reboot_reason": MoPropertyMeta("reboot_reason", "rebootReason", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""((none|maintenance-tag|qos-settings|fc-mode|eth-mode),){0,4}(none|maintenance-tag|qos-settings|fc-mode|eth-mode){0,1}""", [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 

@@ -40,6 +40,7 @@ class StorageLunSnapshotConsts():
     DEPLOY_ACTION_RESTORE = "restore"
     DEPLOY_ACTION_SET_OFFLINE = "set-offline"
     DEPLOY_ACTION_SET_ONLINE = "set-online"
+    ID_UNSPECIFIED = "unspecified"
     LUN_MAP_TYPE_NON_SHARED = "non-shared"
     LUN_MAP_TYPE_SHARED = "shared"
     LUN_MAP_TYPE_UNASSIGNED = "unassigned"
@@ -136,7 +137,7 @@ class StorageLunSnapshot(ManagedObject):
         "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "device_id": MoPropertyMeta("device_id", "deviceId", "uint", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
-        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, [], []), 
+        "id": MoPropertyMeta("id", "id", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["unspecified"], ["0-4294967295"]), 
         "locale": MoPropertyMeta("locale", "locale", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "lun_dn": MoPropertyMeta("lun_dn", "lunDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "lun_map_type": MoPropertyMeta("lun_map_type", "lunMapType", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["non-shared", "shared", "unassigned"], []), 

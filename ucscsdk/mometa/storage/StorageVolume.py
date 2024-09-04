@@ -17,6 +17,7 @@ class StorageVolumeConsts():
     ADMIN_STATE_TRANSPORT_READY = "transport-ready"
     ADMIN_STATE_UNDEFINED = "undefined"
     ADMIN_STATE_UNHIDE = "unhide"
+    BACKSTORE_ID_UNSPECIFIED = "unspecified"
     BLOCK_SIZE_512 = "512"
     BLOCK_SIZE_UNKNOWN = "unknown"
     CONFIG_STATE_N_A = "N/A"
@@ -40,6 +41,7 @@ class StorageVolumeConsts():
     DEPLOY_ACTION_RESTORE = "restore"
     DEPLOY_ACTION_SET_OFFLINE = "set-offline"
     DEPLOY_ACTION_SET_ONLINE = "set-online"
+    ID_UNSPECIFIED = "unspecified"
     NUMBER_OF_BLOCKS_UNKNOWN = "unknown"
     OPER_STATE_COMPUTE_DEGRADED = "compute-degraded"
     OPER_STATE_COMPUTE_INOPERABLE = "compute-inoperable"
@@ -120,7 +122,7 @@ class StorageVolume(ManagedObject):
         "allocated_size": MoPropertyMeta("allocated_size", "allocatedSize", "ulong", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "available_size": MoPropertyMeta("available_size", "availableSize", "ulong", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "backstore_dn": MoPropertyMeta("backstore_dn", "backstoreDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "backstore_id": MoPropertyMeta("backstore_id", "backstoreId", "uint", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "backstore_id": MoPropertyMeta("backstore_id", "backstoreId", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unspecified"], ["0-4294967295"]), 
         "block_size": MoPropertyMeta("block_size", "blockSize", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["512", "unknown"], ["0-4294967295"]), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "config_qualifier_reason": MoPropertyMeta("config_qualifier_reason", "configQualifierReason", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
@@ -129,7 +131,7 @@ class StorageVolume(ManagedObject):
         "deploy_action": MoPropertyMeta("deploy_action", "deployAction", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["abort-replication", "create", "delete", "modify", "no-action", "replace", "restore", "set-offline", "set-online"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "free_space": MoPropertyMeta("free_space", "freeSpace", "ulong", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
-        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, [], []), 
+        "id": MoPropertyMeta("id", "id", "string", VersionMeta.Version131a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["unspecified"], ["0-4294967295"]), 
         "locale": MoPropertyMeta("locale", "locale", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x10, None, None, r"""[\-\.:_a-zA-Z0-9]{1,32}""", [], []), 

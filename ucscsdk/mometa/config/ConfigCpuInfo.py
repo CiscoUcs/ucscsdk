@@ -13,6 +13,7 @@ class ConfigCpuInfoConsts():
     ARCH_TURION_64 = "Turion_64"
     ARCH_XEON = "Xeon"
     ARCH_XEON_MP = "Xeon_MP"
+    ARCH_ZEN = "Zen"
     ARCH_ANY = "any"
     SPEED_UNSPECIFIED = "unspecified"
 
@@ -26,7 +27,7 @@ class ConfigCpuInfo(ManagedObject):
     mo_meta = MoMeta("ConfigCpuInfo", "configCpuInfo", "cpu-info-[arch]", VersionMeta.Version131a, "InputOutput", 0x1f, [], ["read-only"], ['configServerItem'], [], [None])
 
     prop_meta = {
-        "arch": MoPropertyMeta("arch", "arch", "string", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x2, None, None, None, ["Dual-Core_Opteron", "Intel_P4_C", "Opteron", "Pentium_4", "Turion_64", "Xeon", "Xeon_MP", "any"], []), 
+        "arch": MoPropertyMeta("arch", "arch", "string", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x2, None, None, None, ["Dual-Core_Opteron", "Intel_P4_C", "Opteron", "Pentium_4", "Turion_64", "Xeon", "Xeon_MP", "Zen", "any"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "count": MoPropertyMeta("count", "count", "ushort", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 

@@ -183,7 +183,7 @@ class EquipmentSwitchIOCard(ManagedObject):
     consts = EquipmentSwitchIOCardConsts()
     naming_props = set(['id'])
 
-    mo_meta = MoMeta("EquipmentSwitchIOCard", "equipmentSwitchIOCard", "sw-slot-[id]", VersionMeta.Version121a, "InputOutput", 0x1ff, [], ["admin", "ls-network", "ls-network-policy", "pn-equipment", "pn-maintenance", "pn-policy"], ['equipmentChassis'], ['mgmtController', 'portGroup'], ["Get"])
+    mo_meta = MoMeta("EquipmentSwitchIOCard", "equipmentSwitchIOCard", "sw-slot-[id]", VersionMeta.Version121a, "InputOutput", 0x1ff, [], ["admin", "ls-network", "ls-network-policy", "pn-equipment", "pn-maintenance", "pn-policy"], ['equipmentChassis'], ['equipmentFanModule', 'mgmtController', 'portGroup'], ["Get"])
 
     prop_meta = {
         "admin_peer_power_state": MoPropertyMeta("admin_peer_power_state", "adminPeerPowerState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["cycle-immediate", "cycle-wait", "policy"], []), 

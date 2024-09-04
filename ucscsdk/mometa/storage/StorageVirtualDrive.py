@@ -75,6 +75,7 @@ class StorageVirtualDriveConsts():
     DRIVE_STATE_PARTIALLY_DEGRADED = "partially-degraded"
     DRIVE_STATE_REBUILDING = "rebuilding"
     DRIVE_STATE_UNKNOWN = "unknown"
+    ID_UNSPECIFIED = "unspecified"
     IO_POLICY_CACHED = "cached"
     IO_POLICY_DIRECT = "direct"
     IO_POLICY_UNKNOWN = "unknown"
@@ -83,6 +84,7 @@ class StorageVirtualDriveConsts():
     LC_DEALLOCATED = "deallocated"
     LC_REPURPOSED = "repurposed"
     NUMBER_OF_BLOCKS_UNKNOWN = "unknown"
+    OPER_DEVICE_ID_UNSPECIFIED = "unspecified"
     OPER_STATE_COMPUTE_DEGRADED = "compute-degraded"
     OPER_STATE_COMPUTE_INOPERABLE = "compute-inoperable"
     OPER_STATE_OFFLINE = "offline"
@@ -183,14 +185,14 @@ class StorageVirtualDrive(ManagedObject):
         "drive_cache": MoPropertyMeta("drive_cache", "driveCache", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disable", "enable", "no-change", "unknown"], []), 
         "drive_security": MoPropertyMeta("drive_security", "driveSecurity", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["false", "no", "true", "yes"], []), 
         "drive_state": MoPropertyMeta("drive_state", "driveState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cache-degraded", "degraded", "offline", "optimal", "partially-degraded", "rebuilding", "unknown"], []), 
-        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x40, None, None, None, [], []), 
+        "id": MoPropertyMeta("id", "id", "string", VersionMeta.Version131a, MoPropertyMeta.NAMING, 0x40, None, None, None, ["unspecified"], ["0-4294967295"]), 
         "io_policy": MoPropertyMeta("io_policy", "ioPolicy", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cached", "direct", "unknown"], []), 
         "lc": MoPropertyMeta("lc", "lc", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["allocated", "available", "deallocated", "repurposed"], []), 
         "locale": MoPropertyMeta("locale", "locale", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "number_of_blocks": MoPropertyMeta("number_of_blocks", "numberOfBlocks", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
-        "oper_device_id": MoPropertyMeta("oper_device_id", "operDeviceId", "uint", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "oper_device_id": MoPropertyMeta("oper_device_id", "operDeviceId", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unspecified"], ["0-4294967295"]), 
         "oper_qualifier_reason": MoPropertyMeta("oper_qualifier_reason", "operQualifierReason", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["compute-degraded", "compute-inoperable", "offline", "online", "undefined"], []), 
         "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 

@@ -126,6 +126,7 @@ class ComputeSystemConsts():
     PRODUCT_FAMILY_UCS_CLASSIC_4GEN = "ucs-classic-4gen"
     PRODUCT_FAMILY_UCS_CLASSIC_5GEN = "ucs-classic-5gen"
     PRODUCT_FAMILY_UCS_MINI = "ucs-mini"
+    PRODUCT_FAMILY_UCS_X_SERIES_DIRECT = "ucs-x-series-direct"
     REFRESH_IMMEDIATE_FLAG_FALSE = "false"
     REFRESH_IMMEDIATE_FLAG_NO = "no"
     REFRESH_IMMEDIATE_FLAG_TRUE = "true"
@@ -174,7 +175,7 @@ class ComputeSystem(ManagedObject):
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "oper_group_dn": MoPropertyMeta("oper_group_dn", "operGroupDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-classic-4gen", "ucs-classic-5gen", "ucs-mini"], []), 
+        "product_family": MoPropertyMeta("product_family", "productFamily", "string", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ucs-classic", "ucs-classic-3gen", "ucs-classic-4gen", "ucs-classic-5gen", "ucs-mini", "ucs-x-series-direct"], []), 
         "refresh_immediate_flag": MoPropertyMeta("refresh_immediate_flag", "refreshImmediateFlag", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["false", "no", "true", "yes"], []), 
         "remote_flt_aggr": MoPropertyMeta("remote_flt_aggr", "remoteFltAggr", "ulong", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x40, 0, 256, None, [], []), 

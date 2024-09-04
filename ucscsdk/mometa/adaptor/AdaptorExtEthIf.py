@@ -8,11 +8,13 @@ from ...ucscmeta import VersionMeta
 class AdaptorExtEthIfConsts():
     CHASSIS_ID_N_A = "N/A"
     DISCOVERY_ABSENT = "absent"
+    DISCOVERY_INIT = "init"
     DISCOVERY_MIS_CONNECT = "mis-connect"
     DISCOVERY_MISSING = "missing"
     DISCOVERY_NEW = "new"
     DISCOVERY_PRESENT = "present"
     DISCOVERY_UN_INITIALIZED = "un-initialized"
+    DISCOVERY_UN_SUPPORTED = "un-supported"
     IF_ROLE_DIAG = "diag"
     IF_ROLE_FCOE_NAS_STORAGE = "fcoe-nas-storage"
     IF_ROLE_FCOE_STORAGE = "fcoe-storage"
@@ -83,7 +85,7 @@ class AdaptorExtEthIf(ManagedObject):
         "aggr_port_id": MoPropertyMeta("aggr_port_id", "aggrPortId", "uint", VersionMeta.Version121a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "chassis_id": MoPropertyMeta("chassis_id", "chassisId", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["N/A"], ["0-255"]), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "discovery": MoPropertyMeta("discovery", "discovery", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["absent", "mis-connect", "missing", "new", "present", "un-initialized"], []), 
+        "discovery": MoPropertyMeta("discovery", "discovery", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["absent", "init", "mis-connect", "missing", "new", "present", "un-initialized", "un-supported"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "ep_dn": MoPropertyMeta("ep_dn", "epDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x8, None, None, None, [], []), 

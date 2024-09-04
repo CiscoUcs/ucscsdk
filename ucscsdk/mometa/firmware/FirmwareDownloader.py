@@ -166,7 +166,7 @@ class FirmwareDownloader(ManagedObject):
         "oauth_create_ts": MoPropertyMeta("oauth_create_ts", "oauthCreateTs", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
         "oauth_token_expiry": MoPropertyMeta("oauth_token_expiry", "oauthTokenExpiry", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "oauth_token_type": MoPropertyMeta("oauth_token_type", "oauthTokenType", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oauth_token_val": MoPropertyMeta("oauth_token_val", "oauthTokenVal", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oauth_token_val": MoPropertyMeta("oauth_token_val", "oauthTokenVal", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "owner": MoPropertyMeta("owner", "owner", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["management", "policy"], []), 
         "protocol": MoPropertyMeta("protocol", "protocol", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["ftp", "http", "local", "scp", "sftp", "tftp"], []), 
         "proxy_pwd": MoPropertyMeta("proxy_pwd", "proxyPwd", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 

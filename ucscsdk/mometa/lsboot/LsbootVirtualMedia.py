@@ -15,6 +15,7 @@ class LsbootVirtualMediaConsts():
     ACCESS_READ_WRITE_LOCAL = "read-write-local"
     ACCESS_READ_WRITE_REMOTE = "read-write-remote"
     ACCESS_READ_WRITE_REMOTE_CIMC = "read-write-remote-cimc"
+    LUN_ID_UNSPECIFIED = "unspecified"
     TYPE_EFI_SHELL = "efi-shell"
     TYPE_ISCSI = "iscsi"
     TYPE_LAN = "lan"
@@ -35,7 +36,7 @@ class LsbootVirtualMedia(ManagedObject):
         "access": MoPropertyMeta("access", "access", "string", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x2, None, None, None, ["read-only", "read-only-local", "read-only-remote", "read-only-remote-cimc", "read-write", "read-write-drive", "read-write-local", "read-write-remote", "read-write-remote-cimc"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
-        "lun_id": MoPropertyMeta("lun_id", "lunId", "uint", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, [], []), 
+        "lun_id": MoPropertyMeta("lun_id", "lunId", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["unspecified"], ["0-4294967295"]), 
         "mapping_name": MoPropertyMeta("mapping_name", "mappingName", "string", VersionMeta.Version121a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "order": MoPropertyMeta("order", "order", "ushort", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, [], ["1-16"]), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x40, 0, 256, None, [], []), 

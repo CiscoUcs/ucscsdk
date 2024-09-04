@@ -13,6 +13,7 @@ class ProcessorUnitConsts():
     ARCH_TURION_64 = "Turion_64"
     ARCH_XEON = "Xeon"
     ARCH_XEON_MP = "Xeon_MP"
+    ARCH_ZEN = "Zen"
     ARCH_ANY = "any"
     CORES_UNSPECIFIED = "unspecified"
     CORES_ENABLED_UNSPECIFIED = "unspecified"
@@ -149,7 +150,7 @@ class ProcessorUnit(ManagedObject):
     mo_meta = MoMeta("ProcessorUnit", "processorUnit", "cpu-[id]", VersionMeta.Version111a, "InputOutput", 0x1f, [], ["read-only"], ['computeBoard'], ['faultInst', 'processorEnvStats', 'processorErrorStats'], ["Get"])
 
     prop_meta = {
-        "arch": MoPropertyMeta("arch", "arch", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["Dual-Core_Opteron", "Intel_P4_C", "Opteron", "Pentium_4", "Turion_64", "Xeon", "Xeon_MP", "any"], []), 
+        "arch": MoPropertyMeta("arch", "arch", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["Dual-Core_Opteron", "Intel_P4_C", "Opteron", "Pentium_4", "Turion_64", "Xeon", "Xeon_MP", "Zen", "any"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "cores": MoPropertyMeta("cores", "cores", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unspecified"], ["0-65535"]), 
         "cores_enabled": MoPropertyMeta("cores_enabled", "coresEnabled", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unspecified"], ["0-65535"]), 

@@ -161,7 +161,7 @@ class ComputeBoard(ManagedObject):
     consts = ComputeBoardConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("ComputeBoard", "computeBoard", "board", VersionMeta.Version111a, "InputOutput", 0xf, [], ["read-only"], ['computeBlade', 'computeRackUnit', 'computeServerUnit'], ['computeIOHub', 'computeMbPowerStats', 'computeMbTempStats', 'computePCIeFatalCompletionStats', 'computePCIeFatalProtocolStats', 'computePCIeFatalReceiveStats', 'computePCIeFatalStats', 'computeRackUnitMbTempStats', 'faultInst', 'graphicsCard', 'lstorageLocal', 'lstorageLocalDef', 'lstorageRemote', 'lstorageRemoteDef', 'memoryArray', 'memoryBufferUnit', 'processorUnit', 'securityUnit', 'storageController', 'storageFlexFlashController', 'storageSasExpander'], ["Get"])
+    mo_meta = MoMeta("ComputeBoard", "computeBoard", "board", VersionMeta.Version111a, "InputOutput", 0xf, [], ["read-only"], ['computeBlade', 'computeRackUnit', 'computeServerUnit'], ['computeIOHub', 'computeMbPowerStats', 'computeMbTempStats', 'computePCIeFatalCompletionStats', 'computePCIeFatalProtocolStats', 'computePCIeFatalReceiveStats', 'computePCIeFatalStats', 'computeRackUnitMbTempStats', 'equipmentPcieConnectorUnit', 'faultInst', 'graphicsCard', 'lstorageLocal', 'lstorageLocalDef', 'lstorageRemote', 'lstorageRemoteDef', 'memoryArray', 'memoryBufferUnit', 'processorUnit', 'securityUnit', 'storageController', 'storageFlexFlashController', 'storageSasExpander'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

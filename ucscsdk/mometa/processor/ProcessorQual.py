@@ -13,6 +13,7 @@ class ProcessorQualConsts():
     ARCH_TURION_64 = "Turion_64"
     ARCH_XEON = "Xeon"
     ARCH_XEON_MP = "Xeon_MP"
+    ARCH_ZEN = "Zen"
     ARCH_ANY = "any"
     MAX_CORES_UNSPECIFIED = "unspecified"
     MAX_PROCS_UNSPECIFIED = "unspecified"
@@ -33,7 +34,7 @@ class ProcessorQual(ManagedObject):
     mo_meta = MoMeta("ProcessorQual", "processorQual", "cpu", VersionMeta.Version111a, "InputOutput", 0x3fff, [], ["admin", "pn-policy", "read-only"], ['computeQual'], [], ["Add", "Get", "Remove", "Set"])
 
     prop_meta = {
-        "arch": MoPropertyMeta("arch", "arch", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["Dual-Core_Opteron", "Intel_P4_C", "Opteron", "Pentium_4", "Turion_64", "Xeon", "Xeon_MP", "any"], []), 
+        "arch": MoPropertyMeta("arch", "arch", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["Dual-Core_Opteron", "Intel_P4_C", "Opteron", "Pentium_4", "Turion_64", "Xeon", "Xeon_MP", "Zen", "any"], []), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "max_cores": MoPropertyMeta("max_cores", "maxCores", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["unspecified"], ["0-65535"]), 
