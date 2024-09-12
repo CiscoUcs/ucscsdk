@@ -292,7 +292,7 @@ class UcscSession(object):
 
         Args:
             url_suffix (str): suffix url to be appended to
-                    http\https://host:port/ to locate the file on the server
+                    http/https://host:port/ to locate the file on the server
             file_dir (str): The directory to download to
             file_name (str): The destination file name for the download
             progress (ucscgenutils.Progress): Class that has method to
@@ -329,7 +329,7 @@ class UcscSession(object):
 
         Args:
             url_suffix (str): suffix url to be appended to
-                http\https://host:port/ to locate the file on the server
+                http/https://host:port/ to locate the file on the server
             source_dir (str): The directory to upload from
             file_name (str): The destination file name for the download
             progress (ucscgenutils.Progress): Class that has method to
