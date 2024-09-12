@@ -155,6 +155,34 @@ class ComputeBladeConsts():
     OPERABILITY_UNKNOWN = "unknown"
     OPERABILITY_UPGRADE_PROBLEM = "upgrade-problem"
     OPERABILITY_VOLTAGE_PROBLEM = "voltage-problem"
+    PCIE_NODE_CAPABLE_FALSE = "false"
+    PCIE_NODE_CAPABLE_NO = "no"
+    PCIE_NODE_CAPABLE_TRUE = "true"
+    PCIE_NODE_CAPABLE_YES = "yes"
+    PCIE_NODE_CONNECTED_FALSE = "false"
+    PCIE_NODE_CONNECTED_NO = "no"
+    PCIE_NODE_CONNECTED_TRUE = "true"
+    PCIE_NODE_CONNECTED_YES = "yes"
+    PCIE_NODE_DISCOVER_STATUS_COMPLETE = "complete"
+    PCIE_NODE_DISCOVER_STATUS_DIAGNOSTICS_COMPLETE = "diagnostics-complete"
+    PCIE_NODE_DISCOVER_STATUS_DIAGNOSTICS_FAILED = "diagnostics-failed"
+    PCIE_NODE_DISCOVER_STATUS_DIAGNOSTICS_IN_PROGRESS = "diagnostics-in-progress"
+    PCIE_NODE_DISCOVER_STATUS_EFIDIAGNOSTICS_IN_PROGRESS = "efidiagnostics-in-progress"
+    PCIE_NODE_DISCOVER_STATUS_FAILED = "failed"
+    PCIE_NODE_DISCOVER_STATUS_FRU_IDENTITY_INDETERMINATE = "fru-identity-indeterminate"
+    PCIE_NODE_DISCOVER_STATUS_FRU_NOT_READY = "fru-not-ready"
+    PCIE_NODE_DISCOVER_STATUS_FRU_STATE_INDETERMINATE = "fru-state-indeterminate"
+    PCIE_NODE_DISCOVER_STATUS_ILLEGAL_FRU = "illegal-fru"
+    PCIE_NODE_DISCOVER_STATUS_IN_PROGRESS = "in-progress"
+    PCIE_NODE_DISCOVER_STATUS_INSUFFICIENTLY_EQUIPPED = "insufficiently-equipped"
+    PCIE_NODE_DISCOVER_STATUS_INVALID_ADAPTOR_IOCARD = "invalid-adaptor-iocard"
+    PCIE_NODE_DISCOVER_STATUS_MALFORMED_FRU_INFO = "malformed-fru-info"
+    PCIE_NODE_DISCOVER_STATUS_RETRY = "retry"
+    PCIE_NODE_DISCOVER_STATUS_THROTTLED = "throttled"
+    PCIE_NODE_DISCOVER_STATUS_UNDISCOVERED = "undiscovered"
+    PCIE_NODE_DISCOVER_STATUS_USER_ACKNOWLEDGED = "user-acknowledged"
+    PCIE_NODE_DISCOVER_STATUS_WAITING_FOR_MGMT_ACK = "waiting-for-mgmt-ack"
+    PCIE_NODE_DISCOVER_STATUS_WAITING_FOR_USER_ACK = "waiting-for-user-ack"
     POLICY_OWNER_LOCAL = "local"
     POLICY_OWNER_PENDING_POLICY = "pending-policy"
     POLICY_OWNER_POLICY = "policy"
@@ -188,7 +216,7 @@ class ComputeBlade(ManagedObject):
     consts = ComputeBladeConsts()
     naming_props = set(['slotId'])
 
-    mo_meta = MoMeta("ComputeBlade", "computeBlade", "blade-[slot_id]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['equipmentChassis'], ['adaptorHostIfConfig', 'adaptorUnit', 'biosUnit', 'computeBoard', 'computeBoardConnector', 'computeBoardController', 'computeExtBoard', 'computeFactoryResetOp', 'computeFactoryResetOperation', 'computePhysicalExtension', 'computePhysicalOperation', 'computePoolable', 'computeRebootLog', 'diagSrvCtrl', 'equipmentBeaconLed', 'equipmentHealthLed', 'equipmentIndicatorLed', 'equipmentLocatorLed', 'faultInst', 'firmwareStatus', 'lsIdentityInfo', 'lsbootDef', 'memoryRuntime', 'mgmtController', 'mgmtSecurity', 'osInstance', 'processorRuntime', 'storageEnclosure', 'storageVirtualDriveContainer', 'sysdebugDiagnosticLog'], ["Get"])
+    mo_meta = MoMeta("ComputeBlade", "computeBlade", "blade-[slot_id]", VersionMeta.Version101a, "InputOutput", 0x3ff, [], ["admin", "pn-equipment", "pn-maintenance", "pn-policy"], ['equipmentChassis'], ['adaptorHostIfConfig', 'adaptorUnit', 'biosUnit', 'computeBoard', 'computeBoardConnector', 'computeBoardController', 'computeExtBoard', 'computeFactoryResetOp', 'computeFactoryResetOperation', 'computePhysicalExtension', 'computePhysicalOperation', 'computePoolable', 'computeRebootLog', 'diagSrvCtrl', 'equipmentBeaconLed', 'equipmentHealthLed', 'equipmentIndicatorLed', 'equipmentLocatorLed', 'equipmentPcieNode', 'faultInst', 'firmwareStatus', 'lsIdentityInfo', 'lsbootDef', 'memoryRuntime', 'mgmtController', 'mgmtSecurity', 'osInstance', 'processorRuntime', 'storageEnclosure', 'storageVirtualDriveContainer', 'sysdebugDiagnosticLog'], ["Get"])
 
     prop_meta = {
         "admin_power": MoPropertyMeta("admin_power", "adminPower", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["admin-down", "admin-up", "bmc-reset-immediate", "bmc-reset-wait", "cmos-reset-immediate", "cycle-immediate", "cycle-wait", "diagnostic-interrupt", "hard-reset-immediate", "hard-reset-wait", "ipmi-reset", "kvm-reset", "policy"], []), 
@@ -207,6 +235,7 @@ class ComputeBlade(ManagedObject):
         "discovery": MoPropertyMeta("discovery", "discovery", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["complete", "diagnostics-complete", "diagnostics-failed", "diagnostics-in-progress", "efidiagnostics-in-progress", "failed", "fru-identity-indeterminate", "fru-not-ready", "fru-state-indeterminate", "illegal-fru", "in-progress", "insufficiently-equipped", "invalid-adaptor-iocard", "malformed-fru-info", "retry", "throttled", "undiscovered", "user-acknowledged", "waiting-for-mgmt-ack", "waiting-for-user-ack"], []), 
         "discovery_status": MoPropertyMeta("discovery_status", "discoveryStatus", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|A|B),){0,3}(defaultValue|unknown|A|B){0,1}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
+        "dual_slot_peer_pcie_node_dn": MoPropertyMeta("dual_slot_peer_pcie_node_dn", "dualSlotPeerPcieNodeDn", "string", VersionMeta.Version201v, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "flt_aggr": MoPropertyMeta("flt_aggr", "fltAggr", "ulong", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "int_id": MoPropertyMeta("int_id", "intId", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, None, ["none"], ["0-4294967295"]), 
         "kmip_fault": MoPropertyMeta("kmip_fault", "kmipFault", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
@@ -237,6 +266,10 @@ class ComputeBlade(ManagedObject):
         "operability": MoPropertyMeta("operability", "operability", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["accessibility-problem", "auto-upgrade", "backplane-port-problem", "bios-post-timeout", "chassis-limit-exceeded", "config", "decomissioning", "degraded", "disabled", "discovery", "discovery-failed", "equipment-problem", "fabric-conn-problem", "fabric-unsupported-conn", "identify", "identity-unestablishable", "inoperable", "malformed-fru", "not-supported", "operable", "peer-comm-problem", "performance-problem", "post-failure", "power-problem", "powered-off", "removed", "thermal-problem", "unknown", "upgrade-problem", "voltage-problem"], []), 
         "original_uuid": MoPropertyMeta("original_uuid", "originalUuid", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F]){8}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){12})|0""", [], []), 
         "part_number": MoPropertyMeta("part_number", "partNumber", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "pcie_node_capable": MoPropertyMeta("pcie_node_capable", "pcieNodeCapable", "string", VersionMeta.Version201v, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
+        "pcie_node_connected": MoPropertyMeta("pcie_node_connected", "pcieNodeConnected", "string", VersionMeta.Version201v, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
+        "pcie_node_discover_status": MoPropertyMeta("pcie_node_discover_status", "pcieNodeDiscoverStatus", "string", VersionMeta.Version201v, MoPropertyMeta.READ_ONLY, None, None, None, None, ["complete", "diagnostics-complete", "diagnostics-failed", "diagnostics-in-progress", "efidiagnostics-in-progress", "failed", "fru-identity-indeterminate", "fru-not-ready", "fru-state-indeterminate", "illegal-fru", "in-progress", "insufficiently-equipped", "invalid-adaptor-iocard", "malformed-fru-info", "retry", "throttled", "undiscovered", "user-acknowledged", "waiting-for-mgmt-ack", "waiting-for-user-ack"], []), 
+        "peer_pcie_node_dn": MoPropertyMeta("peer_pcie_node_dn", "peerPcieNodeDn", "string", VersionMeta.Version201v, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
         "presence": MoPropertyMeta("presence", "presence", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["empty", "equipped", "equipped-identity-unestablishable", "equipped-not-primary", "equipped-slave", "equipped-unsupported", "equipped-with-malformed-fru", "inaccessible", "mismatch", "mismatch-identity-unestablishable", "mismatch-slave", "missing", "missing-slave", "unauthorized", "unknown"], []), 
@@ -272,6 +305,7 @@ class ComputeBlade(ManagedObject):
         "discovery": "discovery", 
         "discoveryStatus": "discovery_status", 
         "dn": "dn", 
+        "dualSlotPeerPcieNodeDn": "dual_slot_peer_pcie_node_dn", 
         "fltAggr": "flt_aggr", 
         "intId": "int_id", 
         "kmipFault": "kmip_fault", 
@@ -302,6 +336,10 @@ class ComputeBlade(ManagedObject):
         "operability": "operability", 
         "originalUuid": "original_uuid", 
         "partNumber": "part_number", 
+        "pcieNodeCapable": "pcie_node_capable", 
+        "pcieNodeConnected": "pcie_node_connected", 
+        "pcieNodeDiscoverStatus": "pcie_node_discover_status", 
+        "peerPcieNodeDn": "peer_pcie_node_dn", 
         "policyLevel": "policy_level", 
         "policyOwner": "policy_owner", 
         "presence": "presence", 
@@ -338,6 +376,7 @@ class ComputeBlade(ManagedObject):
         self.descr = None
         self.discovery = None
         self.discovery_status = None
+        self.dual_slot_peer_pcie_node_dn = None
         self.flt_aggr = None
         self.int_id = None
         self.kmip_fault = None
@@ -368,6 +407,10 @@ class ComputeBlade(ManagedObject):
         self.operability = None
         self.original_uuid = None
         self.part_number = None
+        self.pcie_node_capable = None
+        self.pcie_node_connected = None
+        self.pcie_node_discover_status = None
+        self.peer_pcie_node_dn = None
         self.policy_level = None
         self.policy_owner = None
         self.presence = None

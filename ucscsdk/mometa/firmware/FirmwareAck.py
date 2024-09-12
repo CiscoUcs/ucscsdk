@@ -20,10 +20,14 @@ class FirmwareAckConsts():
     IGNORE_CAP_TRUE = "true"
     IGNORE_CAP_YES = "yes"
     INT_ID_NONE = "none"
+    OPER_STATE_ACTIVE = "active"
     OPER_STATE_APPLIED = "applied"
     OPER_STATE_APPLY_PENDING = "apply-pending"
     OPER_STATE_EVALUATED = "evaluated"
     OPER_STATE_EVALUATION_PENDING = "evaluation-pending"
+    OPER_STATE_EXPIRED = "expired"
+    OPER_STATE_NONE = "none"
+    OPER_STATE_PENDING = "pending"
     OPER_STATE_UNTRIGGERED = "untriggered"
     OPER_STATE_WAITING_FOR_DEPENDENCY = "waiting-for-dependency"
     OPER_STATE_WAITING_FOR_MAINT_WINDOW = "waiting-for-maint-window"
@@ -32,10 +36,14 @@ class FirmwareAckConsts():
     POLICY_OWNER_PENDING_POLICY = "pending-policy"
     POLICY_OWNER_POLICY = "policy"
     POLICY_OWNER_UNSPECIFIED = "unspecified"
+    PREV_OPER_STATE_ACTIVE = "active"
     PREV_OPER_STATE_APPLIED = "applied"
     PREV_OPER_STATE_APPLY_PENDING = "apply-pending"
     PREV_OPER_STATE_EVALUATED = "evaluated"
     PREV_OPER_STATE_EVALUATION_PENDING = "evaluation-pending"
+    PREV_OPER_STATE_EXPIRED = "expired"
+    PREV_OPER_STATE_NONE = "none"
+    PREV_OPER_STATE_PENDING = "pending"
     PREV_OPER_STATE_UNTRIGGERED = "untriggered"
     PREV_OPER_STATE_WAITING_FOR_DEPENDENCY = "waiting-for-dependency"
     PREV_OPER_STATE_WAITING_FOR_MAINT_WINDOW = "waiting-for-maint-window"
@@ -69,10 +77,10 @@ class FirmwareAck(ManagedObject):
         "modified": MoPropertyMeta("modified", "modified", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "oper_scheduler": MoPropertyMeta("oper_scheduler", "operScheduler", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
-        "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["applied", "apply-pending", "evaluated", "evaluation-pending", "untriggered", "waiting-for-dependency", "waiting-for-maint-window", "waiting-for-user"], []), 
+        "oper_state": MoPropertyMeta("oper_state", "operState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["active", "applied", "apply-pending", "evaluated", "evaluation-pending", "expired", "none", "pending", "untriggered", "waiting-for-dependency", "waiting-for-maint-window", "waiting-for-user"], []), 
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 
-        "prev_oper_state": MoPropertyMeta("prev_oper_state", "prevOperState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["applied", "apply-pending", "evaluated", "evaluation-pending", "untriggered", "waiting-for-dependency", "waiting-for-maint-window", "waiting-for-user"], []), 
+        "prev_oper_state": MoPropertyMeta("prev_oper_state", "prevOperState", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, None, None, None, None, ["active", "applied", "apply-pending", "evaluated", "evaluation-pending", "expired", "none", "pending", "untriggered", "waiting-for-dependency", "waiting-for-maint-window", "waiting-for-user"], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version201b, MoPropertyMeta.READ_ONLY, 0x20, 0, 256, None, [], []), 
         "scheduler": MoPropertyMeta("scheduler", "scheduler", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version201b, MoPropertyMeta.READ_WRITE, 0x80, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 

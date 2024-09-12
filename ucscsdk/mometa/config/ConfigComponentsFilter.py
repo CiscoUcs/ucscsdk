@@ -18,6 +18,7 @@ class ConfigComponentsFilterConsts():
     COMPONENT_NAME_LUNS = "luns"
     COMPONENT_NAME_MEMORY = "memory"
     COMPONENT_NAME_MOTHERBOARDS = "motherboards"
+    COMPONENT_NAME_PCIE_NODES = "pcieNodes"
     COMPONENT_NAME_PORTS = "ports"
     COMPONENT_NAME_PSUS = "psus"
     COMPONENT_NAME_XFMS = "xfms"
@@ -74,7 +75,7 @@ class ConfigComponentsFilter(ManagedObject):
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "component_name": MoPropertyMeta("component_name", "componentName", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["adaptors", "cartridges", "controllers", "cpus", "cryptoCards", "fans", "graphicsCards", "ioms", "localDisks", "luns", "memory", "motherboards", "ports", "psus", "xfms"], []), 
+        "component_name": MoPropertyMeta("component_name", "componentName", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["adaptors", "cartridges", "controllers", "cpus", "cryptoCards", "fans", "graphicsCards", "ioms", "localDisks", "luns", "memory", "motherboards", "pcieNodes", "ports", "psus", "xfms"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "domain_dn": MoPropertyMeta("domain_dn", "domainDn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, 0, 256, None, [], []), 
         "domain_group_dn": MoPropertyMeta("domain_group_dn", "domainGroupDn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x10, 0, 256, None, [], []), 

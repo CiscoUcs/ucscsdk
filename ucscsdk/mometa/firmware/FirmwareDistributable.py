@@ -197,7 +197,7 @@ class FirmwareDistributable(ManagedObject):
         "oauth_create_ts": MoPropertyMeta("oauth_create_ts", "oauthCreateTs", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
         "oauth_token_expiry": MoPropertyMeta("oauth_token_expiry", "oauthTokenExpiry", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "oauth_token_type": MoPropertyMeta("oauth_token_type", "oauthTokenType", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oauth_token_val": MoPropertyMeta("oauth_token_val", "oauthTokenVal", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
+        "oauth_token_val": MoPropertyMeta("oauth_token_val", "oauthTokenVal", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "oper_dnld_status": MoPropertyMeta("oper_dnld_status", "operDnldStatus", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["deleting", "downloaded", "downloading", "eula-acceptance-required", "failed", "not-downloaded", "triggered"], []), 
         "policy_level": MoPropertyMeta("policy_level", "policyLevel", "uint", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
         "policy_owner": MoPropertyMeta("policy_owner", "policyOwner", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["local", "pending-policy", "policy", "unspecified"], []), 

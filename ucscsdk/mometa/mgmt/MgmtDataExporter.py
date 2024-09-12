@@ -169,6 +169,7 @@ class MgmtDataExporter(ManagedObject):
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "descr": MoPropertyMeta("descr", "descr", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""[ !#$%&\(\)\*\+,\-\./:;\?@\[\]_\{\|\}~a-zA-Z0-9]{0,256}""", [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
+        "err_msg": MoPropertyMeta("err_msg", "errMsg", "string", VersionMeta.Version201v, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "fsm_descr": MoPropertyMeta("fsm_descr", "fsmDescr", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "fsm_prev": MoPropertyMeta("fsm_prev", "fsmPrev", "string", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, ["exportDataBegin", "exportDataDmeDataExport", "exportDataFail", "exportDataSuccess", "exportDataUpload", "nop"], []), 
         "fsm_progr": MoPropertyMeta("fsm_progr", "fsmProgr", "byte", VersionMeta.Version101a, MoPropertyMeta.INTERNAL, None, None, None, None, [], ["0-100"]), 
@@ -208,6 +209,7 @@ class MgmtDataExporter(ManagedObject):
         "childAction": "child_action", 
         "descr": "descr", 
         "dn": "dn", 
+        "errMsg": "err_msg", 
         "fsmDescr": "fsm_descr", 
         "fsmPrev": "fsm_prev", 
         "fsmProgr": "fsm_progr", 
@@ -248,6 +250,7 @@ class MgmtDataExporter(ManagedObject):
         self.at_vm_level = None
         self.child_action = None
         self.descr = None
+        self.err_msg = None
         self.fsm_descr = None
         self.fsm_prev = None
         self.fsm_progr = None

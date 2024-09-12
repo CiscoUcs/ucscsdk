@@ -16,10 +16,12 @@ class StorageVirtualDriveEpConsts():
     DRIVE_STATE_PARTIALLY_DEGRADED = "partially-degraded"
     DRIVE_STATE_REBUILDING = "rebuilding"
     DRIVE_STATE_UNKNOWN = "unknown"
+    ID_UNSPECIFIED = "unspecified"
     LC_ALLOCATED = "allocated"
     LC_AVAILABLE = "available"
     LC_DEALLOCATED = "deallocated"
     LC_REPURPOSED = "repurposed"
+    OPER_DEVICE_ID_UNSPECIFIED = "unspecified"
 
 
 class StorageVirtualDriveEp(ManagedObject):
@@ -36,10 +38,10 @@ class StorageVirtualDriveEp(ManagedObject):
         "container_id": MoPropertyMeta("container_id", "containerId", "uint", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x2, None, None, None, [], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "drive_state": MoPropertyMeta("drive_state", "driveState", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["cache-degraded", "degraded", "offline", "optimal", "partially-degraded", "rebuilding", "unknown"], []), 
-        "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x8, None, None, None, [], []), 
+        "id": MoPropertyMeta("id", "id", "string", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x8, None, None, None, ["unspecified"], ["0-4294967295"]), 
         "lc": MoPropertyMeta("lc", "lc", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["allocated", "available", "deallocated", "repurposed"], []), 
         "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "oper_device_id": MoPropertyMeta("oper_device_id", "operDeviceId", "uint", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, [], []), 
+        "oper_device_id": MoPropertyMeta("oper_device_id", "operDeviceId", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unspecified"], ["0-4294967295"]), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version151a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "uuid": MoPropertyMeta("uuid", "uuid", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""(([0-9a-fA-F]){8}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){4}\-([0-9a-fA-F]){12})|0""", [], []), 
