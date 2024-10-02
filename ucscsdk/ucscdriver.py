@@ -128,7 +128,7 @@ class TLS1Connection(httplib.HTTPSConnection):
 
         # fallback to TLSv1
         self.sock = ssl.wrap_socket(sock, self.key_file, self.cert_file,
-                                    ssl_version=ssl.PROTOCOL_TLSv1)
+                                    ssl_version=ssl.PROTOCOL_TLS)
 
 
 class UcscDriver(object):
