@@ -6,6 +6,9 @@ from ...ucscmeta import VersionMeta
 
 
 class ConfigDomainItemConsts():
+    CONN_PROTOCOL_IPV4 = "ipv4"
+    CONN_PROTOCOL_IPV6 = "ipv6"
+    CONN_PROTOCOL_UNKNOWN = "unknown"
     CONNECTION_STATE_CONNECTED = "connected"
     CONNECTION_STATE_LOST_CONNECTIVITY = "lost-connectivity"
     FAULT_LEVEL_CLEARED = "cleared"
@@ -60,6 +63,7 @@ class ConfigDomainItem(ManagedObject):
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version131a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
+        "conn_protocol": MoPropertyMeta("conn_protocol", "connProtocol", "string", VersionMeta.Version210a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["ipv4", "ipv6", "unknown"], []), 
         "connection_state": MoPropertyMeta("connection_state", "connectionState", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["connected", "lost-connectivity"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "domain_dn": MoPropertyMeta("domain_dn", "domainDn", "string", VersionMeta.Version131a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
@@ -92,6 +96,7 @@ class ConfigDomainItem(ManagedObject):
 
     prop_map = {
         "childAction": "child_action", 
+        "connProtocol": "conn_protocol", 
         "connectionState": "connection_state", 
         "dn": "dn", 
         "domainDn": "domain_dn", 
@@ -125,6 +130,7 @@ class ConfigDomainItem(ManagedObject):
     def __init__(self, parent_mo_or_dn, **kwargs):
         self._dirty_mask = 0
         self.child_action = None
+        self.conn_protocol = None
         self.connection_state = None
         self.domain_dn = None
         self.domain_group_dn = None

@@ -6,6 +6,8 @@ from ...ucscmeta import VersionMeta
 
 
 class AdaptorHostEthIfConsts():
+    SRIOV_HPN_PREFERENCE_DISABLED = "disabled"
+    SRIOV_HPN_PREFERENCE_ENABLED = "enabled"
     CHASSIS_ID_N_A = "N/A"
     DISCOVERY_ABSENT = "absent"
     DISCOVERY_INIT = "init"
@@ -171,6 +173,7 @@ class AdaptorHostEthIfConsts():
     THERMAL_UPPER_NON_RECOVERABLE = "upper-non-recoverable"
     VIRTUALIZATION_PREFERENCE_NONE = "NONE"
     VIRTUALIZATION_PREFERENCE_SRIOV = "SRIOV"
+    VIRTUALIZATION_PREFERENCE_SRIOV_HPN = "SRIOV-HPN"
     VIRTUALIZATION_PREFERENCE_SRIOV_USNIC = "SRIOV-USNIC"
     VIRTUALIZATION_PREFERENCE_SRIOV_VMFEX = "SRIOV-VMFEX"
     VIRTUALIZATION_PREFERENCE_VMMQ = "VMMQ"
@@ -192,9 +195,10 @@ class AdaptorHostEthIf(ManagedObject):
     consts = AdaptorHostEthIfConsts()
     naming_props = set(['id'])
 
-    mo_meta = MoMeta("AdaptorHostEthIf", "adaptorHostEthIf", "host-eth-[id]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], ['adaptorUnit'], ['adaptorEthPortBySizeLargeStats', 'adaptorEthPortBySizeSmallStats', 'adaptorEthPortErrStats', 'adaptorEthPortMcastStats', 'adaptorEthPortOutsizedStats', 'adaptorEthPortStats', 'adaptorHostEthIfOperation', 'adaptorUsnicConnDef', 'adaptorVlan', 'adaptorVmmqConnDef', 'adaptorVnicStats', 'dcxVIf', 'faultInst'], ["Get", "Set"])
+    mo_meta = MoMeta("AdaptorHostEthIf", "adaptorHostEthIf", "host-eth-[id]", VersionMeta.Version111a, "InputOutput", 0xff, [], ["admin", "ext-lan-config", "ext-lan-policy", "pn-equipment", "pn-maintenance", "read-only"], ['adaptorUnit'], ['adaptorEthPortBySizeLargeStats', 'adaptorEthPortBySizeSmallStats', 'adaptorEthPortErrStats', 'adaptorEthPortMcastStats', 'adaptorEthPortOutsizedStats', 'adaptorEthPortStats', 'adaptorHostEthIfOperation', 'adaptorSriovHpnConnDef', 'adaptorUsnicConnDef', 'adaptorVlan', 'adaptorVmmqConnDef', 'adaptorVnicStats', 'dcxVIf', 'faultInst'], ["Get", "Set"])
 
     prop_meta = {
+        "sriov_hpn_preference": MoPropertyMeta("sriov_hpn_preference", "SriovHpnPreference", "string", VersionMeta.Version210a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, [], []), 
         "boot_dev": MoPropertyMeta("boot_dev", "bootDev", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, [], []), 
         "cdn_name": MoPropertyMeta("cdn_name", "cdnName", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
@@ -244,12 +248,13 @@ class AdaptorHostEthIf(ManagedObject):
         "transport": MoPropertyMeta("transport", "transport", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|ether|dce|fc),){0,4}(defaultValue|unknown|ether|dce|fc){0,1}""", [], []), 
         "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|lan|san|ipc),){0,4}(defaultValue|unknown|lan|san|ipc){0,1}""", [], []), 
         "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "virtualization_preference": MoPropertyMeta("virtualization_preference", "virtualizationPreference", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NONE", "SRIOV", "SRIOV-USNIC", "SRIOV-VMFEX", "VMMQ", "VMQ"], []), 
+        "virtualization_preference": MoPropertyMeta("virtualization_preference", "virtualizationPreference", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NONE", "SRIOV", "SRIOV-HPN", "SRIOV-USNIC", "SRIOV-VMFEX", "VMMQ", "VMQ"], []), 
         "vnic_dn": MoPropertyMeta("vnic_dn", "vnicDn", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 256, None, [], []), 
         "voltage": MoPropertyMeta("voltage", "voltage", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
     }
 
     prop_map = {
+        "SriovHpnPreference": "sriov_hpn_preference", 
         "adminState": "admin_state", 
         "bootDev": "boot_dev", 
         "cdnName": "cdn_name", 
@@ -307,6 +312,7 @@ class AdaptorHostEthIf(ManagedObject):
     def __init__(self, parent_mo_or_dn, id, **kwargs):
         self._dirty_mask = 0
         self.id = id
+        self.sriov_hpn_preference = None
         self.admin_state = None
         self.boot_dev = None
         self.cdn_name = None
