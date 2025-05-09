@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from ucscsdk.ucschandle import UcscHandle
 from ucscsdk.utils.ucscbackup import *
 from nose.plugins.attrib import attr
 from ..connection.info import custom_setup, custom_teardown, \
@@ -228,3 +229,17 @@ def test_021_schedule_backup_domain_remove():
 
 def test_022_schedule_export_config_domain_remove():
     remove_schedule_export_config_domain(handle, domain_group="root")
+
+
+def test_023_backup_local_with_file_download(mocker):
+    if local_download is None:
+        skipped("Arguments missing in config file")(test_023_backup_local_with_file_download)()
+
+    mocker.patch.object(UcscHandle, 'is_local_download_supported', return_stmt=True)
+
+    backup_local(handle, local_file_dir, local_file_name,
+                    remove_from_ucsc=True)
+
+    file_name = os.path.join(local_file_dir, local_file_name)
+
+    assert os.path.exists(file_name), f"File {local_file_dir} was not downloaded to {local_file_name}"
