@@ -48,4 +48,4 @@ log.addHandler(console)
 
 __author__ = 'Cisco Systems Inc'
 __email__ = 'ucs-python@cisco.com'
-__version__ = '0.9.0.8'
+__version__ = '0.9.0.9'
