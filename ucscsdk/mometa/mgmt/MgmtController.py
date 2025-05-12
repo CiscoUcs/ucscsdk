@@ -29,7 +29,7 @@ class MgmtController(ManagedObject):
     consts = MgmtControllerConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("MgmtController", "mgmtController", "mgmt", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server"], ['adaptorUnit', 'computeBlade', 'computeBoardController', 'computeRackUnit', 'computeServerUnit', 'computeSystem', 'equipmentChassis', 'equipmentIOCard', 'equipmentSharedIOModule', 'equipmentSwitchIOCard', 'equipmentSystemIOController', 'networkElement', 'storageController', 'storageSasExpander', 'topSystem'], ['cimcvmediaActualMountList', 'firmwareRunning', 'mgmtCmcSecureBoot', 'mgmtConnection', 'mgmtIf', 'mgmtInterface', 'vnicIpV4PooledAddr', 'vnicIpV4ProfDerivedAddr', 'vnicIpV4StaticAddr'], ["Get"])
+    mo_meta = MoMeta("MgmtController", "mgmtController", "mgmt", VersionMeta.Version101a, "InputOutput", 0x1f, [], ["admin", "ls-compute", "ls-config", "ls-network", "ls-server"], ['adaptorUnit', 'computeBlade', 'computeBoardController', 'computeRackUnit', 'computeServerUnit', 'computeSystem', 'equipmentChassis', 'equipmentIOCard', 'equipmentSharedIOModule', 'equipmentSwitchIOCard', 'equipmentSystemIOController', 'networkElement', 'storageController', 'storageSasExpander', 'topSystem'], ['cimcvmediaActualMountList', 'firmwareBootDefinition', 'firmwareRunning', 'mgmtCmcSecureBoot', 'mgmtConnection', 'mgmtIf', 'mgmtInterface', 'vnicIpV4PooledAddr', 'vnicIpV4ProfDerivedAddr', 'vnicIpV4StaticAddr'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version111a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 

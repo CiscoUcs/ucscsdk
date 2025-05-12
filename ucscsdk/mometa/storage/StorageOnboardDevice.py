@@ -13,6 +13,7 @@ class StorageOnboardDeviceConsts():
     CONNECTION_PROTOCOL_SATA = "SATA"
     CONNECTION_PROTOCOL_UNSPECIFIED = "unspecified"
     DEVICE_TYPE_CPLD = "cpld"
+    DEVICE_TYPE_PSOC = "psoc"
     DEVICE_TYPE_SAS_EXP_REG_FW_DEV = "sas-exp-reg-fw-dev"
     DEVICE_TYPE_SBR = "sbr"
     DEVICE_TYPE_UNKNOWN = "unknown"
@@ -82,7 +83,7 @@ class StorageOnboardDevice(ManagedObject):
         "config_check_point": MoPropertyMeta("config_check_point", "configCheckPoint", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|firmware-inventory-reported),){0,2}(defaultValue|unknown|firmware-inventory-reported){0,1}""", [], []), 
         "connection_protocol": MoPropertyMeta("connection_protocol", "connectionProtocol", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NVME", "SAS", "SATA", "unspecified"], []), 
         "description": MoPropertyMeta("description", "description", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "device_type": MoPropertyMeta("device_type", "deviceType", "string", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x2, None, None, None, ["cpld", "sas-exp-reg-fw-dev", "sbr", "unknown"], []), 
+        "device_type": MoPropertyMeta("device_type", "deviceType", "string", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x2, None, None, None, ["cpld", "psoc", "sas-exp-reg-fw-dev", "sbr", "unknown"], []), 
         "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
         "id": MoPropertyMeta("id", "id", "uint", VersionMeta.Version151a, MoPropertyMeta.NAMING, 0x8, None, None, None, [], []), 
         "model": MoPropertyMeta("model", "model", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 

@@ -165,6 +165,13 @@ class StorageControllerConsts():
     REBUILD_RATE_NOT_APPLICABLE = "not-applicable"
     REBUILD_RATE_UNKNOWN = "unknown"
     SUB_OEM_ID_UNKNOWN = "unknown"
+    SUB_TYPE_NA = "NA"
+    SUB_TYPE_NVME_FRONT = "NVME-FRONT"
+    SUB_TYPE_NVME_HHHL = "NVME-HHHL"
+    SUB_TYPE_NVME_M2 = "NVME-M2"
+    SUB_TYPE_NVME_MEZZ = "NVME-MEZZ"
+    SUB_TYPE_NVME_REAR = "NVME-REAR"
+    SUB_TYPE_RDE = "RDE"
     THERMAL_LOWER_CRITICAL = "lower-critical"
     THERMAL_LOWER_NON_CRITICAL = "lower-non-critical"
     THERMAL_LOWER_NON_RECOVERABLE = "lower-non-recoverable"
@@ -250,6 +257,7 @@ class StorageController(ManagedObject):
         "serial": MoPropertyMeta("serial", "serial", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version111a, MoPropertyMeta.READ_WRITE, 0x80, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
         "sub_oem_id": MoPropertyMeta("sub_oem_id", "subOemId", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["unknown"], ["0-4294967295"]), 
+        "sub_type": MoPropertyMeta("sub_type", "subType", "string", VersionMeta.Version211a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NA", "NVME-FRONT", "NVME-HHHL", "NVME-M2", "NVME-MEZZ", "NVME-REAR", "RDE"], []), 
         "supported_strip_sizes": MoPropertyMeta("supported_strip_sizes", "supportedStripSizes", "string", VersionMeta.Version151a, MoPropertyMeta.READ_ONLY, None, None, None, r"""((defaultValue|unknown|not-applicable|8KB|16KB|32KB|64KB|128KB|256KB|512KB|1MB|2MB|4MB|8MB|16MB|32MB|64MB|128MB|256MB|512MB),){0,19}(defaultValue|unknown|not-applicable|8KB|16KB|32KB|64KB|128KB|256KB|512KB|1MB|2MB|4MB|8MB|16MB|32MB|64MB|128MB|256MB|512MB){0,1}""", [], []), 
         "thermal": MoPropertyMeta("thermal", "thermal", "string", VersionMeta.Version111a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
         "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version111a, MoPropertyMeta.NAMING, 0x100, None, None, None, ["FLASH", "HBA", "NVME", "PCH", "PT", "SAS", "SATA", "SD", "external", "unknown"], []), 
@@ -307,6 +315,7 @@ class StorageController(ManagedObject):
         "serial": "serial", 
         "status": "status", 
         "subOemId": "sub_oem_id", 
+        "subType": "sub_type", 
         "supportedStripSizes": "supported_strip_sizes", 
         "thermal": "thermal", 
         "type": "type", 
@@ -364,6 +373,7 @@ class StorageController(ManagedObject):
         self.serial = None
         self.status = None
         self.sub_oem_id = None
+        self.sub_type = None
         self.supported_strip_sizes = None
         self.thermal = None
         self.variant_type = None

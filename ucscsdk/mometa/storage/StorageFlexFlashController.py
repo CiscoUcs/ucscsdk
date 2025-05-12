@@ -167,6 +167,13 @@ class StorageFlexFlashControllerConsts():
     PRESENCE_UNKNOWN = "unknown"
     RAID_SYNC_SUPPORT_NO = "no"
     RAID_SYNC_SUPPORT_YES = "yes"
+    SUB_TYPE_NA = "NA"
+    SUB_TYPE_NVME_FRONT = "NVME-FRONT"
+    SUB_TYPE_NVME_HHHL = "NVME-HHHL"
+    SUB_TYPE_NVME_M2 = "NVME-M2"
+    SUB_TYPE_NVME_MEZZ = "NVME-MEZZ"
+    SUB_TYPE_NVME_REAR = "NVME-REAR"
+    SUB_TYPE_RDE = "RDE"
     THERMAL_LOWER_CRITICAL = "lower-critical"
     THERMAL_LOWER_NON_CRITICAL = "lower-non-critical"
     THERMAL_LOWER_NON_RECOVERABLE = "lower-non-recoverable"
@@ -238,6 +245,7 @@ class StorageFlexFlashController(ManagedObject):
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, 0x20, 0, 256, None, [], []), 
         "serial": MoPropertyMeta("serial", "serial", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version112a, MoPropertyMeta.READ_WRITE, 0x40, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "sub_type": MoPropertyMeta("sub_type", "subType", "string", VersionMeta.Version211a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["NA", "NVME-FRONT", "NVME-HHHL", "NVME-M2", "NVME-MEZZ", "NVME-REAR", "RDE"], []), 
         "thermal": MoPropertyMeta("thermal", "thermal", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["lower-critical", "lower-non-critical", "lower-non-recoverable", "not-supported", "ok", "unknown", "upper-critical", "upper-non-critical", "upper-non-recoverable"], []), 
         "type": MoPropertyMeta("type", "type", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["FLASH", "HBA", "NVME", "PCH", "PT", "SAS", "SATA", "SD", "external", "unknown"], []), 
         "vendor": MoPropertyMeta("vendor", "vendor", "string", VersionMeta.Version112a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
@@ -279,6 +287,7 @@ class StorageFlexFlashController(ManagedObject):
         "rn": "rn", 
         "serial": "serial", 
         "status": "status", 
+        "subType": "sub_type", 
         "thermal": "thermal", 
         "type": "type", 
         "vendor": "vendor", 
@@ -319,6 +328,7 @@ class StorageFlexFlashController(ManagedObject):
         self.revision = None
         self.serial = None
         self.status = None
+        self.sub_type = None
         self.thermal = None
         self.type = None
         self.vendor = None

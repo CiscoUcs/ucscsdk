@@ -30,21 +30,21 @@ class QosclassFc(ManagedObject):
     consts = QosclassFcConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("QosclassFc", "qosclassFc", "class-fc", VersionMeta.Version141a, "InputOutput", 0x7f, [], ["admin", "ext-lan-qos", "ext-san-qos", "ls-network", "ls-network-policy", "ls-qos-policy"], ['qosclassDefinition', 'qosclassPolicy'], [], ["Get", "Set"])
+    mo_meta = MoMeta("QosclassFc", "qosclassFc", "class-fc", VersionMeta.Version141a, "InputOutput", 0x3f, [], ["admin", "ext-lan-qos", "ext-san-qos", "ls-network", "ls-network-policy", "ls-qos-policy"], ['qosclassDefinition', 'qosclassPolicy'], [], ["Get", "Set"])
 
     prop_meta = {
         "admin_state": MoPropertyMeta("admin_state", "adminState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled"], []), 
         "bw_percent": MoPropertyMeta("bw_percent", "bwPercent", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["not-applicable"], ["0-100"]), 
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
-        "cos": MoPropertyMeta("cos", "cos", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["any"], ["0-6", "255-255"]), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
+        "cos": MoPropertyMeta("cos", "cos", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["any"], ["0-6", "255-255"]), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x2, 0, 256, None, [], []), 
         "drop": MoPropertyMeta("drop", "drop", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["drop", "no-drop"], []), 
         "mtu": MoPropertyMeta("mtu", "mtu", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["fc", "normal"], ["0-4294967295"]), 
-        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
+        "name": MoPropertyMeta("name", "name", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x4, None, None, r"""[\-\.:_a-zA-Z0-9]{0,16}""", [], []), 
         "priority": MoPropertyMeta("priority", "priority", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["best-effort", "bronze", "fc", "gold", "platinum", "silver"], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
-        "weight": MoPropertyMeta("weight", "weight", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, ["best-effort", "none"], ["0-10"]), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x10, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "weight": MoPropertyMeta("weight", "weight", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["best-effort", "none"], ["0-10"]), 
     }
 
     prop_map = {
