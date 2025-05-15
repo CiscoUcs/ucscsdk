@@ -33,6 +33,7 @@ class AaaUserData(ManagedObject):
         "pwd_change_interval_begin": MoPropertyMeta("pwd_change_interval_begin", "pwdChangeIntervalBegin", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
         "pwd_changed_date": MoPropertyMeta("pwd_changed_date", "pwdChangedDate", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
         "pwd_history": MoPropertyMeta("pwd_history", "pwdHistory", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, None, 0, 1024, None, [], []), 
+        "pwd_history2": MoPropertyMeta("pwd_history2", "pwdHistory2", "string", VersionMeta.Version211a, MoPropertyMeta.READ_ONLY, None, 0, 1024, None, [], []), 
         "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version101a, MoPropertyMeta.READ_ONLY, 0x10, 0, 256, None, [], []), 
         "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version101a, MoPropertyMeta.READ_WRITE, 0x20, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }
@@ -49,6 +50,7 @@ class AaaUserData(ManagedObject):
         "pwdChangeIntervalBegin": "pwd_change_interval_begin", 
         "pwdChangedDate": "pwd_changed_date", 
         "pwdHistory": "pwd_history", 
+        "pwdHistory2": "pwd_history2", 
         "rn": "rn", 
         "status": "status", 
     }
@@ -65,6 +67,7 @@ class AaaUserData(ManagedObject):
         self.pwd_change_interval_begin = None
         self.pwd_changed_date = None
         self.pwd_history = None
+        self.pwd_history2 = None
         self.status = None
 
         ManagedObject.__init__(self, "AaaUserData", parent_mo_or_dn, **kwargs)
