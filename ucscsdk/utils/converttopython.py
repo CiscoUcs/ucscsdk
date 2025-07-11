@@ -1,14 +1,10 @@
 """
-This module generated the python script using UCS GUI, GUI logs and xml
-request.
+This module generated the python script using xml request.
 """
 
 from __future__ import print_function
 
 import os
-import sys
-import time
-import glob
 import re
 import xml.dom
 import xml.dom.minidom
@@ -1256,50 +1252,7 @@ def _extract_xml(file_stream, line):
         line = file_stream.readline()
 
 
-def _find_xml_requests_in_file(file_stream, gui_log):
-    """
-    Internal method which depending on gui_log flag, calls the _extract_xml()
-    internally.
-    """
-
-    line = file_stream.readline()
-    while line != "":
-        if not gui_log:
-            _extract_xml(file_stream, line)
-        elif "[------------- Sending Request to Server ------------" in line:
-            line = file_stream.readline()
-            if line is not None and _check_if_any_list_value_in_string(
-                    _multi_line_method,line):
-                # print "[%s]" %(line)
-                _extract_xml(file_stream, line)
-        line = file_stream.readline()
-
-
-def _if_path_or_literal_path(path, literal_path, gui_log):
-    """
-    Internal method which checks if path or literal_path present for the
-    respective parameter set and if exists then
-    call _find_xml_requests_in_file().
-    """
-
-    if path:
-        if literal_path:
-            print("Parameter <path> takes precedence over <literal_path>")
-        file_path = path
-    elif literal_path:
-        file_path = literal_path
-    else:
-        print("Please provide path or literal_path")
-        return
-
-    file_stream = open(file_path, 'r')
-    _find_xml_requests_in_file(file_stream, gui_log)
-    file_stream.close()
-
-
-
 def convert_to_ucs_python(xml=False, request=None,
-                          path=None, literal_path=None,
                           dump_to_file=False, dump_file_path=None,
                           dump_xml=False):
     """
@@ -1308,9 +1261,6 @@ def convert_to_ucs_python(xml=False, request=None,
     Args:
         xml (bool): if True, generates python script using xml request.
         request (str): xml request
-        path (str): path of the file containing xml request or ucsm logfile
-        literal_path (str): path of the file containing xml request or
-              ucsm logfile
         dump_to_file (bool): if True, dump the code to file
         dump_file_path (str): path of file where to dump generated code.
         dump_xml (bool): if True, display the xml extracted for generating
@@ -1336,7 +1286,7 @@ def convert_to_ucs_python(xml=False, request=None,
              </configConfRename>'''\n
             convert_to_ucs_python(xml=True, request=xml_str)\n
 
-            file_path = '/home/user/ucsmxml/configrequest.xml'\n
+            file_path = '/home/user/ucscxml/configrequest.xml'\n
             convert_to_ucs_python(xml=True, path=file_path)\n
 
     """
@@ -1359,8 +1309,6 @@ def convert_to_ucs_python(xml=False, request=None,
     if xml in ucscgenutils.AFFIRMATIVE_LIST:
         if request:
             _generate_cmdlets(request)
-        elif path or literal_path:
-            _if_path_or_literal_path(path, literal_path, False)
         else:
             print("Provide request")
             return
