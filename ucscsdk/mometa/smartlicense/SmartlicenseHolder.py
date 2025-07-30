@@ -177,19 +177,20 @@ class SmartlicenseHolder(ManagedObject):
     consts = SmartlicenseHolderConsts()
     naming_props = set([])
 
-    mo_meta = MoMeta("SmartlicenseHolder", "smartlicenseHolder", "smartlicense", VersionMeta.Version141a, "InputOutput", 0x3ff, [], ["admin"], ['topRoot'], ['callhomeEp', 'eventInst', 'faultInst', 'smartlicenseAgent', 'smartlicenseEntitlement', 'smartlicenseEntitlementEp', 'smartlicenseEp', 'smartlicenseHolderFsm', 'smartlicenseHolderFsmTask'], ["Get"])
+    mo_meta = MoMeta("SmartlicenseHolder", "smartlicenseHolder", "smartlicense", VersionMeta.Version141a, "InputOutput", 0x1fff, [], ["admin"], ['topRoot'], ['callhomeEp', 'eventInst', 'faultInst', 'smartlicenseAgent', 'smartlicenseEntitlement', 'smartlicenseEntitlementEp', 'smartlicenseEp', 'smartlicenseHolderFsm', 'smartlicenseHolderFsmTask'], ["Get"])
 
     prop_meta = {
         "child_action": MoPropertyMeta("child_action", "childAction", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""((deleteAll|ignore|deleteNonPresent),){0,2}(deleteAll|ignore|deleteNonPresent){0,1}""", [], []), 
         "config_registered_state": MoPropertyMeta("config_registered_state", "configRegisteredState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "config_state": MoPropertyMeta("config_state", "configState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disabled", "enabled", "registered", "registerfailed", "registering"], []), 
-        "deregister": MoPropertyMeta("deregister", "deregister", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x2, None, None, None, ["false", "no", "true", "yes"], []), 
+        "cssm_url": MoPropertyMeta("cssm_url", "cssmUrl", "string", VersionMeta.Version211b, MoPropertyMeta.READ_WRITE, 0x2, 0, 510, None, [], []), 
+        "deregister": MoPropertyMeta("deregister", "deregister", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x4, None, None, None, ["false", "no", "true", "yes"], []), 
         "deregister_failed": MoPropertyMeta("deregister_failed", "deregisterFailed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["false", "no", "true", "yes"], []), 
         "deregister_failure_msg": MoPropertyMeta("deregister_failure_msg", "deregisterFailureMsg", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x4, 0, 256, None, [], []), 
+        "dn": MoPropertyMeta("dn", "dn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x8, 0, 256, None, [], []), 
         "enable_state": MoPropertyMeta("enable_state", "enableState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, None, ["disable", "enable", "false", "no", "true", "yes"], []), 
         "error_desc": MoPropertyMeta("error_desc", "errorDesc", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 510, None, [], []), 
-        "force_register": MoPropertyMeta("force_register", "forceRegister", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x8, None, None, None, ["false", "no", "true", "yes"], []), 
+        "force_register": MoPropertyMeta("force_register", "forceRegister", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x10, None, None, None, ["false", "no", "true", "yes"], []), 
         "fsm_descr": MoPropertyMeta("fsm_descr", "fsmDescr", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
         "fsm_flags": MoPropertyMeta("fsm_flags", "fsmFlags", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, None, [], ["0-4294967295"]), 
         "fsm_prev": MoPropertyMeta("fsm_prev", "fsmPrev", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ConfigureBegin", "ConfigureDisableSmartLicense", "ConfigureEnableSmartLicense", "ConfigureFail", "ConfigureRegisterDevice", "ConfigureRetryRegisterDevice", "ConfigureRetryUnregisterDevice", "ConfigureSuccess", "ConfigureUnregisterDevice", "UpdateStateBegin", "UpdateStateFail", "UpdateStateRefreshState", "UpdateStateSuccess", "nop"], []), 
@@ -201,20 +202,23 @@ class SmartlicenseHolder(ManagedObject):
         "fsm_stamp": MoPropertyMeta("fsm_stamp", "fsmStamp", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", ["never"], []), 
         "fsm_status": MoPropertyMeta("fsm_status", "fsmStatus", "string", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, None, ["ConfigureBegin", "ConfigureDisableSmartLicense", "ConfigureEnableSmartLicense", "ConfigureFail", "ConfigureRegisterDevice", "ConfigureRetryRegisterDevice", "ConfigureRetryUnregisterDevice", "ConfigureSuccess", "ConfigureUnregisterDevice", "UpdateStateBegin", "UpdateStateFail", "UpdateStateRefreshState", "UpdateStateSuccess", "nop"], []), 
         "fsm_try": MoPropertyMeta("fsm_try", "fsmTry", "byte", VersionMeta.Version141a, MoPropertyMeta.INTERNAL, None, None, None, None, [], []), 
-        "id_token": MoPropertyMeta("id_token", "idToken", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x10, 0, 1024, None, [], []), 
+        "id_token": MoPropertyMeta("id_token", "idToken", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x20, 0, 1024, None, [], []), 
         "last_entitlement_renewed": MoPropertyMeta("last_entitlement_renewed", "lastEntitlementRenewed", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, None, None, r"""([0-9]){4}-([0-9]){2}-([0-9]){2}T([0-9]){2}:([0-9]){2}:([0-9]){2}((\.([0-9]){3})){0,1}""", [], []), 
-        "refresh_state": MoPropertyMeta("refresh_state", "refreshState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x20, None, None, None, ["false", "no", "true", "yes"], []), 
-        "renew_entitlement": MoPropertyMeta("renew_entitlement", "renewEntitlement", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, ["false", "no", "true", "yes"], []), 
-        "renew_id_certificate": MoPropertyMeta("renew_id_certificate", "renewIdCertificate", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x80, None, None, None, ["false", "no", "true", "yes"], []), 
+        "proxy_port": MoPropertyMeta("proxy_port", "proxyPort", "uint", VersionMeta.Version211b, MoPropertyMeta.READ_WRITE, 0x40, None, None, None, [], ["1-65535"]), 
+        "proxy_url": MoPropertyMeta("proxy_url", "proxyUrl", "string", VersionMeta.Version211b, MoPropertyMeta.READ_WRITE, 0x80, 0, 510, None, [], []), 
+        "refresh_state": MoPropertyMeta("refresh_state", "refreshState", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x100, None, None, None, ["false", "no", "true", "yes"], []), 
+        "renew_entitlement": MoPropertyMeta("renew_entitlement", "renewEntitlement", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x200, None, None, None, ["false", "no", "true", "yes"], []), 
+        "renew_id_certificate": MoPropertyMeta("renew_id_certificate", "renewIdCertificate", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x400, None, None, None, ["false", "no", "true", "yes"], []), 
         "report_id_token": MoPropertyMeta("report_id_token", "reportIdToken", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, None, 0, 1024, None, [], []), 
-        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x100, 0, 256, None, [], []), 
-        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x200, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
+        "rn": MoPropertyMeta("rn", "rn", "string", VersionMeta.Version141a, MoPropertyMeta.READ_ONLY, 0x800, 0, 256, None, [], []), 
+        "status": MoPropertyMeta("status", "status", "string", VersionMeta.Version141a, MoPropertyMeta.READ_WRITE, 0x1000, None, None, r"""((removed|created|modified|deleted),){0,3}(removed|created|modified|deleted){0,1}""", [], []), 
     }
 
     prop_map = {
         "childAction": "child_action", 
         "configRegisteredState": "config_registered_state", 
         "configState": "config_state", 
+        "cssmUrl": "cssm_url", 
         "deregister": "deregister", 
         "deregisterFailed": "deregister_failed", 
         "deregisterFailureMsg": "deregister_failure_msg", 
@@ -235,6 +239,8 @@ class SmartlicenseHolder(ManagedObject):
         "fsmTry": "fsm_try", 
         "idToken": "id_token", 
         "lastEntitlementRenewed": "last_entitlement_renewed", 
+        "proxyPort": "proxy_port", 
+        "proxyUrl": "proxy_url", 
         "refreshState": "refresh_state", 
         "renewEntitlement": "renew_entitlement", 
         "renewIdCertificate": "renew_id_certificate", 
@@ -248,6 +254,7 @@ class SmartlicenseHolder(ManagedObject):
         self.child_action = None
         self.config_registered_state = None
         self.config_state = None
+        self.cssm_url = None
         self.deregister = None
         self.deregister_failed = None
         self.deregister_failure_msg = None
@@ -267,6 +274,8 @@ class SmartlicenseHolder(ManagedObject):
         self.fsm_try = None
         self.id_token = None
         self.last_entitlement_renewed = None
+        self.proxy_port = None
+        self.proxy_url = None
         self.refresh_state = None
         self.renew_entitlement = None
         self.renew_id_certificate = None
